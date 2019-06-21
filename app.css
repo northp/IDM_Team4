@@ -1,0 +1,22 @@
+
+#right, #left, #up, #down, #run {
+    max-width: 3%;
+    max-height: 3%;
+}
+
+.canvas {
+    display:inline;
+}
+
+.algorithm {
+    display: inline;
+    float: top;
+}
+
+#rocketman {
+    position: relative;
+    max-width: 2.5%;
+    max-height: 2.5%;
+    left: 200px;
+    bottom: 250px;
+}
