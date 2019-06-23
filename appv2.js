@@ -123,8 +123,6 @@ var movementObject = {
 };
 console.log("The current coordinates are: " + movementObject.x, movementObject.y);
 
-// append rocket here, based on above movement variables??
-//$("#rocket").append('<img src="rocket.png" width="50" height="50" left="150px" right="305px" />');
 
 
 //moving and running the rocket
@@ -139,6 +137,8 @@ function movementFunction() {
         var rightPush = "right" + something;
         algorithm.push(rightPush);
         removeMove(rightAlgorithm, rightPush);
+        
+        
     });
 
     left.click(function () {
@@ -167,7 +167,7 @@ function movementFunction() {
         algorithm.push(downPush);
         removeMove(downAlgorithm, downPush);
     });
-
+console.log("The current coordinates are: " + movementObject.x, movementObject.y);
     runButton();
 }
 
@@ -204,20 +204,17 @@ function runButton() {
                 
                 if(rocketPosition[1] < mapWidth - 1){
                     if((map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
-                        console.log("you flew into a planet baby");
-                        
-                        // Tomorow:
-                        // If this is the case, temp needs to be set as below
-                        // else
-                        // temp needs to be set to zero
-                        // needs some thought
-                        
-                        
+                        alert("you flew into a planet!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else if(map[rocketPosition[0]][rocketPosition[1] + 1] == 1){
+                        alert("you win!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else{
+                        var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
+                        map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
+                        map[rocketPosition[0]][rocketPosition[1]] = temp;
+                        rocketPosition = findRocketPosition();
                     }
-                    var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
-                    map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
-                    map[rocketPosition[0]][rocketPosition[1]] = temp;
-                    rocketPosition = findRocketPosition();
                 }
                 
             }
@@ -238,12 +235,17 @@ function runButton() {
                 
                 if(rocketPosition[0] < mapHeight - 1){
                     if((map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3)) {
-                        console.log("you flew into a planet baby");
+                        alert("you flew into a planet!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else if(map[rocketPosition[0] + 1][rocketPosition[1]] == 1){
+                        alert("you win!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else{
+                        var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
+                        map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
+                        map[rocketPosition[0]][rocketPosition[1]] = temp;
+                        rocketPosition = findRocketPosition();
                     }
-                    var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
-                    map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
-                    map[rocketPosition[0]][rocketPosition[1]] = temp;
-                    rocketPosition = findRocketPosition();
                 }
                 
                 
@@ -263,12 +265,17 @@ function runButton() {
 
                 if(rocketPosition[1] > 0){
                     if((map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3)) {
-                        console.log("you flew into a planet baby");
+                        alert("you flew into a planet baby");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else if(map[rocketPosition[0]][rocketPosition[1] - 1] == 1){
+                        alert("you win!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else{
+                        var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
+                        map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
+                        map[rocketPosition[0]][rocketPosition[1]] = temp;
+                        rocketPosition = findRocketPosition();
                     }
-                    var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
-                    map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
-                    map[rocketPosition[0]][rocketPosition[1]] = temp;
-                    rocketPosition = findRocketPosition();
                 }
                 
                 
@@ -289,12 +296,17 @@ function runButton() {
 
                 if(rocketPosition[0] > 0){
                     if((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3)) {
-                        console.log("you flew into a planet baby");
+                        alert("you flew into a planet baby");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else if(map[rocketPosition[0] - 1][rocketPosition[1]] == 1){
+                        alert("you win!");
+                        setTimeout(location.reload.bind(location), 5000); // Temporary: reload page if player flies into a planet
+                    }else{
+                        var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
+                        map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
+                        map[rocketPosition[0]][rocketPosition[1]] = temp;
+                        rocketPosition = findRocketPosition();
                     }
-                    var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
-                    map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
-                    map[rocketPosition[0]][rocketPosition[1]] = temp;
-                    rocketPosition = findRocketPosition();
                 }
                 
                 
@@ -305,5 +317,19 @@ function runButton() {
         }
     });
 }
+
+// a funtion to save the entered algorithm
+
+var save = $("#save");
+var savedAlgorithmTemp = [];
+var savedAlgorithm = [];
+var counter = 0;
+save.click(function () {
+    savedAlgorithmTemp = savedAlgorithmTemp.concat(algorithm);
+    savedAlgorithm[counter] = savedAlgorithmTemp;
+    savedAlgorithmTemp = [];
+    counter++;
+});
+
 
 movementFunction();

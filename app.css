@@ -1,5 +1,5 @@
 
-#right, #left, #up, #down, #run {
+#right, #left, #up, #down, #run, #save {
     max-width: 3%;
     max-height: 3%;
 }
@@ -15,8 +15,8 @@
 
 #rocketman {
     position: relative;
-    max-width: 2.5%;
-    max-height: 2.5%;
-    left: 200px;
+    /* max-width: 2.5%; */
+    /* max-height: 2.5%; */
+    left: 205px;
     bottom: 250px;
 }
