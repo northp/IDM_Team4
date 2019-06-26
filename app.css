@@ -1,17 +1,17 @@
-
+ body {
+     margin: auto;
+ }
 #right, #left, #up, #down, #run, #save {
-    max-width: 3%;
-    max-height: 3%;
+    /* max-width: 3%; */
+    /* max-height: 3%; */
+    height: 50px;
+    width: 50px;
 }
 
 .canvas {
     display:inline;
 }
 
-.algorithm {
-    display: inline;
-
-}
 
 #rocketman {
     position: relative;
@@ -19,4 +19,33 @@
     /* max-height: 2.5%; */
     left: 205px;
     bottom: 250px;
+    
 }
+
+.arrows {
+    display: flex;
+}
+
+.arrows > #commands {
+    margin-left: 55px;
+    width: 105px;
+    height: 155px;
+}
+
+.arrows > .algorithm  {
+    width: 215px;
+    height: 155px;
+}
+
+.arrows > #functions {
+    width: 105px;
+    height: 155px;
+}
+
+#commands, .algorithm, #functions {
+    background-color: #f1f1f1;
+    border-style: inset;
+}
+
+
+
