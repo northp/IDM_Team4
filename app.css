@@ -1,7 +1,7 @@
  body {
      margin: auto;
  }
-#right, #left, #up, #down, #run, #save {
+#right, #left, #up, #down, #run, #save, #functiontwoselect, #mainfunction, #functiontwo {
     /* max-width: 3%; */
     /* max-height: 3%; */
     height: 50px;
@@ -17,6 +17,8 @@
     position: relative;
     /* max-width: 2.5%; */
     /* max-height: 2.5%; */
+    height: 50px;
+    width: 50px;
     left: 205px;
     bottom: 250px;
     
@@ -29,20 +31,20 @@
 .arrows > #commands {
     margin-left: 55px;
     width: 105px;
-    height: 155px;
+    height: 200px;
 }
 
 .arrows > .algorithm  {
     width: 215px;
-    height: 155px;
+    height: 200px;
 }
 
-.arrows > #functions {
+.arrows > .functions {
     width: 105px;
-    height: 155px;
+    height: 200px;
 }
 
-#commands, .algorithm, #functions {
+#commands, .algorithm, .functions {
     background-color: #f1f1f1;
     border-style: inset;
 }

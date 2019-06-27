@@ -47,7 +47,16 @@ var mapWidth = map[0].length;
 
 //array for storing movement of rocket
 var movement = [];
+
+//the main array/algorithm the user creates
 var algorithm = [];
+
+//the secondary array that the user creates which they can use inside the main one
+var functionTwo = [];
+
+//variables that store the array - will be changed depending on what function is clicked by the user
+var arraySelect; //array
+var classSelect; //array images
 
 //canvas attributes
 var tileWidth = 50;
@@ -55,12 +64,17 @@ var tileHeight = 50;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+//for resetting position of rocket - value will change depending on level
+var styleLeft = "205px";
+var styleBottom = "250px";
+
 //jQuery accessing arrows
 var right = $("#right");
 var left = $("#left");
 var up = $("#up");
 var down = $("#down");
 var run = $("#run");
+var functTwoSelect = $("#functiontwoselect");
 
 //each level should have a maximum number of moves you can make to emphasise efficiency
 var levelMoves = 10;
@@ -135,67 +149,113 @@ var movementObject = {
 };
 console.log("The current coordinates are: " + movementObject.x, movementObject.y);
 
+//begin game with the main function already being clicked
+function startState() {
+    arraySelect = algorithm; //directions selected will be put into this array
+    classSelect = $(".algorithm"); //images put into this class
+    levelMoves = 10; //can only enter 10 moves
+    $("#mainfunction").css("border", "3px solid black "); //highlight
+    $("#functiontwo").css("border", "none"); //reset
+}
 
-//moving and running the rocket
+//checking which function the user has clicked on to enter the algorithm (either the main function array or the secondary array)
+$("#mainfunction").click(startState);
+
+$("#functiontwo").click(function () {
+
+    //update variable values that will be used in movementFunction()
+    arraySelect = functionTwo; //directions selected will be put into this array
+    classSelect = $(".functions"); //images put into this class
+    levelMoves = 4; //can only enter 4 moves
+    $("#functiontwo").css("border", "3px solid black"); //highlight
+    $("#mainfunction").css("border", "none"); //reset
+
+});
+
+
+//moving the rocket
+
 function movementFunction() {
     var something = -1; //using this variable to increment so that each image will have an individual id name
     //also used it to give each value in the array an individual name
 
     right.click(function () {
         //if statement so that users can only add certain number of moves in the algorithm
-        if (algorithm.length <= levelMoves) {
+        if (arraySelect.length < levelMoves) {
             something++;
-            $(".algorithm").append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="50" height="50" />'); //drawing image
+            $(classSelect).append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="50" height="50" />'); //drawing image
             var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something); //unique id name for each image
             var rightPush = "right" + something;
-            algorithm.push(rightPush);
-            removeMove(rightAlgorithm, rightPush);
+            arraySelect.push(rightPush);
+            removeMove(rightAlgorithm, rightPush, arraySelect);
         }
 
 
     });
 
     left.click(function () {
-        if (algorithm.length <= levelMoves) {
+        if (arraySelect.length < levelMoves) {
             something++;
-            $(".algorithm").append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="50" height="50" />');
             var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something);
             var leftPush = "left" + something;
-            algorithm.push(leftPush);
-            removeMove(leftAlgorithm, leftPush);
+            arraySelect.push(leftPush);
+            removeMove(leftAlgorithm, leftPush, arraySelect);
         }
     });
 
     up.click(function () {
-        if (algorithm.length <= levelMoves) {
+        if (arraySelect.length < levelMoves) {
             something++;
-            $(".algorithm").append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="50" height="50" />');
             var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something);
             var upPush = "up" + something;
-            algorithm.push(upPush);
-            removeMove(upAlgorithm, upPush);
+            arraySelect.push(upPush);
+            removeMove(upAlgorithm, upPush, arraySelect);
         }
     });
 
     down.click(function () {
-        if (algorithm.length <= levelMoves) {
+        if (arraySelect.length < levelMoves) {
             something++;
-            $(".algorithm").append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="50" height="50" />');
             var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something);
             var downPush = "down" + something;
-            algorithm.push(downPush);
-            removeMove(downAlgorithm, downPush);
+            arraySelect.push(downPush);
+            removeMove(downAlgorithm, downPush, arraySelect);
         }
+    });
+
+    //debug :
+    // doesn't update in F1 if you've changed F2 after adding F2 to F1
+
+    functTwoSelect.click(function () {
+        if (arraySelect.length < levelMoves) {
+
+            something++;
+            $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
+            var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+
+            for (var index in functionTwo) {
+                var twoPush = functionTwo[index];
+                arraySelect.push(functionTwo[index]);
+                removeMove(functionTwoAlgorithm, twoPush, arraySelect);
+
+            }
+
+
+        }
+
     });
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
     runButton();
 }
 
 //function for removing parts of algorithm
-function removeMove(image, direction) {
+function removeMove(image, direction, thisArray) {
     image.click(function () {
             image.remove(); //removes the image clicked
-            algorithm.splice(algorithm.indexOf(direction), 1); //removes desired part of algorithm
+            thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
         }
     );
 }
@@ -206,8 +266,8 @@ function originalPos() {
     //reset animation
     //resetting the rocket to its default position
     rocketAnimate.css({
-        "left": "",
-        "bottom": ""
+        "left": styleLeft,
+        "bottom": styleBottom
     });
 
     //reset coordinates
@@ -372,5 +432,5 @@ save.click(function () {
     counter++;
 });
 
-
+startState();
 movementFunction();
