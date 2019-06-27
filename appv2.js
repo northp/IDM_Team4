@@ -320,11 +320,21 @@ function runButton() {
                                 counter++;
                                 if(counter == algorithm.length){
                                     if(loss==1){
-                                        alert("LOSS");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'error',
+                                            title: 'You Lose!',
+                                            text: 'Your rocket has collided with a planet!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }else if(victory == 1){
-                                        alert("VICTORY");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'success',
+                                            title: 'You Win!',
+                                            text: 'Your rocket has escaped this sector!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }
                                 }
                             });
@@ -357,11 +367,21 @@ function runButton() {
                                 counter++;
                                 if(counter == algorithm.length){
                                     if(loss==1){
-                                        alert("LOSS");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'error',
+                                            title: 'You Lose!',
+                                            text: 'Your rocket has collided with a planet!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }else if(victory == 1){
-                                        alert("VICTORY");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'success',
+                                            title: 'You Win!',
+                                            text: 'Your rocket has escaped this sector!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }
                                 }
                             });
@@ -392,11 +412,21 @@ function runButton() {
                                 counter++;
                                 if(counter == algorithm.length){
                                     if(loss==1){
-                                        alert("LOSS");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'error',
+                                            title: 'You Lose!',
+                                            text: 'Your rocket has collided with a planet!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }else if(victory == 1){
-                                        alert("VICTORY");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'success',
+                                            title: 'You Win!',
+                                            text: 'Your rocket has escaped this sector!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }
                                 }
                             });
@@ -428,11 +458,21 @@ function runButton() {
                                 counter++;
                                 if(counter == algorithm.length){
                                     if(loss==1){
-                                        alert("LOSS");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'error',
+                                            title: 'You Lose!',
+                                            text: 'Your rocket has collided with a planet!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }else if(victory == 1){
-                                        alert("VICTORY");
-                                        setTimeout(location.reload.bind(location), 1000);
+                                        Swal.fire({
+                                            position: 'center-start',
+                                            type: 'success',
+                                            title: 'You Win!',
+                                            text: 'Your rocket has escaped this sector!'
+                                        });
+                                        setTimeout(location.reload.bind(location), 3000);
                                     }
                                 }
                             });
