@@ -22,7 +22,6 @@ var map = [
 ];
 
 // function to find rocket index (value 4 in the array).
-
 function findRocketPosition() {
     var posArray = [];
     for (var i in map) {
@@ -175,7 +174,6 @@ $("#functiontwo").click(function () {
 
 
 //moving the rocket
-
 function movementFunction() {
     var something = -1; //using this variable to increment so that each image will have an individual id name
     //also used it to give each value in the array an individual name
@@ -238,7 +236,6 @@ function movementFunction() {
             $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
             var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
 
-
             //doesn't update - debug
             //if arrows go into function two, update function 1
             for (var index in functionTwo) {
@@ -246,11 +243,10 @@ function movementFunction() {
                 //ignores extra F2 indices if F2 is already called in F1
                 var twoPush = functionTwo[index];
                 arraySelect.push(twoPush);
-
-                //need to call function for if you try to delete the F2 image
-                removeMove(functionTwoAlgorithm, twoPush, arraySelect);
-
             }
+
+            //need to call function for if you try to delete the F2 image
+            removeMove(functionTwoAlgorithm, twoPush, arraySelect);
         }
 
     });
@@ -305,12 +301,21 @@ function originalPos() {
 
 var loss, victory = 0;
 
-
 function runButton() {
 
     var moveCounter = 0;
 
+
     run.click(function () {
+
+        console.log(functionTwo, algorithm);
+
+
+        for (var i in functionTwo) {
+            algorithm.push(functionTwo[i]);
+        }
+
+        //check F2
 
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
@@ -532,3 +537,9 @@ save.click(function () {
 
 startState();
 movementFunction();
+
+//10 down 11 across for the grid - peter to work on that and the console design
+//fix bugs
+//click on planet and have an alert - customise it
+//cordova
+//monday at 10
