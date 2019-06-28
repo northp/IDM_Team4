@@ -311,11 +311,11 @@ function runButton() {
         console.log(functionTwo, algorithm);
 
 
+        /*
         for (var i in functionTwo) {
             algorithm.push(functionTwo[i]);
-        }
-
-        //check F2
+        }*/
+        
 
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
