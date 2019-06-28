@@ -1,8 +1,6 @@
 "use strict";
 
 
-
-
 //level 1 map
 var map = [
     [0, 0, 0, 1, 1, 1, 0, 0, 0],
@@ -232,6 +230,7 @@ function movementFunction() {
     //debug :
     // doesn't update in F1 if you've changed F2 after adding F2 to F1
 
+
     functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
 
@@ -239,14 +238,19 @@ function movementFunction() {
             $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
             var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
 
+
+            //doesn't update - debug
+            //if arrows go into function two, update function 1
             for (var index in functionTwo) {
+                //this only gets called if function 2 has indices and function 2 is put in function 1
+                //ignores extra F2 indices if F2 is already called in F1
                 var twoPush = functionTwo[index];
-                arraySelect.push(functionTwo[index]);
+                arraySelect.push(twoPush);
+
+                //need to call function for if you try to delete the F2 image
                 removeMove(functionTwoAlgorithm, twoPush, arraySelect);
 
             }
-
-
         }
 
     });
@@ -254,11 +258,18 @@ function movementFunction() {
     runButton();
 }
 
+
 //function for removing parts of algorithm
 function removeMove(image, direction, thisArray) {
     image.click(function () {
             image.remove(); //removes the image clicked
             thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
+
+            //if index is removed from secondary function, also remove it from main function
+            if (thisArray === functionTwo) {
+                algorithm.splice(algorithm.indexOf(direction), 1);
+
+            }
         }
     );
 }
@@ -296,10 +307,11 @@ var loss, victory = 0;
 
 
 function runButton() {
-    
+
     var moveCounter = 0;
-    
+
     run.click(function () {
+
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
             //the rocket can go off canvas
@@ -316,10 +328,10 @@ function runButton() {
                         if (rocketX >= canvas.width - tileWidth) {
                             //edge of canvas - do nothing
                         } else {
-                            rocketAnimate.animate({left: "+=50px"}, "fast", function() {
+                            rocketAnimate.animate({left: "+=50px"}, "fast", function () {
                                 counter++;
-                                if(counter == algorithm.length){
-                                    if(loss==1){
+                                if (counter == algorithm.length) {
+                                    if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'error',
@@ -327,7 +339,7 @@ function runButton() {
                                             text: 'Your rocket has collided with a planet!'
                                         });
                                         setTimeout(location.reload.bind(location), 3000);
-                                    }else if(victory == 1){
+                                    } else if (victory == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'success',
@@ -363,10 +375,10 @@ function runButton() {
                         if (rocketY >= canvas.height - tileHeight) {
                             //edge of canvas - do nothing
                         } else {
-                            rocketAnimate.animate({bottom: "-=50px"}, "fast", function() {
+                            rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
                                 counter++;
-                                if(counter == algorithm.length){
-                                    if(loss==1){
+                                if (counter == algorithm.length) {
+                                    if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'error',
@@ -374,7 +386,7 @@ function runButton() {
                                             text: 'Your rocket has collided with a planet!'
                                         });
                                         setTimeout(location.reload.bind(location), 3000);
-                                    }else if(victory == 1){
+                                    } else if (victory == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'success',
@@ -408,10 +420,10 @@ function runButton() {
                         if (rocketX <= 0) {
                             //edge of canvas - do nothing
                         } else {
-                            rocketAnimate.animate({left: "-=50px"}, "fast", function() {
+                            rocketAnimate.animate({left: "-=50px"}, "fast", function () {
                                 counter++;
-                                if(counter == algorithm.length){
-                                    if(loss==1){
+                                if (counter == algorithm.length) {
+                                    if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'error',
@@ -419,7 +431,7 @@ function runButton() {
                                             text: 'Your rocket has collided with a planet!'
                                         });
                                         setTimeout(location.reload.bind(location), 3000);
-                                    }else if(victory == 1){
+                                    } else if (victory == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'success',
@@ -454,10 +466,10 @@ function runButton() {
                         if (rocketY <= 0) {
                             //edge of canvas - do nothing
                         } else {
-                            rocketAnimate.animate({bottom: "+=50px"}, "fast", function() {
+                            rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
                                 counter++;
-                                if(counter == algorithm.length){
-                                    if(loss==1){
+                                if (counter == algorithm.length) {
+                                    if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'error',
@@ -465,7 +477,7 @@ function runButton() {
                                             text: 'Your rocket has collided with a planet!'
                                         });
                                         setTimeout(location.reload.bind(location), 3000);
-                                    }else if(victory == 1){
+                                    } else if (victory == 1) {
                                         Swal.fire({
                                             position: 'center-start',
                                             type: 'success',
@@ -495,6 +507,8 @@ function runButton() {
                         }
 
                     }
+
+
                     console.log(algorithm);
                 }
             }
@@ -513,6 +527,7 @@ save.click(function () {
     savedAlgorithm[counter] = savedAlgorithmTemp;
     savedAlgorithmTemp = [];
     counter++;
+    console.log(savedAlgorithmTemp, savedAlgorithm, algorithm)
 });
 
 startState();
