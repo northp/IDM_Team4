@@ -113,10 +113,10 @@ var blue = new Image;
 blue.src = "blue.png";
 
 var red = new Image;
-red.src = "red.png";
+red.src = "planet_fire.png";
 
 var yellow = new Image;
-yellow.src = "yellow.png";
+yellow.src = "planet_metal.png";
 
 
 var xPosition, yPosition = 0;
@@ -146,13 +146,14 @@ function makeGame() {
     }
     yPosition = 0;
 }
-
-initialise();
+$(document).ready(function () {
+    initialise();
+});
 
 function initialise() {
     $(document).ready(function () {
-        setTimeout(makeGame); // weird bug, 1 setTimeout doesnt work, need two? No idea why.
-        setTimeout(makeGame, 10);
+        setTimeout(makeGame,10); // weird bug, 1 setTimeout doesnt work, need two? No idea why.
+        setTimeout(makeGame, 100);
     });
 }
 
