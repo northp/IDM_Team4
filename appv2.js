@@ -300,10 +300,9 @@ function originalPos() {
 
 
 var loss, victory = 0;
+var moveCounter = 0;
 
 function runButton() {
-
-    var moveCounter = 0;
 
 
     run.click(function () {
@@ -334,8 +333,8 @@ function runButton() {
                             //edge of canvas - do nothing
                         } else {
                             rocketAnimate.animate({left: "+=50px"}, "fast", function () {
-                                counter++;
-                                if (counter == algorithm.length) {
+                                moveCounter++;
+                                if (moveCounter == algorithm.length) {
                                     if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
@@ -381,8 +380,8 @@ function runButton() {
                             //edge of canvas - do nothing
                         } else {
                             rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
-                                counter++;
-                                if (counter == algorithm.length) {
+                                moveCounter++;
+                                if (moveCounter == algorithm.length) {
                                     if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
@@ -426,8 +425,8 @@ function runButton() {
                             //edge of canvas - do nothing
                         } else {
                             rocketAnimate.animate({left: "-=50px"}, "fast", function () {
-                                counter++;
-                                if (counter == algorithm.length) {
+                                moveCounter++;
+                                if (moveCounter == algorithm.length) {
                                     if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
@@ -472,8 +471,8 @@ function runButton() {
                             //edge of canvas - do nothing
                         } else {
                             rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
-                                counter++;
-                                if (counter == algorithm.length) {
+                                moveCounter++;
+                                if (moveCounter == algorithm.length) {
                                     if (loss == 1) {
                                         Swal.fire({
                                             position: 'center-start',
@@ -517,7 +516,9 @@ function runButton() {
                     console.log(algorithm);
                 }
             }
+            moveCounter = 0;
         }
+        
     );
 }
 
