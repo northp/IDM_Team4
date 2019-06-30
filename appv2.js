@@ -3,22 +3,22 @@
 
 // //level 1 map
 // var map = [
-    // [0, 0, 0, 1, 1, 1, 0, 0, 0],
-    // [0, 0, 0, 0, 1, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 2, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 3, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 4, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    // [0, 0, 0, 0, 0, 0, 0, 0, 0]
+// [0, 0, 0, 1, 1, 1, 0, 0, 0],
+// [0, 0, 0, 0, 1, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 2, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 3, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 4, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0],
+// [0, 0, 0, 0, 0, 0, 0, 0, 0]
 // ];
 
 //level 1 map
@@ -51,9 +51,8 @@ function findRocketPosition() {
 
 var rocketPosition = findRocketPosition();
 
-//storing original index position array in constant array
+//storing original index position array in const array
 const originalRocketIndex = rocketPosition;
-//Object.freeze(originalRocketIndex);
 
 // get height and width of the map
 var mapHeight = map.length;
@@ -146,13 +145,14 @@ function makeGame() {
     }
     yPosition = 0;
 }
+
 $(document).ready(function () {
     initialise();
 });
 
 function initialise() {
     $(document).ready(function () {
-        setTimeout(makeGame,10); // weird bug, 1 setTimeout doesnt work, need two? No idea why.
+        setTimeout(makeGame, 10); // weird bug, 1 setTimeout doesnt work, need two? No idea why.
         setTimeout(makeGame, 100);
     });
 }
@@ -241,31 +241,17 @@ function movementFunction() {
         }
     });
 
-    //debug :
-    // doesn't update in F1 if you've changed F2 after adding F2 to F1
-
-
     functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
-
             something++;
             $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
             var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+            arraySelect.push(functionTwo);
+            removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
 
-            //doesn't update - debug
-            //if arrows go into function two, update function 1
-            for (var index in functionTwo) {
-                //this only gets called if function 2 has indices and function 2 is put in function 1
-                //ignores extra F2 indices if F2 is already called in F1
-                var twoPush = functionTwo[index];
-                arraySelect.push(twoPush);
-            }
-
-            //need to call function for if you try to delete the F2 image
-            removeMove(functionTwoAlgorithm, twoPush, arraySelect);
         }
-
     });
+
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
     runButton();
 }
@@ -276,12 +262,6 @@ function removeMove(image, direction, thisArray) {
     image.click(function () {
             image.remove(); //removes the image clicked
             thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
-
-            //if index is removed from secondary function, also remove it from main function
-            if (thisArray === functionTwo) {
-                algorithm.splice(algorithm.indexOf(direction), 1);
-
-            }
         }
     );
 }
@@ -319,19 +299,7 @@ var loss, victory = 0;
 var moveCounter = 0;
 
 function runButton() {
-
-
     run.click(function () {
-
-        console.log(functionTwo, algorithm);
-
-
-        /*
-        for (var i in functionTwo) {
-            algorithm.push(functionTwo[i]);
-        }*/
-        
-
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
             //the rocket can go off canvas
@@ -343,199 +311,240 @@ function runButton() {
 
                 for (var x in algorithm) {
 
-                    //right
-                    if (algorithm[x].charAt(0) === "r") {
-                        if (rocketX >= canvas.width - tileWidth) {
-                            //edge of canvas - do nothing
-                        } else {
-                            rocketAnimate.animate({left: "+=50px"}, "fast", function () {
-                                moveCounter++;
-                                if (moveCounter == algorithm.length) {
-                                    if (loss == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'error',
-                                            title: 'You Lose!',
-                                            text: 'Your rocket has collided with a planet!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    } else if (victory == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'success',
-                                            title: 'You Win!',
-                                            text: 'Your rocket has escaped this sector!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    }
-                                }
-                            });
-                            rocketX += 50;
-                            movement.push({rocketX, rocketY});
-                        }
+                    //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
+                    if (typeof algorithm[x] === "object") {
 
-                        if (rocketPosition[1] < mapWidth - 1) {
-                            if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
-                                loss = 1;
-                            } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
-                                victory = 1;
-                            } else {
-                                var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
-                                map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
-                                map[rocketPosition[0]][rocketPosition[1]] = temp;
-                                rocketPosition = findRocketPosition();
+                        for (var i in algorithm[x]) {
+
+                            //right
+                            if (algorithm[x][i].charAt(0) === "r") {
+                                moveRight();
+                            }
+
+                            //left
+                            if (algorithm[x][i].charAt(0) === "l") {
+                                moveLeft();
+                            }
+
+                            //up
+                            if (algorithm[x][i].charAt(0) === "u") {
+                                moveUp();
+                            }
+
+                            //down
+                            if (algorithm[x][i].charAt(0) === "d") {
+                                moveDown();
                             }
                         }
-
                     }
 
+                    //animating main algorithm, tracking loss and victory, updating rocket index
+                    //right
+                    else if (algorithm[x].charAt(0) === "r") {
+                        moveRight();
+                    }
 
                     //down
-                    if (algorithm[x].charAt(0) === "d") {
-                        if (rocketY >= canvas.height - tileHeight) {
-                            //edge of canvas - do nothing
-                        } else {
-                            rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
-                                moveCounter++;
-                                if (moveCounter == algorithm.length) {
-                                    if (loss == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'error',
-                                            title: 'You Lose!',
-                                            text: 'Your rocket has collided with a planet!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    } else if (victory == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'success',
-                                            title: 'You Win!',
-                                            text: 'Your rocket has escaped this sector!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    }
-                                }
-                            });
-                            rocketY += 50;
-                            movement.push({rocketX, rocketY});
-                        }
-
-                        if (rocketPosition[0] < mapHeight - 1) {
-                            if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3)) {
-                                loss = 1;
-                            } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
-                                victory = 1;
-                            } else {
-                                var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
-                                map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
-                                map[rocketPosition[0]][rocketPosition[1]] = temp;
-                                rocketPosition = findRocketPosition();
-                            }
-                        }
-
+                    else if (algorithm[x].charAt(0) === "d") {
+                        moveDown();
                     }
+
                     //left
-                    if (algorithm[x].charAt(0) === "l") {
-                        if (rocketX <= 0) {
-                            //edge of canvas - do nothing
-                        } else {
-                            rocketAnimate.animate({left: "-=50px"}, "fast", function () {
-                                moveCounter++;
-                                if (moveCounter == algorithm.length) {
-                                    if (loss == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'error',
-                                            title: 'You Lose!',
-                                            text: 'Your rocket has collided with a planet!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    } else if (victory == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'success',
-                                            title: 'You Win!',
-                                            text: 'Your rocket has escaped this sector!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    }
-                                }
-                            });
-                            rocketX -= 50;
-                            movement.push({rocketX, rocketY});
-                        }
-
-
-                        if (rocketPosition[1] > 0) {
-                            if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3)) {
-                                loss = 1;
-                            } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
-                                victory = 1;
-                            } else {
-                                var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
-                                map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
-                                map[rocketPosition[0]][rocketPosition[1]] = temp;
-                                rocketPosition = findRocketPosition();
-                            }
-                        }
-
+                    else if (algorithm[x].charAt(0) === "l") {
+                        moveLeft();
                     }
                     //up
-                    if (algorithm[x].charAt(0) === "u") {
-                        if (rocketY <= 0) {
-                            //edge of canvas - do nothing
-                        } else {
-                            rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
-                                moveCounter++;
-                                if (moveCounter == algorithm.length) {
-                                    if (loss == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'error',
-                                            title: 'You Lose!',
-                                            text: 'Your rocket has collided with a planet!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    } else if (victory == 1) {
-                                        Swal.fire({
-                                            position: 'center-start',
-                                            type: 'success',
-                                            title: 'You Win!',
-                                            text: 'Your rocket has escaped this sector!'
-                                        });
-                                        setTimeout(location.reload.bind(location), 3000);
-                                    }
-                                }
-                            });
-                            rocketY -= 50;
-                            movement.push({rocketX, rocketY});
-                        }
-
-
-                        if (rocketPosition[0] > 0) {
-                            if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3)) {
-                                loss = 1;
-                            } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
-                                victory = 1;
-                            } else {
-                                var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
-                                map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
-                                map[rocketPosition[0]][rocketPosition[1]] = temp;
-                                rocketPosition = findRocketPosition();
-                            }
-                        }
-
+                    else if (algorithm[x].charAt(0) === "u") {
+                        moveUp();
                     }
-
 
                     console.log(algorithm);
                 }
             }
             moveCounter = 0;
         }
-        
     );
+}
+
+
+function moveRight() {
+    if (rocketX >= canvas.width - tileWidth) {
+        //edge of canvas - do nothing
+    } else {
+        rocketAnimate.animate({left: "+=50px"}, "fast", function () {
+            moveCounter++;
+            if (moveCounter == algorithm.length) {
+                if (loss == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'error',
+                        title: 'You Lose!',
+                        text: 'Your rocket has collided with a planet!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                } else if (victory == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'success',
+                        title: 'You Win!',
+                        text: 'Your rocket has escaped this sector!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                }
+            }
+        });
+        rocketX += 50;
+        movement.push({rocketX, rocketY});
+    }
+
+    if (rocketPosition[1] < mapWidth - 1) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
+            loss = 1;
+        } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
+            victory = 1;
+        } else {
+            var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
+            map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
+            map[rocketPosition[0]][rocketPosition[1]] = temp;
+            rocketPosition = findRocketPosition();
+        }
+    }
+}
+
+function moveDown() {
+    if (rocketY >= canvas.height - tileHeight) {
+        //edge of canvas - do nothing
+    } else {
+        rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
+            moveCounter++;
+            if (moveCounter == algorithm.length) {
+                if (loss == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'error',
+                        title: 'You Lose!',
+                        text: 'Your rocket has collided with a planet!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                } else if (victory == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'success',
+                        title: 'You Win!',
+                        text: 'Your rocket has escaped this sector!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                }
+            }
+        });
+        rocketY += 50;
+        movement.push({rocketX, rocketY});
+    }
+
+    if (rocketPosition[0] < mapHeight - 1) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3)) {
+            loss = 1;
+        } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
+            victory = 1;
+        } else {
+            var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
+            map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
+            map[rocketPosition[0]][rocketPosition[1]] = temp;
+            rocketPosition = findRocketPosition();
+        }
+    }
+
+}
+
+function moveLeft() {
+    if (rocketX <= 0) {
+        //edge of canvas - do nothing
+    } else {
+        rocketAnimate.animate({left: "-=50px"}, "fast", function () {
+            moveCounter++;
+            if (moveCounter == algorithm.length) {
+                if (loss == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'error',
+                        title: 'You Lose!',
+                        text: 'Your rocket has collided with a planet!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                } else if (victory == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'success',
+                        title: 'You Win!',
+                        text: 'Your rocket has escaped this sector!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                }
+            }
+        });
+        rocketX -= 50;
+        movement.push({rocketX, rocketY});
+    }
+
+
+    if (rocketPosition[1] > 0) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3)) {
+            loss = 1;
+        } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
+            victory = 1;
+        } else {
+            var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
+            map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
+            map[rocketPosition[0]][rocketPosition[1]] = temp;
+            rocketPosition = findRocketPosition();
+        }
+    }
+}
+
+function moveUp() {
+    if (rocketY <= 0) {
+        //edge of canvas - do nothing
+    } else {
+        rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
+            moveCounter++;
+            if (moveCounter == algorithm.length) {
+                if (loss == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'error',
+                        title: 'You Lose!',
+                        text: 'Your rocket has collided with a planet!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                } else if (victory == 1) {
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'success',
+                        title: 'You Win!',
+                        text: 'Your rocket has escaped this sector!'
+                    });
+                    setTimeout(location.reload.bind(location), 3000);
+                }
+            }
+        });
+        rocketY -= 50;
+        movement.push({rocketX, rocketY});
+    }
+
+
+    if (rocketPosition[0] > 0) {
+        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3)) {
+            loss = 1;
+        } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
+            victory = 1;
+        } else {
+            var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
+            map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
+            map[rocketPosition[0]][rocketPosition[1]] = temp;
+            rocketPosition = findRocketPosition();
+        }
+    }
+
 }
 
 // a function to save the entered algorithm
@@ -554,9 +563,3 @@ save.click(function () {
 
 startState();
 movementFunction();
-
-//10 down 11 across for the grid - peter to work on that and the console design
-//fix bugs
-//click on planet and have an alert - customise it
-//cordova
-//monday at 10
