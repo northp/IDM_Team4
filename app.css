@@ -15,29 +15,36 @@ body {
 }
 
 #rocketman {
-    position: absolute;
-    /* max-width: 2.5%; */
-    /* max-height: 2.5%; */
-    height: 50px;
-    width: 50px;
-    left: 150px;
-    bottom: 50px;
+    
+    /* #rocketman elements are now defined with jQuery. */
+    
+    /* position: absolute; */
+    /* height: 50px; */
+    /* width: 50px; */
+    /* left: 150px; */
+    /* bottom: 53px; */
 }
 
 #planetFire {
-    position: absolute;
-    left: 150px;
-    bottom: 253px;
-    height: 50px;
-    width: 50px;
+    
+    /* #planetFire elements are now defined with jQuery. */
+    
+    /* position: absolute; */
+    /* left: 150px; */
+    /* bottom: 253px; */
+    /* height: 50px; */
+    /* width: 50px; */
 }
 
 #planetMetal {
-    position: absolute;
-    height: 50px;
-    width: 50px;
-    left: 300px;
-    bottom: 53px;
+    
+    /* #planetMetal elements are now defined with jQuery. */
+    
+    /* position: absolute; */
+    /* height: 50px; */
+    /* width: 50px; */
+    /* left: 300px; */
+    /* bottom: 53px; */
 }
 
 .arrows {
@@ -105,3 +112,8 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+
+
+
+
+

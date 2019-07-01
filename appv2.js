@@ -35,6 +35,44 @@ var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
+
+
+
+
+function insertDOMandCSS() {
+    // a function to load DOM and CSS elements based on map.
+    // If map 1, load DOM and CSS as below.
+    // Later we need to change these hard values to variables which will change depending on which map is loaded.
+    // for example, var planetFireBottom could be created and assigned a string value '253px' for one map at the asterix below, but this value would change for another map
+    $('#planetFire').attr('src', 'planet_fire.png');
+    $('#planetFire').css({
+        'position': 'absolute',
+        'left': '150px',
+        'bottom': '253px', // ****
+        'height': '50px',
+        'width': '50px'
+    });
+    
+    $('#planetMetal').attr('src', 'planet_metal.png');
+    $('#planetMetal').css({
+        'position': 'absolute',
+        'left': '300px',
+        'bottom': '53px',
+        'height': '50px',
+        'width': '50px'
+    });
+    
+    $('#rocketman').attr('src', 'spaceship_pink.png');
+    $('#rocketman').css({
+        'position': 'absolute',
+        'left': '150px',
+        'bottom': '53px',
+        'height': '50px',
+        'width': '50px'
+    });
+}
+
+
 // function to find rocket index (value 4 in the array).
 function findRocketPosition() {
     var posArray = [];
@@ -147,6 +185,7 @@ function makeGame() {
 }
 
 $(document).ready(function () {
+    insertDOMandCSS();
     initialise();
 });
 
