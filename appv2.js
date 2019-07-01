@@ -23,8 +23,8 @@
 
 //level 1 map
 var map = [
-    [0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
@@ -78,7 +78,7 @@ var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
 //for resetting position of rocket - value will change depending on level
-var styleLeft = "205px";
+var styleLeft = "150px";
 // var styleBottom = "250px";
 var styleBottom = "50px";
 
@@ -95,7 +95,7 @@ var levelMoves = 10;
 
 //defining the rocket coordinates
 var rocketX = 150;
-var rocketY = 500;
+var rocketY = 450;
 
 //rocket variable
 var rocketAnimate = $("#rocketman");
@@ -266,6 +266,36 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
+var modal = document.getElementById("myModal");
+var planetFire = document.getElementById("planetFire");
+var planetMetal = document.getElementById("planetMetal");
+var span = document.getElementsByClassName("close")[0];
+
+planetFire.onclick = function () {
+    modal.style.display = "block";
+    $("#planetModal").attr("src", "planet_fire.png");
+    $("#planetCharacteristics").text("Fire");
+};
+
+planetMetal.onclick = function () {
+    modal.style.display = "block";
+    $("#planetModal").attr("src", "planet_metal.png");
+    $("#planetCharacteristics").text("Metal");
+};
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+};
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+};
+
+
 //every time you hit run, the rocket will return back to its original position and go from there
 function originalPos() {
 
@@ -412,7 +442,7 @@ function moveRight() {
 }
 
 function moveDown() {
-    if (rocketY >= canvas.height - tileHeight) {
+    if (rocketY >= canvas.height) {
         //edge of canvas - do nothing
     } else {
         rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
@@ -437,6 +467,7 @@ function moveDown() {
                 }
             }
         });
+        console.log(rocketY);
         rocketY += 50;
         movement.push({rocketX, rocketY});
     }
@@ -502,7 +533,8 @@ function moveLeft() {
 }
 
 function moveUp() {
-    if (rocketY <= 0) {
+
+    if (rocketY <= tileHeight) {
         //edge of canvas - do nothing
     } else {
         rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {

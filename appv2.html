@@ -15,13 +15,34 @@
 </head>
 <body>
 
-<p></p>
 
 <div class="canvas">
+    <img id ="planetFire" src = "planet_fire.png">
+    <img id = "planetMetal" src = "planet_metal.png">
     <img id="rocketman" src="spaceship_pink.png" alt = "An image of a rocket.">
-    <canvas id="myCanvas" height="500" width="450">
-    </canvas>
+
+    <canvas id="myCanvas" height="500" width="550"></canvas>
+
+
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><b>Planet characteristics</b></p>
+            <table>
+                <tr><td><img id = "planetModal" height = "25" width = "25"></td>
+                    <td id = "planetCharacteristics"></td></tr>
+
+            </table>
+        </div>
+
+    </div>
 </div>
+
+
+
+
 
 
 <div class="arrows">
@@ -39,7 +60,7 @@
         
     </div>
     <div class="algorithm">
-        <img id = "mainfunction" src = "functionOne.png" alt = "F1" >
+        <img id = "mainfunction" src = "functionOne.png" alt = "F1" ><br>
     </div>
     <div class="functions">
         <img id = "functiontwo" src = "functionTwo.png" alt = "F2" ><br>
@@ -47,6 +68,7 @@
 </div>
 
 <!-- <div class="algorithm"></div> -->
+
 
 </body>
 </html>
