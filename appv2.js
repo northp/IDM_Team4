@@ -35,10 +35,6 @@ var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
-
-
-
-
 function insertDOMandCSS() {
     // a function to load DOM and CSS elements based on map.
     // If map 1, load DOM and CSS as below.
@@ -52,7 +48,7 @@ function insertDOMandCSS() {
         'height': '50px',
         'width': '50px'
     });
-    
+
     $('#planetMetal').attr('src', 'planet_metal.png');
     $('#planetMetal').css({
         'position': 'absolute',
@@ -61,7 +57,17 @@ function insertDOMandCSS() {
         'height': '50px',
         'width': '50px'
     });
-    
+
+    $('#planetDestination').attr('src', 'planet_destination.png');
+    $('#planetDestination').css({
+        'position': 'absolute',
+        'left': '220px',
+        'bottom': '415px',
+        'height': '100px',
+        'width': '100px',
+        'transform': 'rotate(30deg)'
+    });
+
     $('#rocketman').attr('src', 'spaceship_pink.png');
     $('#rocketman').css({
         'position': 'absolute',
@@ -70,8 +76,8 @@ function insertDOMandCSS() {
         'height': '50px',
         'width': '50px'
     });
-}
 
+}
 
 // function to find rocket index (value 4 in the array).
 function findRocketPosition() {
@@ -167,7 +173,8 @@ function makeGame() {
             if (map[i][j] === 0) {
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
-                ctx.drawImage(blue, xPosition, yPosition, 50, 50);
+                //ctx.drawImage(blue, xPosition, yPosition, 50, 50); //planet image drawn in DOM
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 2) {
                 ctx.drawImage(red, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 3) {
@@ -282,12 +289,29 @@ function movementFunction() {
 
     functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
+            if (arraySelect === algorithm) {
+                something++;
+                $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
+                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+                arraySelect.push(functionTwo);
+                removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
+            }
+        }
+
+        //handling loops (calling F2 inside F2)
+        //currently loops until it hits an edge then it exits the loop
+        //should add a stop button for if it gets stuck in a loop
+         if (arraySelect === functionTwo) {
+            for (var i = 0; i <= 5; i++) {
+                for (var j in functionTwo) {
+                    functionTwo.push(functionTwo[j]);
+                    //console.log(functionTwo);
+                }
+            }
             something++;
             $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
             var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-            arraySelect.push(functionTwo);
             removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
-
         }
     });
 
@@ -305,35 +329,53 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
-var modal = document.getElementById("myModal");
-var planetFire = document.getElementById("planetFire");
-var planetMetal = document.getElementById("planetMetal");
-var span = document.getElementsByClassName("close")[0];
+function clickElements() {
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    var planetFire = $("#planetFire");
+    var planetMetal = $("#planetMetal");
+    var planetDestination = $("#planetDestination");
 
-planetFire.onclick = function () {
-    modal.style.display = "block";
-    $("#planetModal").attr("src", "planet_fire.png");
-    $("#planetCharacteristics").text("Fire");
-};
+    planetFire.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_fire.png");
+        $("#planetCharacteristics").text("Fire");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
 
-planetMetal.onclick = function () {
-    modal.style.display = "block";
-    $("#planetModal").attr("src", "planet_metal.png");
-    $("#planetCharacteristics").text("Metal");
-};
+    planetMetal.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_metal.png");
+        $("#planetCharacteristics").text("Metal");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
+
+    planetDestination.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_destination.png");
+        $("#planetCharacteristics").text("This is your destination!");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
+
+    rocketAnimate.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "spaceship_pink.png");
+        $("#planetCharacteristics").text("Move the rocket to its destination by using the arrow keys below.");
+        $("#title").text("Rocket").css("font-weight", "bold");
+    });
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-};
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+}
 
 //every time you hit run, the rocket will return back to its original position and go from there
 function originalPos() {
@@ -435,6 +477,8 @@ function runButton() {
     );
 }
 
+//bug with moveCounter and edge detection; moveCounter doesn't increment if an edge is hit
+//moveCounter !== algorithm length so nothing happens
 
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
@@ -442,6 +486,7 @@ function moveRight() {
     } else {
         rocketAnimate.animate({left: "+=50px"}, "fast", function () {
             moveCounter++;
+            console.log(moveCounter);
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
                     Swal.fire({
@@ -573,11 +618,18 @@ function moveLeft() {
 
 function moveUp() {
 
-    if (rocketY <= tileHeight) {
+    if (rocketY <= 50) {
+        console.log("edge");
+
         //edge of canvas - do nothing
     } else {
+        //every time the rocket animates, increment moveCounter
+        //however, rocket does not animate if an edge is detected
+        //loop: for every (up) index in array, increment moveCounter
+
         rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
             moveCounter++;
+            console.log(moveCounter);
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
                     Swal.fire({
@@ -588,6 +640,7 @@ function moveUp() {
                     });
                     setTimeout(location.reload.bind(location), 3000);
                 } else if (victory == 1) {
+                    console.log("treadmill");
                     Swal.fire({
                         position: 'center-start',
                         type: 'success',
@@ -607,6 +660,7 @@ function moveUp() {
         if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3)) {
             loss = 1;
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
+            console.log("victory");
             victory = 1;
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
@@ -634,3 +688,4 @@ save.click(function () {
 
 startState();
 movementFunction();
+clickElements();
