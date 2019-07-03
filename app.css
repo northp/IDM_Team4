@@ -5,9 +5,11 @@ body {
 #right, #left, #up, #down, #run, #save, #functiontwoselect, #mainfunction, #functiontwo {
     /* max-width: 3%; */
     /* max-height: 3%; */
-    height: 50px;
-    width: 50px;
+    height: 10vw;
+    width: 10vw;
 }
+
+
 
 .canvas {
     display: inline;
@@ -21,57 +23,24 @@ body {
     height: 100%;
 }
 
-#rocketman {
-    
-    /* #rocketman elements are now defined with jQuery. */
-    
-    /* position: absolute; */
-    /* height: 50px; */
-    /* width: 50px; */
-    /* left: 150px; */
-    /* bottom: 53px; */
-}
-
-#planetFire {
-    
-    /* #planetFire elements are now defined with jQuery. */
-    
-    /* position: absolute; */
-    /* left: 150px; */
-    /* bottom: 253px; */
-    /* height: 50px; */
-    /* width: 50px; */
-}
-
-#planetMetal {
-    
-    /* #planetMetal elements are now defined with jQuery. */
-    
-    /* position: absolute; */
-    /* height: 50px; */
-    /* width: 50px; */
-    /* left: 300px; */
-    /* bottom: 53px; */
-}
-
 .arrows {
     display: flex;
+    height: 42vw; /* percent of the viewport width */
 }
 
 .arrows > #commands {
-    margin-left: 0;
-    width: 105px;
-    height: 200px;
+    width: 23%;
+
 }
 
 .arrows > .algorithm {
-    width: 265px;
-    height: 200px;
+    width: 40%;
+
 }
 
 .arrows > .functions {
-    width: 155px;
-    height: 200px;
+    width: 37%;
+
 }
 
 #commands, .algorithm, .functions {
@@ -79,17 +48,15 @@ body {
     border-style: inset;
 }
 
-
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    left: 20px;
-    top: 150px;
-    width: 25%;
-    height: 30%;
-    overflow: auto; /* Enable scroll if needed */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 
@@ -98,10 +65,12 @@ body {
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    /* centered */
+    margin: 30% auto auto;
+    padding: 2%;
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 50%;
+    height: 20%;
     font-family: helvetica, arial, serif;
 }
 
@@ -120,7 +89,21 @@ body {
     cursor: pointer;
 }
 
+/*Phone*/
+@media only screen and (max-width: 600px) {
 
+}
+
+/*Tablet*/
+@media only screen and (min-width: 600px) {
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 768px) {
+
+
+}
 
 
 

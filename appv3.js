@@ -36,9 +36,6 @@ var map = [
 ];
 
 
-
-
-
 function insertDOMandCSS() {
     // a function to load DOM and CSS elements based on map.
     // If map 1, load DOM and CSS as below.
@@ -54,7 +51,7 @@ function insertDOMandCSS() {
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('#planetMetal').attr('src', 'planet_metal.png');
     $('#planetMetal').css({
         // 'left': '300px',
@@ -65,7 +62,17 @@ function insertDOMandCSS() {
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
+    $('#planetDestination').attr('src', 'planet_destination.png');
+    $('#planetDestination').css({
+        'position': 'absolute',
+        'margin-left': '42%',
+        'margin-top': '',
+        'max-height': 'auto',
+        'max-width': '15%',
+        'transform': 'rotate(30deg)'
+    });
+
     $('#rocketman').attr('src', 'spaceship_pink.png');
     $('#rocketman').css({
         // 'left': '150px',
@@ -172,7 +179,8 @@ function makeGame() {
             if (map[i][j] === 0) {
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
-                ctx.drawImage(blue, xPosition, yPosition, 50, 50);
+                // ctx.drawImage(blue, xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 2) {
                 ctx.drawImage(red, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 3) {
@@ -209,7 +217,7 @@ var movementObject = {
 };
 console.log("The current coordinates are: " + movementObject.x, movementObject.y);
 
-//begin game with the main function already being clicked
+//begin game with the main function already clicked
 function startState() {
     arraySelect = algorithm; //directions selected will be put into this array
     classSelect = $(".algorithm"); //images put into this class
@@ -242,7 +250,7 @@ function movementFunction() {
         //if statement so that users can only add certain number of moves in the algorithm
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="50" height="50" />'); //drawing image
+            $(classSelect).append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="20%" height="20%" />'); //drawing image
             var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something); //unique id name for each image
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
@@ -255,7 +263,7 @@ function movementFunction() {
     left.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="20%" height="20%" />');
             var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something);
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
@@ -266,7 +274,7 @@ function movementFunction() {
     up.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="20%" height="20%" />');
             var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something);
             var upPush = "up" + something;
             arraySelect.push(upPush);
@@ -277,7 +285,7 @@ function movementFunction() {
     down.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="50" height="50" />');
+            $(classSelect).append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="20%" height="20%" />');
             var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something);
             var downPush = "down" + something;
             arraySelect.push(downPush);
@@ -287,12 +295,29 @@ function movementFunction() {
 
     functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
-            something++;
-            $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="50" height="50" />');
-            var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-            arraySelect.push(functionTwo);
-            removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
+            if (arraySelect === algorithm) {
+                something++;
+                $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
+                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+                arraySelect.push(functionTwo);
+                removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
+            }
+        }
 
+        //handling loops (calling F2 inside F2)
+        //currently loops until it hits an edge then it exits the loop and continues with rest of array - don't allow it to do this?
+        //should add a stop button for if it gets stuck in a loop
+        if (arraySelect === functionTwo) {
+            for (var i = 0; i <= 5; i++) {
+                for (var j in functionTwo) {
+                    functionTwo.push(functionTwo[j]);
+                    //console.log(functionTwo);
+                }
+            }
+            something++;
+            $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
+            var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+            removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
         }
     });
 
@@ -310,35 +335,53 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
-var modal = document.getElementById("myModal");
-var planetFire = document.getElementById("planetFire");
-var planetMetal = document.getElementById("planetMetal");
-var span = document.getElementsByClassName("close")[0];
+function clickElements() {
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    var planetFire = $("#planetFire");
+    var planetMetal = $("#planetMetal");
+    var planetDestination = $("#planetDestination");
 
-planetFire.onclick = function () {
-    modal.style.display = "block";
-    $("#planetModal").attr("src", "planet_fire.png");
-    $("#planetCharacteristics").text("Fire");
-};
+    planetFire.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
+        $("#planetCharacteristics").text("Fire");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
 
-planetMetal.onclick = function () {
-    modal.style.display = "block";
-    $("#planetModal").attr("src", "planet_metal.png");
-    $("#planetCharacteristics").text("Metal");
-};
+    planetMetal.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_metal.png").css("height", "5%", "width", "5%");
+        $("#planetCharacteristics").text("Metal");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
+
+    planetDestination.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "planet_destination.png").css("height", "5%", "width", "5%");
+        $("#planetCharacteristics").text("This is your destination!");
+        $("#title").text("Planet").css("font-weight", "bold");
+    });
+
+    rocketAnimate.click(function () {
+        modal.style.display = "block";
+        $("#planetModal").attr("src", "spaceship_pink.png").css("height", "10%", "width", "10%");
+        $("#planetCharacteristics").text("Move the rocket to its destination by using the arrow keys below.");
+        $("#title").text("Rocket").css("font-weight", "bold");
+    });
 
 // When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-};
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-};
-
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    };
+}
 
 //every time you hit run, the rocket will return back to its original position and go from there
 function originalPos() {
@@ -346,14 +389,14 @@ function originalPos() {
     //reset animation
     //resetting the rocket to its default position
     rocketAnimate.css({
-         // "left": styleLeft,
-         // "bottom": styleBottom
-         
-         
-         // need to change to variables later
-         'margin-left': '27.4%',
-         'margin-top': '72.75%'
-         
+        // "left": styleLeft,
+        // "bottom": styleBottom
+
+
+        // need to change to variables later
+        'margin-left': '27.4%',
+        'margin-top': '72.75%'
+
     });
 
     //reset coordinates
@@ -446,14 +489,21 @@ function runButton() {
     );
 }
 
-
+//bug with moveCounter and edge detection; moveCounter doesn't increment if an edge is hit
+//moveCounter !== algorithm length so nothing happens
+//every time the rocket animates, moveCounter is incremented
+//however, rocket does not animate if an edge is detected - so that algorithm.length does not equal
+//loop: for every (up) index in array, increment moveCounter (doesn't work)
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
         //edge of canvas - do nothing
     } else {
         rocketAnimate.animate({'margin-left': "+=9%"}, "fast", function () {
+
             moveCounter++;
-            if (moveCounter == algorithm.length) {
+            //moveCounter += algorithm.length; //works but then the alert comes up immediately
+
+            if (moveCounter == algorithm.length ) {
                 if (loss == 1) {
                     Swal.fire({
                         position: 'center-start',
@@ -491,12 +541,14 @@ function moveRight() {
     }
 }
 
+
 function moveDown() {
     if (rocketY >= canvas.height) {
         //edge of canvas - do nothing
     } else {
         rocketAnimate.animate({'margin-top': "+=9%"}, "fast", function () {
             moveCounter++;
+            //moveCounter += algorithm.length; //works but then the alert comes up immediately
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
                     Swal.fire({
@@ -543,6 +595,7 @@ function moveLeft() {
     } else {
         rocketAnimate.animate({'margin-left': "-=9%"}, "fast", function () {
             moveCounter++;
+            //moveCounter += algorithm.length; //works but then the alert comes up immediately
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
                     Swal.fire({
@@ -584,11 +637,19 @@ function moveLeft() {
 
 function moveUp() {
 
+
+
     if (rocketY <= tileHeight) {
         //edge of canvas - do nothing
     } else {
         rocketAnimate.animate({'margin-top': "-=9%"}, "fast", function () {
+
+
+            console.log(moveCounter);
+
             moveCounter++;
+           // moveCounter += algorithm.length; //works but then the alert comes up immediately
+
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
                     Swal.fire({
@@ -596,6 +657,7 @@ function moveUp() {
                         type: 'error',
                         title: 'You Lose!',
                         text: 'Your rocket has collided with a planet!'
+
                     });
                     setTimeout(location.reload.bind(location), 3000);
                 } else if (victory == 1) {
@@ -645,3 +707,4 @@ save.click(function () {
 
 startState();
 movementFunction();
+clickElements();
