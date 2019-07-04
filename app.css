@@ -2,7 +2,9 @@ body {
     margin: auto;
 }
 
-#right, #left, #up, #down, #run, #save, #functiontwoselect, #mainfunction, #functiontwo {
+
+
+#right, #left, #up, #down, #run, #save, #stop, #hint, #functiontwoselect, #mainfunction, #functiontwo {
     /* max-width: 3%; */
     /* max-height: 3%; */
     height: 10vw;
