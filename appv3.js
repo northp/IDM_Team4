@@ -299,7 +299,10 @@ function movementFunction() {
                 something++;
                 $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
                 var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-                arraySelect.push(functionTwo);
+                for(var i in functionTwo){
+                    arraySelect.push(functionTwo[i]);
+                }
+                // arraySelect.push(functionTwo);
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
         }
@@ -497,32 +500,9 @@ function runButton() {
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
         //edge of canvas - do nothing
+        rocketAnimate.animate({'margin-left': "+=0%"}, "fast", SWalAlertCall);
     } else {
-        rocketAnimate.animate({'margin-left': "+=9%"}, "fast", function () {
-
-            moveCounter++;
-            //moveCounter += algorithm.length; //works but then the alert comes up immediately
-
-            if (moveCounter == algorithm.length ) {
-                if (loss == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'error',
-                        title: 'You Lose!',
-                        text: 'Your rocket has collided with a planet!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                } else if (victory == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'success',
-                        title: 'You Win!',
-                        text: 'Your rocket has escaped this sector!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                }
-            }
-        });
+        rocketAnimate.animate({'margin-left': "+=9%"}, "fast", SWalAlertCall);
         rocketX += 50;
         movement.push({rocketX, rocketY});
     }
@@ -545,30 +525,9 @@ function moveRight() {
 function moveDown() {
     if (rocketY >= canvas.height) {
         //edge of canvas - do nothing
+        rocketAnimate.animate({'margin-top': "+=0%"}, "fast", SWalAlertCall);
     } else {
-        rocketAnimate.animate({'margin-top': "+=9%"}, "fast", function () {
-            moveCounter++;
-            //moveCounter += algorithm.length; //works but then the alert comes up immediately
-            if (moveCounter == algorithm.length) {
-                if (loss == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'error',
-                        title: 'You Lose!',
-                        text: 'Your rocket has collided with a planet!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                } else if (victory == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'success',
-                        title: 'You Win!',
-                        text: 'Your rocket has escaped this sector!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                }
-            }
-        });
+        rocketAnimate.animate({'margin-top': "+=9%"}, "fast", SWalAlertCall);
         console.log(rocketY);
         rocketY += 50;
         movement.push({rocketX, rocketY});
@@ -592,30 +551,9 @@ function moveDown() {
 function moveLeft() {
     if (rocketX <= 0) {
         //edge of canvas - do nothing
+        rocketAnimate.animate({'margin-left': "-=0%"}, "fast", SWalAlertCall);
     } else {
-        rocketAnimate.animate({'margin-left': "-=9%"}, "fast", function () {
-            moveCounter++;
-            //moveCounter += algorithm.length; //works but then the alert comes up immediately
-            if (moveCounter == algorithm.length) {
-                if (loss == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'error',
-                        title: 'You Lose!',
-                        text: 'Your rocket has collided with a planet!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                } else if (victory == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'success',
-                        title: 'You Win!',
-                        text: 'Your rocket has escaped this sector!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                }
-            }
-        });
+        rocketAnimate.animate({'margin-left': "-=9%"}, "fast", SWalAlertCall);
         rocketX -= 50;
         movement.push({rocketX, rocketY});
     }
@@ -635,42 +573,19 @@ function moveLeft() {
     }
 }
 
+
+
+
 function moveUp() {
 
 
 
     if (rocketY <= tileHeight) {
         //edge of canvas - do nothing
+        rocketAnimate.animate({'margin-top': "-=0%"}, "fast", SWalAlertCall);
+        
     } else {
-        rocketAnimate.animate({'margin-top': "-=9%"}, "fast", function () {
-
-
-            console.log(moveCounter);
-
-            moveCounter++;
-           // moveCounter += algorithm.length; //works but then the alert comes up immediately
-
-            if (moveCounter == algorithm.length) {
-                if (loss == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'error',
-                        title: 'You Lose!',
-                        text: 'Your rocket has collided with a planet!'
-
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                } else if (victory == 1) {
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'success',
-                        title: 'You Win!',
-                        text: 'Your rocket has escaped this sector!'
-                    });
-                    setTimeout(location.reload.bind(location), 3000);
-                }
-            }
-        });
+        rocketAnimate.animate({'margin-top': "-=9%"}, "fast", SWalAlertCall);
         rocketY -= 50;
         movement.push({rocketX, rocketY});
     }
@@ -690,6 +605,37 @@ function moveUp() {
     }
 
 }
+
+
+
+function SWalAlertCall () {
+    moveCounter++;
+    console.log(moveCounter);
+    //moveCounter += algorithm.length; //works but then the alert comes up immediately
+
+    if (moveCounter == algorithm.length) {
+        if (loss == 1) {
+            Swal.fire({
+                position: 'center-start',
+                type: 'error',
+                title: 'You Lose!',
+                text: 'Your rocket has collided with a planet!'
+
+            });
+            setTimeout(location.reload.bind(location), 3000);
+        } else if (victory == 1) {
+            Swal.fire({
+                position: 'center-start',
+                type: 'success',
+                title: 'You Win!',
+                text: 'Your rocket has escaped this sector!'
+            });
+            setTimeout(location.reload.bind(location), 3000);
+        }
+    }
+}
+
+
 
 // a function to save the entered algorithm
 
