@@ -83,6 +83,12 @@ function insertDOMandCSS() {
         'max-height': 'auto',
         'max-width': '9%'
     });
+
+    $("#hint").attr("src", "hint.png");
+    $("#hint").css({
+        'position': 'absolute',
+        'margin-left': '90.5%'
+    })
 }
 
 
@@ -255,6 +261,7 @@ function movementFunction() {
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
             removeMove(rightAlgorithm, rightPush, arraySelect);
+
         }
 
 
@@ -268,6 +275,7 @@ function movementFunction() {
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
+
         }
     });
 
@@ -279,6 +287,7 @@ function movementFunction() {
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
+
         }
     });
 
@@ -290,31 +299,36 @@ function movementFunction() {
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
+
         }
     });
 
+
     functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
+
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
                 var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-                for(var i in functionTwo){
-                    arraySelect.push(functionTwo[i]);
-                }
-                // arraySelect.push(functionTwo);
+
+                /*
+                for (var i in functionTwo) {
+                    arraySelect.push(functionTwo[i])
+                }*/
+
+                arraySelect.push(functionTwo); //causes alert to display as soon as F2 is entered - but it
+                // only happens if the winning/losing condition is inside F2, so it will at most only be 4 iterations early...setTimeout? not great though
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
         }
 
         //handling loops (calling F2 inside F2)
-        //currently loops until it hits an edge then it exits the loop and continues with rest of array - don't allow it to do this?
-        //should add a stop button for if it gets stuck in a loop
         if (arraySelect === functionTwo) {
-            for (var i = 0; i <= 5; i++) {
+            for (var i = 0; i <= 3; i++) {
                 for (var j in functionTwo) {
                     functionTwo.push(functionTwo[j]);
-                    //console.log(functionTwo);
+
                 }
             }
             something++;
@@ -332,8 +346,23 @@ function movementFunction() {
 //function for removing parts of algorithm
 function removeMove(image, direction, thisArray) {
     image.click(function () {
+
             image.remove(); //removes the image clicked
             thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
+
+            var images = $(".functions").children("img"); //accessing images within function 2 grid so that we can set the function 2 array length back to
+            //however many images are in the grid (easy way to reset the array)
+
+            if (thisArray === functionTwo && direction === functionTwo) {
+                for (var i = 0; i <= images.length; i++) {
+                    functionTwo.length = images.length - 1; //amount of images that are present
+                    console.log("cheese " + functionTwo);
+
+                }
+
+
+            }
+
         }
     );
 }
@@ -345,31 +374,36 @@ function clickElements() {
     var planetMetal = $("#planetMetal");
     var planetDestination = $("#planetDestination");
 
+    $("#hint").click(function () {
+        modal.style.display = "block";
+        $("#modalText").text("Instructions...");
+    });
+
     planetFire.click(function () {
         modal.style.display = "block";
-        $("#planetModal").attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
-        $("#planetCharacteristics").text("Fire");
+        $("#modalImage").attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
+        $("#modalText").text("Fire");
         $("#title").text("Planet").css("font-weight", "bold");
     });
 
     planetMetal.click(function () {
         modal.style.display = "block";
-        $("#planetModal").attr("src", "planet_metal.png").css("height", "5%", "width", "5%");
-        $("#planetCharacteristics").text("Metal");
+        $("#modalImage").attr("src", "planet_metal.png").css("height", "5%", "width", "5%");
+        $("#modalText").text("Metal");
         $("#title").text("Planet").css("font-weight", "bold");
     });
 
     planetDestination.click(function () {
         modal.style.display = "block";
-        $("#planetModal").attr("src", "planet_destination.png").css("height", "5%", "width", "5%");
-        $("#planetCharacteristics").text("This is your destination!");
+        $("#modalImage").attr("src", "planet_destination.png").css("height", "5%", "width", "5%");
+        $("#modalText").text("This is your destination!");
         $("#title").text("Planet").css("font-weight", "bold");
     });
 
     rocketAnimate.click(function () {
         modal.style.display = "block";
-        $("#planetModal").attr("src", "spaceship_pink.png").css("height", "10%", "width", "10%");
-        $("#planetCharacteristics").text("Move the rocket to its destination by using the arrow keys below.");
+        $("#modalImage").attr("src", "spaceship_pink.png").css("height", "10%", "width", "10%");
+        $("#modalText").text("Move the rocket to its destination by using the arrow keys below.");
         $("#title").text("Rocket").css("font-weight", "bold");
     });
 
@@ -424,6 +458,29 @@ function originalPos() {
 var loss, victory = 0;
 var moveCounter = 0;
 
+var stopClicked = false;
+
+
+function stopAnimation() {
+    stopClicked = true;
+
+    if (stopClicked === true) {
+        //debugged the alert coming up after stop was hit and run was hit again
+        if (loss !== 1 || victory !== 1) {
+
+            rocketAnimate.stop(); //stop animating
+            originalPos(); //return to original position
+            SWalAlertCall = function () {
+                //empty function, does nothing
+            };
+            //add condition to stop alerts from happening?
+            //currently pauses alert from happening and then it resumes when run is hit again
+            console.log(moveCounter);
+        }
+
+    }
+}
+
 function runButton() {
     run.click(function () {
 
@@ -434,13 +491,16 @@ function runButton() {
                 //rocket goes back in original position
                 originalPos();
 
-
                 for (var x in algorithm) {
+
+                    $("#stop").click(stopAnimation);//stop animation when stop button is clicked
 
                     //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                     if (typeof algorithm[x] === "object") {
 
                         for (var i in algorithm[x]) {
+
+                            $("#stop").click(stopAnimation); //stop animation when stop button is clicked
 
                             //right
                             if (algorithm[x][i].charAt(0) === "r") {
@@ -486,20 +546,18 @@ function runButton() {
 
                     console.log(algorithm);
                 }
+
+
             }
             moveCounter = 0;
+            stopClicked = false;
+            SWalAlertCall = oldFunction;
         }
     );
 }
 
-//bug with moveCounter and edge detection; moveCounter doesn't increment if an edge is hit
-//moveCounter !== algorithm length so nothing happens
-//every time the rocket animates, moveCounter is incremented
-//however, rocket does not animate if an edge is detected - so that algorithm.length does not equal
-//loop: for every (up) index in array, increment moveCounter (doesn't work)
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
-        //edge of canvas - do nothing
         rocketAnimate.animate({'margin-left': "+=0%"}, "fast", SWalAlertCall);
     } else {
         rocketAnimate.animate({'margin-left': "+=9%"}, "fast", SWalAlertCall);
@@ -524,7 +582,6 @@ function moveRight() {
 
 function moveDown() {
     if (rocketY >= canvas.height) {
-        //edge of canvas - do nothing
         rocketAnimate.animate({'margin-top': "+=0%"}, "fast", SWalAlertCall);
     } else {
         rocketAnimate.animate({'margin-top': "+=9%"}, "fast", SWalAlertCall);
@@ -573,17 +630,10 @@ function moveLeft() {
     }
 }
 
-
-
-
 function moveUp() {
-
-
-
     if (rocketY <= tileHeight) {
-        //edge of canvas - do nothing
         rocketAnimate.animate({'margin-top': "-=0%"}, "fast", SWalAlertCall);
-        
+
     } else {
         rocketAnimate.animate({'margin-top': "-=9%"}, "fast", SWalAlertCall);
         rocketY -= 50;
@@ -606,36 +656,43 @@ function moveUp() {
 
 }
 
-
-
-function SWalAlertCall () {
+var SWalAlertCall = function () {
     moveCounter++;
+
     console.log(moveCounter);
-    //moveCounter += algorithm.length; //works but then the alert comes up immediately
 
-    if (moveCounter == algorithm.length) {
-        if (loss == 1) {
-            Swal.fire({
-                position: 'center-start',
-                type: 'error',
-                title: 'You Lose!',
-                text: 'Your rocket has collided with a planet!'
+    //checking the length of every animation iteration including inside F2
+    // F2.length - 1 because algorithm array would otherwise have an extra element if it contains F2 array plus F2 elements
+    //need to then set a setTimeout because the alert would come up an iteration before the final iteration if F2 was never called in first place
+    if (moveCounter === algorithm.concat(functionTwo).length - 1) {
 
-            });
-            setTimeout(location.reload.bind(location), 3000);
-        } else if (victory == 1) {
-            Swal.fire({
-                position: 'center-start',
-                type: 'success',
-                title: 'You Win!',
-                text: 'Your rocket has escaped this sector!'
-            });
-            setTimeout(location.reload.bind(location), 3000);
-        }
+        setTimeout(function () {
+
+            if (loss == 1) {
+
+                Swal.fire({
+                    position: 'center-start',
+                    type: 'error',
+                    title: 'You Lose!',
+                    text: 'Your rocket has collided with a planet!'
+
+                });
+                setTimeout(location.reload.bind(location), 3000);
+            } else if (victory == 1) {
+                Swal.fire({
+                    position: 'center-start',
+                    type: 'success',
+                    title: 'You Win!',
+                    text: 'Your rocket has escaped this sector!'
+                });
+                setTimeout(location.reload.bind(location), 3000);
+
+            }
+        }, 175);
     }
-}
+};
 
-
+const oldFunction = SWalAlertCall;
 
 // a function to save the entered algorithm
 
