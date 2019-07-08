@@ -4,90 +4,96 @@
 var currentLevel = 2;
 
 //for resetting position of rocket - value will change depending on level
-    var rocketMarginLeft;
-    var rocketMarginTop;
+var rocketMarginLeft;
+var rocketMarginTop;
 //defining the rocket coordinates
-    var rocketX = 150;
-    var rocketY = 450;
-    
-if (currentLevel === 1){
-    //level 1 map
-    var map = [
-        [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    ];
-    
-    
-    // map 1 selected
-    // next step: insert img tags
-    
-    $('.canvas').prepend('<img id="rocketman"/>');
-    $('.canvas').prepend('<img id="planetMetal"/>');
-    $('.canvas').prepend('<img id="planetFire"/>');
-    $('.canvas').prepend('<img id="planetDestination"/>');
-    $('.canvas').prepend('<img id="hint"/>');
-    
-    //for resetting position of rocket - value will change depending on level
-    rocketMarginLeft = '27.4%';
-    rocketMarginTop = '72.75%'
-    
-    //defining the rocket coordinates
-    rocketX = 150;
-    rocketY = 450;
-    
-    insertDOMandCSS1();
-}
+var rocketX = 150;
+var rocketY = 450;
 
- // if level 2:
-if (currentLevel === 2){
-    //level 2 map
-    var map = [
-        [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-        [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-    ];
-    
-    
-    // map 2 selected
-    // next step: insert img tags for lvl 2
-    $('.canvas').prepend('<img id="hint"/>');
-    $('.canvas').prepend('<img id="planetIce" class="planetIce_3"/>');
-    $('.canvas').prepend('<img id="planetIce" class="planetIce_2"/>');
-    $('.canvas').prepend('<img id="planetIce" class="planetIce_1"/>');
-    $('.canvas').prepend('<img id="planetEarth"/>');
-    $('.canvas').prepend('<img id="planetDestination"/>');
-    $('.canvas').prepend('<img id="planetFire"/>');
-    $('.canvas').prepend('<img id="planetMetal" class="planetMetal_3"/>');
-    $('.canvas').prepend('<img id="planetMetal" class="planetMetal_2"/>');
-    $('.canvas').prepend('<img id="planetMetal" class="planetMetal_1"/>');
-    $('.canvas').prepend('<img id="rocketman"/>');
-    
-    //for resetting position of rocket - value will change depending on level
-    rocketMarginLeft = '36.4%';
-    rocketMarginTop = '81.75%';
-    
-    //defining the rocket coordinates
-    rocketX = 200;
-    rocketY = 500;
-    
-    insertDOMandCSS2();    
-}
+var map = [];
 
+  
+chooseLevel();
+    
+function chooseLevel(){    
+    if (currentLevel === 1){
+        //level 1 map
+        map = [
+            [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+        
+        
+        // map 1 selected
+        // next step: insert img tags
+        
+        $('.canvas').prepend('<img id="rocketman"/>');
+        $('.canvas').prepend('<img id="planetMetal"/>');
+        $('.canvas').prepend('<img id="planetFire"/>');
+        $('.canvas').prepend('<img id="planetDestination"/>');
+        $('.canvas').prepend('<img id="hint"/>');
+        
+        //for resetting position of rocket - value will change depending on level
+        rocketMarginLeft = '27.4%';
+        rocketMarginTop = '72.75%'
+        
+        //defining the rocket coordinates
+        rocketX = 150;
+        rocketY = 450;
+        
+        insertDOMandCSS1();
+    }
+    
+    // if level 2:
+    if (currentLevel === 2){
+        //level 2 map
+        map = [
+            [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+        ];
+        
+        
+        // map 2 selected
+        // next step: insert img tags for lvl 2
+        $('.canvas').prepend('<img id="hint"/>');
+        $('.canvas').prepend('<img id="planetIce" class="planetIce_3"/>');
+        $('.canvas').prepend('<img id="planetIce" class="planetIce_2"/>');
+        $('.canvas').prepend('<img id="planetIce" class="planetIce_1"/>');
+        $('.canvas').prepend('<img id="planetEarth"/>');
+        $('.canvas').prepend('<img id="planetDestination"/>');
+        $('.canvas').prepend('<img id="planetFire"/>');
+        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_3"/>');
+        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_2"/>');
+        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_1"/>');
+        $('.canvas').prepend('<img id="rocketman"/>');
+        
+        //for resetting position of rocket - value will change depending on level
+        rocketMarginLeft = '36.4%';
+        rocketMarginTop = '81.75%';
+        
+        //defining the rocket coordinates
+        rocketX = 200;
+        rocketY = 500;
+        
+        insertDOMandCSS2();    
+    }
+}
 
 // below function loads DOM and CSS for map 1 only
 function insertDOMandCSS1() {
