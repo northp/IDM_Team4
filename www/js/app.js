@@ -32,6 +32,7 @@ var map = [
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 ];
 
@@ -46,29 +47,35 @@ function insertDOMandCSS() {
     // for example, var planetFireBottom could be created and assigned a string value '253px' for one map at the asterix below, but this value would change for another map
     $('#planetFire').attr('src', 'img/playfield/planet_fire.png');
     $('#planetFire').css({
+        // 'bottom': '253px', // **** 
+        // 'left': '150px',
         'position': 'absolute',
-        'left': '150px',
-        'bottom': '253px', // ****
-        'height': '50px',
-        'width': '50px'
+        'margin-left': '27.4%',
+        'margin-top': '36.5%',
+        'max-height': 'auto',
+        'max-width': '9%'
     });
     
     $('#planetMetal').attr('src', 'img/playfield/planet_metal.png');
     $('#planetMetal').css({
+        // 'left': '300px',
+        // 'bottom': '53px',
         'position': 'absolute',
-        'left': '300px',
-        'bottom': '53px',
-        'height': '50px',
-        'width': '50px'
+        'margin-left': '54.6%',
+        'margin-top': '72.75%',
+        'max-height': 'auto',
+        'max-width': '9%'
     });
     
     $('#rocketman').attr('src', 'img/playfield/spaceship_pink.png');
     $('#rocketman').css({
+        // 'left': '150px',
+        // 'bottom': '53px',
         'position': 'absolute',
-        'left': '150px',
-        'bottom': '53px',
-        'height': '50px',
-        'width': '50px'
+        'margin-left': '27.4%',
+        'margin-top': '72.75%',
+        'max-height': 'auto',
+        'max-width': '9%'
     });
 }
 
@@ -115,9 +122,9 @@ var tileHeight = 50;
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
 
+
 //for resetting position of rocket - value will change depending on level
 var styleLeft = "150px";
-// var styleBottom = "250px";
 var styleBottom = "50px";
 
 //jQuery accessing arrows
@@ -207,7 +214,7 @@ console.log("The current coordinates are: " + movementObject.x, movementObject.y
 //begin game with the main function already being clicked
 function startState() {
     arraySelect = algorithm; //directions selected will be put into this array
-    classSelect = $(".algorithm"); //images put into this class
+    classSelect = $(".main"); //images put into this class
     levelMoves = 10; //can only enter 10 moves
     $("#mainfunction").css("border", "3px solid black "); //highlight
     $("#functiontwo").css("border", "none"); //reset
@@ -220,7 +227,7 @@ $("#functiontwo").click(function () {
 
     //update variable values that will be used in movementFunction()
     arraySelect = functionTwo; //directions selected will be put into this array
-    classSelect = $(".functions"); //images put into this class
+    classSelect = $(".code-panel"); //images put into this class
     levelMoves = 4; //can only enter 4 moves
     $("#functiontwo").css("border", "3px solid black"); //highlight
     $("#mainfunction").css("border", "none"); //reset
@@ -341,8 +348,14 @@ function originalPos() {
     //reset animation
     //resetting the rocket to its default position
     rocketAnimate.css({
-        "left": styleLeft,
-        "bottom": styleBottom
+         // "left": styleLeft,
+         // "bottom": styleBottom
+         
+         
+         // need to change to variables later
+         'margin-left': '27.4%',
+         'margin-top': '72.75%'
+         
     });
 
     //reset coordinates
@@ -440,7 +453,7 @@ function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
         //edge of canvas - do nothing
     } else {
-        rocketAnimate.animate({left: "+=50px"}, "fast", function () {
+        rocketAnimate.animate({'margin-left': "+=9%"}, "fast", function () {
             moveCounter++;
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
@@ -484,7 +497,7 @@ function moveDown() {
     if (rocketY >= canvas.height) {
         //edge of canvas - do nothing
     } else {
-        rocketAnimate.animate({bottom: "-=50px"}, "fast", function () {
+        rocketAnimate.animate({'margin-top': "+=9%"}, "fast", function () {
             moveCounter++;
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
@@ -530,7 +543,7 @@ function moveLeft() {
     if (rocketX <= 0) {
         //edge of canvas - do nothing
     } else {
-        rocketAnimate.animate({left: "-=50px"}, "fast", function () {
+        rocketAnimate.animate({'margin-left': "-=9%"}, "fast", function () {
             moveCounter++;
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {
@@ -576,7 +589,7 @@ function moveUp() {
     if (rocketY <= tileHeight) {
         //edge of canvas - do nothing
     } else {
-        rocketAnimate.animate({bottom: "+=50px"}, "fast", function () {
+        rocketAnimate.animate({'margin-top': "-=9%"}, "fast", function () {
             moveCounter++;
             if (moveCounter == algorithm.length) {
                 if (loss == 1) {

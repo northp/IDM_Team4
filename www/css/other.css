@@ -52,10 +52,10 @@ body{
 }
 
 .info-btn {
-    width: 25%;
+    width: 50%;
     height: 50px;
     background-color: #343F4B; 
-    margin-left: 20px;
+
     color: #FFBA5C;
     font-size: 120%;
     border-color: #FFBA5C;
@@ -69,3 +69,50 @@ body{
     box-shadow: 6px 5px 24px #666666;
 
 }
+
+/* ====== BACKGROUND ====== */
+
+#spaceBrain {
+width: 30%;
+margin-top: -44%;
+margin-bottom: 25%;
+}
+
+/* ====== INSTRUCTION ====== */
+
+.text-box {
+    position: absolute;
+    width: 50%;
+    height: 28%;
+    background-color: grey;
+    opacity: 0.6;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text {
+    position: absolute;
+    width: 50%;
+    height: 28%;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.main-part {
+    height: 85%;
+}
+
+.title h1 {
+    padding-top: 5%;
+    font-family: 'Pacifico', cursive;
+    text-transform: lowercase;
+    color: white;
+}
+
+.title p {
+    text-align: center;
+    color: white;
+}
+
