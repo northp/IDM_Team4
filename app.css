@@ -9,6 +9,7 @@ body {
     /* max-height: 3%; */
     height: 10vw;
     width: 10vw;
+
 }
 
 
@@ -53,7 +54,7 @@ body {
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
+    position: absolute; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
@@ -66,7 +67,7 @@ body {
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #fefefe;
+    background-color: #fab85b;
     /* centered */
     margin: 30% auto auto;
     padding: 2%;
@@ -74,22 +75,49 @@ body {
     width: 50%;
     height: 20%;
     font-family: helvetica, arial, serif;
+    position: relative;
 }
 
 /* The Close Button */
 .close {
-    color: #aaa;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
 
+#next {
+    float:right;
+
+}
+
 .close:hover,
 .close:focus {
-    color: black;
+    color: #aaa;
     text-decoration: none;
     cursor: pointer;
 }
+
+
+#point {
+    position: relative;
+
+}
+
+@-webkit-keyframes bouncearrow{
+    0%{top: 0px;}
+    50%{top: 20px; color: #000000;}
+    100%{top: 0px;}
+}
+
+@keyframes bouncearrow{
+    0%{top: 0px;}
+    50%{top: 20px; color: #000000;}
+    100%{top: 0px;}
+}
+
+
+
 
 /*Phone*/
 @media only screen and (max-width: 600px) {

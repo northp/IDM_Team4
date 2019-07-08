@@ -41,8 +41,8 @@ function insertDOMandCSS() {
     // If map 1, load DOM and CSS as below.
     // Later we need to change these hard values to variables which will change depending on which map is loaded.
     // for example, var planetFireBottom could be created and assigned a string value '253px' for one map at the asterix below, but this value would change for another map
-    $('#planetFire').attr('src', 'planet_fire.png');
-    $('#planetFire').css({
+    planetFire.attr('src', 'planet_fire.png');
+    planetFire.css({
         // 'bottom': '253px', // **** 
         // 'left': '150px',
         'position': 'absolute',
@@ -52,8 +52,8 @@ function insertDOMandCSS() {
         'max-width': '9%'
     });
 
-    $('#planetMetal').attr('src', 'planet_metal.png');
-    $('#planetMetal').css({
+    planetMetal.attr('src', 'planet_metal.png');
+    planetMetal.css({
         // 'left': '300px',
         // 'bottom': '53px',
         'position': 'absolute',
@@ -63,8 +63,8 @@ function insertDOMandCSS() {
         'max-width': '9%'
     });
 
-    $('#planetDestination').attr('src', 'planet_destination.png');
-    $('#planetDestination').css({
+    planetDestination.attr('src', 'planet_destination.png');
+    planetDestination.css({
         'position': 'absolute',
         'margin-left': '42%',
         'margin-top': '',
@@ -73,8 +73,8 @@ function insertDOMandCSS() {
         'transform': 'rotate(30deg)'
     });
 
-    $('#rocketman').attr('src', 'spaceship_pink.png');
-    $('#rocketman').css({
+    rocketAnimate.attr('src', 'spaceship_pink.png');
+    rocketAnimate.css({
         // 'left': '150px',
         // 'bottom': '53px',
         'position': 'absolute',
@@ -84,8 +84,8 @@ function insertDOMandCSS() {
         'max-width': '9%'
     });
 
-    $("#hint").attr("src", "hint.png");
-    $("#hint").css({
+    hint.attr("src", "hint.png");
+    hint.css({
         'position': 'absolute',
         'margin-left': '90.5%'
     })
@@ -143,8 +143,24 @@ var right = $("#right");
 var left = $("#left");
 var up = $("#up");
 var down = $("#down");
-var run = $("#run");
 var functTwoSelect = $("#functiontwoselect");
+var run = $("#run");
+
+//DOM accessing modal
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+//jQuery access various elements
+var rocketAnimate = $("#rocketman"); //rocket
+var planetFire = $("#planetFire");
+var planetMetal = $("#planetMetal");
+var planetDestination = $("#planetDestination");
+var hint = $("#hint");
+var modalText = $("#modalText");
+var modalTitle = $("#title");
+var modalImage = $("#modalImage");
+var modalNext = $("#next");
+
 
 //each level should have a maximum number of moves you can make to emphasise efficiency
 var levelMoves = 10;
@@ -153,8 +169,6 @@ var levelMoves = 10;
 var rocketX = 150;
 var rocketY = 450;
 
-//rocket variable
-var rocketAnimate = $("#rocketman");
 
 //storing original coordinates in constant variable
 const rocketX1 = rocketX;
@@ -206,6 +220,7 @@ function makeGame() {
 $(document).ready(function () {
     insertDOMandCSS();
     initialise();
+    setTimeout(welcome, 750);
 });
 
 function initialise() {
@@ -325,9 +340,29 @@ function movementFunction() {
 
         //handling loops (calling F2 inside F2)
         if (arraySelect === functionTwo) {
+
             for (var i = 0; i <= 3; i++) {
                 for (var j in functionTwo) {
                     functionTwo.push(functionTwo[j]);
+
+                    //need a condition that stops pushing values into F2 if an edge is detected
+
+                    /*
+                    //not incrementing coordinates here so it doesn't break
+                    console.log("coord" + rocketX, rocketY);
+                    if (rocketX >= canvas.width - tileWidth) {
+                        console.log("first break");
+                        break;
+
+                    }
+
+                    //breaks in random spots rather than when rocket stops animating
+                    if (!rocketAnimate.is(':animated')) {
+                        console.log("second break");
+                        break;
+
+                    }*/
+
 
                 }
             }
@@ -356,8 +391,6 @@ function removeMove(image, direction, thisArray) {
             if (thisArray === functionTwo && direction === functionTwo) {
                 for (var i = 0; i <= images.length; i++) {
                     functionTwo.length = images.length - 1; //amount of images that are present
-                    console.log("cheese " + functionTwo);
-
                 }
 
 
@@ -367,44 +400,48 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
-function clickElements() {
-    var modal = document.getElementById("myModal");
-    var span = document.getElementsByClassName("close")[0];
-    var planetFire = $("#planetFire");
-    var planetMetal = $("#planetMetal");
-    var planetDestination = $("#planetDestination");
 
-    $("#hint").click(function () {
+function clickElements() {
+
+
+    hint.click(function () {
         modal.style.display = "block";
-        $("#modalText").text("Instructions...");
+        modalText.text("Instructions...");
+        modalTitle.text("Hint").css("font-weight", "bold");
+        modalImage.attr("src", "");
+        modalNext.attr("src", "");
     });
 
     planetFire.click(function () {
         modal.style.display = "block";
-        $("#modalImage").attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
-        $("#modalText").text("Fire");
-        $("#title").text("Planet").css("font-weight", "bold");
+        modalImage.attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
+        modalImage.text("Fire");
+        modalTitle.text("Planet").css("font-weight", "bold");
+        modalNext.attr("src", "");
     });
 
     planetMetal.click(function () {
         modal.style.display = "block";
-        $("#modalImage").attr("src", "planet_metal.png").css("height", "5%", "width", "5%");
-        $("#modalText").text("Metal");
-        $("#title").text("Planet").css("font-weight", "bold");
+        modalImage.attr("src", "planet_metal.png").css("height", "5%", "width", "5%");
+        modalText.text("Metal");
+        modalTitle.text("Planet").css("font-weight", "bold");
+        modalNext.attr("src", "");
     });
 
     planetDestination.click(function () {
         modal.style.display = "block";
-        $("#modalImage").attr("src", "planet_destination.png").css("height", "5%", "width", "5%");
-        $("#modalText").text("This is your destination!");
-        $("#title").text("Planet").css("font-weight", "bold");
+        modalImage.attr("src", "planet_destination.png").css("height", "5%", "width", "5%");
+        modalText.text("This is your destination!");
+        modalTitle.text("Planet").css("font-weight", "bold");
+        modalNext.attr("src", "");
     });
 
     rocketAnimate.click(function () {
         modal.style.display = "block";
-        $("#modalImage").attr("src", "spaceship_pink.png").css("height", "10%", "width", "10%");
-        $("#modalText").text("Move the rocket to its destination by using the arrow keys below.");
-        $("#title").text("Rocket").css("font-weight", "bold");
+        modalImage.attr("src", "spaceship_pink.png").css("height", "10%", "width", "10%");
+        modalText.text("Move the rocket to its destination by using the arrow keys below.");
+        modalTitle.text("Rocket").css("font-weight", "bold");
+        modalNext.attr("src", "");
     });
 
 // When the user clicks on <span> (x), close the modal
@@ -460,24 +497,17 @@ var moveCounter = 0;
 
 var stopClicked = false;
 
-
 function stopAnimation() {
     stopClicked = true;
-
     if (stopClicked === true) {
-        //debugged the alert coming up after stop was hit and run was hit again
-        if (loss !== 1 || victory !== 1) {
-
-            rocketAnimate.stop(); //stop animating
-            originalPos(); //return to original position
-            SWalAlertCall = function () {
-                //empty function, does nothing
-            };
-            //add condition to stop alerts from happening?
-            //currently pauses alert from happening and then it resumes when run is hit again
-            console.log(moveCounter);
-        }
-
+        rocketAnimate.stop(); //stop animating
+        originalPos(); //return to original position
+        SWalAlertCall = function () {
+            //empty function, does nothing
+        };
+        stopClicked = false;
+        console.log(moveCounter);
+        SWalAlertCall = oldFunction;
     }
 }
 
@@ -544,14 +574,16 @@ function runButton() {
                         moveUp();
                     }
 
+
                     console.log(algorithm);
                 }
 
 
             }
+
+
             moveCounter = 0;
-            stopClicked = false;
-            SWalAlertCall = oldFunction;
+
         }
     );
 }
@@ -656,20 +688,18 @@ function moveUp() {
 
 }
 
+//debug for loops
 var SWalAlertCall = function () {
     moveCounter++;
 
     console.log(moveCounter);
 
-    //checking the length of every animation iteration including inside F2
-    // F2.length - 1 because algorithm array would otherwise have an extra element if it contains F2 array plus F2 elements
-    //need to then set a setTimeout because the alert would come up an iteration before the final iteration if F2 was never called in first place
+    //doesn't work well for loops
+    //if loop - wait til rocket hits edge of canvas, then alert
+    //if (moveCounter === algorithm.concat(functionTwo.slice(0,3)).length - 1) { //slightly better but not ideal
     if (moveCounter === algorithm.concat(functionTwo).length - 1) {
-
         setTimeout(function () {
-
             if (loss == 1) {
-
                 Swal.fire({
                     position: 'center-start',
                     type: 'error',
@@ -690,6 +720,7 @@ var SWalAlertCall = function () {
             }
         }, 175);
     }
+
 };
 
 const oldFunction = SWalAlertCall;
@@ -711,3 +742,71 @@ save.click(function () {
 startState();
 movementFunction();
 clickElements();
+
+
+function welcome() {
+
+
+    modal.style.display = "block";
+
+    //$("#modal").css("background-color", "yellow");
+
+    modalImage.attr("src", "icon.png");
+    modalText.text("Your goal is to get the rocket to its destination by avoiding any obstacles in the way.");
+    modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
+    modalNext.attr("src", "next.png").css("height", "30%", "width", "30%");
+    modalNext.click(function () {
+        // modalImage.attr("src", "icon.png");
+        modalText.text("Click one of the arrows below to create a command.");
+        modalTitle.text("");
+        modalNext.attr("src", "next.png").css("height", "30%", "width", "30%");
+
+        $("#point").attr("src", "point.png").css({
+            "height": "20%", "width": "20%", "margin-left": "10%", "margin-top": "3%",
+            "animation": "bouncearrow 1s infinite"
+        });
+        modalNext.click(function () {
+            modal.style.display = "none";
+        });
+
+        right.add(left, up, down).one("click", function() {
+            modal.style.display = "block";
+            modalText.text("Well done. Once you click the arrows they go below into the function section. These commands will tell the rocket where to go.");
+            $("#point").css({"transform": "rotate(-45deg)", "margin-left": "30%"});
+            modalNext.click(function () {
+                modal.style.display = "block";
+                $("#point").css({"margin-left": "5%", "margin-top": "20%"});
+                modalText.text("Once you are happy with the arrows you've selected, hit the play button below and see what happens!");
+            })
+
+        });
+
+
+    });
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
