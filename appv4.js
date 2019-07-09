@@ -1,14 +1,19 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 2;
+var currentLevel = 1;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
 var rocketMarginTop;
+
 //defining the rocket coordinates
 var rocketX = 150;
 var rocketY = 450;
+
+//storing original coordinates in constant variable
+var rocketX1 = rocketX;
+var rocketY1 = rocketY;
 
 var map = [];
 
@@ -35,11 +40,11 @@ function chooseLevel(){
         // map 1 selected
         // next step: insert img tags
         
-        $('.canvas').prepend('<img id="rocketman"/>');
-        $('.canvas').prepend('<img id="planetMetal"/>');
-        $('.canvas').prepend('<img id="planetFire"/>');
-        $('.canvas').prepend('<img id="planetDestination"/>');
-        $('.canvas').prepend('<img id="hint"/>');
+        $('.canvas').prepend('<img id="rocketman"/>')
+                    .prepend('<img id="planetMetal"/>')
+                    .prepend('<img id="planetFire"/>')
+                    .prepend('<img id="planetDestination"/>')
+                    .prepend('<img id="hint"/>');
         
         //for resetting position of rocket - value will change depending on level
         rocketMarginLeft = '27.4%';
@@ -48,7 +53,8 @@ function chooseLevel(){
         //defining the rocket coordinates
         rocketX = 150;
         rocketY = 450;
-        
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
         insertDOMandCSS1();
     }
     
@@ -71,17 +77,17 @@ function chooseLevel(){
         
         // map 2 selected
         // next step: insert img tags for lvl 2
-        $('.canvas').prepend('<img id="hint"/>');
-        $('.canvas').prepend('<img id="planetIce" class="planetIce_3"/>');
-        $('.canvas').prepend('<img id="planetIce" class="planetIce_2"/>');
-        $('.canvas').prepend('<img id="planetIce" class="planetIce_1"/>');
-        $('.canvas').prepend('<img id="planetEarth"/>');
-        $('.canvas').prepend('<img id="planetDestination"/>');
-        $('.canvas').prepend('<img id="planetFire"/>');
-        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_3"/>');
-        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_2"/>');
-        $('.canvas').prepend('<img id="planetMetal" class="planetMetal_1"/>');
-        $('.canvas').prepend('<img id="rocketman"/>');
+        $('.canvas').prepend('<img id="hint"/>')
+                    .prepend('<img id="planetIce" class="planetIce_3"/>')
+                    .prepend('<img id="planetIce" class="planetIce_2"/>')
+                    .prepend('<img id="planetIce" class="planetIce_1"/>')
+                    .prepend('<img id="planetEarth"/>')
+                    .prepend('<img id="planetDestination"/>')
+                    .prepend('<img id="planetFire"/>')
+                    .prepend('<img id="planetMetal" class="planetMetal_3"/>')
+                    .prepend('<img id="planetMetal" class="planetMetal_2"/>')
+                    .prepend('<img id="planetMetal" class="planetMetal_1"/>')
+                    .prepend('<img id="rocketman"/>');
         
         //for resetting position of rocket - value will change depending on level
         rocketMarginLeft = '36.4%';
@@ -90,7 +96,8 @@ function chooseLevel(){
         //defining the rocket coordinates
         rocketX = 200;
         rocketY = 500;
-        
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
         insertDOMandCSS2();    
     }
 }
@@ -99,8 +106,7 @@ function chooseLevel(){
 function insertDOMandCSS1() {
     // a function to load DOM and CSS elements based on map.
 
-    $('#planetFire').attr('src', 'planet_fire.png');
-    $('#planetFire').css({
+    $('#planetFire').attr('src', 'planet_fire.png').css({
         'position': 'absolute',
         'margin-left': '27.4%',
         'margin-top': '36.5%',
@@ -108,8 +114,7 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    $('#planetMetal').attr('src', 'planet_metal.png');
-    $('#planetMetal').css({
+    $('#planetMetal').attr('src', 'planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '54.6%',
         'margin-top': '72.75%',
@@ -117,8 +122,7 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    $('#planetDestination').attr('src', 'planet_destination.png');
-    $('#planetDestination').css({
+    $('#planetDestination').attr('src', 'planet_destination.png').css({
         'position': 'absolute',
         'margin-left': '42%',
         'margin-top': '0%',
@@ -127,8 +131,7 @@ function insertDOMandCSS1() {
         'transform': 'rotate(30deg)'
     });
 
-    $('#rocketman').attr('src', 'spaceship_pink.png');
-    $('#rocketman').css({
+    $('#rocketman').attr('src', 'spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -136,8 +139,7 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    $("#hint").attr("src", "hint.png");
-    $("#hint").css({
+    $("#hint").attr("src", "hint.png").css({
         'position': 'absolute',
         'margin-left': '90.5%'
     });
@@ -145,8 +147,7 @@ function insertDOMandCSS1() {
 
 // Insert DOM and CSS for map 2
 function insertDOMandCSS2(){
-    $('#rocketman').attr('src', 'spaceship_pink.png');
-    $('#rocketman').css({
+    $('#rocketman').attr('src', 'spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -154,8 +155,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetMetal_1').attr('src', 'planet_metal.png');
-    $('.planetMetal_1').css({
+    $('.planetMetal_1').attr('src', 'planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '18.2%',
         'margin-top': '63.7%',
@@ -163,8 +163,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetMetal_2').attr('src', 'planet_metal.png');
-    $('.planetMetal_2').css({
+    $('.planetMetal_2').attr('src', 'planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '27.3%',
         'margin-top': '63.7%',
@@ -172,8 +171,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetMetal_3').attr('src', 'planet_metal.png');
-    $('.planetMetal_3').css({
+    $('.planetMetal_3').attr('src', 'planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '36.4%',
         'margin-top': '63.7%',
@@ -181,8 +179,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('#planetFire').attr('src', 'planet_fire.png');
-    $('#planetFire').css({
+    $('#planetFire').attr('src', 'planet_fire.png').css({
         'position': 'absolute',
         'margin-left': '27.4%',
         'margin-top': '45.55%',
@@ -190,8 +187,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('#planetDestination').attr('src', 'planet_destination.png');
-    $('#planetDestination').css({
+    $('#planetDestination').attr('src', 'planet_destination.png').css({
         'position': 'absolute',
         'margin-left': '60.5%',
         'margin-top': '0%',
@@ -200,8 +196,7 @@ function insertDOMandCSS2(){
         'transform': 'rotate(30deg)'
     });
     
-    $('#planetEarth').attr('src', 'planet_earth.png');
-    $('#planetEarth').css({
+    $('#planetEarth').attr('src', 'planet_earth.png').css({
         'position': 'absolute',
         'margin-left': '63.75%',
         'margin-top': '45.55%',
@@ -209,8 +204,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetIce_1').attr('src', 'planet_ice.png');
-    $('.planetIce_1').css({
+    $('.planetIce_1').attr('src', 'planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '45.6%',
         'margin-top': '27.4%',
@@ -218,8 +212,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetIce_2').attr('src', 'planet_ice.png');
-    $('.planetIce_2').css({
+    $('.planetIce_2').attr('src', 'planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '54.6%',
         'margin-top': '27.4%',
@@ -227,8 +220,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $('.planetIce_3').attr('src', 'planet_ice.png');
-    $('.planetIce_3').css({
+    $('.planetIce_3').attr('src', 'planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '63.7%',
         'margin-top': '27.4%',
@@ -236,8 +228,7 @@ function insertDOMandCSS2(){
         'max-width': '9%'
     });
     
-    $("#hint").attr("src", "hint.png");
-    $("#hint").css({
+    $("#hint").attr("src", "hint.png").css({
         'position': 'absolute',
         'margin-left': '90.5%'
     });
@@ -260,7 +251,7 @@ function findRocketPosition() {
 var rocketPosition = findRocketPosition();
 
 //storing original index position array in const array
-const originalRocketIndex = rocketPosition;
+var originalRocketIndex = rocketPosition;
 
 // get height and width of the map
 var mapHeight = map.length;
@@ -310,8 +301,8 @@ var levelMoves = 10;
 var rocketAnimate = $("#rocketman");
 
 //storing original coordinates in constant variable
-const rocketX1 = rocketX;
-const rocketY1 = rocketY;
+// const rocketX1 = rocketX;
+// const rocketY1 = rocketY;
 
 // Added images to represent space, planets etc
 var black = new Image;
@@ -415,6 +406,7 @@ $("#functiontwo").click(function () {
 });
 
 
+
 //moving the rocket
 function movementFunction() {
     var something = -1; //using this variable to increment so that each image will have an individual id name
@@ -424,7 +416,7 @@ function movementFunction() {
         //if statement so that users can only add certain number of moves in the algorithm
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="20%" height="20%" />'); //drawing image
+            $(classSelect).append('<img src="right.png" id = "rightAlgorithm" alt = "Right arrow" width="20%" height="20%" class="added"/>'); //drawing image
             var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something); //unique id name for each image
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
@@ -438,7 +430,7 @@ function movementFunction() {
     left.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="20%" height="20%" />');
+            $(classSelect).append('<img src="left.png" id = "leftAlgorithm" alt = "Left arrow" width="20%" height="20%" class="added"/>');
             var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something);
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
@@ -450,7 +442,7 @@ function movementFunction() {
     up.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="20%" height="20%" />');
+            $(classSelect).append('<img src="up.png" id = "upAlgorithm" alt = "Up arrow" width="20%" height="20%" class="added"/>');
             var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something);
             var upPush = "up" + something;
             arraySelect.push(upPush);
@@ -462,7 +454,7 @@ function movementFunction() {
     down.click(function () {
         if (arraySelect.length < levelMoves) {
             something++;
-            $(classSelect).append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="20%" height="20%" />');
+            $(classSelect).append('<img src="down.png" id = "downAlgorithm" alt = "Down arrow" width="20%" height="20%" class="added"/>');
             var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something);
             var downPush = "down" + something;
             arraySelect.push(downPush);
@@ -477,7 +469,7 @@ function movementFunction() {
 
             if (arraySelect === algorithm) {
                 something++;
-                $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
+                $(classSelect).append('<img src="functionTwo.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" class="added"/>');
                 var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
 
                 /*
@@ -654,7 +646,10 @@ function runButton() {
             if (!rocketAnimate.is(':animated')) {
 
                 //rocket goes back in original position
-                originalPos();
+                if(algorithm.length > 0){
+                    originalPos();
+                }
+                
 
                 for (var x in algorithm) {
 
@@ -821,6 +816,53 @@ function moveUp() {
 
 }
 
+function loadNewLevel(){
+                // temporary test to change level
+                $('.canvas > img').remove();
+                $('.algorithm > .added').remove();
+                $('.functions > .added').remove();
+                
+                // change from level one to level two:
+                if(currentLevel === 1){
+                    currentLevel = 2;
+                }else if (currentLevel === 2){
+                    currentLevel = 1;
+                }
+                
+                // make new level
+                chooseLevel();
+                makeGame();
+                // update rocket position for new map
+                rocketPosition = findRocketPosition();
+                
+                //storing original index position array in const array
+                originalRocketIndex = rocketPosition;
+                
+                //array for storing movement of rocket
+                movement = [];
+
+                //the main array/algorithm the user creates
+                algorithm = [];
+
+                //the secondary array that the user creates which they can use inside the main one
+                functionTwo = [];
+                
+                rocketAnimate = $("#rocketman");
+                
+                movementObject = {
+                    x: rocketX,
+                    y: rocketY
+                };
+                console.log("The current coordinates are: " + movementObject.x, movementObject.y);
+                
+                startState();
+                clickElements();
+                
+                arraySelect = [];
+                loss, victory, moveCounter = 0;
+}
+
+
 var SWalAlertCall = function () {
     moveCounter++;
 
@@ -840,9 +882,12 @@ var SWalAlertCall = function () {
                     type: 'error',
                     title: 'You Lose!',
                     text: 'Your rocket has collided with a planet!'
-
                 });
-                setTimeout(location.reload.bind(location), 3000);
+                // setTimeout(location.reload.bind(location), 3000);
+                // temporary test to change level
+                setTimeout(loadNewLevel, 3000);
+                
+                
             } else if (victory == 1) {
                 Swal.fire({
                     position: 'center-start',
@@ -850,14 +895,16 @@ var SWalAlertCall = function () {
                     title: 'You Win!',
                     text: 'Your rocket has escaped this sector!'
                 });
-                setTimeout(location.reload.bind(location), 3000);
-
+                // setTimeout(location.reload.bind(location), 3000);
+                // temporary test to change level
+                setTimeout(loadNewLevel, 3000);
+                
             }
         }, 175);
     }
 };
 
-const oldFunction = SWalAlertCall;
+var oldFunction = SWalAlertCall;
 
 // a function to save the entered algorithm
 
@@ -876,3 +923,6 @@ save.click(function () {
 startState();
 movementFunction();
 clickElements();
+
+
+
