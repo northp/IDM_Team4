@@ -1,16 +1,20 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 2;
+var currentLevel = 1;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
 var rocketMarginTop;
+
 //defining the rocket coordinates
 var rocketX = 150;
 var rocketY = 450;
 
 var map = [];
+
+
+chooseLevel();
 
 //jQuery access various elements
 var rocketAnimate = $("#rocketman"); //rocket
@@ -23,11 +27,22 @@ var modalTitle = $("#title");
 var modalImage = $("#modalImage");
 var modalNext = $("#next");
 
-  
-chooseLevel();
-    
-function chooseLevel(){    
-    if (currentLevel === 1){
+//jQuery accessing arrows
+var right = $("#right");
+var left = $("#left");
+var up = $("#up");
+var down = $("#down");
+var functTwoSelect = $("#functiontwoselect");
+var run = $("#run");
+
+//DOM accessing modal
+var modal = document.getElementById("myModal");
+var span = document.getElementsByClassName("close")[0];
+
+
+
+function chooseLevel() {
+    if (currentLevel === 1) {
         //level 1 map
         map = [
             [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -41,30 +56,30 @@ function chooseLevel(){
             [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
-        
-        
+
+
         // map 1 selected
         // next step: insert img tags
-        
+
         $('.canvas').prepend('<img id="rocketman"/>');
         $('.canvas').prepend('<img id="planetMetal"/>');
         $('.canvas').prepend('<img id="planetFire"/>');
         $('.canvas').prepend('<img id="planetDestination"/>');
         $('.canvas').prepend('<img id="hint"/>');
-        
+
         //for resetting position of rocket - value will change depending on level
         rocketMarginLeft = '27.4%';
         rocketMarginTop = '72.75%';
-        
+
         //defining the rocket coordinates
         rocketX = 150;
         rocketY = 450;
-        
+
         insertDOMandCSS1();
     }
-    
+
     // if level 2:
-    if (currentLevel === 2){
+    if (currentLevel === 2) {
         //level 2 map
         map = [
             [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
@@ -78,8 +93,8 @@ function chooseLevel(){
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ];
-        
-        
+
+
         // map 2 selected
         // next step: insert img tags for lvl 2
         $('.canvas').prepend('<img id="hint"/>');
@@ -93,16 +108,16 @@ function chooseLevel(){
         $('.canvas').prepend('<img id="planetMetal" class="planetMetal_2"/>');
         $('.canvas').prepend('<img id="planetMetal" class="planetMetal_1"/>');
         $('.canvas').prepend('<img id="rocketman"/>');
-        
+
         //for resetting position of rocket - value will change depending on level
         rocketMarginLeft = '36.4%';
         rocketMarginTop = '81.75%';
-        
+
         //defining the rocket coordinates
         rocketX = 200;
         rocketY = 500;
-        
-        insertDOMandCSS2();    
+
+        insertDOMandCSS2();
     }
 }
 
@@ -114,8 +129,8 @@ function insertDOMandCSS1() {
     // Later we need to change these hard values to variables which will change depending on which map is loaded.
     // for example, var planetFireBottom could be created and assigned a string value '253px' for one map at the asterix below, but this value would change for another map
 
-    planetFire.attr('src', 'planet_fire.png');
-    planetFire.css({
+    $("#planetFire").attr('src', 'planet_fire.png');
+    $("#planetFire").css({
 
         'position': 'absolute',
         'margin-left': '27.4%',
@@ -124,8 +139,8 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    planetMetal.attr('src', 'planet_metal.png');
-    planetMetal.css({
+    $("#planetMetal").attr('src', 'planet_metal.png');
+    $("#planetMetal").css({
         'position': 'absolute',
         'margin-left': '54.6%',
         'margin-top': '72.75%',
@@ -133,8 +148,8 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    planetDestination.attr('src', 'planet_destination.png');
-    planetDestination.css({
+    $("#planetDestination").attr('src', 'planet_destination.png');
+    $("#planetDestination").css({
         'position': 'absolute',
         'margin-left': '42%',
         'margin-top': '0%',
@@ -143,8 +158,8 @@ function insertDOMandCSS1() {
         'transform': 'rotate(30deg)'
     });
 
-    rocketAnimate.attr('src', 'spaceship_pink.png');
-    rocketAnimate.css({
+    $("#rocketman").attr('src', 'spaceship_pink.png');
+    $("#rocketman").css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -152,15 +167,15 @@ function insertDOMandCSS1() {
         'max-width': '9%'
     });
 
-    hint.attr("src", "hint.png");
-    hint.css({
+    $("#hint").attr("src", "hint.png");
+    $("#hint").css({
         'position': 'absolute',
         'margin-left': '90.5%'
     });
 }
 
 // Insert DOM and CSS for map 2
-function insertDOMandCSS2(){
+function insertDOMandCSS2() {
     $('#rocketman').attr('src', 'spaceship_pink.png');
     $('#rocketman').css({
         'position': 'absolute',
@@ -169,7 +184,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetMetal_1').attr('src', 'planet_metal.png');
     $('.planetMetal_1').css({
         'position': 'absolute',
@@ -178,7 +193,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetMetal_2').attr('src', 'planet_metal.png');
     $('.planetMetal_2').css({
         'position': 'absolute',
@@ -187,7 +202,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetMetal_3').attr('src', 'planet_metal.png');
     $('.planetMetal_3').css({
         'position': 'absolute',
@@ -196,16 +211,16 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
-    $('#planetFire').attr('src', 'planet_fire.png');
-    $('#planetFire').css({
+
+    $("#planetFire").attr('src', 'planet_fire.png');
+    $("#planetFire").css({
         'position': 'absolute',
         'margin-left': '27.4%',
         'margin-top': '45.55%',
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('#planetDestination').attr('src', 'planet_destination.png');
     $('#planetDestination').css({
         'position': 'absolute',
@@ -215,7 +230,7 @@ function insertDOMandCSS2(){
         'max-width': '15%',
         'transform': 'rotate(30deg)'
     });
-    
+
     $('#planetEarth').attr('src', 'planet_earth.png');
     $('#planetEarth').css({
         'position': 'absolute',
@@ -224,7 +239,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetIce_1').attr('src', 'planet_ice.png');
     $('.planetIce_1').css({
         'position': 'absolute',
@@ -233,7 +248,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetIce_2').attr('src', 'planet_ice.png');
     $('.planetIce_2').css({
         'position': 'absolute',
@@ -242,7 +257,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('.planetIce_3').attr('src', 'planet_ice.png');
     $('.planetIce_3').css({
         'position': 'absolute',
@@ -251,7 +266,7 @@ function insertDOMandCSS2(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $("#hint").attr("src", "hint.png");
     $("#hint").css({
         'position': 'absolute',
@@ -305,18 +320,6 @@ var ctx = canvas.getContext("2d");
 // var styleLeft = "150px";
 // var styleBottom = "50px";
 
-//jQuery accessing arrows
-var right = $("#right");
-var left = $("#left");
-var up = $("#up");
-var down = $("#down");
-var functTwoSelect = $("#functiontwoselect");
-var run = $("#run");
-
-//DOM accessing modal
-var modal = document.getElementById("myModal");
-var span = document.getElementsByClassName("close")[0];
-
 
 
 
@@ -327,7 +330,6 @@ var levelMoves = 10;
 // moved to level checker at line 35
 // var rocketX = 150;
 // var rocketY = 450;
-
 
 
 //storing original coordinates in constant variable
@@ -359,6 +361,7 @@ lava.src = "planet_lava.png";
 var xPosition, yPosition = 0;
 
 
+//if statements below redundant since images are being drawn with DOM anyway?
 //drawing the canvas
 function makeGame() {
 // assigning the map array to the canvas to draw a board
@@ -369,21 +372,23 @@ function makeGame() {
             } else if (map[i][j] === 1) {
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 2) {
-                ctx.drawImage(fire, xPosition, yPosition, 50, 50);
+                //ctx.drawImage(fire, xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 3) {
-                ctx.drawImage(metal, xPosition, yPosition, 50, 50);
+                //ctx.drawImage(metal, xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 4) {
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
-            }else if (map[i][j] === 5) {
+            } else if (map[i][j] === 5) {
                 ctx.drawImage(ice, xPosition, yPosition, 50, 50);
-            }else if (map[i][j] === 6) {
+            } else if (map[i][j] === 6) {
                 ctx.drawImage(earth, xPosition, yPosition, 50, 50);
-            }else if (map[i][j] === 7) {
+            } else if (map[i][j] === 7) {
                 ctx.drawImage(moon, xPosition, yPosition, 50, 50);
-            }else if (map[i][j] === 8) {
+            } else if (map[i][j] === 8) {
                 ctx.drawImage(lava, xPosition, yPosition, 50, 50);
             }
-            
+
             xPosition = xPosition + 50;
         }
         yPosition = yPosition + 50;
@@ -394,7 +399,10 @@ function makeGame() {
 
 $(document).ready(function () {
     initialise();
-    //setTimeout(welcome, 750);
+
+    if (currentLevel === 1) {
+        setTimeout(instructions, 750);
+    }
     //insertDOMandCSS1();
 
 });
@@ -569,14 +577,16 @@ function clickElements() {
         modalTitle.text("Hint").css("font-weight", "bold");
         modalImage.attr("src", "");
         modalNext.attr("src", "");
+        $("#point").hide();
     });
 
     planetFire.click(function () {
         modal.style.display = "block";
         modalImage.attr("src", "planet_fire.png").css("height", "5%", "width", "5%");
-        modalImage.text("Fire");
+        modalText.text("Fire");
         modalTitle.text("Planet").css("font-weight", "bold");
         modalNext.attr("src", "");
+        $("#point").hide();
     });
 
     planetMetal.click(function () {
@@ -585,6 +595,7 @@ function clickElements() {
         modalText.text("Metal");
         modalTitle.text("Planet").css("font-weight", "bold");
         modalNext.attr("src", "");
+        $("#point").hide();
     });
 
     planetDestination.click(function () {
@@ -593,6 +604,7 @@ function clickElements() {
         modalText.text("This is your destination!");
         modalTitle.text("Planet").css("font-weight", "bold");
         modalNext.attr("src", "");
+        $("#point").hide();
     });
 
     rocketAnimate.click(function () {
@@ -601,6 +613,7 @@ function clickElements() {
         modalText.text("Move the rocket to its destination by using the arrow keys below.");
         modalTitle.text("Rocket").css("font-weight", "bold");
         modalNext.attr("src", "");
+        $("#point").hide();
     });
 
 // When the user clicks on <span> (x), close the modal
@@ -623,7 +636,7 @@ function originalPos() {
     //resetting the rocket to its default position
     rocketAnimate.css({
         // need to change to variables later
-        
+
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop
 
@@ -734,11 +747,11 @@ function runButton() {
                     console.log(algorithm);
                 }
 
-
+                moveCounter = 0;
             }
 
 
-            moveCounter = 0;
+
 
         }
     );
@@ -871,8 +884,8 @@ var SWalAlertCall = function () {
                     title: 'You Win!',
                     text: 'Your rocket has escaped this sector!'
                 });
-                setTimeout(location.reload.bind(location), 3000);
 
+                setTimeout(location.reload.bind(location),  3000);
             }
         }, 175);
     }
@@ -899,17 +912,19 @@ startState();
 movementFunction();
 clickElements();
 
-
-function welcome() {
-
+function instructions() {
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            //modal.style.display = "none";
+        }
+    };
+    var arrowModal = false;
+    var runModal = false;
 
     modal.style.display = "block";
-
-    //$("#modal").css("background-color", "yellow");
-
     modalImage.attr("src", "icon.png");
-    modalText.text("Your goal is to get the rocket to its destination by avoiding any obstacles in the way.");
     modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
+    modalText.text("Your goal is to get the rocket to its destination by avoiding any obstacles in the way.");
     modalNext.attr("src", "next.png").css("height", "30%", "width", "30%");
     modalNext.click(function () {
         // modalImage.attr("src", "icon.png");
@@ -918,29 +933,43 @@ function welcome() {
         modalNext.attr("src", "next.png").css("height", "30%", "width", "30%");
 
         $("#point").attr("src", "point.png").css({
-            "height": "20%", "width": "20%", "margin-left": "10%", "margin-top": "3%",
+            "height": "20%", "width": "20%", "margin-left": "10%", "margin-top": "60%",
             "animation": "bouncearrow 1s infinite"
         });
         modalNext.click(function () {
-            modal.style.display = "none";
-        });
+            modal.style.display = "none";});
 
-        right.add(left, up, down).one("click", function() {
-            modal.style.display = "block";
-            modalText.text("Well done. Once you click the arrows they go below into the function section. These commands will tell the rocket where to go.");
-            $("#point").css({"transform": "rotate(-45deg)", "margin-left": "30%"});
-            modalNext.click(function () {
+            right.add(left).add(up).add(down).one("click", function () {
+                if (arrowModal === false) {
+                    arrowModal = true;
+                    modal.style.display = "block";
+                    modalText.text("Well done. Once you click the arrows they go below into the function section. These commands will tell the rocket where to go.");
+                    $("#point").css({"transform": "rotate(-45deg)", "margin-left": "30%"});
+                }
+                modalNext.click(function () {
+                    modal.style.display = "block";
+                    $("#point").css({"margin-left": "5%", "margin-top": "85%"});
+                    modalText.text("Now, hit the play button below and see what happens!");
+                })
+            });
+
+
+        run.click(function () {
+            setTimeout(function() {
+            if (runModal === false) {
+                runModal = true;
                 modal.style.display = "block";
-                $("#point").css({"margin-left": "5%", "margin-top": "20%"});
-                modalText.text("Once you are happy with the arrows you've selected, hit the play button below and see what happens!");
-            })
+                $("#point").css({"transform": "rotate(90deg", "margin-left": "55%", "margin-top": "10%"});
+                modalText.text("Well done! You moved the rocket. Now, make a list of commands that moves the rocket toward the destination planet!");
+            } },400);
 
-        });
-
-
+            window.onclick = function (event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        })
     });
 
 
 }
-
-
