@@ -377,6 +377,9 @@ moon.src = "planet_moon.png";
 var lava = new Image;
 lava.src = "planet_lava.png";
 
+var background = new Image;
+background.src = "playfiled bg.png";
+
 var xPosition, yPosition = 0;
 
 
@@ -386,22 +389,32 @@ function makeGame() {
     for (var i in map) {
         for (var j in map[i]) {
             if (map[i][j] === 0) {
+                ctx.globalAlpha = 0.1;
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 2) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(fire, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 3) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(metal, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 4) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 5) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(ice, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 6) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(earth, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 7) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(moon, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 8) {
+                ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(lava, xPosition, yPosition, 50, 50);
             }
 
@@ -1046,5 +1059,4 @@ function instructions() {
         })
     });
 }
-
 
