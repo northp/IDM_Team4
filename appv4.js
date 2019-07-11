@@ -377,8 +377,8 @@ moon.src = "planet_moon.png";
 var lava = new Image;
 lava.src = "planet_lava.png";
 
-var background = new Image;
-background.src = "playfiled bg.png";
+// var background = new Image;
+// background.src = "playfiled bg.png";
 
 var xPosition, yPosition = 0;
 
