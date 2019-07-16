@@ -383,6 +383,9 @@ lava.src = "planet_lava.png";
 var xPosition, yPosition = 0;
 
 
+
+
+
 //drawing the canvas
 function makeGame() {
 // assigning the map array to the canvas to draw a board
@@ -774,6 +777,16 @@ function runButton() {
     );
 }
 
+// test for sound
+// var rMove = new Audio("pop.wav");// TestSound
+// rMove.loop = false;// TestSound
+
+// var rVictory = new Audio("victory.wav");// TestSound
+// rVictory.loop = false;// TestSound
+
+// var rLoss = new Audio("loss.wav");// TestSound
+// rLoss.loop = false;// TestSound
+
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
         $rocketAnimate.animate({'margin-left': "+=0%"}, "fast", SWalAlertCall);
@@ -922,6 +935,7 @@ var SWalAlertCall = function () {
     moveCounter++;
 
     console.log(moveCounter);
+    // rMove.play(); // TestSound
 
     //if it's not a loop
     //if F2 is in the algorithm array
@@ -952,6 +966,7 @@ var SWalAlertCall = function () {
 
 function lossAndVictory() {
     if (loss == 1) {
+        // rLoss.play(); //TestSound
         Swal.fire({
             position: 'center-start',
             type: 'error',
@@ -963,6 +978,7 @@ function lossAndVictory() {
         //setTimeout(loadNewLevel, 3000);
     }
     if (victory == 1) {
+        // rVictory.play(); // TestSound
         Swal.fire({
             position: 'center-start',
             type: 'success',
