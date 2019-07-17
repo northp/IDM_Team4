@@ -357,7 +357,7 @@ var levelMoves;
 
 // Added images to represent space, planets etc
 var black = new Image;
-black.src = "black.png";
+black.src = "img/playfield/black.png";
 
 var ice = new Image;
 ice.src = "img/playfield/planets/planet_ice.png";
