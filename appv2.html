@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Summer Project</title>
-    <link rel="stylesheet" type="text/css" href="app.css">
+    <title>Space Navigation</title>
+    <link rel="stylesheet" type="text/css" href="css/app.css">
 
     <script
             src="http://code.jquery.com/jquery-3.4.1.min.js"
@@ -15,7 +15,7 @@
 
     <!-- <script src="appv2.js" defer></script> -->
     <!-- <script src="appv3.js" defer></script> -->
-    <script src="appv4.js" defer></script>
+    <script src="js/appv4.js" defer></script>
 
 
 </head>
@@ -33,7 +33,7 @@
     <!-- <img id="planetMetal"> -->
     <!-- <img id="rocketman" alt="An image of a rocket."> -->
 
-        <canvas id="myCanvas" height="500" width="550" style="background: url('playfiled bg.png')">
+        <canvas id="myCanvas" height="500" width="550">
         </canvas>
 
     </div>
@@ -42,24 +42,49 @@
     <div class="arrows">
         <div id="commands">
             <div>
-                <img id="right" src="right.png" alt="Right arrow">
+                <div class="up-button">
+                        <span id="up" class="dot-up"></span>
+                </div>
+
+                <div class="righ-left-button">
+                        <span id="left" class="dot-left"></span>
+                        <span id="right" class="dot-right"></span>
+                </div>
+                <div class="down-button">
+                        <span id="down" class="dot-down"></span>
+                </div>
+             
+             <!--    <img id="right" src="right.png" alt="Right arrow"> 
                 <img id="left" src="left.png" alt="Left arrow">
                 <img id="up" src="up.png" alt="Up arrow">
-                <img id="down" src="down.png" alt="Down arrow">
-                <img id="functiontwoselect" src="functionTwo.png" alt="F2">
+                <img id="down" src="down.png" alt="Down arrow">-->
+<!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
                 <img id="run" src="play.png" alt="Run button">
                 <img id="save" src="save.png" alt="Save button">
-                <img id="stop" src="stop.png" alt="Stop button">
+                <img id="stop" src="stop.png" alt="Stop button"> -->
 
             </div>
 
         </div>
 
         <div class="algorithm">
-            <img id="mainfunction" src="functionOne.png" alt="F1"><br>
+            <div class="play-button" id="run"></div>
+            <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
+            <div class="algo-space"></div>
+            <div class="algos">
+                    <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button">
+            </div>
+<!--             <img id="mainfunction" src="functionOne.png" alt="F1"><br> -->
         </div>
         <div class="functions">
-            <img id="functiontwo" src="functionTwo.png" alt="F2"><br>
+            <div class="function-button" id="functiontwo">ALGORITHM VIEW </div>
+            <div class="func-space"></div>
+            <div class="save-button" id="save">SAVE</div>
+<!--             <img id="functiontwo" src="functionTwo.png" alt="F2"><br> -->
+        </div>
+        <div class="side-navigation">
+            <a href="landingpage.html"><span class="dot-home"></span></a>
+            <span class="dot-help" id="hint"></span>
         </div>
     </div>
 
