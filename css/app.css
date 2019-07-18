@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    background: url('/Users/ngyn/Desktop/IDM_Team4/img/playfield/playfield_advance.png');
+    background: url("../img/playfield/playfield_advance.png");
     background-size: contain
 }
 

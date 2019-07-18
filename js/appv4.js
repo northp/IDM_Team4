@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 1;
+var currentLevel = 0;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -26,6 +26,48 @@ var functionTwoLevelMoves;
 chooseLevel();
 
 function chooseLevel() {
+    if (currentLevel === 0) {
+        //level 0 map
+        map = [
+            [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+
+
+        // map 0 selected
+        // next step: insert img tags
+
+        $('.canvas')
+            .prepend('<img id="rocketman"/>')
+            .prepend('<img id="planetDestination"/>');
+
+        jQueryVariables(); //calling function that puts above img elements into variables
+
+        //for resetting position of rocket - value will change depending on level
+        rocketMarginLeft = '45.5%';
+        rocketMarginTop = '55%';
+
+        //number of moves you can make
+        algorithmLevelMoves = 10;
+        functionTwoLevelMoves = 4;
+
+        //defining the rocket coordinates
+        rocketX = 250;
+        rocketY = 350;
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
+        insertDOMandCSS0();
+        //setTimeout(instructions, 750); //instructions
+    }
+
     if (currentLevel === 1) {
         //level 1 map
         map = [
@@ -45,11 +87,12 @@ function chooseLevel() {
         // map 1 selected
         // next step: insert img tags
 
-        $('.canvas').prepend('<img id="rocketman"/>')
+        $('.canvas')
+            .prepend('<img id="rocketman"/>')
             .prepend('<img id="planetMetal"/>')
             .prepend('<img id="planetFire"/>')
             .prepend('<img id="planetDestination"/>')
-           /*  .prepend('<img id="hint"/>') */;
+        /*  .prepend('<img id="hint"/>') */;
 
         jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -165,6 +208,29 @@ var $functionTwoIcon = $("#functiontwo");
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
 
+
+function insertDOMandCSS0() {
+    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1'
+    });
+
+    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
+        'position': 'absolute',
+        'margin-left': '42%',
+        'margin-top': '0%',
+        'max-height': 'auto',
+        'max-width': '15%',
+        'transform': 'rotate(30deg)'
+    });
+
+}
+
+
 // below function loads DOM and CSS for map 1 only
 function insertDOMandCSS1() {
     // a function to load DOM and CSS elements based on map.
@@ -203,10 +269,10 @@ function insertDOMandCSS1() {
         'z-index': '1'
     });
 
-/*     $hint.attr("src", "hint.png").css({
-        'position': 'absolute',
-        'margin-left': '90.5%'
-    }); */
+    /*     $hint.attr("src", "hint.png").css({
+            'position': 'absolute',
+            'margin-left': '90.5%'
+        }); */
 }
 
 // Insert DOM and CSS for map 2
@@ -293,10 +359,10 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-/*     $hint.attr("src", "hint.png").css({
-        'position': 'absolute',
-        'margin-left': '90.5%'
-    }); */
+    /*     $hint.attr("src", "hint.png").css({
+            'position': 'absolute',
+            'margin-left': '90.5%'
+        }); */
 }
 
 // function to find rocket index (value 4 in the array).
@@ -357,7 +423,7 @@ var levelMoves;
 
 // Added images to represent space, planets etc
 var black = new Image;
-black.src = "black.png";
+black.src = "img/playfield/black.png";
 
 var ice = new Image;
 ice.src = "img/playfield/planets/planet_ice.png";
@@ -381,9 +447,6 @@ lava.src = "img/playfield/planets/planet_lava.png";
 // background.src = "playfiled bg.png";
 
 var xPosition, yPosition = 0;
-
-
-
 
 
 //drawing the canvas
@@ -432,9 +495,6 @@ function makeGame() {
 $(document).ready(function () {
     initialise();
     //insertDOMandCSS1();
-    if (currentLevel === 1) {
-        setTimeout(instructions, 750);
-    }
 });
 
 function initialise() {
@@ -653,6 +713,8 @@ function clickElements() {
 //every time you hit run, the rocket will return back to its original position and go from there
 function originalPos() {
 
+    $rocketAnimate.attr("src","img/playfield/spaceship_pink.png");
+
     //reset animation
     //resetting the rocket to its default position
     $rocketAnimate.css({
@@ -678,8 +740,7 @@ function originalPos() {
 
 }
 
-var loss, victory = 0;
-var moveCounter = 0;
+var moveCounter = -1;
 
 var stopClicked = false;
 
@@ -687,37 +748,34 @@ function stopAnimation() {
     stopClicked = true;
 
     if (stopClicked === true) {
-        //debugged the alert coming up after stop was hit and run was hit again
-        if (loss !== 1 || victory !== 1) {
-
-            $rocketAnimate.stop(); //stop animating
-            originalPos(); //return to original position
-            SWalAlertCall = function () {
-                //empty function, does nothing
-            };
-            stopClicked = false;
-            console.log(moveCounter);
-            SWalAlertCall = oldFunction;
-        }
-
+        $rocketAnimate.stop(); //stop animating
+        originalPos(); //return to original position
+        SWalAlertCall = function () {
+            //empty function, does nothing
+        };
+        $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+        stopClicked = false;
+        console.log(moveCounter);
+        SWalAlertCall = oldFunction;
     }
 }
 
 function runButton() {
     $run.click(function () {
 
-            //reset loss and victory conditions
-            loss = 0;
-            victory = 0;
+            lossAndVictoryArray = [];
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
             //the rocket can go off canvas
             if (!$rocketAnimate.is(':animated')) {
 
+                originalPos();
+
+                /*
                 //rocket goes back in original position
                 if (algorithm.length > 0) {
                     originalPos();
-                }
+                }*/
 
 
                 for (var x in algorithm) {
@@ -775,7 +833,7 @@ function runButton() {
 
                     console.log(algorithm);
                 }
-                moveCounter = 0;
+                moveCounter = -1;
             }
         }
     );
@@ -791,9 +849,12 @@ function runButton() {
 // var rLoss = new Audio("loss.wav");// TestSound
 // rLoss.loop = false;// TestSound
 
+
+var lossAndVictoryArray = [];
+
 function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
-        $rocketAnimate.animate({'margin-left': "+=0%"}, "fast", SWalAlertCall);
+        $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
     } else {
         $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", SWalAlertCall);
         rocketX += 50;
@@ -801,14 +862,15 @@ function moveRight() {
 
     if (rocketPosition[1] < mapWidth - 1) {
         if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
-            loss = 1;
+            lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
-            victory = 1;
+            lossAndVictoryArray.push("win");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
             map[rocketPosition[0]][rocketPosition[1]] = temp;
             rocketPosition = findRocketPosition();
+            lossAndVictoryArray.push("run");
         }
     }
 }
@@ -816,7 +878,7 @@ function moveRight() {
 
 function moveDown() {
     if (rocketY >= canvas.height) {
-        $rocketAnimate.animate({'margin-top': "+=0%"}, "fast", SWalAlertCall);
+        $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
     } else {
         $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", SWalAlertCall);
         console.log(rocketY);
@@ -825,14 +887,15 @@ function moveDown() {
 
     if (rocketPosition[0] < mapHeight - 1) {
         if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
-            loss = 1;
+            lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
-            victory = 1;
+            lossAndVictoryArray.push("win");
         } else {
             var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
             map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
             map[rocketPosition[0]][rocketPosition[1]] = temp;
             rocketPosition = findRocketPosition();
+            lossAndVictoryArray.push("run");
         }
     }
 
@@ -841,7 +904,7 @@ function moveDown() {
 function moveLeft() {
     if (rocketX <= 0) {
         //edge of canvas - do nothing
-        $rocketAnimate.animate({'margin-left': "-=0%"}, "fast", SWalAlertCall);
+        $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
     } else {
         $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", SWalAlertCall);
         rocketX -= 50;
@@ -850,21 +913,22 @@ function moveLeft() {
 
     if (rocketPosition[1] > 0) {
         if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
-            loss = 1;
+            lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
-            victory = 1;
+            lossAndVictoryArray.push("win");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
             map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
             map[rocketPosition[0]][rocketPosition[1]] = temp;
             rocketPosition = findRocketPosition();
+            lossAndVictoryArray.push("run");
         }
     }
 }
 
 function moveUp() {
     if (rocketY <= tileHeight) {
-        $rocketAnimate.animate({'margin-top': "-=0%"}, "fast", SWalAlertCall);
+        $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
 
     } else {
         $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", SWalAlertCall);
@@ -874,14 +938,15 @@ function moveUp() {
 
     if (rocketPosition[0] > 0) {
         if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
-            loss = 1;
+            lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
-            victory = 1;
+            lossAndVictoryArray.push("win");
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
             map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
             map[rocketPosition[0]][rocketPosition[1]] = temp;
             rocketPosition = findRocketPosition();
+            lossAndVictoryArray.push("run");
         }
     }
 
@@ -890,11 +955,13 @@ function moveUp() {
 function loadNewLevel() {
     // temporary test to change level
     $('.canvas > img').remove();
-    $('.algorithm > .added').remove();
+    $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
 
     // change from level one to level two:
-    if (currentLevel === 1) {
+    if (currentLevel === 0) {
+        currentLevel = 1;
+    } else if (currentLevel === 1) {
         currentLevel = 2;
     } else if (currentLevel === 2) {
         currentLevel = 1;
@@ -915,6 +982,10 @@ function loadNewLevel() {
     //the secondary array that the user creates which they can use inside the main one
     functionTwo = [];
 
+    lossAndVictoryArray = [];
+
+    winCondition = false;
+
     $rocketAnimate = $("#rocketman");
 
     something = -1;
@@ -926,75 +997,70 @@ function loadNewLevel() {
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
 
     arraySelect = [];
-    loss = 0;
-    victory = 0;
-    moveCounter = 0;
+    moveCounter = -1;
 
     startState();
     clickElements();
 }
 
 
+var winCondition = false;
+
 var SWalAlertCall = function () {
+
     moveCounter++;
+    console.log("array: " + lossAndVictoryArray);
+    console.log("move: " + moveCounter);
 
-    console.log(moveCounter);
-    // rMove.play(); // TestSound
+    //checking to see whether the rocket has hit a planet
+    for (var i in lossAndVictoryArray) {
 
-    //if it's not a loop
-    //if F2 is in the algorithm array
-    if (functionTwo.length <= functionTwoLevelMoves) {
-        if (algorithm.indexOf(functionTwo) !== -1) {
-            if (moveCounter === algorithm.concat(functionTwo).length - 1) {
-                lossAndVictory();
-            }
+        if (lossAndVictoryArray[i] == "run") {
+
+            //do nothing
+
         }
 
-        //if it isn't
-        else {
-            if (moveCounter === algorithm.length) {
-                lossAndVictory();
-            }
-        }
-    }
+        if (lossAndVictoryArray[i] == "lose") {
+            if (moveCounter == i) {
+                // rLoss.play(); //TestSound
+                $rocketAnimate.stop();
+                $rocketAnimate.attr("src", "img/playfield/explosion.gif");
 
-    //if it's a loop
-    //need an edge detection condition here
-    else {
-        if (moveCounter === algorithm.concat(functionTwo.slice(0, 3)).length - 1) {
-            lossAndVictory();
-        }
-
-    }
-};
-
-function lossAndVictory() {
-    if (loss == 1) {
-        // rLoss.play(); //TestSound
-        Swal.fire({
+                /*
+                Swal.fire({
             position: 'center-start',
             type: 'error',
             title: 'You Lose!',
             text: 'Your rocket has collided with a planet!'
         });
-        //setTimeout(location.reload.bind(location), 3000);
-        // temporary test to change level
-        //setTimeout(loadNewLevel, 3000);
-    }
-    if (victory == 1) {
-        // rVictory.play(); // TestSound
-        Swal.fire({
-            position: 'center-start',
-            type: 'success',
-            title: 'You Win!',
-            text: 'Your rocket has escaped this sector!'
-        });
-        // setTimeout(location.reload.bind(location), 3000);
-        // temporary test to change level
-        setTimeout(loadNewLevel, 3000);
-    }
-}
+            setTimeout(location.reload.bind(location), 3000);
+                 */
+            }
+        }
 
+        if (lossAndVictoryArray[i] == "win") {
+            // rVictory.play(); // TestSound
+
+            if (moveCounter == i) {
+
+                if (winCondition === false) {
+                    winCondition = true; //"you won" alert only to come up once
+                    Swal.fire({
+                        position: 'center-start',
+                        type: 'success',
+                        title: 'You Win!',
+                        text: 'Your rocket has escaped this sector!'
+                    });
+                    // setTimeout(location.reload.bind(location), 3000);
+                    // temporary test to change level
+                    setTimeout(loadNewLevel, 3000);
+                }
+            }
+
+        }
+    }
+};
 
 var oldFunction = SWalAlertCall;
 
