@@ -687,7 +687,7 @@ function clickElements() {
 
     $rocketAnimate.click(function () {
         modal.style.display = "block";
-        $modalImage.attr("src", "img/playfield/planets/spaceship_pink.png").css("height", "10%", "width", "10%");
+        $modalImage.attr("src", "img/playfield/spaceship_pink.png").css("height", "10%", "width", "10%");
         $modalText.text("Move the rocket to its destination by using the arrow keys below.");
         $modalTitle.text("Rocket").css("font-weight", "bold");
         $modalNext.attr("src", "");
@@ -1087,10 +1087,10 @@ function instructions() {
     var runModal = false;
 
     modal.style.display = "block";
-    $modalImage.attr("src", "icon.png");
+    $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.text("Welcome to Space Academy!").css("font-weight", "bold");
     $modalText.text("Your goal is to get the rocket to its destination by avoiding any obstacles in the way.");
-    $modalNext.attr("src", "next.png").css("height", "30%", "width", "30%");
+    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalNext.click(function () {
         // modalImage.attr("src", "icon.png");
         $modalText.text("Click one of the arrows below to create a command.");
