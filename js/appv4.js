@@ -1024,7 +1024,11 @@ var SWalAlertCall = function () {
         if (lossAndVictoryArray[i] == "lose") {
             if (moveCounter == i) {
                 // rLoss.play(); //TestSound
-                $rocketAnimate.stop();
+
+                //stops the current animation and any animation that tries to takes place after (loops for the number of moves in the level)
+                for (var j = 0; j <= levelMoves; j++) {
+                    $rocketAnimate.stop();
+                }
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
 
                 /*
