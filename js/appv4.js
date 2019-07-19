@@ -204,6 +204,11 @@ var $stop = $("#stop");
 var $mainFunctionIcon = $("#mainfunction");
 var $functionTwoIcon = $("#functiontwo");
 
+//jQuery command display field
+var $algoSpace = $(".algo-space");
+var $funcSpace = $(".func-space");
+
+
 /*END OF JQUERY VARIABLES*/
 
 //DOM accessing modal
@@ -527,6 +532,27 @@ $functionTwoIcon.click(function () {
     $functionTwoIcon.css("font-weight", "bold");
     $mainFunctionIcon.css("color", "white"); //reset
     $mainFunctionIcon.css("font-weight", "") //reset 
+});
+
+$funcSpace.click(function () {
+    //update variable values that will be used in movementFunction()
+    arraySelect = functionTwo; //directions selected will be put into this array
+    classSelect = $(".func-space"); //images put into this class
+    levelMoves = functionTwoLevelMoves; //can only enter 4 moves
+    $functionTwoIcon.css("color", "#F5BC6C"); //highlight
+    $functionTwoIcon.css("font-weight", "bold");
+    $mainFunctionIcon.css("color", "white"); //reset
+    $mainFunctionIcon.css("font-weight", "") //reset 
+});
+
+$algoSpace.click(function () {
+    arraySelect = algorithm; //directions selected will be put into this array
+    classSelect = $(".algo-space"); //images put into this class
+    levelMoves = algorithmLevelMoves; //can only enter 10 moves
+    $mainFunctionIcon.css("color", "#F5BC6C"); //highlight
+    $mainFunctionIcon.css("font-weight", "bold"); //highlight
+    $functionTwoIcon.css("color", "white");
+    $functionTwoIcon.css("font-weight", "");
 });
 
 //begin game with the main function already clicked
