@@ -1,0 +1,254 @@
+body {
+    margin: auto;
+    background: url("../img/playfield/playfield_simple.png");
+    background-size: contain
+}
+
+
+
+/* #right,  #left, #up, #down, #run,#save,*/  #stop/* #hint  #functiontwoselect  #mainfunction,  #functiontwo */{
+    /* max-width: 3%; */
+    /* max-height: 3%; */
+    height: 10vw;
+    width: 10vw;
+
+}
+
+.canvas {
+    display: inline;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+#myCanvas {
+    width: 100%;
+    height: 100%;
+}
+
+/* ====== SPACESHIP CONTROL ====== */
+.arrows {
+    display: flex;
+    height: 42vw; /* percent of the viewport width */
+}
+
+.arrows > #commands {
+    width: 33.3%;
+    height: 65%;
+    margin-top: 14%
+
+}
+
+.arrows > .algorithm {
+    width: 33.3%;
+    margin-top: 2%
+
+}
+
+.arrows > .navigation {
+    width: 33.3%;
+
+}
+
+
+#commands, .algorithm, .navigation {
+    background-color: transparent;
+
+}
+
+/* ===== ARROW COMMANDS ===== */
+.dot-right, .dot-left, .dot-up, .dot-down {
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot-right {
+      margin-left: 22.5%;
+  }
+
+  .up-button, .down-button {
+      display: block;
+      margin-left: 35.5%;
+  }
+
+  .righ-left-button {
+      margin-left: 15%;
+  }
+
+  /* ===== MAIN PANEL ===== */
+.algo-button {
+    margin-top: 8%;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: white;
+}
+
+.algo-space {
+    width: 90%;
+    height: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%
+}
+
+.algo-space img {
+    margin-top: 10%;
+    margin-left: 8%;
+    width: 10%;
+    height: 10%
+}
+
+.play-button {
+    width: 70%;
+    height: 15%;
+    margin-left: auto;
+    margin-right: auto
+}
+
+#functiontwoselect {
+    width: 16%;
+    height: 16%;
+    margin-top: 10%
+}
+
+.algos {
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* ===== NAVIGATION ===== */
+
+.home-button {
+    width: 50%;
+    height: 10%;
+    margin-left: 28%;
+    margin-right: auto;
+    color: white;
+    text-align: center;
+    margin-top: 58%;
+    font-size: 18px
+}
+
+.help-button {
+    width: 50%;
+    height: 10%;
+    margin-left: 28%;
+    margin-right: auto;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 9%;
+ 
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: absolute; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+
+}
+
+/* Modal Content/Box */
+.modal-frame {
+    width: 60%;
+    height: 30%;
+    border: 5px solid #fab85b;
+    margin-top: 30%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.modal-content {
+    background-color: #fab85b;
+    /* centered */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3%;
+    padding: 2%;
+    border: 1px solid #888;
+    width: 90%;
+    height: 85%;
+    font-family: "Squada One", "cursive";
+}
+
+#title {
+    font-size: 24px;
+}
+
+#modalImage {
+    padding: 15px
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#next {
+    float:right;
+    margin-top: -5%
+
+}
+
+.close:hover,
+.close:focus {
+    color: #aaa;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+#point {
+    position: absolute;
+    z-index: 1;
+
+}
+
+@-webkit-keyframes bouncearrow{
+    0%{top: 0px;}
+    50%{top: 20px; color: #000000;}
+    100%{top: 0px;}
+}
+
+@keyframes bouncearrow{
+    0%{top: 0px;}
+    50%{top: 20px; color: #000000;}
+    100%{top: 0px;}
+}
+
+
+
+
+/*Phone*/
+@media only screen and (max-width: 600px) {
+
+}
+
+/*Tablet*/
+@media only screen and (min-width: 600px) {
+
+}
+
+/*Desktop*/
+@media only screen and (min-width: 768px) {
+
+
+}
+
+

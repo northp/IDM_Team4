@@ -178,10 +178,12 @@ var $planetDestination;
 var $planetEarth;
 var $rocketAnimate;
 var $hint;
+var $hintSimple;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
     $hint = $("#hint");
+    $hintSimple = $("#hintSimple");
     $planetEarth = $("#planetEarth");
     $planetDestination = $("#planetDestination");
     $planetMetal = $("#planetMetal");
@@ -658,6 +660,15 @@ function clickElements() {
         $point.hide();
     });
 
+    $hintSimple.click(function () {
+        modal.style.display = "block";
+        $modalText.text("Instructions...");
+        $modalTitle.text("Hint").css("font-weight", "bold");
+        $modalImage.attr("src", "");
+        $modalNext.attr("src", "");
+        $point.hide();
+    });
+
     $planetFire.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "5%", "width", "5%");
@@ -957,14 +968,28 @@ function loadNewLevel() {
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
+   
 
     // change from level one to level two:
     if (currentLevel === 0) {
         currentLevel = 1;
+        console.log("current level" + currentLevel);
     } else if (currentLevel === 1) {
         currentLevel = 2;
+        $(".functions").show();
+        $(".side-navigation").show();
+        $("#functiontwoselect").show();
+        $('.navigation').hide();
+        $("head link#levels").attr("href", "css/app-advance.css");
+        console.log("current level" + currentLevel);
     } else if (currentLevel === 2) {
         currentLevel = 1;
+        $(".functions").hide();
+        $(".side-navigation").hide();
+        $("#functiontwoselect").hide();
+        $('.navigation').show();
+        $("head link#levels").attr("href", "css/app-simple.css");
+        console.log("current level" + currentLevel);
     }
 
     // make new level

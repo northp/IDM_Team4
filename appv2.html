@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Space Navigation</title>
-    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <link rel="stylesheet" type="text/css" href="css/app-simple.css" id="levels">
     <link href="https://fonts.googleapis.com/css?family=Squada+One&display=swap" rel="stylesheet">
 
 
-    <script
-            src="http://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-    
+
 
     <!-- <script src="appv2.js" defer></script> -->
     <!-- <script src="appv3.js" defer></script> -->
@@ -22,100 +21,114 @@
 
 
 </head>
+
 <body>
 
-<div class="wrapper">
+    <div class="wrapper">
 
 
-    <div class="canvas">
+        <div class="canvas">
 
 
-    <!-- <img id = "hint"> -->
-    <!-- <img id="planetDestination"> -->
-    <!-- <img id="planetFire"> -->
-    <!-- <img id="planetMetal"> -->
-    <!-- <img id="rocketman" alt="An image of a rocket."> -->
+            <!-- <img id = "hint"> -->
+            <!-- <img id="planetDestination"> -->
+            <!-- <img id="planetFire"> -->
+            <!-- <img id="planetMetal"> -->
+            <!-- <img id="rocketman" alt="An image of a rocket."> -->
 
-        <canvas id="myCanvas" height="500" width="550">
-        </canvas>
+            <canvas id="myCanvas" height="500" width="550">
+            </canvas>
 
-    </div>
+        </div>
 
 
-    <div class="arrows">
-        <div id="commands">
-            <div>
-                <div class="up-button">
+        <div class="arrows">
+            <div id="commands">
+                <div>
+                    <div class="up-button">
                         <span id="up" class="dot-up"></span>
-                </div>
+                    </div>
 
-                <div class="righ-left-button">
+                    <div class="righ-left-button">
                         <span id="left" class="dot-left"></span>
                         <span id="right" class="dot-right"></span>
-                </div>
-                <div class="down-button">
+                    </div>
+                    <div class="down-button">
                         <span id="down" class="dot-down"></span>
-                </div>
-             
-             <!--    <img id="right" src="right.png" alt="Right arrow"> 
+                    </div>
+
+                    <!--    <img id="right" src="right.png" alt="Right arrow"> 
                 <img id="left" src="left.png" alt="Left arrow">
                 <img id="up" src="up.png" alt="Up arrow">
                 <img id="down" src="down.png" alt="Down arrow">-->
-<!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
+                    <!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
                 <img id="run" src="play.png" alt="Run button">
                 <img id="save" src="save.png" alt="Save button">
                 <img id="stop" src="stop.png" alt="Stop button"> -->
 
+                </div>
+
+            </div>
+
+            <div class="algorithm">
+                <div class="play-button" id="run"></div>
+                <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
+                <div class="algo-space"></div>
+                 <div class="algos">
+                    <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button" style="display: none"> 
+                 </div>
+            </div>
+
+
+            <div class="functions" style="display: none">
+                <div class="function-button" id="functiontwo">ALGORITHM VIEW </div>
+                <div class="func-space"></div>
+                <div class="save-button" id="save">SAVE</div>
+            </div>
+
+                <div class="side-navigation" style="display: none">
+                    <a href="landingpage.html"><span class="dot-home"></span></a>
+                    <span class="dot-help" id="hint"></span>
+                   
+                </div>
+           
+
+            <div class="navigation">
+                <a href="landingpage.html">
+                    <div class="home-button">HOME</div>
+                </a>
+                <div class="help-button" id="hintSimple">HELP</div>
+            </div>
+
+
+        </div>
+
+
+        <div id="myModal" class="modal">
+
+            <img id="point">
+            <!-- Modal content -->
+            <div class="modal-frame">
+                <div class="modal-content">
+
+                    <span class="close">&times;</span>
+
+                    <p id="title"></p>
+                    <table>
+                        <tr>
+                            <td><img id="modalImage"></td>
+                            <td id="modalText"></td>
+                        </tr>
+
+                    </table>
+                    <img id="next">
+                </div>
             </div>
 
         </div>
 
-        <div class="algorithm">
-            <div class="play-button" id="run"></div>
-            <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
-            <div class="algo-space"></div>
-            <div class="algos">
-                    <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button">
-            </div>
-<!--             <img id="mainfunction" src="functionOne.png" alt="F1"><br> -->
-        </div>
-        <div class="functions">
-            <div class="function-button" id="functiontwo">ALGORITHM VIEW </div>
-            <div class="func-space"></div>
-            <div class="save-button" id="save">SAVE</div>
-<!--             <img id="functiontwo" src="functionTwo.png" alt="F2"><br> -->
-        </div>
-        <div class="side-navigation">
-            <a href="landingpage.html"><span class="dot-home"></span></a>
-            <span class="dot-help" id="hint"></span>
-        </div>
-    </div>
-
-
-    <div id="myModal" class="modal">
-
-        <img id = "point">
-        <!-- Modal content -->
-        <div class="modal-frame">
-        <div class="modal-content">
-             
-            <span class="close">&times;</span>
-
-            <p id="title"></p>
-            <table>
-                <tr>
-                    <td><img id="modalImage"></td>
-                    <td id="modalText"></td>
-                </tr>
-
-            </table>
-            <img id="next">
-        </div>
-    </div>
 
     </div>
-
-
-</div>
 </body>
+
 </html>
