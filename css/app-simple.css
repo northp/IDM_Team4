@@ -35,7 +35,7 @@ body {
 .arrows > #commands {
     width: 33.3%;
     height: 65%;
-    margin-top: 14%
+    margin-top: 14.1%
 
 }
 
@@ -62,6 +62,7 @@ body {
     width: 55px;
     border-radius: 50%;
     display: inline-block;
+
   }
 
   .dot-right {
@@ -69,12 +70,22 @@ body {
   }
 
   .up-button, .down-button {
+      width: 23%;
+      height: 100%;
       display: block;
-      margin-left: 35.5%;
+      margin-left: 35.3%;
   }
 
   .righ-left-button {
       margin-left: 15%;
+  }
+
+  #up-img, #left-img, #right-img, #down-img {
+      width: 101%;
+  }
+
+  #up-img:hover {
+      display: block;
   }
 
   /* ===== MAIN PANEL ===== */
@@ -124,28 +135,46 @@ body {
 /* ===== NAVIGATION ===== */
 
 .home-button {
-    width: 50%;
-    height: 10%;
-    margin-left: 28%;
+    width: 55%;
+    height: 12.4%;
+    margin-left: 25%;
     margin-right: auto;
     color: white;
     text-align: center;
-    margin-top: 58%;
-    font-size: 18px
+    margin-top: 54.4%;
+    font-size: 18px;
+    background-image: linear-gradient(#404040,#909090);
+    border-radius: 13px;
+    border: 2px solid #27AAE1;
+}
+
+.home-button:hover {
+    background-image: linear-gradient(#909090, #404040);
+    font-weight: bold;
 }
 
 .help-button {
-    width: 50%;
-    height: 10%;
-    margin-left: 28%;
+    width: 55%;
+    height: 12.4%;
+    margin-left: 25%;
     margin-right: auto;
     color: white;
     text-align: center;
+    margin-top: 7%;
     font-size: 18px;
-    margin-top: 9%;
- 
+    background-image: linear-gradient(#404040,#909090);
+    border-radius: 13px;
+    border: 2px solid #27AAE1;
 }
 
+.help-button:hover {
+    background-image: linear-gradient(#909090, #404040);
+    font-weight: bold;
+}
+
+#btn-long-home {
+    width: 50%
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

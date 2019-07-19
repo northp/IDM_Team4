@@ -1136,6 +1136,7 @@ startState();
 movementFunction();
 clickElements();
 
+
 //demonstration at beginning of level 1
 function instructions() {
     var arrowModal = false;
