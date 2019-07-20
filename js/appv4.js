@@ -88,24 +88,28 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
         }
-
+        
+        
+        /*
+            Below Code moved to insertDOMandCSS0 function.
+        */
 
         // map 0 selected
         // next step: insert img tags
 
-        $('.canvas')
-            .prepend('<img id="rocketman"/>')
-            .prepend('<img id="planetDestination"/>');
+        // $('.canvas')
+            // .prepend('<img id="rocketman"/>')
+            // .prepend('<img id="planetDestination"/>');
 
-        jQueryVariables(); //calling function that puts above img elements into variables
+        // jQueryVariables(); //calling function that puts above img elements into variables
 
-        //for resetting position of rocket - value will change depending on level
-        rocketMarginLeft = '45.5%';
-        rocketMarginTop = '55%';
+        // //for resetting position of rocket - value will change depending on level
+        // rocketMarginLeft = '45.5%';
+        // rocketMarginTop = '55%';
 
-        //number of moves you can make
-        algorithmLevelMoves = 10;
-        functionTwoLevelMoves = 4;
+        // //number of moves you can make
+        // algorithmLevelMoves = 10;
+        // functionTwoLevelMoves = 4;
 
         // //defining the rocket coordinates
         // rocketX = 250;
@@ -177,28 +181,30 @@ function chooseLevel() {
             ];
         }
         
-       
+       /*
+            Below Code moved to insertDOMandCSS1 function.
+       */
 
 
-        // map 1 selected
-        // next step: insert img tags
+        // // map 1 selected
+        // // next step: insert img tags
 
-        $('.canvas')
-            .prepend('<img id="rocketman"/>')
-            .prepend('<img id="planetMetal"/>')
-            .prepend('<img id="planetFire"/>')
-            .prepend('<img id="planetDestination"/>')
-        /*  .prepend('<img id="hint"/>') */;
+        // $('.canvas')
+            // .prepend('<img id="rocketman"/>')
+            // .prepend('<img id="planetMetal"/>')
+            // .prepend('<img id="planetFire"/>')
+            // .prepend('<img id="planetDestination"/>')
+        // /*  .prepend('<img id="hint"/>') */;
 
-        jQueryVariables(); //calling function that puts above img elements into variables
+        // jQueryVariables(); //calling function that puts above img elements into variables
 
-        //for resetting position of rocket - value will change depending on level
-        rocketMarginLeft = '27.4%';
-        rocketMarginTop = '72.75%';
+        // //for resetting position of rocket - value will change depending on level
+        // rocketMarginLeft = '27.4%';
+        // rocketMarginTop = '72.75%';
 
-        //number of moves you can make
-        algorithmLevelMoves = 10;
-        functionTwoLevelMoves = 4;
+        // //number of moves you can make
+        // algorithmLevelMoves = 10;
+        // functionTwoLevelMoves = 4;
 
         // //defining the rocket coordinates
         // rocketX = 150;
@@ -274,29 +280,29 @@ function chooseLevel() {
         
 
 
-        // map 2 selected
-        // next step: insert img tags for lvl 2
-        $('.canvas')/* .prepend('<img id="hint"/>') */
-            .prepend('<img id="planetIce" class="planetIce_3"/>')
-            .prepend('<img id="planetIce" class="planetIce_2"/>')
-            .prepend('<img id="planetIce" class="planetIce_1"/>')
-            .prepend('<img id="planetEarth"/>')
-            .prepend('<img id="planetDestination"/>')
-            .prepend('<img id="planetFire"/>')
-            .prepend('<img id="planetMetal" class="planetMetal_3"/>')
-            .prepend('<img id="planetMetal" class="planetMetal_2"/>')
-            .prepend('<img id="planetMetal" class="planetMetal_1"/>')
-            .prepend('<img id="rocketman"/>');
+        // // map 2 selected
+        // // next step: insert img tags for lvl 2
+        // $('.canvas')/* .prepend('<img id="hint"/>') */
+            // .prepend('<img id="planetIce" class="planetIce_3"/>')
+            // .prepend('<img id="planetIce" class="planetIce_2"/>')
+            // .prepend('<img id="planetIce" class="planetIce_1"/>')
+            // .prepend('<img id="planetEarth"/>')
+            // .prepend('<img id="planetDestination"/>')
+            // .prepend('<img id="planetFire"/>')
+            // .prepend('<img id="planetMetal" class="planetMetal_3"/>')
+            // .prepend('<img id="planetMetal" class="planetMetal_2"/>')
+            // .prepend('<img id="planetMetal" class="planetMetal_1"/>')
+            // .prepend('<img id="rocketman"/>');
 
-        jQueryVariables(); //calling function that puts above img elements into variables
+        // jQueryVariables(); //calling function that puts above img elements into variables
 
-        //for resetting position of rocket - value will change depending on level
-        rocketMarginLeft = '36.4%';
-        rocketMarginTop = '81.75%';
+        // //for resetting position of rocket - value will change depending on level
+        // rocketMarginLeft = '36.4%';
+        // rocketMarginTop = '81.75%';
 
-        //number of moves you can make
-        algorithmLevelMoves = 10;
-        functionTwoLevelMoves = 4;
+        // //number of moves you can make
+        // algorithmLevelMoves = 10;
+        // functionTwoLevelMoves = 4;
 
         // //defining the rocket coordinates
         // rocketX = 200;
@@ -361,12 +367,28 @@ var span = document.getElementsByClassName("close")[0];
 
 
 function insertDOMandCSS0() {
-    
+    // map 0 selected
+    // next step: insert img tags
+
+    $('.canvas')
+        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="planetDestination"/>');
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+
+    //for resetting position of rocket - value will change depending on level
+    rocketMarginLeft = '45.5%';
+    rocketMarginTop = '55%';
+
+    //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
+        
     //defining the rocket coordinates
-        rocketX = 250;
-        rocketY = 350;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+    rocketX = 250;
+    rocketY = 350;
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
         
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
@@ -392,12 +414,31 @@ function insertDOMandCSS0() {
 // below function loads DOM and CSS for map 1 only
 function insertDOMandCSS1() {
     // a function to load DOM and CSS elements based on map.
+    
+    // map 1 selected
+    // next step: insert img tags
 
-//defining the rocket coordinates
-        rocketX = 150;
-        rocketY = 450;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+    $('.canvas')
+        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="planetMetal"/>')
+        .prepend('<img id="planetFire"/>')
+        .prepend('<img id="planetDestination"/>')
+    /*  .prepend('<img id="hint"/>') */;
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+
+    //for resetting position of rocket - value will change depending on level
+    rocketMarginLeft = '27.4%';
+    rocketMarginTop = '72.75%';
+
+    //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
+    //defining the rocket coordinates
+    rocketX = 150;
+    rocketY = 450;
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
@@ -441,12 +482,35 @@ function insertDOMandCSS1() {
 
 // Insert DOM and CSS for map 2
 function insertDOMandCSS2() {
+    // map 2 selected
+    // next step: insert img tags for lvl 2
+    $('.canvas')/* .prepend('<img id="hint"/>') */
+        .prepend('<img id="planetIce" class="planetIce_3"/>')
+        .prepend('<img id="planetIce" class="planetIce_2"/>')
+        .prepend('<img id="planetIce" class="planetIce_1"/>')
+        .prepend('<img id="planetEarth"/>')
+        .prepend('<img id="planetDestination"/>')
+        .prepend('<img id="planetFire"/>')
+        .prepend('<img id="planetMetal" class="planetMetal_3"/>')
+        .prepend('<img id="planetMetal" class="planetMetal_2"/>')
+        .prepend('<img id="planetMetal" class="planetMetal_1"/>')
+        .prepend('<img id="rocketman"/>');
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+
+    //for resetting position of rocket - value will change depending on level
+    rocketMarginLeft = '36.4%';
+    rocketMarginTop = '81.75%';
+
+    //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
     
     //defining the rocket coordinates
-        rocketX = 200;
-        rocketY = 500;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+    rocketX = 200;
+    rocketY = 500;
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
     
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
