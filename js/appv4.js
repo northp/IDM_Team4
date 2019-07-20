@@ -1137,6 +1137,32 @@ movementFunction();
 clickElements();
 
 
+$("#up").hover(function(){
+    $("#up-img").attr("src", "img/playfield/up_hover.png")},
+    function(){
+    $("#up-img").attr("src", "img/playfield/up-first.png")
+})
+
+$("#left").hover(function(){
+    $("#left-img").attr("src", "img/playfield/left_hover.png")},
+    function(){
+    $("#left-img").attr("src", "img/playfield/left-first.png")
+})
+
+$("#right").hover(function(){
+    $("#right-img").attr("src", "img/playfield/right_hover.png")},
+    function(){
+    $("#right-img").attr("src", "img/playfield/right-first.png")
+})
+
+$("#down").hover(function(){
+    $("#down-img").attr("src", "img/playfield/down_hover.png")},
+    function(){
+    $("#down-img").attr("src", "img/playfield/down-first.png")
+})
+
+
+
 //demonstration at beginning of level 1
 function instructions() {
     var arrowModal = false;
