@@ -107,11 +107,11 @@ function chooseLevel() {
         algorithmLevelMoves = 10;
         functionTwoLevelMoves = 4;
 
-        //defining the rocket coordinates
-        rocketX = 250;
-        rocketY = 350;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+        // //defining the rocket coordinates
+        // rocketX = 250;
+        // rocketY = 350;
+        // rocketX1 = rocketX;
+        // rocketY1 = rocketY;
         insertDOMandCSS0();
         //setTimeout(instructions, 750); //instructions
     }
@@ -200,11 +200,11 @@ function chooseLevel() {
         algorithmLevelMoves = 10;
         functionTwoLevelMoves = 4;
 
-        //defining the rocket coordinates
-        rocketX = 150;
-        rocketY = 450;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+        // //defining the rocket coordinates
+        // rocketX = 150;
+        // rocketY = 450;
+        // rocketX1 = rocketX;
+        // rocketY1 = rocketY;
         insertDOMandCSS1();
     }
 
@@ -298,11 +298,11 @@ function chooseLevel() {
         algorithmLevelMoves = 10;
         functionTwoLevelMoves = 4;
 
-        //defining the rocket coordinates
-        rocketX = 200;
-        rocketY = 500;
-        rocketX1 = rocketX;
-        rocketY1 = rocketY;
+        // //defining the rocket coordinates
+        // rocketX = 200;
+        // rocketY = 500;
+        // rocketX1 = rocketX;
+        // rocketY1 = rocketY;
         insertDOMandCSS2();
     }
 }
@@ -361,6 +361,13 @@ var span = document.getElementsByClassName("close")[0];
 
 
 function insertDOMandCSS0() {
+    
+    //defining the rocket coordinates
+        rocketX = 250;
+        rocketY = 350;
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
+        
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
@@ -385,6 +392,12 @@ function insertDOMandCSS0() {
 // below function loads DOM and CSS for map 1 only
 function insertDOMandCSS1() {
     // a function to load DOM and CSS elements based on map.
+
+//defining the rocket coordinates
+        rocketX = 150;
+        rocketY = 450;
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
@@ -428,6 +441,13 @@ function insertDOMandCSS1() {
 
 // Insert DOM and CSS for map 2
 function insertDOMandCSS2() {
+    
+    //defining the rocket coordinates
+        rocketX = 200;
+        rocketY = 500;
+        rocketX1 = rocketX;
+        rocketY1 = rocketY;
+    
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
