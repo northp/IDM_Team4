@@ -10,7 +10,7 @@
 
 
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>-->
 
@@ -24,131 +24,133 @@
 
 <body>
 
-    <div class="wrapper">
+<div class="wrapper">
 
 
-        <div class="canvas">
+    <div class="canvas">
 
 
-            <!-- <img id = "hint"> -->
-            <!-- <img id="planetDestination"> -->
-            <!-- <img id="planetFire"> -->
-            <!-- <img id="planetMetal"> -->
-            <!-- <img id="rocketman" alt="An image of a rocket."> -->
+        <!-- <img id = "hint"> -->
+        <!-- <img id="planetDestination"> -->
+        <!-- <img id="planetFire"> -->
+        <!-- <img id="planetMetal"> -->
+        <!-- <img id="rocketman" alt="An image of a rocket."> -->
 
-            <canvas id="myCanvas" height="500" width="550">
-            </canvas>
+        <canvas id="myCanvas" height="500" width="550">
+        </canvas>
+
+    </div>
+
+
+    <div class="arrows">
+        <div id="commands">
+            <div>
+                <div class="up-button">
+                    <span id="up" class="dot-up"><img src="img/playfield/up-first.png" id="up-img"></span>
+                </div>
+
+                <div class="righ-left-button">
+                    <span id="left" class="dot-left"><img src="img/playfield/left-first.png" id="left-img"></span>
+                    <span id="right" class="dot-right"><img src="img/playfield/right-first.png" id="right-img"></span>
+                </div>
+                <div class="down-button">
+                    <span id="down" class="dot-down"><img src="img/playfield/down-first.png" id="down-img"></span>
+                </div>
+
+                <!--    <img id="right" src="right.png" alt="Right arrow">
+            <img id="left" src="left.png" alt="Left arrow">
+            <img id="up" src="up.png" alt="Up arrow">
+            <img id="down" src="down.png" alt="Down arrow">-->
+                <!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
+            <img id="run" src="play.png" alt="Run button">
+            <img id="save" src="save.png" alt="Save button">
+            <img id="stop" src="stop.png" alt="Stop button"> -->
+
+            </div>
+
+        </div>
+
+        <div class="algorithm">
+            <div class="play-button" id="run"><img src="img/playfield/play.png" id="play-first"></div>
+            <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
+            <div class="algo-space"></div>
+            <div class="algos">
+                <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button"
+                     style="display: none">
+            </div>
+        </div>
+
+
+        <div class="functions" style="display: none">
+            <div class="function-button" id="functiontwo">ALGORITHM VIEW</div>
+            <div class="func-space"></div>
+            <div class="save-button" id="save">SAVE</div>
+        </div>
+
+        <div class="side-navigation" style="display: none">
+            <a href="landingpage.html"><span class="dot-home"></span></a>
+            <span class="dot-help" id="hint"></span>
 
         </div>
 
 
-        <div class="arrows">
-            <div id="commands">
-                <div>
-                    <div class="up-button">
-                        <span id="up" class="dot-up"><img src="img/playfield/up-first.png" id="up-img"></span>
-                    </div>
+        <div class="navigation">
 
-                    <div class="righ-left-button">
-                        <span id="left" class="dot-left"><img src="img/playfield/left-first.png" id="left-img"></span>
-                        <span id="right" class="dot-right"><img src="img/playfield/right-first.png" id="right-img"></span>
-                    </div>
-                    <div class="down-button">
-                        <span id="down" class="dot-down"><img src="img/playfield/down-first.png" id="down-img"></span>
-                    </div>
+            <button class="home-button" id="home">HOME</button>
 
-                    <!--    <img id="right" src="right.png" alt="Right arrow"> 
-                <img id="left" src="left.png" alt="Left arrow">
-                <img id="up" src="up.png" alt="Up arrow">
-                <img id="down" src="down.png" alt="Down arrow">-->
-                    <!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
-                <img id="run" src="play.png" alt="Run button">
-                <img id="save" src="save.png" alt="Save button">
-                <img id="stop" src="stop.png" alt="Stop button"> -->
-
-                </div>
-
-            </div>
-
-            <div class="algorithm">
-                <div class="play-button" id="run"></div>
-                <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
-                <div class="algo-space"></div>
-                 <div class="algos">
-                    <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button" style="display: none"> 
-                 </div>
-            </div>
+            <button class="help-button" id="hintSimple">HELP</button>
+        </div>
+    </div>
 
 
-            <div class="functions" style="display: none">
-                <div class="function-button" id="functiontwo">ALGORITHM VIEW </div>
-                <div class="func-space"></div>
-                <div class="save-button" id="save">SAVE</div>
-            </div>
+    <div id="myModal" class="modal">
 
-                <div class="side-navigation" style="display: none">
-                    <a href="landingpage.html"><span class="dot-home"></span></a>
-                    <span class="dot-help" id="hint"></span>
-                   
-                </div>
-           
 
-            <div class="navigation">
+        <!-- Modal content -->
+        <div class="modal-frame">
+            <div class="modal-content">
+
+                <span class="close">&times;</span>
+
+                <img id="next">
+                <p id="title"></p>
+                <table>
+                    <tr>
+                        <td><img id="modalImage"></td>
+                        <td id="modalText"></td>
+                    </tr>
+                </table>
+
+
+                <img id="commandsoverlay">
+
+
+                <!--
                 <a href="landingpage.html">
-                    <button class="home-button">HOME</button>
-                </a>
-                <button class="help-button" id="hintSimple">HELP</button>
+                    <button class="btn-leave">Leave</button>
+                    </button></a>
+                <button class="btn-stay">Stay</button>-->
+
+
             </div>
         </div>
 
+    </div>
 
 
+    <div id="myModalTwo" class="modal">
 
-
-
-        <div id="myModal" class="modal">
-
-
-            <!-- Modal content -->
-            <div class="modal-frame">
-                <div class="modal-content">
-
-                    <span class="close">&times;</span>
-
-                    <img id="next">
-                    <p id="title"></p>
-                    <table>
-                        <tr>
-                            <td><img id="modalImage"></td>
-                            <td id="modalText"></td>
-                        </tr>
-
-                    </table>
-
-                    <img id = "commandsoverlay">
-
-                </div>
-            </div>
-
+        <div class="modalTwoContent">
+            <p>You did it!</p>
         </div>
-
-
-
-        <div id = "myModalTwo" class = "modal">
-
-            <div class = "modalTwoContent">
-                <p>You did it!</p>
-            </div>
-
-
-        </div>
-
-        <img id="point">
-
-
 
 
     </div>
+
+    <img id="point">
+
+
+</div>
 
 </body>
 
