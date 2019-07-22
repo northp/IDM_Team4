@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    background: url("../img/playfield/playfield_simple.png");
+    background: url("../img/playfield/playfield_simple_final.png");
     background-size: contain
 }
 
@@ -35,7 +35,7 @@ body {
 .arrows > #commands {
     width: 33.3%;
     height: 65%;
-    margin-top: 14%
+    margin-top: 14.2%
 
 }
 
@@ -58,8 +58,8 @@ body {
 
 /* ===== ARROW COMMANDS ===== */
 .dot-right, .dot-left, .dot-up, .dot-down {
-    height: 55px;
-    width: 55px;
+    height: 7vw;
+    width: 7vw;
     border-radius: 50%;
     display: inline-block;
   }
@@ -69,12 +69,23 @@ body {
   }
 
   .up-button, .down-button {
+      width: 23%;
+      height: 100%;
       display: block;
-      margin-left: 35.5%;
+      margin-left: 35.27%;
   }
 
+  .down-button {
+      margin-top: -2%
+  }
+ 
   .righ-left-button {
-      margin-left: 15%;
+      margin-left: 14.5%;
+      margin-top: -2%;
+  }
+
+  #up-img, #left-img, #right-img, #down-img {
+      width: 101%;
   }
 
   /* ===== MAIN PANEL ===== */
@@ -124,28 +135,46 @@ body {
 /* ===== NAVIGATION ===== */
 
 .home-button {
-    width: 50%;
-    height: 10%;
-    margin-left: 28%;
+    width: 55%;
+    height: 12.4%;
+    margin-left: 25%;
     margin-right: auto;
     color: white;
     text-align: center;
-    margin-top: 58%;
-    font-size: 18px
+    margin-top: 54.4%;
+    font-size: 18px;
+    background-image: linear-gradient(#404040,#909090);
+    border-radius: 13px;
+    border: 2px solid #27AAE1;
+}
+
+.home-button:hover {
+    background-image: linear-gradient(#909090, #404040);
+    font-weight: bold;
 }
 
 .help-button {
-    width: 50%;
-    height: 10%;
-    margin-left: 28%;
+    width: 55%;
+    height: 12.4%;
+    margin-left: 25%;
     margin-right: auto;
     color: white;
     text-align: center;
+    margin-top: 7%;
     font-size: 18px;
-    margin-top: 9%;
- 
+    background-image: linear-gradient(#404040,#909090);
+    border-radius: 13px;
+    border: 2px solid #27AAE1;
 }
 
+.help-button:hover {
+    background-image: linear-gradient(#909090, #404040);
+    font-weight: bold;
+}
+
+#btn-long-home {
+    width: 50%
+}
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

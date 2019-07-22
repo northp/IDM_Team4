@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    background: url("../img/playfield/playfield_advance.png");
+    background: url("../img/playfield/playfield_advance_final.png");
     background-size: contain
 }
 
@@ -62,24 +62,36 @@ body {
 
 /* ===== ARROW COMMANDS ===== */
 .dot-right, .dot-left, .dot-up, .dot-down {
-    height: 55px;
-    width: 55px;
+    height: 7vw;
+    width: 7vw;
     border-radius: 50%;
     display: inline-block;
   }
 
-  .dot-right {
-      margin-left: 22.5%;
-  }
+.dot-right {
+    margin-left: 22.5%;
+}
 
-  .up-button, .down-button {
-      display: block;
-      margin-left: 37.5%;
-  }
+.up-button, .down-button {
+    width: 23%;
+    height: 100%;
+    display: block;
+    margin-left: 35.27%;
+}
 
-  .righ-left-button {
-      margin-left: 15%;
-  }
+.down-button {
+    margin-top: -2%
+}
+
+.righ-left-button {
+    margin-left: 14.5%;
+    margin-top: -2%;
+}
+
+#up-img, #left-img, #right-img, #down-img {
+    width: 101%;
+}
+
 
   /* ===== MAIN PANEL ===== */
 .algo-button {
