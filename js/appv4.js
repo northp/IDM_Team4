@@ -65,7 +65,7 @@ function chooseLevel() {
         rocketX1 = rocketX;
         rocketY1 = rocketY;
         insertDOMandCSS0();
-        //setTimeout(instructions, 750); //instructions
+        setTimeout(instructions, 750); //instructions
     }
 
     if (currentLevel === 1) {
@@ -170,6 +170,7 @@ var $modalTitle = $("#title");
 var $modalImage = $("#modalImage");
 var $modalNext = $("#next");
 var $point = $("#point");
+var $commandsOverlay = $("#commandsoverlay");
 
 //jQuery canvas elements
 var $planetFire;
@@ -669,7 +670,7 @@ function removeMove(image, direction, thisArray) {
             //if the user removes F2 from F2
             if (thisArray === functionTwo && direction === functionTwo) {
                 for (var i = 0; i <= images.length; i++) {
-                    functionTwo.length = images.length - 1; //amount of images that are present
+                    functionTwo.length = images.length; //amount of images that are present
                 }
             }
         }
@@ -750,7 +751,7 @@ function clickElements() {
 //every time you hit run, the rocket will return back to its original position and go from there
 function originalPos() {
 
-    $rocketAnimate.attr("src","img/playfield/spaceship_pink.png");
+    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
 
     //reset animation
     //resetting the rocket to its default position
@@ -994,7 +995,7 @@ function loadNewLevel() {
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
-   
+
 
     // change from level one to level two:
     if (currentLevel === 0) {
@@ -1135,7 +1136,7 @@ $save.click(function () {
 startState();
 movementFunction();
 clickElements();
-
+/*
 //demonstration at beginning of level 1
 function instructions() {
     var arrowModal = false;
@@ -1143,7 +1144,7 @@ function instructions() {
 
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
-    $modalTitle.text("Welcome to Space Academy!").css("font-weight", "bold");
+    $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
     $modalText.text("Your goal is to get the rocket to its destination by avoiding any obstacles in the way.");
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalNext.click(function () {
@@ -1198,6 +1199,85 @@ function instructions() {
             };
 
         })
+    });
+}*/
+
+//demonstration at beginning of level 1
+function instructions() {
+    var arrowModal = false;
+    var runModal = false;
+
+    modal.style.display = "block";
+    $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+    $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
+    $modalText.text("Hi there, I'm Hugo! I'm here to show you how to use this spaceship properly.");
+    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalNext.click(function () {
+        $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm.");
+        $modalNext.click(function () {
+
+            $modalImage.hide();
+            $modalTitle.hide();
+            $modalText.text("These buttons are for moving up, down, left and right. Click one to create a command.");
+
+            $commandsOverlay.attr("src", "commands.png").css({"width":"45%",
+                "margin-left": "-37%", "margin-top": "120%",});
+
+
+            $point.attr("src", "img/playfield/astronaut.png").css({
+                "height": "20%", "width": "20%", "margin-left": "20%", "margin-top": "95%",
+                "animation": "bouncearrow 1s infinite", "transform":"scaleX(-1)"
+            });
+            $modalNext.click(function () {
+                modal.style.display = "none";
+            });
+
+            $right.add($left).add($up).add($down).one("click", function () {
+                if (arrowModal === false) {
+                    arrowModal = true;
+                    modal.style.display = "block";
+                    $modalText.text("Well done. Once you click the arrows they go into this panel. These commands will tell the rocket where to go.");
+                    $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
+                    $commandsOverlay.attr("src", "mainpanel.png").css({"width":"75%",
+                        "margin-left": "13%", "margin-top": "97%",});
+                }
+                $modalNext.click(function () {
+                    modal.style.display = "block";
+                    $point.css({"margin-left": "65%", "margin-top": "85%"});
+                    $modalText.text("Now, hit the play button below and see what happens!");
+                    $commandsOverlay.attr("src", "play.png").css({"width":"50%",
+                        "margin-left": "25%", "margin-top": "99%",});
+                })
+            });
+
+
+            $run.click(function () {
+                setTimeout(function () {
+                    if (runModal === false) {
+                        runModal = true;
+                        modal.style.display = "block";
+                        //$point.css({"transform": "scaleX(-1)", "margin-left": "55%", "margin-top": "4%"});
+                        $point.hide();
+                        $modalText.text("Well done! You moved the rocket. Now, see if you can make a list of commands that moves the rocket toward the destination planet!");
+                        $commandsOverlay.hide();
+                        $modalImage.show();
+                    }
+                }, 400);
+
+                window.onclick = function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = "none";
+                    }
+                };
+
+
+                // When the user clicks on <span> (x), close the modal
+                span.onclick = function () {
+                    modal.style.display = "none";
+                };
+
+            })
+        });
     });
 }
 
