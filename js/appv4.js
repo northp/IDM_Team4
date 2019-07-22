@@ -7,9 +7,10 @@ var currentLevel = 0;
 var rocketMarginLeft;
 var rocketMarginTop;
 
+
 //defining the rocket coordinates
-var rocketX = 150;
-var rocketY = 450;
+var rocketX = 250;
+var rocketY = 350;
 
 //storing original coordinates in constant variable
 var rocketX1 = rocketX;
@@ -309,6 +310,7 @@ function chooseLevel() {
         // rocketX1 = rocketX;
         // rocketY1 = rocketY;
         insertDOMandCSS2();
+        setTimeout(instructionsThree, 750); //instructions
     }
 }
 
@@ -320,6 +322,7 @@ var $modalImage = $("#modalImage");
 var $modalNext = $("#next");
 var $point = $("#point");
 var $commandsOverlay = $("#commandsoverlay");
+var $winModal = $("#myModalTwo");
 
 //jQuery canvas elements
 var $planetFire;
@@ -380,7 +383,7 @@ function insertDOMandCSS0() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
-    switch(version){
+    switch (version) {
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '45.5%';
@@ -418,7 +421,9 @@ function insertDOMandCSS0() {
             rocketY = 350;
             break;
     }
-    
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
+
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
@@ -459,13 +464,13 @@ function insertDOMandCSS1() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-    
-        switch(version){
+
+    switch (version) {
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
             rocketMarginTop = '72.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
@@ -474,7 +479,7 @@ function insertDOMandCSS1() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
             rocketMarginTop = '72.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
@@ -483,7 +488,7 @@ function insertDOMandCSS1() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
             rocketMarginTop = '72.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
@@ -492,7 +497,7 @@ function insertDOMandCSS1() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
             rocketMarginTop = '72.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
@@ -562,13 +567,13 @@ function insertDOMandCSS2() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-    
-    switch(version){
+
+    switch (version) {
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '81.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
@@ -577,7 +582,7 @@ function insertDOMandCSS2() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '81.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
@@ -586,7 +591,7 @@ function insertDOMandCSS2() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '81.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
@@ -595,12 +600,14 @@ function insertDOMandCSS2() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '81.75%';
-        
+
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
             break;
     }
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
 
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
@@ -840,8 +847,12 @@ console.log("The current coordinates are: " + movementObject.x, movementObject.y
 
 /*CHECKING WHICH FUNCTION THE USER HAS CLICKED ON TO ENTER ALGORITHM (function one array or function two array)*/
 $mainFunctionIcon.click(startState);
+$algoSpace.click(startState);
 
-$functionTwoIcon.click(function () {
+$functionTwoIcon.click(funcTwoState);
+$funcSpace.click(funcTwoState);
+
+function funcTwoState() {
     //update variable values that will be used in movementFunction()
     arraySelect = functionTwo; //directions selected will be put into this array
     classSelect = $(".func-space"); //images put into this class
@@ -849,29 +860,8 @@ $functionTwoIcon.click(function () {
     $functionTwoIcon.css("color", "#F5BC6C"); //highlight
     $functionTwoIcon.css("font-weight", "bold");
     $mainFunctionIcon.css("color", "white"); //reset
-    $mainFunctionIcon.css("font-weight", "") //reset 
-});
-
-$funcSpace.click(function () {
-    //update variable values that will be used in movementFunction()
-    arraySelect = functionTwo; //directions selected will be put into this array
-    classSelect = $(".func-space"); //images put into this class
-    levelMoves = functionTwoLevelMoves; //can only enter 4 moves
-    $functionTwoIcon.css("color", "#F5BC6C"); //highlight
-    $functionTwoIcon.css("font-weight", "bold");
-    $mainFunctionIcon.css("color", "white"); //reset
-    $mainFunctionIcon.css("font-weight", "") //reset 
-});
-
-$algoSpace.click(function () {
-    arraySelect = algorithm; //directions selected will be put into this array
-    classSelect = $(".algo-space"); //images put into this class
-    levelMoves = algorithmLevelMoves; //can only enter 10 moves
-    $mainFunctionIcon.css("color", "#F5BC6C"); //highlight
-    $mainFunctionIcon.css("font-weight", "bold"); //highlight
-    $functionTwoIcon.css("color", "white");
-    $functionTwoIcon.css("font-weight", "");
-});
+    $mainFunctionIcon.css("font-weight", "") //reset
+}
 
 //begin game with the main function already clicked
 function startState() {
@@ -940,32 +930,27 @@ function movementFunction() {
 
             if (arraySelect === algorithm) {
                 something++;
-                $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" class="added"/>');
+                $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
                 var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-
-                /*
-                for (var i in functionTwo) {
-                    arraySelect.push(functionTwo[i])
-                }*/
-
-                arraySelect.push(functionTwo); //causes alert to display as soon as F2 is entered - but it
-                // only happens if the winning/losing condition is inside F2, so it will at most only be 4 iterations early...setTimeout? not great though
+                arraySelect.push(functionTwo);
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
-        }
 
-        //handling loops (calling F2 inside F2)
-        if (arraySelect === functionTwo) {
-            for (var i = 0; i <= 3; i++) {
-                for (var j in functionTwo) {
-                    functionTwo.push(functionTwo[j]);
 
+            //handling loops (calling F2 inside F2)
+            if (arraySelect === functionTwo) {
+                if (arraySelect.length > 0) {
+                    for (var i = 0; i <= 3; i++) {
+                        for (var j in functionTwo) {
+                            functionTwo.push(functionTwo[j]);
+                        }
+                    }
+                    something++;
+                    $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" />');
+                    functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+                    removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
                 }
             }
-            something++;
-            $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="20%" height="20%" />');
-            var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
-            removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
         }
     });
 
@@ -1106,13 +1091,13 @@ function stopAnimation() {
     if (stopClicked === true) {
         $rocketAnimate.stop(); //stop animating
         originalPos(); //return to original position
-        SWalAlertCall = function () {
+        winAndLossCall = function () {
             //empty function, does nothing
         };
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
         stopClicked = false;
         console.log(moveCounter);
-        SWalAlertCall = oldFunction;
+        winAndLossCall = oldFunction;
     }
 }
 
@@ -1212,7 +1197,8 @@ function moveRight() {
     if (rocketX >= canvas.width - tileWidth) {
         $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
     } else {
-        $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", SWalAlertCall);
+        console.log(rocketX, rocketY);
+        $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
         rocketX += 50;
     }
 
@@ -1236,8 +1222,8 @@ function moveDown() {
     if (rocketY >= canvas.height) {
         $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
     } else {
-        $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", SWalAlertCall);
-        console.log(rocketY);
+        $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
+        console.log(rocketX, rocketY);
         rocketY += 50;
     }
 
@@ -1262,7 +1248,8 @@ function moveLeft() {
         //edge of canvas - do nothing
         $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
     } else {
-        $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", SWalAlertCall);
+        console.log(rocketX, rocketY);
+        $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
         rocketX -= 50;
     }
 
@@ -1287,7 +1274,8 @@ function moveUp() {
         $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
 
     } else {
-        $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", SWalAlertCall);
+        console.log(rocketX, rocketY);
+        $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
         rocketY -= 50;
     }
 
@@ -1313,6 +1301,9 @@ function loadNewLevel() {
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
+
+    $point.hide();
+    $winModal.hide();
 
 
     // change from level one to level two:
@@ -1376,7 +1367,7 @@ function loadNewLevel() {
 
 var winCondition = false;
 
-var SWalAlertCall = function () {
+var winAndLossCall = function () {
 
     moveCounter++;
     console.log("array: " + lossAndVictoryArray);
@@ -1400,16 +1391,6 @@ var SWalAlertCall = function () {
                     $rocketAnimate.stop();
                 }
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
-
-                /*
-                Swal.fire({
-            position: 'center-start',
-            type: 'error',
-            title: 'You Lose!',
-            text: 'Your rocket has collided with a planet!'
-        });
-            setTimeout(location.reload.bind(location), 3000);
-                 */
             }
         }
 
@@ -1419,16 +1400,23 @@ var SWalAlertCall = function () {
             if (moveCounter == i) {
 
                 if (winCondition === false) {
-                    winCondition = true; //"you won" alert only to come up once
-                    Swal.fire({
-                        position: 'center-start',
-                        type: 'success',
-                        title: 'You Win!',
-                        text: 'Your rocket has escaped this sector!'
-                    });
-                    // setTimeout(location.reload.bind(location), 3000);
-                    // temporary test to change level
-                    setTimeout(loadNewLevel, 3000);
+                    winCondition = true; //"you win" alert only to come up once
+
+                    setTimeout(function () {
+
+                        $point.show();
+                        $point.attr("src", "img/playfield/astronaut.png").css({
+                            "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "0%",
+                            "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
+                        });
+                        $point.animate({"margin-top": "+=50%"}, "slow");
+
+                        $winModal.show();
+
+                        setTimeout(loadNewLevel, 3000);
+
+                    }, 400)
+
                 }
             }
 
@@ -1436,7 +1424,7 @@ var SWalAlertCall = function () {
     }
 };
 
-var oldFunction = SWalAlertCall;
+var oldFunction = winAndLossCall;
 
 // a function to save the entered algorithm
 var $save = $("#save");
@@ -1498,9 +1486,9 @@ function instructions() {
             $modalTitle.hide();
             $modalText.text("These buttons are for moving up, down, left and right.");
 
-            $commandsOverlay.attr("src", "commands.png").css({
-                "width": "45%",
-                "margin-left": "-37%", "margin-top": "120%",
+            $commandsOverlay.attr("src", "img/playfield/commands.png").css({
+                "width": "50%",
+                "margin-left": "-38%", "margin-top": "118%",
             });
 
 
@@ -1510,24 +1498,26 @@ function instructions() {
             });
             $modalNext.click(function () {
 
-
+                $commandsOverlay.hide();
                 modal.style.display = "block";
                 $modalText.text("The Main View will list all commands that you enter in a queue.");
                 $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
-                $commandsOverlay.attr("src", "mainpanel.png").css({
-                    "width": "75%",
-                    "margin-left": "13%", "margin-top": "70%",
+                $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
+                    "width": "77%",
+                    "margin-left": "12%", "margin-top": "68%",
                 });
-
+                $commandsOverlay.show();
 
                 $modalNext.click(function () {
+                    $commandsOverlay.hide();
                     modal.style.display = "block";
                     $point.css({"margin-left": "65%", "margin-top": "85%"});
                     $modalText.text("Your listed commands will be executed when you hit the play button.");
-                    $commandsOverlay.attr("src", "play.png").css({
+                    $commandsOverlay.attr("src", "img/playfield/play.png").css({
                         "width": "50%",
-                        "margin-left": "25%", "margin-top": "99%",
+                        "margin-left": "25%", "margin-top": "98%",
                     });
+                    $commandsOverlay.show();
 
 
                     $modalNext.click(function () {
@@ -1535,10 +1525,9 @@ function instructions() {
                         modal.style.display = "block";
                         //$point.css({"transform": "scaleX(-1)", "margin-left": "55%", "margin-top": "4%"});
                         $point.hide();
-                        $modalText.text("Now, see if you can make a list of commands that moves the rocket toward the destination planet!");
+                        $modalText.text("Now, see if you can make a list of commands that moves the spaceship toward the destination planet!");
                         $commandsOverlay.hide();
                         $modalImage.show();
-
                         $modalNext.click(function () {
                             modal.style.display = "none";
                         })
@@ -1567,30 +1556,88 @@ function instructionsTwo() {
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();
+    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalText.text("Planets may harm your spaceship if you collide with them.");
-    $commandsOverlay.show();
+
     $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
     $commandsOverlay.css({
-        "width":"17%","margin-top":"42.5%","margin-left":"58%"
+        "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
     });
+    $commandsOverlay.show();
 
     //$modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalNext.click(function () {
-        $commandsOverlay.show();
+
         $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
         $commandsOverlay.css({
-            "width":"17%","margin-top":"42.5%","margin-left":"58%"
+            "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
         });
+        $commandsOverlay.show();
         modal.style.display = "block";
         $modalText.text("You must click each planet to find out its level of danger.");
         $modalNext.click(function () {
-            $commandsOverlay.show();
+
             $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
             $commandsOverlay.css({
-                "width":"17%","margin-top":"42.5%","margin-left":"58%"
+                "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
             });
+            $commandsOverlay.show();
             modal.style.display = "block";
             $modalText.text("However, you may be prompted to solve a puzzle first!");
+
+        })
+
+
+    })
+
+}
+
+function instructionsThree() {
+    modal.style.display = "block";
+    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+    $modalTitle.hide();
+    $modalText.text("Hi, it's me again! You may have noticed that the levels become more challenging with more obstacles. 10 commands may not be enough to move your spaceship to its destination.");
+    $commandsOverlay.hide();
+
+    $modalNext.click(function () {
+        modal.style.display = "block";
+        $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have been doing.");
+        //funcTwoState();
+        $modalImage.hide();
+
+        $point.attr("src", "img/playfield/astronaut.png").css({
+            "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "100%",
+            "animation": "bouncearrow 1s infinite", "transform": ""
+        });
+        $point.show();
+
+
+        $commandsOverlay.attr("src", "img/playfield/func2.png").css({
+            "width": "43%", "margin-left": "90.25%", "margin-top": "71.5%"
+        });
+        $commandsOverlay.show();
+
+
+        $modalNext.click(function () {
+            $modalImage.hide();
+
+            $point.attr("src", "img/playfield/astronaut.png").css({
+                "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
+                "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
+            });
+            $point.show();
+            modal.style.display = "block";
+            $modalText.text("Your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
+            $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
+                "width": "8%", "margin-left": "28%", "margin-top": "158%"
+            });
+            $commandsOverlay.show();
+
+            $modalNext.click(function () {
+                modal.style.display = "none";
+
+            })
 
         })
 
