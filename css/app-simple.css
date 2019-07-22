@@ -132,6 +132,17 @@ body {
     margin-left: auto;
 }
 
+#play-first {
+    width: 108%;
+    margin-top: 4%;
+    margin-left: -4%
+}
+
+#stop-first {
+    width: 108%;
+    margin-top: 4%;
+    margin-left: -4%
+}
 /* ===== NAVIGATION ===== */
 
 .home-button {
@@ -191,7 +202,7 @@ body {
 
 /* Modal Content/Box */
 .modal-frame {
-    width: 60%;
+    width: 60vw;
     height: 30%;
     border: 5px solid #fab85b;
     margin-top: 30%;
@@ -208,7 +219,7 @@ body {
     margin-top: 3%;
     padding: 2%;
     border: 1px solid #888;
-    width: 90%;
+    width: 55vw;
     height: 85%;
     font-family: "Squada One", "cursive";
 }

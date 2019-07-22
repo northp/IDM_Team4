@@ -179,6 +179,7 @@ var $planetEarth;
 var $rocketAnimate;
 var $hint;
 var $hintSimple;
+var $home;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
@@ -189,6 +190,7 @@ function jQueryVariables() {
     $planetMetal = $("#planetMetal");
     $rocketAnimate = $("#rocketman");
     $planetFire = $("#planetFire");
+    $home = $("#home");
 }
 
 //jQuery accessing arrows
@@ -199,6 +201,7 @@ var $down = $("#down");
 var $functTwoSelect = $("#functiontwoselect");
 var $run = $("#run");
 var $stop = $("#stop");
+
 
 //jQuery icons
 var $mainFunctionIcon = $("#mainfunction");
@@ -214,6 +217,7 @@ var $funcSpace = $(".func-space");
 //DOM accessing modal
 var modal = document.getElementById("myModal");
 var span = document.getElementsByClassName("close")[0];
+var stay = document.getElementsByClassName("btn-stay")[0];
 
 
 function insertDOMandCSS0() {
@@ -677,6 +681,15 @@ function removeMove(image, direction, thisArray) {
 }
 
 function clickElements() {
+    $home.click(function () {
+        modal.style.display = "block";
+        $modalText.text("Are you sure you want to leave the game?").css("font-size", "24px");
+        $modalTitle.text("")
+        $modalImage.attr("src", "");
+        $modalNext.attr("src", "");
+        $point.hide();
+    });
+    
     $hint.click(function () {
         modal.style.display = "block";
         $modalText.text("Instructions...");
@@ -736,6 +749,10 @@ function clickElements() {
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    stay.onclick = function () {
         modal.style.display = "none";
     };
 
@@ -1162,6 +1179,11 @@ $("#down").hover(function(){
 })
 
 
+$("#run").hover(function(){
+    $("#play-first").attr("src", "img/playfield/play_hover.png")},
+    function(){
+    $("#play-first").attr("src", "img/playfield/play.png")
+})
 
 //demonstration at beginning of level 1
 function instructions() {

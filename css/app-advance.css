@@ -137,6 +137,12 @@ body {
     margin-left: auto;
 }
 
+#play-first {
+    width: 108%;
+    margin-top: 2%;
+    margin-left: -4%
+}
+
 /* ===== ALGORITHM VIEW ===== */
 .function-button {
     width: 60%;
