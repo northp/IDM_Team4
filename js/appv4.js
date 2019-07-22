@@ -1537,7 +1537,7 @@ function instructions() {
                     modal.style.display = "block";
                     $point.css({"margin-left": "65%", "margin-top": "85%"});
                     $modalText.text("Your listed commands will be executed when you hit the play button.");
-                    $commandsOverlay.attr("src", "img/playfield/play.png").css({
+                    $commandsOverlay.attr("src", "play.png").css({
                         "width": "50%",
                         "margin-left": "25%", "margin-top": "98%",
                     });
