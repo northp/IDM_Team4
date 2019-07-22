@@ -29,7 +29,7 @@ chooseLevel();
 
 function chooseLevel() {
     if (currentLevel === 0) {
-        
+
         // Randomise number between 1 and 4
         version = Math.floor((Math.random() * 4) + 1);
         console.log("Level " + currentLevel + " , version " + version);
@@ -47,7 +47,7 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+            ];
         } else if (version === 2) {
             map = [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -60,7 +60,7 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+            ];
         } else if (version === 3) {
             map = [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -73,7 +73,7 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+            ];
         } else {
             map = [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -86,10 +86,10 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-        ];
+            ];
         }
-        
-        
+
+
         /*
             Below Code moved to insertDOMandCSS0 function.
         */
@@ -98,8 +98,8 @@ function chooseLevel() {
         // next step: insert img tags
 
         // $('.canvas')
-            // .prepend('<img id="rocketman"/>')
-            // .prepend('<img id="planetDestination"/>');
+        // .prepend('<img id="rocketman"/>')
+        // .prepend('<img id="planetDestination"/>');
 
         // jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -121,7 +121,7 @@ function chooseLevel() {
     }
 
     if (currentLevel === 1) {
-        
+
         // Randomise number between 1 and 4
         version = Math.floor((Math.random() * 4) + 1);
         console.log("Level " + currentLevel + " , version " + version);
@@ -180,20 +180,20 @@ function chooseLevel() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ];
         }
-        
-       /*
-            Below Code moved to insertDOMandCSS1 function.
-       */
+
+        /*
+             Below Code moved to insertDOMandCSS1 function.
+        */
 
 
         // // map 1 selected
         // // next step: insert img tags
 
         // $('.canvas')
-            // .prepend('<img id="rocketman"/>')
-            // .prepend('<img id="planetMetal"/>')
-            // .prepend('<img id="planetFire"/>')
-            // .prepend('<img id="planetDestination"/>')
+        // .prepend('<img id="rocketman"/>')
+        // .prepend('<img id="planetMetal"/>')
+        // .prepend('<img id="planetFire"/>')
+        // .prepend('<img id="planetDestination"/>')
         // /*  .prepend('<img id="hint"/>') */;
 
         // jQueryVariables(); //calling function that puts above img elements into variables
@@ -212,6 +212,7 @@ function chooseLevel() {
         // rocketX1 = rocketX;
         // rocketY1 = rocketY;
         insertDOMandCSS1();
+        setTimeout(instructionsTwo, 750); //instructions
     }
 
     // if level 2:
@@ -277,22 +278,20 @@ function chooseLevel() {
             ];
         }
 
-        
-
 
         // // map 2 selected
         // // next step: insert img tags for lvl 2
         // $('.canvas')/* .prepend('<img id="hint"/>') */
-            // .prepend('<img id="planetIce" class="planetIce_3"/>')
-            // .prepend('<img id="planetIce" class="planetIce_2"/>')
-            // .prepend('<img id="planetIce" class="planetIce_1"/>')
-            // .prepend('<img id="planetEarth"/>')
-            // .prepend('<img id="planetDestination"/>')
-            // .prepend('<img id="planetFire"/>')
-            // .prepend('<img id="planetMetal" class="planetMetal_3"/>')
-            // .prepend('<img id="planetMetal" class="planetMetal_2"/>')
-            // .prepend('<img id="planetMetal" class="planetMetal_1"/>')
-            // .prepend('<img id="rocketman"/>');
+        // .prepend('<img id="planetIce" class="planetIce_3"/>')
+        // .prepend('<img id="planetIce" class="planetIce_2"/>')
+        // .prepend('<img id="planetIce" class="planetIce_1"/>')
+        // .prepend('<img id="planetEarth"/>')
+        // .prepend('<img id="planetDestination"/>')
+        // .prepend('<img id="planetFire"/>')
+        // .prepend('<img id="planetMetal" class="planetMetal_3"/>')
+        // .prepend('<img id="planetMetal" class="planetMetal_2"/>')
+        // .prepend('<img id="planetMetal" class="planetMetal_1"/>')
+        // .prepend('<img id="rocketman"/>');
 
         // jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -384,13 +383,13 @@ function insertDOMandCSS0() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-        
+
     //defining the rocket coordinates
     rocketX = 250;
     rocketY = 350;
     rocketX1 = rocketX;
     rocketY1 = rocketY;
-        
+
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
@@ -415,7 +414,7 @@ function insertDOMandCSS0() {
 // below function loads DOM and CSS for map 1 only
 function insertDOMandCSS1() {
     // a function to load DOM and CSS elements based on map.
-    
+
     // map 1 selected
     // next step: insert img tags
 
@@ -506,13 +505,13 @@ function insertDOMandCSS2() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-    
+
     //defining the rocket coordinates
     rocketX = 200;
     rocketY = 500;
     rocketX1 = rocketX;
     rocketY1 = rocketY;
-    
+
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
@@ -963,6 +962,7 @@ function clickElements() {
 
     //comment out so that user can't skip the intro demo
 
+    /*
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
@@ -973,7 +973,7 @@ function clickElements() {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    };
+    };*/
 }
 
 //every time you hit run, the rocket will return back to its original position and go from there
@@ -1365,35 +1365,36 @@ startState();
 movementFunction();
 clickElements();
 
-$("#up").hover(function(){
-    $("#up-img").attr("src", "img/playfield/up_hover.png")},
-    function(){
-    $("#up-img").attr("src", "img/playfield/up-first.png")
-});
+$("#up").hover(function () {
+        $("#up-img").attr("src", "img/playfield/up_hover.png")
+    },
+    function () {
+        $("#up-img").attr("src", "img/playfield/up-first.png")
+    });
 
-$("#left").hover(function(){
-    $("#left-img").attr("src", "img/playfield/left_hover.png")},
-    function(){
-    $("#left-img").attr("src", "img/playfield/left-first.png")
-});
+$("#left").hover(function () {
+        $("#left-img").attr("src", "img/playfield/left_hover.png")
+    },
+    function () {
+        $("#left-img").attr("src", "img/playfield/left-first.png")
+    });
 
-$("#right").hover(function(){
-    $("#right-img").attr("src", "img/playfield/right_hover.png")},
-    function(){
-    $("#right-img").attr("src", "img/playfield/right-first.png")
-});
+$("#right").hover(function () {
+        $("#right-img").attr("src", "img/playfield/right_hover.png")
+    },
+    function () {
+        $("#right-img").attr("src", "img/playfield/right-first.png")
+    });
 
-$("#down").hover(function(){
-    $("#down-img").attr("src", "img/playfield/down_hover.png")},
-    function(){
-    $("#down-img").attr("src", "img/playfield/down-first.png")
-});
+$("#down").hover(function () {
+        $("#down-img").attr("src", "img/playfield/down_hover.png")
+    },
+    function () {
+        $("#down-img").attr("src", "img/playfield/down-first.png")
+    });
 
 //demonstration at beginning of level 1
 function instructions() {
-    var arrowModal = false;
-    var runModal = false;
-
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
@@ -1405,66 +1406,106 @@ function instructions() {
 
             $modalImage.hide();
             $modalTitle.hide();
-            $modalText.text("These buttons are for moving up, down, left and right. Click one to create a command.");
+            $modalText.text("These buttons are for moving up, down, left and right.");
 
-            $commandsOverlay.attr("src", "commands.png").css({"width":"45%",
-                "margin-left": "-37%", "margin-top": "120%",});
+            $commandsOverlay.attr("src", "commands.png").css({
+                "width": "45%",
+                "margin-left": "-37%", "margin-top": "120%",
+            });
 
 
             $point.attr("src", "img/playfield/astronaut.png").css({
                 "height": "20%", "width": "20%", "margin-left": "20%", "margin-top": "95%",
-                "animation": "bouncearrow 1s infinite", "transform":"scaleX(-1)"
+                "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
             });
             $modalNext.click(function () {
-                modal.style.display = "none";
-            });
 
-            $right.add($left).add($up).add($down).one("click", function () {
-                if (arrowModal === false) {
-                    arrowModal = true;
-                    modal.style.display = "block";
-                    $modalText.text("Well done. Once you click the arrows they go into this panel. These commands will tell the rocket where to go.");
-                    $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
-                    $commandsOverlay.attr("src", "mainpanel.png").css({"width":"75%",
-                        "margin-left": "13%", "margin-top": "97%",});
-                }
+
+                modal.style.display = "block";
+                $modalText.text("The Main View will list all commands that you enter in a queue.");
+                $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
+                $commandsOverlay.attr("src", "mainpanel.png").css({
+                    "width": "75%",
+                    "margin-left": "13%", "margin-top": "70%",
+                });
+
+
                 $modalNext.click(function () {
                     modal.style.display = "block";
                     $point.css({"margin-left": "65%", "margin-top": "85%"});
-                    $modalText.text("Now, hit the play button below and see what happens!");
-                    $commandsOverlay.attr("src", "play.png").css({"width":"50%",
-                        "margin-left": "25%", "margin-top": "99%",});
-                })
-            });
+                    $modalText.text("Your listed commands will be executed when you hit the play button.");
+                    $commandsOverlay.attr("src", "play.png").css({
+                        "width": "50%",
+                        "margin-left": "25%", "margin-top": "99%",
+                    });
 
 
-            $run.click(function () {
-                setTimeout(function () {
-                    if (runModal === false) {
-                        runModal = true;
+                    $modalNext.click(function () {
+
                         modal.style.display = "block";
                         //$point.css({"transform": "scaleX(-1)", "margin-left": "55%", "margin-top": "4%"});
                         $point.hide();
-                        $modalText.text("Well done! You moved the rocket. Now, see if you can make a list of commands that moves the rocket toward the destination planet!");
+                        $modalText.text("Now, see if you can make a list of commands that moves the rocket toward the destination planet!");
                         $commandsOverlay.hide();
                         $modalImage.show();
-                    }
-                }, 400);
 
-                window.onclick = function (event) {
-                    if (event.target == modal) {
-                        modal.style.display = "none";
-                    }
-                };
+                        $modalNext.click(function () {
+                            modal.style.display = "none";
+                        })
+                    });
+                });
+            });
 
 
-                // When the user clicks on <span> (x), close the modal
-                span.onclick = function () {
+            window.onclick = function (event) {
+                if (event.target == modal) {
                     modal.style.display = "none";
-                };
+                }
+            };
 
-            })
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function () {
+                modal.style.display = "none";
+            };
+
+
         });
     });
+}
+
+function instructionsTwo() {
+    modal.style.display = "block";
+    $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+    $modalTitle.hide();
+    $modalText.text("Planets may harm your spaceship if you collide with them.");
+    $commandsOverlay.show();
+    $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
+    $commandsOverlay.css({
+        "width":"17%","margin-top":"42.5%","margin-left":"58%"
+    });
+
+    //$modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalNext.click(function () {
+        $commandsOverlay.show();
+        $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
+        $commandsOverlay.css({
+            "width":"17%","margin-top":"42.5%","margin-left":"58%"
+        });
+        modal.style.display = "block";
+        $modalText.text("You must click each planet to find out its level of danger.");
+        $modalNext.click(function () {
+            $commandsOverlay.show();
+            $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
+            $commandsOverlay.css({
+                "width":"17%","margin-top":"42.5%","margin-left":"58%"
+            });
+            modal.style.display = "block";
+            $modalText.text("However, you may be prompted to solve a puzzle first!");
+
+        })
+
+
+    })
+
 }
 

@@ -238,9 +238,10 @@ body {
     font-size: 24px;
 }
 
+/*
 #modalImage {
     padding: 15px
-}
+}*/
 
 /* The Close Button */
 .close {
@@ -252,7 +253,7 @@ body {
 
 #next {
     float:right;
-    margin-top: -5%
+    margin-top: 40%
 
 }
 
