@@ -376,17 +376,51 @@ function insertDOMandCSS0() {
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
-    //for resetting position of rocket - value will change depending on level
-    rocketMarginLeft = '45.5%';
-    rocketMarginTop = '55%';
 
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-        
-    //defining the rocket coordinates
-    rocketX = 250;
-    rocketY = 350;
+
+
+    switch(version){
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '45.5%';
+            rocketMarginTop = '55%';
+
+            //defining the rocket coordinates
+            rocketX = 250;
+            rocketY = 350;
+            break;
+        case 2:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '45.5%';
+            rocketMarginTop = '55%';
+
+            //defining the rocket coordinates
+            rocketX = 250;
+            rocketY = 350;
+            break;
+        case 3:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '45.5%';
+            rocketMarginTop = '55%';
+
+            //defining the rocket coordinates
+            rocketX = 250;
+            rocketY = 350;
+            break;
+        case 4:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '45.5%';
+            rocketMarginTop = '55%';
+
+            //defining the rocket coordinates
+            rocketX = 250;
+            rocketY = 350;
+            break;
+    }
+    
     rocketX1 = rocketX;
     rocketY1 = rocketY;
         
@@ -427,16 +461,48 @@ function insertDOMandCSS1() {
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
-    //for resetting position of rocket - value will change depending on level
-    rocketMarginLeft = '27.4%';
-    rocketMarginTop = '72.75%';
-
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-    //defining the rocket coordinates
-    rocketX = 150;
-    rocketY = 450;
+    
+        switch(version){
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            break;
+        case 2:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            break;
+        case 3:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            break;
+        case 4:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            break;
+    }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
 
@@ -498,17 +564,48 @@ function insertDOMandCSS2() {
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
-    //for resetting position of rocket - value will change depending on level
-    rocketMarginLeft = '36.4%';
-    rocketMarginTop = '81.75%';
-
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
     
-    //defining the rocket coordinates
-    rocketX = 200;
-    rocketY = 500;
+    switch(version){
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '81.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 500;
+            break;
+        case 2:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '81.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 500;
+            break;
+        case 3:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '81.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 500;
+            break;
+        case 4:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '81.75%';
+        
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 500;
+            break;
+    }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
     
