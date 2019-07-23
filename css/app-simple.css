@@ -308,6 +308,10 @@ body {
     100%{top: 0px;}
 }
 
+.leavepage {
+    display:none;
+}
+
 
 
 

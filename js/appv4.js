@@ -987,10 +987,12 @@ function clickElements() {
     $home.click(function () {
         modal.style.display = "block";
         $modalText.text("Are you sure you want to leave the game?").css("font-size", "24px");
-        $modalTitle.text("")
+        $modalTitle.text("");
         $modalImage.attr("src", "");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
+        $(".leavepage").show();
     });
     
     $hint.click(function () {
