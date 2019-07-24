@@ -26,9 +26,14 @@ var functionTwoLevelMoves;
 
 var version = -1;
 
+var versionListLevel0 = [];
+var versionListLevel1 = [];
+var versionListLevel2 = [];
 
+
+function loadVersions(){
 // Arrays to hold Level 0 versions 1, 2, 3 and 4:
-var versionListLevel0 =
+versionListLevel0 =
     [
         [
             [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -82,7 +87,7 @@ var versionListLevel0 =
 
 
 // Arrays to hold Level 1 versions 1, 2, 3 and 4:
-var versionListLevel1 =
+versionListLevel1 =
     [
         [
             [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -135,11 +140,11 @@ var versionListLevel1 =
     ];
 
 // Arrays to hold Level 2 versions 1, 2, 3 and 4:
-var versionListLevel2 =
+versionListLevel2 =
     [
         [
-            [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -150,8 +155,8 @@ var versionListLevel2 =
             [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ],
         [
-            [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -162,8 +167,8 @@ var versionListLevel2 =
             [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ],
         [
-            [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -174,8 +179,8 @@ var versionListLevel2 =
             [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ],
         [
-            [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -186,10 +191,12 @@ var versionListLevel2 =
             [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ]
     ];
+}
 
 chooseLevel();
 
 function chooseLevel() {
+    loadVersions();
     if (currentLevel === 0) {
 
         // Randomise number between 1 and 4 to represent Level 0 version
@@ -1333,6 +1340,7 @@ function loadNewLevel() {
     // make new level
     chooseLevel();
     makeGame();
+    
     // update rocket position for new map
     rocketPosition = findRocketPosition();
 
