@@ -1320,16 +1320,14 @@ function loadNewLevel() {
         $("head link#levels").attr("href", "css/app-advance.css");
         console.log("current level" + currentLevel);
     } else if (currentLevel === 2) {
-        currentLevel = 3;
-        /*
+        currentLevel = 1;
+
         $(".functions").hide();
         $(".side-navigation").hide();
         $("#functiontwoselect").hide();
         $('.navigation').show();
-        $("head link#levels").attr("href", "css/app-simple.css");*/
+        $("head link#levels").attr("href", "css/app-simple.css");
         console.log("current level" + currentLevel);
-    } else if (currentLevel === 3) {
-        currentLevel = 2;
     }
 
     // make new level
@@ -1419,7 +1417,7 @@ var winAndLossCall = function () {
 
                         setTimeout(loadNewLevel, 3000);
 
-                    }, 400)
+                    }, 300)
                 }
             }
 
