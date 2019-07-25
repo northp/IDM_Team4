@@ -308,11 +308,20 @@ body {
     100%{top: 0px;}
 }
 
-.leavepage {
-    display:none;
+#leavepage {
+    display: none;
+    text-align: center;
+    margin-top: 20%
 }
 
-
+.btn-leave, .btn-stay {
+    width: 20%;
+    height: auto;
+    background-color: black;
+    color: #fab85b;
+    font-size: 80%;
+    border-radius: 25px;
+}
 
 
 /*Phone*/

@@ -992,11 +992,11 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
-        $(".leavepage").show();
+        $("#leavepage").css("display", "block")
     });
     
     $hint.click(function () {
-        modal.style.display = "block";
+        $("#leavepage").css("display", "none !important");
         $modalText.text("Instructions...");
         $modalTitle.text("Hint").css("font-weight", "bold");
         $modalImage.attr("src", "");
@@ -1052,7 +1052,7 @@ function clickElements() {
 
     //comment out so that user can't skip the intro demo
 
-    /*
+    
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
@@ -1067,7 +1067,7 @@ function clickElements() {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    };*/
+    };
 }
 
 //every time you hit run, the rocket will return back to its original position and go from there
