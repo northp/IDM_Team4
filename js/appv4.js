@@ -377,6 +377,7 @@ var $funcSpace = $(".func-space");
 
 //DOM accessing modal
 var modal = document.getElementById("myModal");
+var navModal = document.getElementById("navModal");
 var span = document.getElementsByClassName("close")[0];
 var stay = document.getElementsByClassName("btn-stay")[0];
 
@@ -1163,15 +1164,18 @@ function dangerArea(planet) {
 
 function clickElements() {
     $home.click(function () {
-        modal.style.display = "block";
-        $modalText.text("Are you sure you want to leave the game?").css("font-size", "24px");
-        $modalTitle.text("");
-        $modalImage.attr("src", "");
-        $modalNext.attr("src", "");
-        $point.hide();
-        $commandsOverlay.hide();
-        $("#leavepage").css("display", "block")
+        navModal.style.display = "block";
     });
+
+    $(".btn-stay").click(function(){
+        navModal.style.display = "none";
+    })
+
+    $(".close").click(function(){
+        navModal.style.display = "none";
+    })
+
+
 
     $hint.click(function () {
         $("#leavepage").css("display", "none !important");
@@ -1253,11 +1257,7 @@ function clickElements() {
 
     //comment out so that user can't skip the intro demo
 
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 10e28562aa925f576273a49f55d2af654f22e99b
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";

@@ -309,7 +309,7 @@ body {
 }
 
 #leavepage {
-    display: none;
+    display: block;
     text-align: center;
     margin-top: 20%
 }
