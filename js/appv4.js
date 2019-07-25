@@ -1206,11 +1206,11 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
-        $(".leavepage").show();
+        $("#leavepage").css("display", "block")
     });
 
     $hint.click(function () {
-        modal.style.display = "block";
+        $("#leavepage").css("display", "none !important");
         $modalText.text("Instructions...");
         $modalTitle.text("Hint").css("font-weight", "bold");
         $modalImage.attr("src", "");
@@ -1290,6 +1290,8 @@ function clickElements() {
     //comment out so that user can't skip the intro demo
 
     //clicking off of modals
+    
+    // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
@@ -1769,6 +1771,7 @@ $("#run").hover(function () {
 
 
 /*DEMO MODALS*/
+
 //level 0
 function instructions() {
     var counter = 1;
