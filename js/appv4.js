@@ -7,6 +7,10 @@ var currentLevel = 0;
 var rocketMarginLeft;
 var rocketMarginTop;
 
+//for resetting asteroid position
+var asteroidMarginLeft;
+var asteroidMarginTop;
+
 
 //defining the rocket coordinates
 var rocketX = 250;
@@ -18,200 +22,270 @@ var rocketY1 = rocketY;
 
 var map = [];
 
-var something = -1; //using this variable to increment so that each image will have an individual id name
+var something = -1; //using this variable to increment so that each arrow image will have an individual id name
 //also used it to give each value in the array an individual name
 
 var algorithmLevelMoves;
 var functionTwoLevelMoves;
 
-var version = 0;
+var version = -1;
+
+var versionListLevel0 = [];
+var versionListLevel1 = [];
+var versionListLevel2 = [];
+var versionListLevel3 = [];
+
+
+function loadVersions() {
+// Arrays to hold Level 0 versions 1, 2, 3 and 4:
+    versionListLevel0 =
+        [
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ]
+        ];
+
+
+// Arrays to hold Level 1 versions 1, 2, 3 and 4:
+    versionListLevel1 =
+        [
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ]
+        ];
+
+// Arrays to hold Level 2 versions 1, 2, 3 and 4:
+    versionListLevel2 =
+        [
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+            ]
+        ];
+
+    // Arrays to hold Level 2 versions 1, 2, 3 and 4:
+    versionListLevel3 =
+        [
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ]
+
+        ]
+}
 
 chooseLevel();
 
 function chooseLevel() {
+    if (currentLevel > 1) {
+        $(".functions").show();
+        $(".side-navigation").show();
+        $("#functiontwoselect").show();
+        $('.navigation').hide();
+        $("head link#levels").attr("href", "css/app-advance.css");
+    }
+    loadVersions();
     if (currentLevel === 0) {
 
-        // Randomise number between 1 and 4
-        version = Math.floor((Math.random() * 4) + 1);
+        // Randomise number between 1 and 4 to represent Level 0 version
+        version = Math.floor((Math.random() * 3) + 1);
         console.log("Level " + currentLevel + " , version " + version);
 
-        // Added condition to randomise level 0 version
-        if (version === 1) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 2) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 3) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        }
-
-
-        /*
-            Below Code moved to insertDOMandCSS0 function.
-        */
-
-        // map 0 selected
-        // next step: insert img tags
-
-        // $('.canvas')
-        // .prepend('<img id="rocketman"/>')
-        // .prepend('<img id="planetDestination"/>');
-
-        // jQueryVariables(); //calling function that puts above img elements into variables
-
-        // //for resetting position of rocket - value will change depending on level
-        // rocketMarginLeft = '45.5%';
-        // rocketMarginTop = '55%';
-
-        // //number of moves you can make
-        // algorithmLevelMoves = 10;
-        // functionTwoLevelMoves = 4;
-
-        // //defining the rocket coordinates
-        // rocketX = 250;
-        // rocketY = 350;
-        // rocketX1 = rocketX;
-        // rocketY1 = rocketY;
+        // Assign randomised version number to map for level 0
+        map = versionListLevel0[version];
         insertDOMandCSS0();
         setTimeout(instructions, 750); //instructions
     }
 
+    //currently planets level (planet with index 2 has danger zone)
     if (currentLevel === 1) {
 
-        // Randomise number between 1 and 4
-        version = Math.floor((Math.random() * 4) + 1);
+        // Randomise number between 1 and 4 to represent Level 1 version
+        version = Math.floor((Math.random() * 3) + 1);
         console.log("Level " + currentLevel + " , version " + version);
 
-        // Added condition to randomise level 1 version
-        if (version === 1) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 2) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 3) {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        } else {
-            map = [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ];
-        }
 
-        /*
-             Below Code moved to insertDOMandCSS1 function.
-        */
+        // Assign randomised version number to map for level 1
+        map = versionListLevel1[version];
 
-
-        // // map 1 selected
-        // // next step: insert img tags
-
-        // $('.canvas')
-        // .prepend('<img id="rocketman"/>')
-        // .prepend('<img id="planetMetal"/>')
-        // .prepend('<img id="planetFire"/>')
-        // .prepend('<img id="planetDestination"/>')
-        // /*  .prepend('<img id="hint"/>') */;
-
-        // jQueryVariables(); //calling function that puts above img elements into variables
-
-        // //for resetting position of rocket - value will change depending on level
-        // rocketMarginLeft = '27.4%';
-        // rocketMarginTop = '72.75%';
-
-        // //number of moves you can make
-        // algorithmLevelMoves = 10;
-        // functionTwoLevelMoves = 4;
-
-        // //defining the rocket coordinates
-        // rocketX = 150;
-        // rocketY = 450;
-        // rocketX1 = rocketX;
-        // rocketY1 = rocketY;
         insertDOMandCSS1();
         setTimeout(instructionsTwo, 750); //instructions
     }
@@ -220,97 +294,28 @@ function chooseLevel() {
     if (currentLevel === 2) {
 
 
-        // Randomise number between 1 and 4
-        version = Math.floor((Math.random() * 4) + 1);
+        // Randomise number between 1 and 4 to represent Level 2 version
+        version = Math.floor((Math.random() * 3) + 1);
         console.log("Level " + currentLevel + " , version " + version);
 
-        // Added condition to randomise level 2 version
-        if (version === 1) {
-            map = [
-                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 2) {
-            map = [
-                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-            ];
-        } else if (version === 3) {
-            map = [
-                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-            ];
-        } else {
-            map = [
-                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
-            ];
-        }
+        // Assign randomised version number to map for level 2
+        map = versionListLevel2[version];
 
-
-        // // map 2 selected
-        // // next step: insert img tags for lvl 2
-        // $('.canvas')/* .prepend('<img id="hint"/>') */
-        // .prepend('<img id="planetIce" class="planetIce_3"/>')
-        // .prepend('<img id="planetIce" class="planetIce_2"/>')
-        // .prepend('<img id="planetIce" class="planetIce_1"/>')
-        // .prepend('<img id="planetEarth"/>')
-        // .prepend('<img id="planetDestination"/>')
-        // .prepend('<img id="planetFire"/>')
-        // .prepend('<img id="planetMetal" class="planetMetal_3"/>')
-        // .prepend('<img id="planetMetal" class="planetMetal_2"/>')
-        // .prepend('<img id="planetMetal" class="planetMetal_1"/>')
-        // .prepend('<img id="rocketman"/>');
-
-        // jQueryVariables(); //calling function that puts above img elements into variables
-
-        // //for resetting position of rocket - value will change depending on level
-        // rocketMarginLeft = '36.4%';
-        // rocketMarginTop = '81.75%';
-
-        // //number of moves you can make
-        // algorithmLevelMoves = 10;
-        // functionTwoLevelMoves = 4;
-
-        // //defining the rocket coordinates
-        // rocketX = 200;
-        // rocketY = 500;
-        // rocketX1 = rocketX;
-        // rocketY1 = rocketY;
         insertDOMandCSS2();
         setTimeout(instructionsThree, 750); //instructions
+    }
+
+    if (currentLevel === 3) {
+        // Randomise number between 1 and 4 to represent Level 2 version
+        version = Math.floor((Math.random() * 3) + 1);
+        console.log("Level " + currentLevel + " , version " + version);
+
+        // Assign randomised version number to map for level 3
+        map = versionListLevel3[version];
+
+        insertDOMandCSS3();
+        //setTimeout(instructionsThree, 750); //instructions
+
     }
 }
 
@@ -329,10 +334,12 @@ var $planetFire;
 var $planetMetal;
 var $planetDestination;
 var $planetEarth;
+var $planetIce;
 var $rocketAnimate;
 var $hint;
 var $hintSimple;
 var $home;
+var $asteroid;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
@@ -340,10 +347,12 @@ function jQueryVariables() {
     $hintSimple = $("#hintSimple");
     $planetEarth = $("#planetEarth");
     $planetDestination = $("#planetDestination");
-    $planetMetal = $("#planetMetal");
-    $rocketAnimate = $("#rocketman");
+    $planetMetal = $(".planetMetal");
+    $planetIce = $(".planetIce");
     $planetFire = $("#planetFire");
+    $rocketAnimate = $("#rocketman");
     $home = $("#home");
+    $asteroid = $("#asteroid");
 }
 
 //jQuery accessing arrows
@@ -363,7 +372,6 @@ var $functionTwoIcon = $("#functiontwo");
 //jQuery command display field
 var $algoSpace = $(".algo-space");
 var $funcSpace = $(".func-space");
-
 
 /*END OF JQUERY VARIABLES*/
 
@@ -458,7 +466,7 @@ function insertDOMandCSS1() {
 
     $('.canvas')
         .prepend('<img id="rocketman"/>')
-        .prepend('<img id="planetMetal"/>')
+        .prepend('<img class="planetMetal"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="planetDestination"/>')
     /*  .prepend('<img id="hint"/>') */;
@@ -555,15 +563,15 @@ function insertDOMandCSS2() {
     // map 2 selected
     // next step: insert img tags for lvl 2
     $('.canvas')/* .prepend('<img id="hint"/>') */
-        .prepend('<img id="planetIce" class="planetIce_3"/>')
-        .prepend('<img id="planetIce" class="planetIce_2"/>')
-        .prepend('<img id="planetIce" class="planetIce_1"/>')
+        .prepend('<img id="planetIce_3" class="planetIce"/>')
+        .prepend('<img id="planetIce_2" class="planetIce"/>')
+        .prepend('<img id="planetIce_1" class="planetIce"/>')
         .prepend('<img id="planetEarth"/>')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
-        .prepend('<img id="planetMetal" class="planetMetal_3"/>')
-        .prepend('<img id="planetMetal" class="planetMetal_2"/>')
-        .prepend('<img id="planetMetal" class="planetMetal_1"/>')
+        .prepend('<img id="planetMetal_3" class="planetMetal"/>')
+        .prepend('<img id="planetMetal_2" class="planetMetal"/>')
+        .prepend('<img id="planetMetal_1" class="planetMetal"/>')
         .prepend('<img id="rocketman"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
@@ -622,7 +630,7 @@ function insertDOMandCSS2() {
         'z-index': '1'
     });
 
-    $('.planetMetal_1').attr('src', 'img/playfield/planets/planet_metal.png').css({
+    $('#planetMetal_1').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '18.2%',
         'margin-top': '63.7%',
@@ -630,7 +638,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('.planetMetal_2').attr('src', 'img/playfield/planets/planet_metal.png').css({
+    $('#planetMetal_2').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '27.3%',
         'margin-top': '63.7%',
@@ -638,7 +646,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('.planetMetal_3').attr('src', 'img/playfield/planets/planet_metal.png').css({
+    $('#planetMetal_3').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
         'margin-left': '36.4%',
         'margin-top': '63.7%',
@@ -671,7 +679,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('.planetIce_1').attr('src', 'img/playfield/planets/planet_ice.png').css({
+    $('#planetIce_1').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '45.6%',
         'margin-top': '27.4%',
@@ -679,7 +687,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('.planetIce_2').attr('src', 'img/playfield/planets/planet_ice.png').css({
+    $('#planetIce_2').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '54.6%',
         'margin-top': '27.4%',
@@ -687,7 +695,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('.planetIce_3').attr('src', 'img/playfield/planets/planet_ice.png').css({
+    $('#planetIce_3').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
         'margin-left': '63.7%',
         'margin-top': '27.4%',
@@ -700,6 +708,111 @@ function insertDOMandCSS2() {
             'margin-left': '90.5%'
         }); */
 }
+
+function insertDOMandCSS3() {
+
+    $('.canvas')
+        .prepend('<img id="planetDestination"/>')
+        .prepend('<img id="planetFire"/>')
+        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="asteroid"/>');
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+
+    //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
+
+    switch (version) {
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 400;
+            break;
+        case 2:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 400;
+            break;
+        case 3:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 400;
+            break;
+        case 4:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 400;
+            break;
+    }
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
+
+    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1'
+    });
+
+    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
+        'position': 'absolute',
+        'margin-left': '60.5%',
+        'margin-top': '0%',
+        'max-height': 'auto',
+        'max-width': '15%',
+        'transform': 'rotate(30deg)'
+    });
+
+    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': '27.4%',
+        'margin-top': '45.55%',
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
+        'position': 'absolute',
+        'margin-left': asteroidMarginLeft,
+        'margin-top': asteroidMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+
+    })
+
+}
+
 
 // function to find rocket index (value 4 in the array).
 function findRocketPosition() {
@@ -715,10 +828,30 @@ function findRocketPosition() {
     }
 }
 
+
 var rocketPosition = findRocketPosition();
+
+function findAsteroidPosition() {
+    var asteroidArray = [];
+    for (var i in map) {
+        for (var j in map[i]) {
+            if (map[i][j] == 0.1) {
+                console.log("Asteroid is at index [" + i + "][" + j + "]");
+                asteroidArray.push(parseInt(i), parseInt(j));
+                return asteroidArray;
+            }
+        }
+    }
+}
+
+
+var asteroidPosition = findAsteroidPosition();
+
 
 //storing original index position array in const array
 var originalRocketIndex = rocketPosition;
+
+var originalAsteroidIndex = asteroidPosition;
 
 // get height and width of the map
 var mapHeight = map.length;
@@ -733,7 +866,6 @@ var functionTwo = [];
 //variables that store the array - will be changed depending on what function is clicked by the user
 var arraySelect; //array
 var classSelect; //array images
-
 
 //canvas attributes
 var tileWidth = 50;
@@ -794,12 +926,20 @@ function makeGame() {
                 ctx.globalAlpha = 0.1;
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
+            } else if (map[i][j] === 0.1) {
+                ctx.globalAlpha = 0.1;
+                ctx.clearRect(xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 2) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(fire, xPosition, yPosition, 50, 50);
+            } else if (map[i][j] === 2.5) {
+                ctx.globalAlpha = 0.1;
+                ctx.clearRect(xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 3) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(metal, xPosition, yPosition, 50, 50);
@@ -830,7 +970,6 @@ function makeGame() {
 
 $(document).ready(function () {
     initialise();
-    //insertDOMandCSS1();
 });
 
 function initialise() {
@@ -900,7 +1039,6 @@ function movementFunction() {
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
-
         }
     });
 
@@ -912,7 +1050,6 @@ function movementFunction() {
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
-
         }
     });
 
@@ -924,14 +1061,12 @@ function movementFunction() {
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
-
         }
     });
 
 
     $functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
-
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
@@ -939,7 +1074,6 @@ function movementFunction() {
                 arraySelect.push(functionTwo);
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
-
 
             //handling loops (calling F2 inside F2)
             if (arraySelect === functionTwo) {
@@ -983,6 +1117,50 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
+//function will be updated to only come up once a mini-game has been solved
+function dangerArea(planet) {
+    function drawZone() {
+        modal.style.display = "none";
+        for (var i in map) {
+            for (var j in map[i]) {
+                if (planet == "fire") {
+                    if ((map[i][j] === 2.5) || (map[i][j] === 2)) {
+                        ctx.globalAlpha = 0.4;
+                        ctx.fillStyle = "#FF0000"; //low contrast
+                        //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision
+                        ctx.fillRect(xPosition, yPosition, 50, 50);
+                    }
+                }
+
+                if (planet == "metal") {
+                    console.log("hey");
+                }
+                xPosition = xPosition + 50;
+
+            }
+            yPosition = yPosition + 50;
+            xPosition = 0;
+        }
+        yPosition = 0;
+
+    }
+
+    //when the user clicks on <span> (x)
+    span.onclick = function () {
+        drawZone();
+    };
+
+
+    //when the user clicks anywhere outside of the modal
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            drawZone();
+        }
+
+    };
+}
+
+
 function clickElements() {
     $home.click(function () {
         modal.style.display = "block";
@@ -994,7 +1172,7 @@ function clickElements() {
         $commandsOverlay.hide();
         $("#leavepage").css("display", "block")
     });
-    
+
     $hint.click(function () {
         $("#leavepage").css("display", "none !important");
         $modalText.text("Instructions...");
@@ -1020,6 +1198,7 @@ function clickElements() {
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        dangerArea("fire");
     });
 
     $planetMetal.click(function () {
@@ -1029,12 +1208,31 @@ function clickElements() {
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        dangerArea("metal");
     });
 
     $planetDestination.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_destination.png").css("height", "5%", "width", "5%");
         $modalText.text("This is your destination!");
+        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $point.hide();
+    });
+
+    $planetIce.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "5%", "width", "5%");
+        $modalText.text("Ice");
+        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $point.hide();
+    });
+
+    $planetEarth.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/planets/planet_earth.png").css("height", "5%", "width", "5%");
+        $modalText.text("Earth");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
@@ -1049,18 +1247,22 @@ function clickElements() {
         $point.hide();
     });
 
+    stay.onclick = function () {
+        modal.style.display = "none";
+    };
 
     //comment out so that user can't skip the intro demo
 
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> 10e28562aa925f576273a49f55d2af654f22e99b
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     };
 
-    stay.onclick = function () {
-        modal.style.display = "none";
-    };
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -1070,7 +1272,7 @@ function clickElements() {
     };
 }
 
-//every time you hit run, the rocket will return back to its original position and go from there
+//every time you hit run, the rocket will return back to its original position
 function originalPos() {
 
     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
@@ -1080,6 +1282,11 @@ function originalPos() {
     $rocketAnimate.css({
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop
+    });
+
+    $asteroid.css({
+        'margin-left': asteroidMarginLeft,
+        'margin-top': asteroidMarginTop
     });
 
     //reset coordinates
@@ -1096,7 +1303,16 @@ function originalPos() {
         }
     }
 
+    for (var i in map) {
+        for (var j in map[i]) {
+            if (map[i][j] === 0.1) {
+                map[i][j] = 0;
+            }
+        }
+    }
+
     rocketPosition = originalRocketIndex;
+    asteroidPosition = originalAsteroidIndex;
 
 }
 
@@ -1109,6 +1325,7 @@ function stopAnimation() {
 
     if (stopClicked === true) {
         $rocketAnimate.stop(); //stop animating
+        $asteroid.stop();
         originalPos(); //return to original position
         winAndLossCall = function () {
             //empty function, does nothing
@@ -1123,11 +1340,12 @@ function stopAnimation() {
 function runButton() {
     $run.click(function () {
 
-            lossAndVictoryArray = [];
+
 
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
             //the rocket can go off canvas
             if (!$rocketAnimate.is(':animated')) {
+                lossAndVictoryArray = [];
 
                 originalPos();
 
@@ -1141,6 +1359,7 @@ function runButton() {
                 for (var x in algorithm) {
 
                     $stop.click(stopAnimation);//stop animation when stop button is clicked
+                    asteroidAnimate();
 
                     //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                     if (typeof algorithm[x] === "object") {
@@ -1148,6 +1367,7 @@ function runButton() {
                         for (var i in algorithm[x]) {
 
                             $stop.click(stopAnimation); //stop animation when stop button is clicked
+                            asteroidAnimate();
 
                             //right
                             if (algorithm[x][i].charAt(0) === "r") {
@@ -1222,7 +1442,7 @@ function moveRight() {
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
-        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -1247,7 +1467,7 @@ function moveDown() {
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
-        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
@@ -1274,7 +1494,7 @@ function moveLeft() {
 
 
     if (rocketPosition[1] > 0) {
-        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -1300,7 +1520,7 @@ function moveUp() {
 
 
     if (rocketPosition[0] > 0) {
-        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
@@ -1313,6 +1533,23 @@ function moveUp() {
         }
     }
 
+}
+
+//animating the asteroid and updating its index
+function asteroidAnimate() {
+    if (currentLevel > 2) {
+        console.log($asteroid);
+        console.log("amy " +asteroidPosition);
+
+        if (asteroidPosition[1] < mapWidth - 1) {
+
+            $asteroid.animate({'margin-left': '+=9%'}, "fast");
+            var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
+            map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
+            map[asteroidPosition[0]][asteroidPosition[1]] = temp;
+            asteroidPosition = findAsteroidPosition();
+        }
+    }
 }
 
 function loadNewLevel() {
@@ -1331,30 +1568,28 @@ function loadNewLevel() {
         console.log("current level" + currentLevel);
     } else if (currentLevel === 1) {
         currentLevel = 2;
-        $(".functions").show();
-        $(".side-navigation").show();
-        $("#functiontwoselect").show();
-        $('.navigation').hide();
-        $("head link#levels").attr("href", "css/app-advance.css");
         console.log("current level" + currentLevel);
     } else if (currentLevel === 2) {
-        currentLevel = 1;
-        $(".functions").hide();
-        $(".side-navigation").hide();
-        $("#functiontwoselect").hide();
-        $('.navigation').show();
-        $("head link#levels").attr("href", "css/app-simple.css");
+        currentLevel = 3;
         console.log("current level" + currentLevel);
+    } else if (currentLevel === 3) {
+        currentLevel = 2;
     }
 
     // make new level
     chooseLevel();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     makeGame();
+
     // update rocket position for new map
     rocketPosition = findRocketPosition();
 
-    //storing original index position array in const array
+    //storing original rocket index position array in const array
     originalRocketIndex = rocketPosition;
+
+    //same for asteroid
+    asteroidPosition = findAsteroidPosition();
+    originalAsteroidIndex = asteroidPosition;
 
     //the main array/algorithm the user creates
     algorithm = [];
@@ -1434,8 +1669,7 @@ var winAndLossCall = function () {
 
                         setTimeout(loadNewLevel, 3000);
 
-                    }, 400)
-
+                    }, 300)
                 }
             }
 
@@ -1490,14 +1724,17 @@ $("#down").hover(function () {
         $("#down-img").attr("src", "img/playfield/down-first.png")
     });
 
-$("#run").hover(function(){
-    $("#play-first").attr("src", "img/playfield/play_hover.png")},
-    function(){
-    $("#play-first").attr("src", "img/playfield/play.png")
-});
+$("#run").hover(function () {
+        $("#play-first").attr("src", "img/playfield/play_hover.png")
+    },
+    function () {
+        $("#play-first").attr("src", "img/playfield/play.png")
+    });
 
 
-//demonstration at beginning of level 1
+/*DEMO MODALS*/
+
+//level 0
 function instructions() {
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
@@ -1578,6 +1815,7 @@ function instructions() {
     });
 }
 
+//level 1
 function instructionsTwo() {
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
@@ -1610,6 +1848,11 @@ function instructionsTwo() {
             $commandsOverlay.show();
             modal.style.display = "block";
             $modalText.text("However, you may be prompted to solve a puzzle first!");
+            $modalNext.click(function () {
+                modal.style.display = "none";
+                $commandsOverlay.hide();
+
+            })
 
         })
 
@@ -1618,6 +1861,7 @@ function instructionsTwo() {
 
 }
 
+//level 2
 function instructionsThree() {
     modal.style.display = "block";
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
@@ -1628,7 +1872,7 @@ function instructionsThree() {
 
     $modalNext.click(function () {
         modal.style.display = "block";
-        $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have been doing.");
+        $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have learnt with the Main View.");
         //funcTwoState();
         $modalImage.hide();
 
@@ -1662,13 +1906,10 @@ function instructionsThree() {
 
             $modalNext.click(function () {
                 modal.style.display = "none";
+                $point.hide();
 
             })
-
         })
-
-
     })
-
 }
 
