@@ -1,7 +1,7 @@
 "use strict";
 
 var counter = 1;
-var text1 = "Your the commander of the spaceship. Your goal is to move the ship around the galaxy to the correct destination. Use the command buttons on the left side of your space controls to move. The commands will be shown in your main panel and can only be excuted at once. ";
+var text1 = "You're the commander of the spaceship. Your goal is to move the ship around the galaxy to the correct destination. Use the command buttons on the left side of your space controls to move. The commands will be shown in your main panel and can only be excuted at once. ";
 var text2 = "Your commands are limited in each level, so think wisely how to move your ship! For this, you can create command queues in the algorithm panel and use them to reduce the amount of commands in your main panel. ";
 var text3 = "But be careful of the obstacles on the way to your destination. They might harm your spaceship badly! You can click on them to see what they do.";
 var text4 = "Enough said, just try it out!";
@@ -39,4 +39,4 @@ $("#back").click(function(){
     }
     counter = backcounter;
     console.log(backcounter);
-})
+});

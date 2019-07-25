@@ -102,8 +102,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -114,8 +114,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -126,8 +126,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -138,8 +138,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
@@ -314,7 +314,7 @@ function chooseLevel() {
         map = versionListLevel3[version];
 
         insertDOMandCSS3();
-        //setTimeout(instructionsThree, 750); //instructions
+        setTimeout(instructionsFour, 750); //instructions
 
     }
 }
@@ -340,6 +340,7 @@ var $hint;
 var $hintSimple;
 var $home;
 var $asteroid;
+var $originalRocketSpace;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
@@ -353,6 +354,7 @@ function jQueryVariables() {
     $rocketAnimate = $("#rocketman");
     $home = $("#home");
     $asteroid = $("#asteroid");
+    $originalRocketSpace = $("#originalrocketspace");
 }
 
 //jQuery accessing arrows
@@ -387,7 +389,8 @@ function insertDOMandCSS0() {
 
     $('.canvas')
         .prepend('<img id="rocketman"/>')
-        .prepend('<img id="planetDestination"/>');
+        .prepend('<img id="planetDestination"/>')
+        .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -454,6 +457,14 @@ function insertDOMandCSS0() {
         'transform': 'rotate(30deg)'
     });
 
+    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+    })
+
 }
 
 
@@ -469,6 +480,7 @@ function insertDOMandCSS1() {
         .prepend('<img class="planetMetal"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="planetDestination"/>')
+        .prepend('<img id ="originalrocketspace"/>')
     /*  .prepend('<img id="hint"/>') */;
 
     jQueryVariables(); //calling function that puts above img elements into variables
@@ -552,10 +564,13 @@ function insertDOMandCSS1() {
         'z-index': '1'
     });
 
-    /*     $hint.attr("src", "hint.png").css({
-            'position': 'absolute',
-            'margin-left': '90.5%'
-        }); */
+    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+    })
 }
 
 // Insert DOM and CSS for map 2
@@ -572,7 +587,8 @@ function insertDOMandCSS2() {
         .prepend('<img id="planetMetal_3" class="planetMetal"/>')
         .prepend('<img id="planetMetal_2" class="planetMetal"/>')
         .prepend('<img id="planetMetal_1" class="planetMetal"/>')
-        .prepend('<img id="rocketman"/>');
+        .prepend('<img id="rocketman"/>')
+        .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -703,10 +719,13 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    /*     $hint.attr("src", "hint.png").css({
-            'position': 'absolute',
-            'margin-left': '90.5%'
-        }); */
+    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+    })
 }
 
 function insertDOMandCSS3() {
@@ -715,7 +734,8 @@ function insertDOMandCSS3() {
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="rocketman"/>')
-        .prepend('<img id="asteroid"/>');
+        .prepend('<img id="asteroid"/>')
+        .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
 
@@ -809,6 +829,14 @@ function insertDOMandCSS3() {
         'max-height': 'auto',
         'max-width': '9%',
 
+    });
+
+    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
     })
 
 }
@@ -927,7 +955,6 @@ function makeGame() {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 0.1) {
-                ctx.globalAlpha = 0.1;
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
@@ -943,6 +970,10 @@ function makeGame() {
             } else if (map[i][j] === 3) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(metal, xPosition, yPosition, 50, 50);
+            } else if (map[i][j] === 3.5) {
+                ctx.globalAlpha = 0.1;
+                ctx.clearRect(xPosition, yPosition, 50, 50);
+                ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 4) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
@@ -1133,7 +1164,12 @@ function dangerArea(planet) {
                 }
 
                 if (planet == "metal") {
-                    console.log("hey");
+                    if ((map[i][j] === 3.5) || (map[i][j] === 3)) {
+                        ctx.globalAlpha = 0.4;
+                        ctx.fillStyle = "#FF0000"; //low contrast
+                        //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision
+                        ctx.fillRect(xPosition, yPosition, 50, 50);
+                    }
                 }
                 xPosition = xPosition + 50;
 
@@ -1253,18 +1289,20 @@ function clickElements() {
 
     //comment out so that user can't skip the intro demo
 
+    //clicking off of modals
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            $point.hide();
+            $commandsOverlay.hide();
+        }
+    };
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
-    };
-
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
+        $point.hide();
+        $commandsOverlay.hide();
     };
 }
 
@@ -1288,6 +1326,7 @@ function originalPos() {
     //reset coordinates
     rocketX = rocketX1;
     rocketY = rocketY1;
+
 
     //reset map and rocketPosition arrays back so rocket index is at original position
     //replacing value 4 in the array with 0 to replace it
@@ -1438,7 +1477,7 @@ function moveRight() {
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
-        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -1463,7 +1502,7 @@ function moveDown() {
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
-        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
@@ -1490,7 +1529,7 @@ function moveLeft() {
 
 
     if (rocketPosition[1] > 0) {
-        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -1535,18 +1574,19 @@ function moveUp() {
 function asteroidAnimate() {
     if (currentLevel > 2) {
         console.log($asteroid);
-        console.log("amy " +asteroidPosition);
+        console.log("amy " + asteroidPosition);
 
         if (asteroidPosition[1] < mapWidth - 1) {
-
             $asteroid.animate({'margin-left': '+=9%'}, "fast");
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
             asteroidPosition = findAsteroidPosition();
+
         }
     }
 }
+
 
 function loadNewLevel() {
     // temporary test to change level
@@ -1637,7 +1677,7 @@ var winAndLossCall = function () {
                 // rLoss.play(); //TestSound
 
                 //stops the current animation and any animation that tries to takes place after (loops for the number of moves in the level)
-                for (var j = 0; j <= levelMoves; j++) {
+                for (var j = 0; j <= algorithmLevelMoves + functionTwoLevelMoves; j++) {
                     $rocketAnimate.stop();
                 }
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
@@ -1729,136 +1769,107 @@ $("#run").hover(function () {
 
 
 /*DEMO MODALS*/
-
 //level 0
 function instructions() {
+    var counter = 1;
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
     $modalText.text("Hi there, I'm Hugo! I'm here to show you how to use this spaceship properly.");
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
-    $modalNext.click(function () {
-        $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm.");
-        $modalNext.click(function () {
 
+    $modalNext.click(function () {
+        var newcounter = counter + 1;
+
+        if (counter == 1) {
+            $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm.");
+        }
+
+        else if (counter == 2) {
             $modalImage.hide();
             $modalTitle.hide();
             $modalText.text("These buttons are for moving up, down, left and right.");
-
             $commandsOverlay.attr("src", "img/playfield/commands.png").css({
                 "width": "50%",
                 "margin-left": "-38%", "margin-top": "116%",
             });
 
-
             $point.attr("src", "img/playfield/astronaut.png").css({
                 "height": "20%", "width": "20%", "margin-left": "20%", "margin-top": "95%",
                 "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
             });
-            $modalNext.click(function () {
+        }
 
-                $commandsOverlay.hide();
-                modal.style.display = "block";
-                $modalText.text("The Main View will list all commands that you enter in a queue.");
-                $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
-                $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
-                    "width": "77%",
-                    "margin-left": "12%", "margin-top": "66%",
-                });
-                $commandsOverlay.show();
-
-                $modalNext.click(function () {
-                    $commandsOverlay.hide();
-                    modal.style.display = "block";
-                    $point.css({"margin-left": "65%", "margin-top": "85%"});
-                    $modalText.text("Your listed commands will be executed when you hit the play button.");
-                    $commandsOverlay.attr("src", "play.png").css({
-                        "width": "50%",
-                        "margin-left": "25%", "margin-top": "98%",
-                    });
-                    $commandsOverlay.show();
-
-
-                    $modalNext.click(function () {
-
-                        modal.style.display = "block";
-                        //$point.css({"transform": "scaleX(-1)", "margin-left": "55%", "margin-top": "4%"});
-                        $point.hide();
-                        $modalText.text("Now, see if you can make a list of commands that moves the spaceship toward the destination planet!");
-                        $commandsOverlay.hide();
-                        $modalImage.show();
-                        $modalNext.click(function () {
-                            modal.style.display = "none";
-                        })
-                    });
-                });
+        else if (counter == 3) {
+            $modalText.text("The Main View will list all commands that you enter in a queue. You can also remove any commands by clicking on them here.");
+            $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
+            $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
+                "width": "77%",
+                "margin-left": "12%", "margin-top": "66%",
             });
+        }
 
+        else if (counter == 4) {
+            $point.css({"margin-left": "65%", "margin-top": "85%"});
+            $modalText.text("Your listed commands will be executed when you hit the play button.");
+            $commandsOverlay.attr("src", "play.png").css({
+                "width": "50%",
+                "margin-left": "25%", "margin-top": "98%",
+            });
+        }
 
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            };
+        else if (counter == 5) {
+            modal.style.display = "block";
+            $point.hide();
+            $modalText.text("Now, see if you can make a list of commands that moves the spaceship toward the destination planet!");
+            $commandsOverlay.hide();
+            $modalImage.show();
 
-            // When the user clicks on <span> (x), close the modal
-            span.onclick = function () {
-                modal.style.display = "none";
-            };
+        }
 
+        else if (counter == 6) {
+            modal.style.display = "none";
 
-        });
+        }
+        counter = newcounter;
     });
 }
+
 
 //level 1
 function instructionsTwo() {
     modal.style.display = "block";
+    var counter = 1;
+    $modalText.text("Planets may harm your spaceship if you collide with them.");
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+    $modalImage.show();
     $modalTitle.hide();
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
-    $modalText.text("Planets may harm your spaceship if you collide with them.");
+    $commandsOverlay.hide();
+    $point.hide();
 
-    $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
-    $commandsOverlay.css({
-        "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
-    });
-    $commandsOverlay.show();
-
-    //$modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalNext.click(function () {
+        var newcounter = counter + 1;
 
-        $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
-        $commandsOverlay.css({
-            "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
-        });
-        $commandsOverlay.show();
-        modal.style.display = "block";
-        $modalText.text("You must click each planet to find out its level of danger.");
-        $modalNext.click(function () {
+        if (counter == 1) {
+            $modalText.text("You must click each planet to find out its level of danger.");
+        }
 
-            $commandsOverlay.attr("src", "img/playfield/planets/planet_metal.png");
-            $commandsOverlay.css({
-                "width": "17%", "margin-top": "42.5%", "margin-left": "58%"
-            });
-            $commandsOverlay.show();
-            modal.style.display = "block";
+        else if (counter == 2) {
             $modalText.text("However, you may be prompted to solve a puzzle first!");
-            $modalNext.click(function () {
-                modal.style.display = "none";
-                $commandsOverlay.hide();
+        }
 
-            })
-
-        })
-
-
+        else if (counter == 3) {
+            modal.style.display = "none";
+            $commandsOverlay.hide();
+        }
+        counter = newcounter;
     })
-
 }
 
 //level 2
 function instructionsThree() {
+    var counter = 1;
     modal.style.display = "block";
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
@@ -1867,45 +1878,77 @@ function instructionsThree() {
     $commandsOverlay.hide();
 
     $modalNext.click(function () {
-        modal.style.display = "block";
-        $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have learnt with the Main View.");
-        //funcTwoState();
-        $modalImage.hide();
+        var newcounter = counter + 1;
 
-        $point.attr("src", "img/playfield/astronaut.png").css({
-            "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "100%",
-            "animation": "bouncearrow 1s infinite", "transform": ""
-        });
-        $point.show();
-
-
-        $commandsOverlay.attr("src", "img/playfield/func2.png").css({
-            "width": "43%", "margin-left": "90.25%", "margin-top": "71.5%"
-        });
-        $commandsOverlay.show();
-
-
-        $modalNext.click(function () {
+        if (counter == 1) {
+            $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have learnt with the Main View.");
             $modalImage.hide();
+            $point.attr("src", "img/playfield/astronaut.png").css({
+                "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "100%",
+                "animation": "bouncearrow 1s infinite", "transform": ""
+            });
+            $commandsOverlay.attr("src", "img/playfield/func2.png").css({
+                "width": "43%", "margin-left": "90.25%", "margin-top": "71.5%"
+            });
+            $point.show();
+            $commandsOverlay.show();
+        }
 
+        else if (counter == 2) {
+            $modalImage.hide();
             $point.attr("src", "img/playfield/astronaut.png").css({
                 "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
                 "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
             });
-            $point.show();
-            modal.style.display = "block";
             $modalText.text("Your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
                 "width": "8%", "margin-left": "28%", "margin-top": "158%"
             });
             $commandsOverlay.show();
+            $point.show();
+        }
 
-            $modalNext.click(function () {
-                modal.style.display = "none";
-                $point.hide();
-
-            })
-        })
+        else if (counter == 3) {
+            modal.style.display = "none";
+            $point.hide();
+        }
+        counter = newcounter;
     })
+}
+
+//level 3
+function instructionsFour() {
+    var counter = 1;
+    modal.style.display = "block";
+    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalImage.show();
+    $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+    $modalTitle.hide();
+    $modalText.text("This is an asteroid. It can damage your spaceship.");
+    $commandsOverlay.attr("src", "img/playfield/asteroid.png").css({
+        'position': 'absolute',
+        'margin-left': '-23%',
+        'margin-top': '-22%',
+        'max-height': 'auto',
+        'width': '9%'
+    });
+    $commandsOverlay.show();
+
+    $modalNext.click(function () {
+        var newcounter = counter + 1;
+
+        if (counter == 1) {
+            $modalText.text("It will move whenever your spaceship moves, so be careful!");
+            $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+            $point.hide();
+        }
+
+        else if (counter == 2) {
+            modal.style.display = "none";
+            $commandsOverlay.hide();
+        }
+        counter = newcounter;
+
+    });
 }
 
