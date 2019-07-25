@@ -337,15 +337,18 @@ var $planetEarth;
 var $planetIce;
 var $rocketAnimate;
 var $hint;
-var $hintSimple;
+var $helpDot;
+var $helpButton;
 var $home;
+var $homeDot;
 var $asteroid;
 var $originalRocketSpace;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
-    $hint = $("#hint");
-    $hintSimple = $("#hintSimple");
+    $hint = $("#hintSimple");
+    $helpDot = $(".dot-help");
+    $helpButton = $(".help-button")
     $planetEarth = $("#planetEarth");
     $planetDestination = $("#planetDestination");
     $planetMetal = $(".planetMetal");
@@ -353,6 +356,7 @@ function jQueryVariables() {
     $planetFire = $("#planetFire");
     $rocketAnimate = $("#rocketman");
     $home = $("#home");
+    $homeDot = $(".dot-home");
     $asteroid = $("#asteroid");
     $originalRocketSpace = $("#originalrocketspace");
 }
@@ -458,7 +462,7 @@ function insertDOMandCSS0() {
         'transform': 'rotate(30deg)'
     });
 
-    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -565,7 +569,7 @@ function insertDOMandCSS1() {
         'z-index': '1'
     });
 
-    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -720,7 +724,7 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -832,7 +836,7 @@ function insertDOMandCSS3() {
 
     });
 
-    $originalRocketSpace.attr('src', 'img/playfield/black2.png').css({
+    $originalRocketSpace.attr('src', 'img/playfield/start_pos.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop,
@@ -1203,18 +1207,11 @@ function clickElements() {
         navModal.style.display = "block";
     });
 
-    $(".btn-stay").click(function(){
-        navModal.style.display = "none";
+    $homeDot.click(function() {
+        navModal.style.display = "block";
     })
-
-    $(".close").click(function(){
-        navModal.style.display = "none";
-    })
-
-
 
     $hint.click(function () {
-        $("#leavepage").css("display", "none !important");
         $modalText.text("Instructions...");
         $modalTitle.text("Hint").css("font-weight", "bold");
         $modalImage.attr("src", "");
@@ -1222,7 +1219,17 @@ function clickElements() {
         $point.hide();
     });
 
-    $hintSimple.click(function () {
+
+    $helpDot.click(function () {
+        modal.style.display = "block";
+        $modalText.text("Instructions...");
+        $modalTitle.text("Hint").css("font-weight", "bold");
+        $modalImage.attr("src", "");
+        $modalNext.attr("src", "");
+        $point.hide();
+    });
+
+    $helpButton.click(function () {
         modal.style.display = "block";
         $modalText.text("Instructions...");
         $modalTitle.text("Hint").css("font-weight", "bold");
@@ -1289,6 +1296,7 @@ function clickElements() {
 
     stay.onclick = function () {
         modal.style.display = "none";
+        navModal.style.display = "none";
     };
 
     //comment out so that user can't skip the intro demo
@@ -1297,6 +1305,7 @@ function clickElements() {
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
+        navModal.style.display = "none";
     };
 
 
@@ -1306,12 +1315,19 @@ function clickElements() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-        }
+        } else if (event.target == navModal){
+            navModal.style.display = "none";
+            $point.hide();
+            $commandsOverlay.hide();
+        } 
+
+
     };
 
     // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
+        navModal.style.display = "none";
         $point.hide();
         $commandsOverlay.hide();
     };
@@ -1386,11 +1402,9 @@ function stopAnimation() {
 function runButton() {
     $run.click(function () {
 
-
-
             //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
             //the rocket can go off canvas
-            if (!$rocketAnimate.is(':animated')) {
+           if (!$rocketAnimate.is(':animated')) {
                 lossAndVictoryArray = [];
 
                 originalPos();
@@ -1441,6 +1455,7 @@ function runButton() {
                     //right
                     else if (algorithm[x].charAt(0) === "r") {
                         moveRight();
+                        $("#rocketman").attr("src", "img/playfield/spaceship_pink_right.png");
                     }
 
                     //down
@@ -1455,6 +1470,7 @@ function runButton() {
                     //up
                     else if (algorithm[x].charAt(0) === "u") {
                         moveUp();
+                        $("#rocketman").attr("src", "img/playfield/spaceship_pink.png");
                     }
 
                     console.log(algorithm);

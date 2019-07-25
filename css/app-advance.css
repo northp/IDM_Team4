@@ -101,6 +101,9 @@ body {
     margin-right: auto;
     text-align: center;
     color: white;
+    font-size: 110%;
+    font-family: "Squada One", cursive;
+    letter-spacing: 0.2em;
 }
 
 .algo-space {
@@ -146,10 +149,12 @@ body {
 /* ===== ALGORITHM VIEW ===== */
 .function-button {
     width: 60%;
-    margin-left: 30%;
+    margin-left: 28%;
     margin-right: auto;
     margin-top: 51.5%;
-    font-size: 12px;
+    font-size: 82%;
+    font-family: "Squada One", cursive;
+    letter-spacing: 0.2em;
 }
 
 .func-space {
@@ -177,7 +182,9 @@ body {
     margin-left: 35%;
     color: white;
     text-align: center;
-    font-size: 14px;
+    font-size: 82%;
+    font-family: "Squada One", cursive;
+    letter-spacing: 0.2em;
 }
 
 /* ===== SIDE NAVIGATION ===== */
@@ -329,6 +336,20 @@ body {
     display:none;
 }
 
+#leavepage {
+    display: block;
+    text-align: center;
+    margin-top: 20%
+}
+
+.btn-leave, .btn-stay {
+    width: 20%;
+    height: auto;
+    background-color: black;
+    color: #fab85b;
+    font-size: 80%;
+    border-radius: 25px;
+}
 
 
 
