@@ -155,6 +155,7 @@ body {
     font-size: 82%;
     font-family: "Squada One", cursive;
     letter-spacing: 0.2em;
+    color: white;
 }
 
 .func-space {
@@ -176,17 +177,21 @@ body {
 
 .save-button {
     margin-top: 7%;
-    width: 50%;
-    height: 7%;
+    width: 55%;
+    height: 5%;
     margin-right: auto;
-    margin-left: 35%;
+    margin-left: 31%;
     color: white;
     text-align: center;
     font-size: 82%;
     font-family: "Squada One", cursive;
     letter-spacing: 0.2em;
+    background-image: linear-gradient(#404040,#909090);
 }
 
+.save-button:hover {
+    background-image: linear-gradient(#909090, #404040);
+}
 /* ===== SIDE NAVIGATION ===== */
 
 .dot-home {

@@ -258,7 +258,7 @@ function chooseLevel() {
     if (currentLevel > 1) {
         $(".functions").show();
         $(".side-navigation").show();
-        $("#functiontwoselect").show();
+        
         $('.navigation').hide();
         $("head link#levels").attr("href", "css/app-advance.css");
     }
@@ -1037,9 +1037,9 @@ function funcTwoState() {
     classSelect = $(".func-space"); //images put into this class
     levelMoves = functionTwoLevelMoves; //can only enter 4 moves
     //$functionTwoIcon.css("color", "#F5BC6C"); //highlight
-    $functionTwoIcon.css("font-weight", "bold");
+    //$functionTwoIcon.css("font-weight", "bold");
     $mainFunctionIcon.css("color", "white"); //reset
-    $mainFunctionIcon.css("font-weight", "") //reset
+    //$mainFunctionIcon.css("font-weight", "") //reset
 
     if (currentLevel === 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_functions.png)");
@@ -1053,9 +1053,9 @@ function startState() {
     classSelect = $(".algo-space"); //images put into this class
     levelMoves = algorithmLevelMoves; //can only enter 10 moves
     //$mainFunctionIcon.css("color", "#F5BC6C"); //highlight
-    $mainFunctionIcon.css("font-weight", "bold"); //highlight
+    //$mainFunctionIcon.css("font-weight", "bold"); //highlight
     $functionTwoIcon.css("color", "white");
-    $functionTwoIcon.css("font-weight", "");//reset */
+    //$functionTwoIcon.css("font-weight", "");//reset */
     if (currentLevel === 0 || 1 ){
         $("#bg").css("background", "url(img/playfield/playfield_simple_final_highlight_main.jpg)");
         $("#bg").css("background-size", "contain");
@@ -1775,6 +1775,7 @@ $save.click(function () {
     savedAlgorithm[counter] = savedAlgorithmTemp;
     savedAlgorithmTemp = [];
     counter++;
+    $("#functiontwoselect").show();
     console.log(savedAlgorithmTemp, savedAlgorithm, algorithm)
 });
 
