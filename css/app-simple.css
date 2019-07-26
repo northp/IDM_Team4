@@ -1,6 +1,6 @@
 body {
     margin: auto;
-    background: url("../img/playfield/playfield_simple_final.png" !important);
+    background: url("../img/playfield/playfield_simple_final.png");
     background-size: contain
 }
 

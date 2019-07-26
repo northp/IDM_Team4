@@ -1041,7 +1041,7 @@ function funcTwoState() {
     $mainFunctionIcon.css("color", "white"); //reset
     //$mainFunctionIcon.css("font-weight", "") //reset
 
-    if (currentLevel === 2) {
+    if (currentLevel >= 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_functions.png)");
         $("#bg").css("background-size", "contain");
     }
@@ -1062,7 +1062,7 @@ function startState() {
         console.log("Highlight in simple view works");
     };
     
-    if (currentLevel === 2) {
+    if (currentLevel >= 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_main.png)");
         $("#bg").css("background-size", "contain");
     };
@@ -1469,8 +1469,7 @@ function runButton() {
                     //animating main algorithm, tracking loss and victory, updating rocket index
                     //right
                     else if (algorithm[x].charAt(0) === "r") {
-                        moveRight();
-                        $("#rocketman").attr("src", "img/playfield/spaceship_pink_right.png");
+                        moveRight(); 
                     }
 
                     //down
@@ -1485,7 +1484,6 @@ function runButton() {
                     //up
                     else if (algorithm[x].charAt(0) === "u") {
                         moveUp();
-                        $("#rocketman").attr("src", "img/playfield/spaceship_pink.png");
                     }
 
                     console.log(algorithm);
