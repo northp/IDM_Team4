@@ -1144,7 +1144,7 @@ function movementFunction() {
     });
 
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
-    runButton();
+    //runButton();
 }
 
 
@@ -1222,9 +1222,9 @@ function clickElements() {
         navModal.style.display = "block";
     });
 
-    $homeDot.click(function() {
+    $homeDot.click(function () {
         navModal.style.display = "block";
-    })
+    });
 
     $hint.click(function () {
         $modalText.text("Instructions...");
@@ -1314,15 +1314,8 @@ function clickElements() {
         navModal.style.display = "none";
     };
 
-    //comment out so that user can't skip the intro demo
 
-    
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-        navModal.style.display = "none";
-    };
-
+    //clicking off of modals
 
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
@@ -1330,11 +1323,11 @@ function clickElements() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-        } else if (event.target == navModal){
+        } else if (event.target == navModal) {
             navModal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-        } 
+        }
 
 
     };
@@ -1398,76 +1391,58 @@ var moveCounter = -1;
 var stopClicked = false;
 
 function stopAnimation() {
-    stopClicked = true;
-
-    if (stopClicked === true) {
-        $rocketAnimate.stop(); //stop animating
-        $asteroid.stop();
+    if (stopClicked === false) {
+        stopClicked = true;
+        $("#play-first").attr({"src": "img/playfield/play.png"});
+        $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
         originalPos(); //return to original position
         winAndLossCall = function () {
             //empty function, does nothing
         };
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
-        stopClicked = false;
-        console.log(moveCounter);
         winAndLossCall = oldFunction;
+        for (var i = 0; i <= levelMoves; i++) {
+            $rocketAnimate.stop(); //stop animating
+            $asteroid.stop();
+        }
+        $run.off();
+        $run.click(runButton);
+        stopClicked = false;
     }
 }
 
 function runButton() {
-    $run.click(function () {
+    //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
+    //the rocket can go off canvas
+    if (!$rocketAnimate.is(':animated')) {
+        lossAndVictoryArray = [];
+        originalPos();
 
-            //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
-            //the rocket can go off canvas
-           if (!$rocketAnimate.is(':animated')) {
-                lossAndVictoryArray = [];
-
-                originalPos();
-
-                /*
-                //rocket goes back in original position
-                if (algorithm.length > 0) {
-                    originalPos();
-                }*/
+        $("#play-first").attr({"src": "img/playfield/stop.png"});
+        $("#play-hover").attr({"src": "img/playfield/stop-hover.png"});
 
 
-                for (var x in algorithm) {
+        /*
+        //rocket goes back in original position
+        if (algorithm.length > 0) {
+            originalPos();
+        }*/
+        $run.off();
+        $run.click(stopAnimation);
 
-                    $stop.click(stopAnimation);//stop animation when stop button is clicked
+
+        for (var x in algorithm) {
+
+            asteroidAnimate();
+
+            //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
+            if (typeof algorithm[x] === "object") {
+                for (var i in algorithm[x]) {
+
                     asteroidAnimate();
 
-                    //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
-                    if (typeof algorithm[x] === "object") {
-
-                        for (var i in algorithm[x]) {
-
-                            $stop.click(stopAnimation); //stop animation when stop button is clicked
-                            asteroidAnimate();
-
-                            //right
-                            if (algorithm[x][i].charAt(0) === "r") {
-                                moveRight();
-                            }
-
-                            //left
-                            if (algorithm[x][i].charAt(0) === "l") {
-                                moveLeft();
-                            }
-
-                            //up
-                            if (algorithm[x][i].charAt(0) === "u") {
-                                moveUp();
-                            }
-
-                            //down
-                            if (algorithm[x][i].charAt(0) === "d") {
-                                moveDown();
-                            }
-                        }
-                    }
-
-                    //animating main algorithm, tracking loss and victory, updating rocket index
                     //right
+<<<<<<< HEAD
                     else if (algorithm[x].charAt(0) === "r") {
                         moveRight(); 
                     }
@@ -1475,23 +1450,75 @@ function runButton() {
                     //down
                     else if (algorithm[x].charAt(0) === "d") {
                         moveDown();
+=======
+                    if (algorithm[x][i].charAt(0) === "r") {
+                        moveRight();
+>>>>>>> 44773676bdd00641e6187c29c372091b5c0b26df
                     }
 
                     //left
-                    else if (algorithm[x].charAt(0) === "l") {
+                    if (algorithm[x][i].charAt(0) === "l") {
                         moveLeft();
                     }
+
+                    //animating main algorithm, tracking loss and victory, updating rocket index
+
                     //up
-                    else if (algorithm[x].charAt(0) === "u") {
+                    if (algorithm[x][i].charAt(0) === "u") {
                         moveUp();
                     }
 
-                    console.log(algorithm);
+                    //down
+                    if (algorithm[x][i].charAt(0) === "d") {
+                        moveDown();
+                    }
                 }
-                moveCounter = -1;
             }
+
+            //animating main algorithm, tracking loss and victory, updating rocket index
+            //right
+
+            else if (algorithm[x].charAt(0) === "r") {
+                moveRight();
+            }
+
+            //down
+            else if (algorithm[x].charAt(0) === "d") {
+                moveDown();
+            }
+
+            //left
+            else if (algorithm[x].charAt(0) === "l") {
+                moveLeft();
+            }
+            //up
+            else if (algorithm[x].charAt(0) === "u") {
+                //console.log("hello " + algorithm.slice(-1)[0]);
+                moveUp();
+            }
+
+            /*
+            //stop button goes back to play button when the algorithm stops
+            if (algorithm[x] == algorithm.slice(-1)[0]) {
+
+            }*/
+
         }
-    );
+        //stopClicked = false;
+        moveCounter = -1;
+        //$run.click(runButton);
+
+    }
+
+
+}
+
+var firstRun = false;
+if (firstRun === false) {
+    firstRun = true;
+    $run.off();
+    $run.click(runButton);
+    console.log("first run");
 }
 
 // test for sound
@@ -1514,6 +1541,7 @@ function moveRight() {
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
         rocketX += 50;
+        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
@@ -1539,6 +1567,7 @@ function moveDown() {
         $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
         console.log(rocketX, rocketY);
         rocketY += 50;
+        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
@@ -1565,6 +1594,7 @@ function moveLeft() {
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
         rocketX -= 50;
+        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
     }
 
 
@@ -1591,6 +1621,7 @@ function moveUp() {
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
         rocketY -= 50;
+        $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
     }
 
 
@@ -1636,6 +1667,11 @@ function loadNewLevel() {
 
     $point.hide();
     $winModal.hide();
+
+    $run.off();
+    $run.click(runButton);
+    $("#play-first").attr({"src": "img/playfield/play.png"});
+    $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
 
 
     // change from level one to level two:
@@ -1907,6 +1943,7 @@ function instructionsTwo() {
 
         else if (counter == 2) {
             $modalText.text("However, you may be prompted to solve a puzzle first!");
+            $modalImage.show();
         }
 
         else if (counter == 3) {
@@ -2001,4 +2038,3 @@ function instructionsFour() {
 
     });
 }
-
