@@ -1124,7 +1124,7 @@ function movementFunction() {
     });
 
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
-    runButton();
+    //runButton();
 }
 
 
@@ -1290,7 +1290,7 @@ function clickElements() {
     //comment out so that user can't skip the intro demo
 
     //clicking off of modals
-    
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -1359,8 +1359,10 @@ var stopClicked = false;
 
 function stopAnimation() {
     stopClicked = true;
-
     if (stopClicked === true) {
+
+        $("#play-first").attr({"src": "img/playfield/play.png"});
+        $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
         $rocketAnimate.stop(); //stop animating
         $asteroid.stop();
         originalPos(); //return to original position
@@ -1371,90 +1373,135 @@ function stopAnimation() {
         stopClicked = false;
         console.log(moveCounter);
         winAndLossCall = oldFunction;
+        /*if (stopClicked==false) {
+            $run.click(runButton);
+        }*/
     }
+    stopClicked = false;
+
+    $run.click(runButton);
 }
 
-function runButton() {
-    $run.click(function () {
 
 
+$("#play-first").attr({"src": "img/playfield/play.png"});
+$("#play-hover").attr({"src": "img/playfield/play-hover.png"});
 
-            //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
-            //the rocket can go off canvas
-            if (!$rocketAnimate.is(':animated')) {
-                lossAndVictoryArray = [];
+var runButton = function () {
 
-                originalPos();
-
-                /*
-                //rocket goes back in original position
-                if (algorithm.length > 0) {
-                    originalPos();
-                }*/
+    //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
+    //the rocket can go off canvas
+    if (!$rocketAnimate.is(':animated')) {
+        lossAndVictoryArray = [];
+        originalPos();
 
 
-                for (var x in algorithm) {
+        $("#play-first").attr({"src": "img/playfield/stop.png"});
+        $("#play-hover").attr({"src": "img/playfield/stop-hover.png"});
 
-                    $stop.click(stopAnimation);//stop animation when stop button is clicked
-                    asteroidAnimate();
 
-                    //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
-                    if (typeof algorithm[x] === "object") {
+        /*
+        //rocket goes back in original position
+        if (algorithm.length > 0) {
+            originalPos();
+        }*/
 
-                        for (var i in algorithm[x]) {
+        if (algorithm.length > 0) {
 
-                            $stop.click(stopAnimation); //stop animation when stop button is clicked
-                            asteroidAnimate();
+            for (var x in algorithm) {
+                $run.click(stopAnimation);
 
-                            //right
-                            if (algorithm[x][i].charAt(0) === "r") {
-                                moveRight();
-                            }
+                //$stop.click(stopAnimation);//stop animation when stop button is clicked
+                //$run.click(stopAnimation);
 
-                            //left
-                            if (algorithm[x][i].charAt(0) === "l") {
-                                moveLeft();
-                            }
 
-                            //up
-                            if (algorithm[x][i].charAt(0) === "u") {
-                                moveUp();
-                            }
+                // $run.click(stopAnimation);
 
-                            //down
-                            if (algorithm[x][i].charAt(0) === "d") {
-                                moveDown();
-                            }
+
+                asteroidAnimate();
+
+                //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
+                if (typeof algorithm[x] === "object") {
+
+                    for (var i in algorithm[x]) {
+
+                        //$stop.click(stopAnimation); //stop animation when stop button is clicked
+
+                        //runButton = originalRunButton;
+
+                        asteroidAnimate();
+
+                        //right
+                        if (algorithm[x][i].charAt(0) === "r") {
+                            moveRight();
+                        }
+
+                        //left
+                        if (algorithm[x][i].charAt(0) === "l") {
+                            moveLeft();
+                        }
+
+                        //up
+                        if (algorithm[x][i].charAt(0) === "u") {
+                            moveUp();
+                        }
+
+                        //down
+                        if (algorithm[x][i].charAt(0) === "d") {
+                            moveDown();
                         }
                     }
-
-                    //animating main algorithm, tracking loss and victory, updating rocket index
-                    //right
-                    else if (algorithm[x].charAt(0) === "r") {
-                        moveRight();
-                    }
-
-                    //down
-                    else if (algorithm[x].charAt(0) === "d") {
-                        moveDown();
-                    }
-
-                    //left
-                    else if (algorithm[x].charAt(0) === "l") {
-                        moveLeft();
-                    }
-                    //up
-                    else if (algorithm[x].charAt(0) === "u") {
-                        moveUp();
-                    }
-
-                    console.log(algorithm);
                 }
-                moveCounter = -1;
+
+                //animating main algorithm, tracking loss and victory, updating rocket index
+                //right
+                else if (algorithm[x].charAt(0) === "r") {
+                    moveRight();
+                }
+
+                //down
+                else if (algorithm[x].charAt(0) === "d") {
+                    moveDown();
+                }
+
+                //left
+                else if (algorithm[x].charAt(0) === "l") {
+                    moveLeft();
+                }
+                //up
+                else if (algorithm[x].charAt(0) === "u") {
+                    console.log("hello " + algorithm.slice(-1)[0]);
+                    moveUp();
+                }
+
+                /*
+                //stop button goes back to play button when the algorithm stops
+                if (algorithm[x] == algorithm.slice(-1)[0]) {
+
+                    console.log("he");
+                }*/
+
             }
+
+            moveCounter = -1;
         }
-    );
+    }
+
+
+};
+/*
+var firstRun = false;
+if (firstRun == false) {
+    firstRun = true;
+    $run.click(runButton);
+}*/
+//$run.click(runButton);
+
+
+if (stopClicked === false) {
+    $run.click(runButton);
 }
+
 
 // test for sound
 // var rMove = new Audio("pop.wav");// TestSound
@@ -1954,4 +2001,3 @@ function instructionsFour() {
 
     });
 }
-
