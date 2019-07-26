@@ -1442,18 +1442,8 @@ function runButton() {
                     asteroidAnimate();
 
                     //right
-<<<<<<< HEAD
-                    else if (algorithm[x].charAt(0) === "r") {
-                        moveRight(); 
-                    }
-
-                    //down
-                    else if (algorithm[x].charAt(0) === "d") {
-                        moveDown();
-=======
                     if (algorithm[x][i].charAt(0) === "r") {
                         moveRight();
->>>>>>> 44773676bdd00641e6187c29c372091b5c0b26df
                     }
 
                     //left
@@ -1763,6 +1753,9 @@ var winAndLossCall = function () {
                 setTimeout(function(){ 
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png")}, 4000);
                 setTimeout(function(){ originalPos() },4000);
+                setTimeout(function(){ 
+                    $("#play-first").attr({"src": "img/playfield/play.png"})
+                }, 4000);
 
                 
             }
