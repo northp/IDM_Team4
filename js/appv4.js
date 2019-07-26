@@ -258,7 +258,7 @@ function chooseLevel() {
     if (currentLevel > 1) {
         $(".functions").show();
         $(".side-navigation").show();
-        $("#functiontwoselect").show();
+        
         $('.navigation').hide();
         $("head link#levels").attr("href", "css/app-advance.css");
     }
@@ -1036,10 +1036,15 @@ function funcTwoState() {
     arraySelect = functionTwo; //directions selected will be put into this array
     classSelect = $(".func-space"); //images put into this class
     levelMoves = functionTwoLevelMoves; //can only enter 4 moves
-    $functionTwoIcon.css("color", "#F5BC6C"); //highlight
-    $functionTwoIcon.css("font-weight", "bold");
+    //$functionTwoIcon.css("color", "#F5BC6C"); //highlight
+    //$functionTwoIcon.css("font-weight", "bold");
     $mainFunctionIcon.css("color", "white"); //reset
-    $mainFunctionIcon.css("font-weight", "") //reset
+    //$mainFunctionIcon.css("font-weight", "") //reset
+
+    if (currentLevel === 2) {
+        $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_functions.png)");
+        $("#bg").css("background-size", "contain");
+    }
 }
 
 //begin game with the main function already clicked
@@ -1047,10 +1052,20 @@ function startState() {
     arraySelect = algorithm; //directions selected will be put into this array
     classSelect = $(".algo-space"); //images put into this class
     levelMoves = algorithmLevelMoves; //can only enter 10 moves
-    $mainFunctionIcon.css("color", "#F5BC6C"); //highlight
-    $mainFunctionIcon.css("font-weight", "bold"); //highlight
+    //$mainFunctionIcon.css("color", "#F5BC6C"); //highlight
+    //$mainFunctionIcon.css("font-weight", "bold"); //highlight
     $functionTwoIcon.css("color", "white");
-    $functionTwoIcon.css("font-weight", "");//reset */
+    //$functionTwoIcon.css("font-weight", "");//reset */
+    if (currentLevel === 0 || 1 ){
+        $("#bg").css("background", "url(img/playfield/playfield_simple_final_highlight_main.jpg)");
+        $("#bg").css("background-size", "contain");
+        console.log("Highlight in simple view works");
+    };
+    
+    if (currentLevel === 2) {
+        $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_main.png)");
+        $("#bg").css("background-size", "contain");
+    };
 }
 
 /*MOVING THE ROCKET*/
@@ -1731,7 +1746,15 @@ var winAndLossCall = function () {
                 for (var j = 0; j <= algorithmLevelMoves + functionTwoLevelMoves; j++) {
                     $rocketAnimate.stop();
                 }
+
+                //setTimeout function here to explode the ship and move back to original position
+                
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
+                setTimeout(function(){ 
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png")}, 4000);
+                setTimeout(function(){ originalPos() },4000);
+
+                
             }
         }
 
@@ -1776,6 +1799,7 @@ $save.click(function () {
     savedAlgorithm[counter] = savedAlgorithmTemp;
     savedAlgorithmTemp = [];
     counter++;
+    $("#functiontwoselect").show();
     console.log(savedAlgorithmTemp, savedAlgorithm, algorithm)
 });
 
