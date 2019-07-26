@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 0;
+var currentLevel = 3;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -258,7 +258,7 @@ function chooseLevel() {
     if (currentLevel > 1) {
         $(".functions").show();
         $(".side-navigation").show();
-        
+
         $('.navigation').hide();
         $("head link#levels").attr("href", "css/app-advance.css");
     }
@@ -872,6 +872,7 @@ function findAsteroidPosition() {
                 console.log("Asteroid is at index [" + i + "][" + j + "]");
                 asteroidArray.push(parseInt(i), parseInt(j));
                 return asteroidArray;
+
             }
         }
     }
@@ -956,7 +957,7 @@ function makeGame() {
     for (var i in map) {
         for (var j in map[i]) {
             if (map[i][j] === 0) {
-                ctx.globalAlpha = 0.1;
+                ctx.globalAlpha = 0.15;
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 0.1) {
@@ -1056,16 +1057,18 @@ function startState() {
     //$mainFunctionIcon.css("font-weight", "bold"); //highlight
     $functionTwoIcon.css("color", "white");
     //$functionTwoIcon.css("font-weight", "");//reset */
-    if (currentLevel === 0 || 1 ){
+    if (currentLevel === 0 || 1) {
         $("#bg").css("background", "url(img/playfield/playfield_simple_final_highlight_main.jpg)");
         $("#bg").css("background-size", "contain");
         console.log("Highlight in simple view works");
-    };
-    
+    }
+    ;
+
     if (currentLevel >= 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_main.png)");
         $("#bg").css("background-size", "contain");
-    };
+    }
+    ;
 }
 
 /*MOVING THE ROCKET*/
@@ -1401,7 +1404,7 @@ function stopAnimation() {
         };
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
         winAndLossCall = oldFunction;
-        for (var i = 0; i <= levelMoves; i++) {
+        for (var i = 0; i <= 20; i++) {
             $rocketAnimate.stop(); //stop animating
             $asteroid.stop();
         }
@@ -1412,104 +1415,86 @@ function stopAnimation() {
 }
 
 function runButton() {
-    //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
-    //the rocket can go off canvas
-    if (!$rocketAnimate.is(':animated')) {
-        lossAndVictoryArray = [];
-        originalPos();
-
-        $("#play-first").attr({"src": "img/playfield/stop.png"});
-        $("#play-hover").attr({"src": "img/playfield/stop-hover.png"});
-
-
-        /*
-        //rocket goes back in original position
-        if (algorithm.length > 0) {
+    if (algorithm.length > 0) {
+        //the function will only run if the rocket is not currently animating because otherwise if the run button is hit repeatedly
+        //the rocket can go off canvas
+        if (!$rocketAnimate.is(':animated')) {
+            lossAndVictoryArray = [];
             originalPos();
-        }*/
-        $run.off();
-        $run.click(stopAnimation);
+
+            $("#play-first").attr({"src": "img/playfield/stop.png"});
+            $("#play-hover").attr({"src": "img/playfield/stop-hover.png"});
+
+            $run.off();
+            $run.click(stopAnimation);
 
 
-        for (var x in algorithm) {
+            for (var x in algorithm) {
 
-            asteroidAnimate();
+                //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
+                if (typeof algorithm[x] === "object") {
+                    for (var i in algorithm[x]) {
 
-            //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
-            if (typeof algorithm[x] === "object") {
-                for (var i in algorithm[x]) {
+                        asteroidAnimate();
 
+                        //right
+                        if (algorithm[x][i].charAt(0) === "r") {
+                            moveRight();
+                        }
+
+                        //left
+                        if (algorithm[x][i].charAt(0) === "l") {
+                            moveLeft();
+                        }
+
+                        //animating main algorithm, tracking loss and victory, updating rocket index
+
+                        //up
+                        if (algorithm[x][i].charAt(0) === "u") {
+                            moveUp();
+                        }
+
+                        //down
+                        if (algorithm[x][i].charAt(0) === "d") {
+                            moveDown();
+                        }
+                    }
+                }
+
+                //animating main algorithm, tracking loss and victory, updating rocket index
+
+
+                else {
                     asteroidAnimate();
 
                     //right
-                    if (algorithm[x][i].charAt(0) === "r") {
+                    if (algorithm[x].charAt(0) === "r") {
                         moveRight();
                     }
 
-                    //left
-                    if (algorithm[x][i].charAt(0) === "l") {
-                        moveLeft();
-                    }
-
-                    //animating main algorithm, tracking loss and victory, updating rocket index
-
-                    //up
-                    if (algorithm[x][i].charAt(0) === "u") {
-                        moveUp();
-                    }
-
                     //down
-                    if (algorithm[x][i].charAt(0) === "d") {
+                    if (algorithm[x].charAt(0) === "d") {
                         moveDown();
                     }
+
+                    //left
+                    if (algorithm[x].charAt(0) === "l") {
+                        moveLeft();
+                    }
+                    //up
+                    if (algorithm[x].charAt(0) === "u") {
+                        //console.log("hello " + algorithm.slice(-1)[0]);
+                        moveUp();
+                    }
                 }
+
             }
-
-            //animating main algorithm, tracking loss and victory, updating rocket index
-            //right
-
-            else if (algorithm[x].charAt(0) === "r") {
-                moveRight();
-            }
-
-            //down
-            else if (algorithm[x].charAt(0) === "d") {
-                moveDown();
-            }
-
-            //left
-            else if (algorithm[x].charAt(0) === "l") {
-                moveLeft();
-            }
-            //up
-            else if (algorithm[x].charAt(0) === "u") {
-                //console.log("hello " + algorithm.slice(-1)[0]);
-                moveUp();
-            }
-
-            /*
-            //stop button goes back to play button when the algorithm stops
-            if (algorithm[x] == algorithm.slice(-1)[0]) {
-
-            }*/
-
+            moveCounter = -1;
         }
-        //stopClicked = false;
-        moveCounter = -1;
-        //$run.click(runButton);
-
     }
-
-
 }
 
-var firstRun = false;
-if (firstRun === false) {
-    firstRun = true;
-    $run.off();
-    $run.click(runButton);
-    console.log("first run");
-}
+$run.click(runButton);
 
 // test for sound
 // var rMove = new Audio("pop.wav");// TestSound
@@ -1657,6 +1642,7 @@ function loadNewLevel() {
 
     $point.hide();
     $winModal.hide();
+    $("#functiontwoselect").hide();
 
     $run.off();
     $run.click(runButton);
@@ -1742,22 +1728,32 @@ var winAndLossCall = function () {
             if (moveCounter == i) {
                 // rLoss.play(); //TestSound
 
-                //stops the current animation and any animation that tries to takes place after (loops for the number of moves in the level)
-                for (var j = 0; j <= algorithmLevelMoves + functionTwoLevelMoves; j++) {
+                //stops the current animation and any animation that tries to takes place after
+                //30 is a random number to ensure that all the upcoming rocket's moves are stopped
+                for (var j = 0; j <= 30; j++) {
                     $rocketAnimate.stop();
                 }
 
                 //setTimeout function here to explode the ship and move back to original position
-                
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
-                setTimeout(function(){ 
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png")}, 4000);
-                setTimeout(function(){ originalPos() },4000);
-                setTimeout(function(){ 
-                    $("#play-first").attr({"src": "img/playfield/play.png"})
-                }, 4000);
+                setTimeout(function () {
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+                    originalPos();
+                    $("#play-first").attr({"src": "img/playfield/play.png"});
+                    $run.off();
+                    $run.click(runButton);
 
-                
+                }, 4000);
+                /*setTimeout(function () {
+                    originalPos()
+                }, 4000);
+                setTimeout(function () {
+                    $("#play-first").attr({"src": "img/playfield/play.png"})
+                    $run.off();
+                    $run.click(runButton);
+                }, 4000);*/
+
+
             }
         }
 
