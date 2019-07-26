@@ -1707,7 +1707,16 @@ var winAndLossCall = function () {
                 for (var j = 0; j <= algorithmLevelMoves + functionTwoLevelMoves; j++) {
                     $rocketAnimate.stop();
                 }
+
+                //setTimeout function here to explode the ship and move back to original position
+                
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
+                setTimeout(function(){ 
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png")}, 4000);
+                setTimeout(function(){ originalPos() },4000);
+                $('.algo-space > .added').remove();
+                $('.func-space > .added').remove();
+                
             }
         }
 
