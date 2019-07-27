@@ -1535,10 +1535,36 @@ function moveRight() {
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
-        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
+            
+        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+        } else if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
+            
+            var rocketXDistance = 100;
+            var animateDistancePercent = 9;
+            var nextZeroIndex = 2;
+            var nextZeroFound = false;
+            while (nextZeroFound != true) {
+                if (map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] != 0) {
+                    nextZeroIndex++;
+                    animateDistancePercent = animateDistancePercent + 9;
+                    rocketXDistance = rocketXDistance + 50;
+                } else {
+                    nextZeroFound = true;
+                    console.log(rocketX, rocketY);
+                    $rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    rocketX += rocketXDistance;
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
+                    map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
+                    map[rocketPosition[0]][rocketPosition[1]] = 0;
+                    rocketPosition = findRocketPosition();
+                    lossAndVictoryArray.push("run");
+                }
+            }
+            
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
@@ -1561,10 +1587,36 @@ function moveDown() {
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
-        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
+            
+        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+        } else if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5)) {
+            
+            var rocketYDistance = 100;
+            var animateDistancePercent = 9;
+            var nextZeroIndex = 2;
+            var nextZeroFound = false;
+            while (nextZeroFound != true) {
+                if (map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] != 0) {
+                    nextZeroIndex++;
+                    animateDistancePercent = animateDistancePercent + 9;
+                    rocketYDistance = rocketYDistance + 50;
+                } else {
+                    nextZeroFound = true;
+                    console.log(rocketX, rocketY);
+                    $rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    rocketY += rocketYDistance;
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
+                    map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] = 4;
+                    map[rocketPosition[0]][rocketPosition[1]] = 0;
+                    rocketPosition = findRocketPosition();
+                    lossAndVictoryArray.push("run");
+                }
+            }
+            
         } else {
             var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
             map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
@@ -1589,10 +1641,36 @@ function moveLeft() {
 
 
     if (rocketPosition[1] > 0) {
-        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
+            
+        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+        } else if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5)) {
+            
+            var rocketXDistance = 100;
+            var animateDistancePercent = 9;
+            var nextZeroIndex = 2;
+            var nextZeroFound = false;
+            while (nextZeroFound != true) {
+                if (map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] != 0) {
+                    nextZeroIndex++;
+                    animateDistancePercent = animateDistancePercent + 9;
+                    rocketXDistance = rocketXDistance + 50;
+                } else {
+                    nextZeroFound = true;
+                    console.log(rocketX, rocketY);
+                    $rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    rocketX -= rocketXDistance;
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
+                    map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] = 4;
+                    map[rocketPosition[0]][rocketPosition[1]] = 0;
+                    rocketPosition = findRocketPosition();
+                    lossAndVictoryArray.push("run");
+                }
+            }
+            
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
             map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
@@ -1616,10 +1694,36 @@ function moveUp() {
 
 
     if (rocketPosition[0] > 0) {
-        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
+            
+        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+        } else if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3.5)) {
+            
+            var rocketYDistance = 100;
+            var animateDistancePercent = 9;
+            var nextZeroIndex = 2;
+            var nextZeroFound = false;
+            while (nextZeroFound != true) {
+                if (map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] != 0) {
+                    nextZeroIndex++;
+                    animateDistancePercent = animateDistancePercent + 9;
+                    rocketYDistance = rocketYDistance + 50;
+                } else {
+                    nextZeroFound = true;
+                    console.log(rocketX, rocketY);
+                    $rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    rocketY -= rocketYDistance;
+                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+                    map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] = 4;
+                    map[rocketPosition[0]][rocketPosition[1]] = 0;
+                    rocketPosition = findRocketPosition();
+                    lossAndVictoryArray.push("run");
+                }
+            }
+            
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
             map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
