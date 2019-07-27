@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 3;
+var currentLevel = 0;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -1062,13 +1062,11 @@ function startState() {
         $("#bg").css("background-size", "contain");
         console.log("Highlight in simple view works");
     }
-    ;
 
     if (currentLevel >= 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_main.png)");
         $("#bg").css("background-size", "contain");
     }
-    ;
 }
 
 /*MOVING THE ROCKET*/
@@ -1130,6 +1128,7 @@ function movementFunction() {
             }
 
             //handling loops (calling F2 inside F2)
+            //3 is a random number - didn't want the number to be too high/an infinite loop as it would break the code
             if (arraySelect === functionTwo) {
                 if (arraySelect.length > 0) {
                     for (var i = 0; i <= 3; i++) {
@@ -1147,9 +1146,7 @@ function movementFunction() {
     });
 
     console.log("The current coordinates are: " + movementObject.x, movementObject.y);
-    //runButton();
 }
-
 
 //function for removing parts of algorithm
 function removeMove(image, direction, thisArray) {
@@ -1428,14 +1425,11 @@ function runButton() {
             $run.off();
             $run.click(stopAnimation);
 
-
             for (var x in algorithm) {
 
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                 if (typeof algorithm[x] === "object") {
                     for (var i in algorithm[x]) {
-
-                        asteroidAnimate();
 
                         //right
                         if (algorithm[x][i].charAt(0) === "r") {
@@ -1461,37 +1455,33 @@ function runButton() {
                     }
                 }
 
+
                 //animating main algorithm, tracking loss and victory, updating rocket index
-
-
-                else {
-                    asteroidAnimate();
-
-                    //right
-                    if (algorithm[x].charAt(0) === "r") {
-                        moveRight();
-                    }
-
-                    //down
-                    if (algorithm[x].charAt(0) === "d") {
-                        moveDown();
-                    }
-
-                    //left
-                    if (algorithm[x].charAt(0) === "l") {
-                        moveLeft();
-                    }
-                    //up
-                    if (algorithm[x].charAt(0) === "u") {
-                        //console.log("hello " + algorithm.slice(-1)[0]);
-                        moveUp();
-                    }
+                //right
+                else if (algorithm[x].charAt(0) === "r") {
+                    moveRight();
                 }
 
+                //down
+                else if (algorithm[x].charAt(0) === "d") {
+                    moveDown();
+                }
+
+                //left
+                else if (algorithm[x].charAt(0) === "l") {
+                    moveLeft();
+                }
+                //up
+                else if (algorithm[x].charAt(0) === "u") {
+                    //console.log("hello " + algorithm.slice(-1)[0]);
+                    moveUp();
+                }
             }
-            moveCounter = -1;
+
         }
+        moveCounter = -1;
     }
+
 }
 
 $run.click(runButton);
@@ -1510,6 +1500,7 @@ $run.click(runButton);
 var lossAndVictoryArray = [];
 
 function moveRight() {
+    asteroidAnimate();
     if (rocketX >= canvas.width - tileWidth) {
         $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
     } else {
@@ -1534,8 +1525,8 @@ function moveRight() {
     }
 }
 
-
 function moveDown() {
+    asteroidAnimate();
     if (rocketY >= canvas.height) {
         $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
     } else {
@@ -1562,6 +1553,7 @@ function moveDown() {
 }
 
 function moveLeft() {
+    asteroidAnimate();
     if (rocketX <= 0) {
         //edge of canvas - do nothing
         $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
@@ -1570,6 +1562,7 @@ function moveLeft() {
         $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
         rocketX -= 50;
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
+
     }
 
 
@@ -1589,6 +1582,7 @@ function moveLeft() {
 }
 
 function moveUp() {
+    asteroidAnimate();
     if (rocketY <= tileHeight) {
         $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
 
@@ -1613,8 +1607,11 @@ function moveUp() {
             lossAndVictoryArray.push("run");
         }
     }
-
 }
+
+
+var asteroidX = 0;
+var asteroidY = 200;
 
 //animating the asteroid and updating its index
 function asteroidAnimate() {
@@ -1624,15 +1621,16 @@ function asteroidAnimate() {
 
         if (asteroidPosition[1] < mapWidth - 1) {
             $asteroid.animate({'margin-left': '+=9%'}, "fast");
+            asteroidX += 50;
+            console.log("heyy " + asteroidX);
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
             asteroidPosition = findAsteroidPosition();
-
         }
+
     }
 }
-
 
 function loadNewLevel() {
     // temporary test to change level
@@ -1706,7 +1704,6 @@ function loadNewLevel() {
     clickElements();
 }
 
-
 var winCondition = false;
 
 var winAndLossCall = function () {
@@ -1720,7 +1717,6 @@ var winAndLossCall = function () {
 
         if (lossAndVictoryArray[i] == "run") {
 
-            //do nothing
 
         }
 
@@ -1738,27 +1734,21 @@ var winAndLossCall = function () {
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
-                    originalPos();
-                    $("#play-first").attr({"src": "img/playfield/play.png"});
-                    $run.off();
-                    $run.click(runButton);
-
                 }, 4000);
-                /*setTimeout(function () {
+                setTimeout(function () {
                     originalPos()
                 }, 4000);
                 setTimeout(function () {
                     $("#play-first").attr({"src": "img/playfield/play.png"})
                     $run.off();
                     $run.click(runButton);
-                }, 4000);*/
-
-
+                }, 4000);
             }
         }
 
         if (lossAndVictoryArray[i] == "win") {
             // rVictory.play(); // TestSound
+            //$rocketAnimate.stop();
 
             if (moveCounter == i) {
 
@@ -1766,16 +1756,13 @@ var winAndLossCall = function () {
                     winCondition = true; //"you win" alert only to come up once
 
                     setTimeout(function () {
-
                         $point.show();
                         $point.attr("src", "img/playfield/astronaut.png").css({
                             "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "0%",
                             "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
                         });
                         $point.animate({"margin-top": "+=50%"}, "slow");
-
                         $winModal.show();
-
                         setTimeout(loadNewLevel, 3000);
 
                     }, 300)
