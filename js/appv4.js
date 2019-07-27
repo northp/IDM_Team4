@@ -1548,7 +1548,7 @@ function moveRight() {
             var nextZeroIndex = 2;
             var nextZeroFound = false;
             while (nextZeroFound != true) {
-                if (map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] != 0) {
+                if ((map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] == 3)) {
                     nextZeroIndex++;
                     animateDistancePercent = animateDistancePercent + 9;
                     rocketXDistance = rocketXDistance + 50;
@@ -1600,7 +1600,7 @@ function moveDown() {
             var nextZeroIndex = 2;
             var nextZeroFound = false;
             while (nextZeroFound != true) {
-                if (map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] != 0) {
+                if ((map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] == 3) || (map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] == 3.5)) {
                     nextZeroIndex++;
                     animateDistancePercent = animateDistancePercent + 9;
                     rocketYDistance = rocketYDistance + 50;
@@ -1654,7 +1654,7 @@ function moveLeft() {
             var nextZeroIndex = 2;
             var nextZeroFound = false;
             while (nextZeroFound != true) {
-                if (map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] != 0) {
+                if ((map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] == 3) || (map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] == 3.5)) {
                     nextZeroIndex++;
                     animateDistancePercent = animateDistancePercent + 9;
                     rocketXDistance = rocketXDistance + 50;
@@ -1707,7 +1707,7 @@ function moveUp() {
             var nextZeroIndex = 2;
             var nextZeroFound = false;
             while (nextZeroFound != true) {
-                if (map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] != 0) {
+                if ((map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] == 3) || (map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] == 3.5)) {
                     nextZeroIndex++;
                     animateDistancePercent = animateDistancePercent + 9;
                     rocketYDistance = rocketYDistance + 50;
