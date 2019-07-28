@@ -210,33 +210,33 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 4, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -259,13 +259,6 @@ function loadVersions() {
 chooseLevel();
 
 function chooseLevel() {
-    
-    
-    // FOR TESTING - DELETE LATER
-    //currentLevel = 3;
-    
-    
-    
     if (currentLevel > 1) {
         $(".functions").show();
         $(".side-navigation").show();
@@ -973,42 +966,73 @@ function insertDOMandCSS3() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
+    // Fire planet coordinates
+    var fireMarginLeft;
+    var fireMarginTop;
+    
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
+            rocketMarginLeft = '54.7%';
             rocketMarginTop = '63.5%';
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
             //defining the rocket coordinates
-            rocketX = 200;
+            rocketX = 300;
             rocketY = 400;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '54.74%';
+            fireMarginTop = '54.55%';
+            
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '63.5%';
+            rocketMarginLeft = '18.4%';
+            rocketMarginTop = '45.5%';
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
             //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
+            rocketX = 100;
+            rocketY = 300;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '24%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '36.55%';
+            
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '63.5%';
+            rocketMarginLeft = '9.4%';
+            rocketMarginTop = '18.5%';
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
             //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
+            rocketX = 50;
+            rocketY = 150;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '78.5%';
+            destinationMarginTop = '42%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '54.7%';
+            fireMarginTop = '18.55%';
+            
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -1021,6 +1045,15 @@ function insertDOMandCSS3() {
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 400;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '45.55%';
+            
             break;
     }
     rocketX1 = rocketX;
@@ -1037,8 +1070,8 @@ function insertDOMandCSS3() {
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
         'position': 'absolute',
-        'margin-left': '60.5%',
-        'margin-top': '0%',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
         'max-height': 'auto',
         'max-width': '15%',
         'transform': 'rotate(30deg)'
@@ -1046,8 +1079,8 @@ function insertDOMandCSS3() {
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
-        'margin-left': '27.4%',
-        'margin-top': '45.55%',
+        'margin-left': fireMarginLeft,
+        'margin-top': fireMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
