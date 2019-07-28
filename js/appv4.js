@@ -267,7 +267,6 @@ function chooseLevel() {
 
         // Randomise number between 1 and 4 to represent Level 0 version
         version = Math.floor((Math.random() * 4));
-        version = 0;
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 0
