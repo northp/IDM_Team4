@@ -46,8 +46,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -266,7 +266,8 @@ function chooseLevel() {
     if (currentLevel === 0) {
 
         // Randomise number between 1 and 4 to represent Level 0 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
+        version = 0;
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 0
@@ -279,7 +280,7 @@ function chooseLevel() {
     if (currentLevel === 1) {
 
         // Randomise number between 1 and 4 to represent Level 1 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
 
@@ -295,7 +296,7 @@ function chooseLevel() {
 
 
         // Randomise number between 1 and 4 to represent Level 2 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 2
@@ -307,7 +308,7 @@ function chooseLevel() {
 
     if (currentLevel === 3) {
         // Randomise number between 1 and 4 to represent Level 2 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 3
@@ -404,6 +405,15 @@ function insertDOMandCSS0() {
     functionTwoLevelMoves = 4;
 
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '18.2%';
+            rocketMarginTop = '45.5%';
+
+            //defining the rocket coordinates
+            rocketX = 100;
+            rocketY = 300;
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '45.5%';
@@ -423,15 +433,6 @@ function insertDOMandCSS0() {
             rocketY = 350;
             break;
         case 3:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '45.5%';
-            rocketMarginTop = '55%';
-
-            //defining the rocket coordinates
-            rocketX = 250;
-            rocketY = 350;
-            break;
-        case 4:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '45.5%';
             rocketMarginTop = '55%';
@@ -495,6 +496,15 @@ function insertDOMandCSS1() {
     functionTwoLevelMoves = 4;
 
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
@@ -514,15 +524,6 @@ function insertDOMandCSS1() {
             rocketY = 450;
             break;
         case 3:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '27.4%';
-            rocketMarginTop = '72.75%';
-
-            //defining the rocket coordinates
-            rocketX = 150;
-            rocketY = 450;
-            break;
-        case 4:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
             rocketMarginTop = '72.75%';
@@ -602,6 +603,15 @@ function insertDOMandCSS2() {
     functionTwoLevelMoves = 4;
 
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '81.75%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 500;
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
@@ -621,15 +631,6 @@ function insertDOMandCSS2() {
             rocketY = 500;
             break;
         case 3:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '81.75%';
-
-            //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 500;
-            break;
-        case 4:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '81.75%';
@@ -749,6 +750,18 @@ function insertDOMandCSS3() {
     functionTwoLevelMoves = 4;
 
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 400;
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
@@ -774,18 +787,6 @@ function insertDOMandCSS3() {
             rocketY = 400;
             break;
         case 3:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '63.5%';
-
-            asteroidMarginLeft = '0%';
-            asteroidMarginTop = '27.5%';
-
-            //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
-            break;
-        case 4:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '63.5%';
