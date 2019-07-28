@@ -146,6 +146,7 @@ body {
     margin-top: 4%;
     margin-left: -4%
 }
+
 /* ===== NAVIGATION ===== */
 
 .home-button {
@@ -195,6 +196,33 @@ body {
 #btn-long-home {
     width: 50%
 }
+
+/* ====== MINI GAMES ====== */
+/* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    outline: 5px solid black;
+  }
+
+.game {
+    display: flex;
+}
+
+.left, .right {
+    flex: 50%;
+}
+
+
+
+
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */

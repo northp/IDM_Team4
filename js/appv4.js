@@ -1480,12 +1480,29 @@ function clickElements() {
 
     $planetFire.click(function () {
         modal.style.display = "block";
-        $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "5%", "width", "5%");
-        $modalText.text("Fire");
+        $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
+        $modalText.text("Choose the right answer to solve the puzzle.");
+        $(".gameImg").attr("src","img/minigames/minigame_one.png");
+        $(".gameImg").css("width", "90%");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
         dangerArea("fire");
+        
+
+ 
+
+        for (var x = 0; x < 6; x ++){
+            $(".right").append( "<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>" );
+            $("." + x).attr("src","img/minigames/minigame_one_" + x + ".png");
+            $("." + x).css("width", "30%");
+        }
+    
+
+        
+
+
+        $(".right").append("<input type='submit' value='submit'>");
     });
 
     $planetMetal.click(function () {
