@@ -11,6 +11,10 @@ var rocketMarginTop;
 var asteroidMarginLeft;
 var asteroidMarginTop;
 
+//for resetting falling star position
+var fallingStarMarginLeft;
+var fallingStarMarginTop;
+
 //for resetting destination position
 var destinationMarginLeft;
 var destinationMarginTop;
@@ -206,7 +210,7 @@ function loadVersions() {
         [
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0.2, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -217,8 +221,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
+                [0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
@@ -230,10 +234,10 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 4, 0, 0, 0, 0, 2, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -242,7 +246,7 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0.2, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -340,13 +344,14 @@ var $planetDestination;
 var $planetEarth;
 var $planetIce;
 var $rocketAnimate;
+var $originalRocketSpace;
 var $hint;
 var $helpDot;
 var $helpButton;
 var $home;
 var $homeDot;
 var $asteroid;
-var $originalRocketSpace;
+var $fallingStar;
 
 //putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
 function jQueryVariables() {
@@ -359,10 +364,11 @@ function jQueryVariables() {
     $planetIce = $(".planetIce");
     $planetFire = $("#planetFire");
     $rocketAnimate = $("#rocketman");
+    $originalRocketSpace = $("#originalrocketspace");
     $home = $("#home");
     $homeDot = $(".dot-home");
     $asteroid = $("#asteroid");
-    $originalRocketSpace = $("#originalrocketspace");
+    $fallingStar = $("#fallingstar");
 }
 
 //jQuery accessing arrows
@@ -372,8 +378,6 @@ var $up = $("#up");
 var $down = $("#down");
 var $functTwoSelect = $("#functiontwoselect");
 var $run = $("#run");
-var $stop = $("#stop");
-
 
 //jQuery icons
 var $mainFunctionIcon = $("#mainfunction");
@@ -416,11 +420,11 @@ function insertDOMandCSS0() {
             //defining the rocket coordinates
             rocketX = 100;
             rocketY = 300;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '33%';
-            
+
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
@@ -430,11 +434,11 @@ function insertDOMandCSS0() {
             //defining the rocket coordinates
             rocketX = 250;
             rocketY = 150;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '6%';
             destinationMarginTop = '51%';
-            
+
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
@@ -444,11 +448,11 @@ function insertDOMandCSS0() {
             //defining the rocket coordinates
             rocketX = 250;
             rocketY = 350;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '42%';
             destinationMarginTop = '0%';
-            
+
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -458,11 +462,11 @@ function insertDOMandCSS0() {
             //defining the rocket coordinates
             rocketX = 250;
             rocketY = 100;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '42%';
             destinationMarginTop = '70%';
-            
+
             break;
     }
     rocketX1 = rocketX;
@@ -517,13 +521,13 @@ function insertDOMandCSS1() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-    
+
     // Metal and fire planet coordinates
     var metalMarginLeft;
     var metalMarginTop;
     var fireMarginLeft;
     var fireMarginTop;
-    
+
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
@@ -533,18 +537,18 @@ function insertDOMandCSS1() {
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '42%';
             destinationMarginTop = '0%';
-            
+
             // defining the planet coordinates
             metalMarginLeft = '27.6%';
             metalMarginTop = '63.75%';
-            
+
             fireMarginLeft = '45.4%';
             fireMarginTop = '36.5%';
-            
+
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
@@ -554,18 +558,18 @@ function insertDOMandCSS1() {
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '42%';
             destinationMarginTop = '0%';
-            
+
             // defining the planet coordinates
             metalMarginLeft = '54.6%';
             metalMarginTop = '72.75%';
-            
+
             fireMarginLeft = '27.4%';
             fireMarginTop = '36.5%';
-            
+
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
@@ -575,18 +579,18 @@ function insertDOMandCSS1() {
             //defining the rocket coordinates
             rocketX = 300;
             rocketY = 150;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '6%';
             destinationMarginTop = '69.5%';
-            
+
             // defining the planet coordinates
             metalMarginLeft = '54.6%';
             metalMarginTop = '72.75%';
-            
+
             fireMarginLeft = '27.4%';
             fireMarginTop = '36.5%';
-            
+
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -596,18 +600,18 @@ function insertDOMandCSS1() {
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 250;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '70%';
             destinationMarginTop = '0%';
-            
+
             // defining the planet coordinates
             metalMarginLeft = '82.3%';
             metalMarginTop = '36.4%';
-            
+
             fireMarginLeft = '45.4%';
             fireMarginTop = '9.5%';
-            
+
             break;
     }
     rocketX1 = rocketX;
@@ -686,11 +690,11 @@ function insertDOMandCSS2() {
     var metalMarginTop2;
     var metalMarginLeft3;
     var metalMarginTop3;
-    
+
     // Fire planet coordinates
     var fireMarginLeft;
     var fireMarginTop;
-    
+
     // Ice planet coordinates
     var iceMarginLeft1;
     var iceMarginTop1;
@@ -698,7 +702,7 @@ function insertDOMandCSS2() {
     var iceMarginTop2;
     var iceMarginLeft3;
     var iceMarginTop3;
-    
+
     // Earth planet coordinates
     var earthMarginLeft;
     var earthMarginTop;
@@ -712,11 +716,11 @@ function insertDOMandCSS2() {
             //defining the rocket coordinates
             rocketX = 350;
             rocketY = 450;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '24%';
             destinationMarginTop = '0%';
-            
+
             // defining the metal planet coordinates
             metalMarginLeft1 = '18.2%';
             metalMarginTop1 = '36.7%';
@@ -724,11 +728,11 @@ function insertDOMandCSS2() {
             metalMarginTop2 = '36.7%';
             metalMarginLeft3 = '36.4%';
             metalMarginTop3 = '36.7%';
-            
+
             // defining the fire planet coordinates
             fireMarginLeft = '36.4%';
             fireMarginTop = '9.55%';
-            
+
             // defining the ice planet coordinates
             iceMarginLeft1 = '36.6%';
             iceMarginTop1 = '54.75%';
@@ -736,11 +740,11 @@ function insertDOMandCSS2() {
             iceMarginTop2 = '63.75%';
             iceMarginLeft3 = '54.7%';
             iceMarginTop3 = '72.7%';
-            
+
             // defining the Earth planet coordinates
             earthMarginLeft = '27.5%';
             earthMarginTop = '18.5%';
-            
+
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
@@ -750,11 +754,11 @@ function insertDOMandCSS2() {
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 450;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
-            
+
             // defining the metal planet coordinates
             metalMarginLeft1 = '18.2%';
             metalMarginTop1 = '36.7%';
@@ -762,11 +766,11 @@ function insertDOMandCSS2() {
             metalMarginTop2 = '27.7%';
             metalMarginLeft3 = '36.4%';
             metalMarginTop3 = '18.7%';
-            
+
             // defining the fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '54.55%';
-            
+
             // defining the ice planet coordinates
             iceMarginLeft1 = '45.6%';
             iceMarginTop1 = '36.7%';
@@ -774,11 +778,11 @@ function insertDOMandCSS2() {
             iceMarginTop2 = '45.7%';
             iceMarginLeft3 = '63.7%';
             iceMarginTop3 = '54.7%';
-            
+
             // defining the Earth planet coordinates
             earthMarginLeft = '36.75%';
             earthMarginTop = '63.75%';
-            
+
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
@@ -788,11 +792,11 @@ function insertDOMandCSS2() {
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 500;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
-            
+
             // defining the metal planet coordinates
             metalMarginLeft1 = '18.2%';
             metalMarginTop1 = '63.7%';
@@ -800,11 +804,11 @@ function insertDOMandCSS2() {
             metalMarginTop2 = '72.7%';
             metalMarginLeft3 = '54.4%';
             metalMarginTop3 = '54.7%';
-            
+
             // defining the fire planet coordinates
             fireMarginLeft = '18.4%';
             fireMarginTop = '45.55%';
-            
+
             // defining the ice planet coordinates
             iceMarginLeft1 = '36.6%';
             iceMarginTop1 = '54.4%';
@@ -812,11 +816,11 @@ function insertDOMandCSS2() {
             iceMarginTop2 = '36.4%';
             iceMarginLeft3 = '63.7%';
             iceMarginTop3 = '18.4%';
-            
+
             // defining the Earth planet coordinates
             earthMarginLeft = '72.75%';
             earthMarginTop = '45.55%';
-            
+
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -826,11 +830,11 @@ function insertDOMandCSS2() {
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
-            
+
             // defining the metal planet coordinates
             metalMarginLeft1 = '18.2%';
             metalMarginTop1 = '63.7%';
@@ -838,11 +842,11 @@ function insertDOMandCSS2() {
             metalMarginTop2 = '63.7%';
             metalMarginLeft3 = '36.4%';
             metalMarginTop3 = '63.7%';
-            
+
             // defining the fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '45.55%';
-            
+
             // defining the ice planet coordinates
             iceMarginLeft1 = '45.6%';
             iceMarginTop1 = '27.4%';
@@ -850,11 +854,11 @@ function insertDOMandCSS2() {
             iceMarginTop2 = '27.4%';
             iceMarginLeft3 = '63.7%';
             iceMarginTop3 = '27.4%';
-            
+
             // defining the Earth planet coordinates
             earthMarginLeft = '63.75%';
             earthMarginTop = '45.55%';
-            
+
             break;
     }
     rocketX1 = rocketX;
@@ -958,6 +962,7 @@ function insertDOMandCSS3() {
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="rocketman"/>')
         .prepend('<img id="asteroid"/>')
+        .prepend('<img id ="fallingstar"/>')
         .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
@@ -969,7 +974,7 @@ function insertDOMandCSS3() {
     // Fire planet coordinates
     var fireMarginLeft;
     var fireMarginTop;
-    
+
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
@@ -979,18 +984,21 @@ function insertDOMandCSS3() {
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
+            fallingStarMarginLeft = '17%';
+            fallingStarMarginTop = '7%';
+
             //defining the rocket coordinates
             rocketX = 300;
             rocketY = 400;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
-            
+
             // Fire planet coordinates
             fireMarginLeft = '54.74%';
             fireMarginTop = '54.55%';
-            
+
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
@@ -1000,18 +1008,21 @@ function insertDOMandCSS3() {
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
+            fallingStarMarginLeft = '17%';
+            fallingStarMarginTop = '7%';
+
             //defining the rocket coordinates
             rocketX = 100;
             rocketY = 300;
-            
+
             //defining the destination coordinates
-            destinationMarginLeft = '24%';
+            destinationMarginLeft = '51%';
             destinationMarginTop = '0%';
-            
+
             // Fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '36.55%';
-            
+
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
@@ -1021,18 +1032,21 @@ function insertDOMandCSS3() {
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
+            fallingStarMarginLeft = '17%';
+            fallingStarMarginTop = '7%';
+
             //defining the rocket coordinates
             rocketX = 50;
             rocketY = 150;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '78.5%';
-            destinationMarginTop = '42%';
-            
+            destinationMarginTop = '45%';
+
             // Fire planet coordinates
             fireMarginLeft = '54.7%';
             fireMarginTop = '18.55%';
-            
+
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -1042,18 +1056,21 @@ function insertDOMandCSS3() {
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
+            fallingStarMarginLeft = '17%';
+            fallingStarMarginTop = '7%';
+
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 400;
-            
+
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
-            
+
             // Fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '45.55%';
-            
+
             break;
     }
     rocketX1 = rocketX;
@@ -1090,8 +1107,16 @@ function insertDOMandCSS3() {
         'margin-left': asteroidMarginLeft,
         'margin-top': asteroidMarginTop,
         'max-height': 'auto',
-        'max-width': '9%',
+        'max-width': '9%'
 
+    });
+
+    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
+        'position': 'absolute',
+        'margin-left': fallingStarMarginLeft,
+        'margin-top': fallingStarMarginTop,
+        'max-height': 'auto',
+        'max-width': '12%',
     });
 
     $originalRocketSpace.attr('src', 'img/playfield/start_pos.png').css({
@@ -1136,14 +1161,30 @@ function findAsteroidPosition() {
     }
 }
 
-
 var asteroidPosition = findAsteroidPosition();
+
+function findStarPosition() {
+    var starArray = [];
+    for (var i in map) {
+        for (var j in map[i]) {
+            if (map[i][j] == 0.2) {
+                console.log("Star is at index [" + i + "][" + j + "]");
+                starArray.push(parseInt(i), parseInt(j));
+                return starArray;
+            }
+        }
+    }
+}
+
+var starPosition = findStarPosition();
 
 
 //storing original index position array in const array
 var originalRocketIndex = rocketPosition;
 
 var originalAsteroidIndex = asteroidPosition;
+
+var originalStarIndex = starPosition;
 
 // get height and width of the map
 var mapHeight = map.length;
@@ -1274,15 +1315,6 @@ function initialise() {
     });
 }
 
-
-//object to store the position of the rocket
-var movementObject = {
-    x: rocketX,
-    y: rocketY
-};
-console.log("The current coordinates are: " + movementObject.x, movementObject.y);
-
-
 /*CHECKING WHICH FUNCTION THE USER HAS CLICKED ON TO ENTER ALGORITHM (function one array or function two array)*/
 $mainFunctionIcon.click(startState);
 $algoSpace.click(startState);
@@ -1318,7 +1350,7 @@ function startState() {
     if (currentLevel === 0 || 1) {
         $("#bg").css("background", "url(img/playfield/playfield_simple_final_highlight_main.jpg)");
         $("#bg").css("background-size", "contain");
-        console.log("Highlight in simple view works");
+        //console.log("Highlight in simple view works");
     }
 
     if (currentLevel >= 2) {
@@ -1403,7 +1435,7 @@ function movementFunction() {
         }
     });
 
-    console.log("The current coordinates are: " + movementObject.x, movementObject.y);
+    console.log("The current coordinates are: " + rocketX, rocketY);
 }
 
 //function for removing parts of algorithm
@@ -1461,14 +1493,14 @@ function dangerArea(planet) {
 
     //when the user clicks on <span> (x)
     span.onclick = function () {
-        
-            drawZone();
-            for( var x = 0; x < 6; x++){
-                $(".gameImg").attr("src", "");
-                $("." + x).remove();
-                $("label").remove();
-                $("#submit").remove();
-            }
+
+        drawZone();
+        for (var x = 0; x < 6; x++) {
+            $(".gameImg").attr("src", "");
+            $("." + x).remove();
+            $("label").remove();
+            $("#submit").remove();
+        }
 
     };
 
@@ -1476,7 +1508,7 @@ function dangerArea(planet) {
     window.onclick = function (event) {
         if (event.target == modal) {
             drawZone();
-            for( var x = 0; x < 6; x++){
+            for (var x = 0; x < 6; x++) {
                 $(".gameImg").attr("src", "");
                 $("." + x).remove();
                 $("label").remove();
@@ -1490,10 +1522,14 @@ function dangerArea(planet) {
 function clickElements() {
     $home.click(function () {
         navModal.style.display = "block";
+        $point.hide();
+        $commandsOverlay.hide();
     });
 
     $homeDot.click(function () {
         navModal.style.display = "block";
+        $point.hide();
+        $commandsOverlay.hide();
     });
 
     $hint.click(function () {
@@ -1502,6 +1538,7 @@ function clickElements() {
         $modalImage.attr("src", "");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
 
@@ -1512,6 +1549,7 @@ function clickElements() {
         $modalImage.attr("src", "");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
     $helpButton.click(function () {
@@ -1521,26 +1559,29 @@ function clickElements() {
         $modalImage.attr("src", "");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
     $planetFire.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
-        $(".gameImg").attr("src","img/minigames/minigame_one.png");
+        $(".gameImg").attr("src", "img/minigames/minigame_one.png");
         $(".gameImg").css("width", "90%");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
         dangerArea("fire");
-        
-        for (var x = 0; x < 6; x ++){
-            $(".right").append( "<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>" );
-            $("." + x).attr("src","img/minigames/minigame_one_" + x + ".png");
+
+        for (var x = 0; x < 6; x++) {
+            $(".right").append("<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>");
+            $("." + x).attr("src", "img/minigames/minigame_one_" + x + ".png");
             $("." + x).css("width", "30%");
             $("." + x).css("margin-right", "2%");
         }
         $(".right").append("<input type='submit' value='submit' id='submit'>");
+
     });
 
     $planetMetal.click(function () {
@@ -1550,6 +1591,7 @@ function clickElements() {
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
         dangerArea("metal");
     });
 
@@ -1569,6 +1611,7 @@ function clickElements() {
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
     $planetEarth.click(function () {
@@ -1578,6 +1621,7 @@ function clickElements() {
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
     $rocketAnimate.click(function () {
@@ -1587,11 +1631,13 @@ function clickElements() {
         $modalTitle.text("Rocket").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
+        $commandsOverlay.hide();
     });
 
     stay.onclick = function () {
         modal.style.display = "none";
         navModal.style.display = "none";
+
     };
 
 
@@ -1638,6 +1684,11 @@ function originalPos() {
         'margin-top': asteroidMarginTop
     });
 
+    $fallingStar.css({
+        'margin-left': fallingStarMarginLeft,
+        'margin-top': fallingStarMarginTop
+    });
+
     //reset coordinates
     rocketX = rocketX1;
     rocketY = rocketY1;
@@ -1661,9 +1712,17 @@ function originalPos() {
         }
     }
 
+    for (var i in map) {
+        for (var j in map[i]) {
+            if (map[i][j] === 0.2) {
+                map[i][j] = 0;
+            }
+        }
+    }
+
     rocketPosition = originalRocketIndex;
     asteroidPosition = originalAsteroidIndex;
-
+    starPosition = originalStarIndex;
 }
 
 var moveCounter = -1;
@@ -1684,6 +1743,7 @@ function stopAnimation() {
         for (var i = 0; i <= 20; i++) {
             $rocketAnimate.stop(); //stop animating
             $asteroid.stop();
+            $fallingStar.stop();
         }
         $run.off();
         $run.click(runButton);
@@ -1721,8 +1781,6 @@ function runButton() {
                             moveLeft();
                         }
 
-                        //animating main algorithm, tracking loss and victory, updating rocket index
-
                         //up
                         if (algorithm[x][i].charAt(0) === "u") {
                             moveUp();
@@ -1753,7 +1811,6 @@ function runButton() {
                 }
                 //up
                 else if (algorithm[x].charAt(0) === "u") {
-                    //console.log("hello " + algorithm.slice(-1)[0]);
                     moveUp();
                 }
             }
@@ -1781,6 +1838,7 @@ var lossAndVictoryArray = [];
 
 function moveRight() {
     asteroidAnimate();
+    fallingStarAnimate();
     if (rocketX >= canvas.width - tileWidth) {
         $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
     } else {
@@ -1791,14 +1849,14 @@ function moveRight() {
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
-        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
-            
-        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+
+            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
-            
+
             var rocketXDistance = 100;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
@@ -1820,7 +1878,7 @@ function moveRight() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            
+
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
@@ -1833,6 +1891,7 @@ function moveRight() {
 
 function moveDown() {
     asteroidAnimate();
+    fallingStarAnimate();
     if (rocketY >= canvas.height) {
         $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
     } else {
@@ -1843,14 +1902,14 @@ function moveDown() {
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
-        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
-            
-        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+
+            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5)) {
-            
+
             var rocketYDistance = 100;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
@@ -1872,7 +1931,7 @@ function moveDown() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            
+
         } else {
             var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
             map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
@@ -1886,6 +1945,7 @@ function moveDown() {
 
 function moveLeft() {
     asteroidAnimate();
+    fallingStarAnimate();
     if (rocketX <= 0) {
         //edge of canvas - do nothing
         $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
@@ -1899,14 +1959,14 @@ function moveLeft() {
 
 
     if (rocketPosition[1] > 0) {
-        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
-            
-        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+
+            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5)) {
-            
+
             var rocketXDistance = 100;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
@@ -1928,7 +1988,7 @@ function moveLeft() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            
+
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
             map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
@@ -1941,6 +2001,7 @@ function moveLeft() {
 
 function moveUp() {
     asteroidAnimate();
+    fallingStarAnimate();
     if (rocketY <= tileHeight) {
         $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
 
@@ -1953,14 +2014,14 @@ function moveUp() {
 
 
     if (rocketPosition[0] > 0) {
-        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
-            
-        // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+
+            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3.5)) {
-            
+
             var rocketYDistance = 100;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
@@ -1982,7 +2043,7 @@ function moveUp() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            
+
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
             map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
@@ -1997,16 +2058,23 @@ function moveUp() {
 var asteroidX = 0;
 var asteroidY = 200;
 
+
+//debug 0.1 and 0.2 staying in array
 //animating the asteroid and updating its index
 function asteroidAnimate() {
     if (currentLevel > 2) {
-        console.log($asteroid);
-        console.log("amy " + asteroidPosition);
+        //resetting current index before it moves to the next place in array
+        for (var i in map) {
+            for (var j in map[i]) {
+                if (map[i][j] === 0.1) {
+                    map[i][j] = 0;
+                }
+            }
+        }
 
         if (asteroidPosition[1] < mapWidth - 1) {
             $asteroid.animate({'margin-left': '+=9%'}, "fast");
             asteroidX += 50;
-            console.log("heyy " + asteroidX);
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
@@ -2016,23 +2084,47 @@ function asteroidAnimate() {
     }
 }
 
+function fallingStarAnimate() {
+    if (currentLevel > 2) {
+        //resetting current index before it moves to the next place in array
+        for (var i in map) {
+            for (var j in map[i]) {
+                if (map[i][j] === 0.2) {
+                    map[i][j] = 0;
+                }
+            }
+        }
+        if (starPosition[0] < mapHeight - 1) {
+            $fallingStar.animate({'margin-top': '+=9%'}, "fast");
+            var temp = map[starPosition[0] + 1][starPosition[1]];
+            map[starPosition[0] + 1][starPosition[1]] = 0.2;
+            map[starPosition[0]][starPosition[1]] = temp;
+            starPosition = findStarPosition();
+        }
+    }
+}
+
+//function for loading the next level and for resetting every variable and index back to their original value
 function loadNewLevel() {
     // temporary test to change level
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
 
+    //hiding anything that shouldn't be there
     $point.hide();
+    $commandsOverlay.hide();
     $winModal.hide();
     $("#functiontwoselect").hide();
 
+    //resetting play button to 'play' rather than 'stop'
     $run.off();
     $run.click(runButton);
     $("#play-first").attr({"src": "img/playfield/play.png"});
     $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
 
 
-    // change from level one to level two:
+    // change from each level
     if (currentLevel === 0) {
         currentLevel = 1;
         console.log("current level" + currentLevel);
@@ -2061,12 +2153,17 @@ function loadNewLevel() {
     asteroidPosition = findAsteroidPosition();
     originalAsteroidIndex = asteroidPosition;
 
-    //the main array/algorithm the user creates
+    //same for falling star
+    starPosition = findStarPosition();
+    originalStarIndex = starPosition;
+
+    //resetting the main array/algorithm the user creates
     algorithm = [];
 
-    //the secondary array that the user creates which they can use inside the main one
+    //resetting the secondary array that the user creates which they can use inside the main one
     functionTwo = [];
 
+    //resetting loss and victory array
     lossAndVictoryArray = [];
 
     winCondition = false;
@@ -2075,33 +2172,26 @@ function loadNewLevel() {
 
     something = -1;
 
-    movementObject = {
-        x: rocketX,
-        y: rocketY
-    };
-    console.log("The current coordinates are: " + movementObject.x, movementObject.y);
-
     arraySelect = [];
+
     moveCounter = -1;
 
     startState();
     clickElements();
 }
 
-var winCondition = false;
+var winCondition = false; //boolean used so that the winning pop-up only appears once
 
 var winAndLossCall = function () {
 
-    moveCounter++;
-    console.log("array: " + lossAndVictoryArray);
-    console.log("move: " + moveCounter);
+    moveCounter++; //increment value for every move the rocket makes
 
     //checking to see whether the rocket has hit a planet
     for (var i in lossAndVictoryArray) {
+        //console.log(lossAndVictoryArray);
 
         if (lossAndVictoryArray[i] == "run") {
-
-
+            //do nothing
         }
 
         if (lossAndVictoryArray[i] == "lose") {
@@ -2112,6 +2202,8 @@ var winAndLossCall = function () {
                 //30 is a random number to ensure that all the upcoming rocket's moves are stopped
                 for (var j = 0; j <= 30; j++) {
                     $rocketAnimate.stop();
+                    $asteroid.stop();
+                    $fallingStar.stop();
                 }
 
                 //setTimeout function here to explode the ship and move back to original position
@@ -2157,7 +2249,7 @@ var winAndLossCall = function () {
     }
 };
 
-var oldFunction = winAndLossCall;
+var oldFunction = winAndLossCall; //storing function in a variable (used in stopAnimation() function as was getting a bug)
 
 // a function to save the entered algorithm
 var $save = $("#save");
@@ -2170,7 +2262,7 @@ $save.click(function () {
     savedAlgorithmTemp = [];
     counter++;
     $("#functiontwoselect").show();
-    console.log(savedAlgorithmTemp, savedAlgorithm, algorithm)
+    //console.log(savedAlgorithmTemp, savedAlgorithm, algorithm)
 });
 
 startState();
@@ -2237,7 +2329,7 @@ function instructions() {
             $modalText.text("These buttons are for moving up, down, left and right.");
             $commandsOverlay.attr("src", "img/playfield/commands.png").css({
                 "width": "50%",
-                "margin-left": "-38%", "margin-top": "116%",
+                "margin-left": "-38%", "margin-top": "111%",
             });
 
             $point.attr("src", "img/playfield/astronaut.png").css({
@@ -2260,7 +2352,7 @@ function instructions() {
             $modalText.text("Your listed commands will be executed when you hit the play button.");
             $commandsOverlay.attr("src", "play.png").css({
                 "width": "50%",
-                "margin-left": "25%", "margin-top": "98%",
+                "margin-left": "25%", "margin-top": "93%",
             });
         }
 
@@ -2349,7 +2441,7 @@ function instructionsThree() {
             });
             $modalText.text("Your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
-                "width": "8%", "margin-left": "28%", "margin-top": "158%"
+                "width": "8%", "margin-left": "28%", "margin-top": "153%"
             });
             $commandsOverlay.show();
             $point.show();
@@ -2358,6 +2450,7 @@ function instructionsThree() {
         else if (counter == 3) {
             modal.style.display = "none";
             $point.hide();
+            $commandsOverlay.hide();
         }
         counter = newcounter;
     })
@@ -2375,7 +2468,7 @@ function instructionsFour() {
     $commandsOverlay.attr("src", "img/playfield/asteroid.png").css({
         'position': 'absolute',
         'margin-left': '-23%',
-        'margin-top': '-22%',
+        'margin-top': '-25%',
         'max-height': 'auto',
         'width': '9%'
     });
@@ -2387,15 +2480,32 @@ function instructionsFour() {
 
 
         if (counter == 1) {
-            $modalText.text("It will move whenever your spaceship moves, so be careful!");
-            $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+            $modalText.text("This is a falling star, which can also damage your spaceship.");
+            $commandsOverlay.attr("src", "img/playfield/shootingstar.png").css({
+                'position': 'absolute',
+                'margin-left': '-6.5%',
+                'margin-top': '-45%',
+                'max-height': 'auto',
+                'width': '12%'
+            });
+
         }
 
         else if (counter == 2) {
+            $commandsOverlay.hide();
+            $modalText.text("They will move whenever your spaceship moves, so be careful!");
+            $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
+
+        }
+
+        else if (counter == 3) {
             modal.style.display = "none";
             $commandsOverlay.hide();
+
         }
         counter = newcounter;
 
     });
 }
+
+/*END OF DEMO MODALS*/
