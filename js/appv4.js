@@ -11,6 +11,10 @@ var rocketMarginTop;
 var asteroidMarginLeft;
 var asteroidMarginTop;
 
+//for resetting destination position
+var destinationMarginLeft;
+var destinationMarginTop;
+
 
 //defining the rocket coordinates
 var rocketX = 250;
@@ -41,14 +45,26 @@ function loadVersions() {
     versionListLevel0 =
         [
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -65,28 +81,16 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
             ]
         ];
 
@@ -98,12 +102,12 @@ function loadVersions() {
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
+                [0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -119,27 +123,27 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
+                [1, 1, 1, 0, 0, 3.5, 3, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 0, 1, 1, 1, 0],
+                [0, 0, 0, 0, 2.5, 2, 2.5, 0, 1, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 2.5, 2.5, 3.5, 0],
+                [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
@@ -148,40 +152,40 @@ function loadVersions() {
     versionListLevel2 =
         [
             [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 5, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 0, 0, 5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0],
+                [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
+                [0, 0, 2, 0, 0, 0, 0, 0, 6, 0, 0],
+                [0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0],
+                [0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -206,33 +210,33 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 4, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -266,7 +270,7 @@ function chooseLevel() {
     if (currentLevel === 0) {
 
         // Randomise number between 1 and 4 to represent Level 0 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 0
@@ -279,7 +283,7 @@ function chooseLevel() {
     if (currentLevel === 1) {
 
         // Randomise number between 1 and 4 to represent Level 1 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
 
@@ -295,7 +299,7 @@ function chooseLevel() {
 
 
         // Randomise number between 1 and 4 to represent Level 2 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 2
@@ -307,7 +311,7 @@ function chooseLevel() {
 
     if (currentLevel === 3) {
         // Randomise number between 1 and 4 to represent Level 2 version
-        version = Math.floor((Math.random() * 3) + 1);
+        version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
         // Assign randomised version number to map for level 3
@@ -404,14 +408,33 @@ function insertDOMandCSS0() {
     functionTwoLevelMoves = 4;
 
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '18.2%';
+            rocketMarginTop = '45.5%';
+
+            //defining the rocket coordinates
+            rocketX = 100;
+            rocketY = 300;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '33%';
+            
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '45.5%';
-            rocketMarginTop = '55%';
+            rocketMarginTop = '18.2%';
 
             //defining the rocket coordinates
             rocketX = 250;
-            rocketY = 350;
+            rocketY = 150;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '6%';
+            destinationMarginTop = '51%';
+            
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
@@ -421,24 +444,25 @@ function insertDOMandCSS0() {
             //defining the rocket coordinates
             rocketX = 250;
             rocketY = 350;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '42%';
+            destinationMarginTop = '0%';
+            
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '45.5%';
-            rocketMarginTop = '55%';
+            rocketMarginTop = '9%';
 
             //defining the rocket coordinates
             rocketX = 250;
-            rocketY = 350;
-            break;
-        case 4:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '45.5%';
-            rocketMarginTop = '55%';
-
-            //defining the rocket coordinates
-            rocketX = 250;
-            rocketY = 350;
+            rocketY = 100;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '42%';
+            destinationMarginTop = '70%';
+            
             break;
     }
     rocketX1 = rocketX;
@@ -455,8 +479,8 @@ function insertDOMandCSS0() {
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
         'position': 'absolute',
-        'margin-left': '42%',
-        'margin-top': '0%',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
         'max-height': 'auto',
         'max-width': '15%',
         'transform': 'rotate(30deg)'
@@ -493,8 +517,35 @@ function insertDOMandCSS1() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-
+    
+    // Metal and fire planet coordinates
+    var metalMarginLeft;
+    var metalMarginTop;
+    var fireMarginLeft;
+    var fireMarginTop;
+    
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '27.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 150;
+            rocketY = 450;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '42%';
+            destinationMarginTop = '0%';
+            
+            // defining the planet coordinates
+            metalMarginLeft = '27.6%';
+            metalMarginTop = '63.75%';
+            
+            fireMarginLeft = '45.4%';
+            fireMarginTop = '36.5%';
+            
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
@@ -503,33 +554,60 @@ function insertDOMandCSS1() {
             //defining the rocket coordinates
             rocketX = 150;
             rocketY = 450;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '42%';
+            destinationMarginTop = '0%';
+            
+            // defining the planet coordinates
+            metalMarginLeft = '54.6%';
+            metalMarginTop = '72.75%';
+            
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '36.5%';
+            
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '27.4%';
-            rocketMarginTop = '72.75%';
+            rocketMarginLeft = '63.75%';
+            rocketMarginTop = '9.25%';
 
             //defining the rocket coordinates
-            rocketX = 150;
-            rocketY = 450;
+            rocketX = 300;
+            rocketY = 150;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '6%';
+            destinationMarginTop = '69.5%';
+            
+            // defining the planet coordinates
+            metalMarginLeft = '54.6%';
+            metalMarginTop = '72.75%';
+            
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '36.5%';
+            
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
-            rocketMarginTop = '72.75%';
+            rocketMarginTop = '36.4%';
 
             //defining the rocket coordinates
             rocketX = 150;
-            rocketY = 450;
-            break;
-        case 4:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '27.4%';
-            rocketMarginTop = '72.75%';
-
-            //defining the rocket coordinates
-            rocketX = 150;
-            rocketY = 450;
+            rocketY = 250;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '70%';
+            destinationMarginTop = '0%';
+            
+            // defining the planet coordinates
+            metalMarginLeft = '82.3%';
+            metalMarginTop = '36.4%';
+            
+            fireMarginLeft = '45.4%';
+            fireMarginTop = '9.5%';
+            
             break;
     }
     rocketX1 = rocketX;
@@ -537,24 +615,24 @@ function insertDOMandCSS1() {
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
-        'margin-left': '27.4%',
-        'margin-top': '36.5%',
+        'margin-left': fireMarginLeft,
+        'margin-top': fireMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
-        'margin-left': '54.6%',
-        'margin-top': '72.75%',
+        'margin-left': metalMarginLeft,
+        'margin-top': metalMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
         'position': 'absolute',
-        'margin-left': '42%',
-        'margin-top': '0%',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
         'max-height': 'auto',
         'max-width': '15%',
         'transform': 'rotate(30deg)'
@@ -601,24 +679,144 @@ function insertDOMandCSS2() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
+    // Metal planet coordinates
+    var metalMarginLeft1;
+    var metalMarginTop1;
+    var metalMarginLeft2;
+    var metalMarginTop2;
+    var metalMarginLeft3;
+    var metalMarginTop3;
+    
+    // Fire planet coordinates
+    var fireMarginLeft;
+    var fireMarginTop;
+    
+    // Ice planet coordinates
+    var iceMarginLeft1;
+    var iceMarginTop1;
+    var iceMarginLeft2;
+    var iceMarginTop2;
+    var iceMarginLeft3;
+    var iceMarginTop3;
+    
+    // Earth planet coordinates
+    var earthMarginLeft;
+    var earthMarginTop;
+
     switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '63.7%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 350;
+            rocketY = 450;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '24%';
+            destinationMarginTop = '0%';
+            
+            // defining the metal planet coordinates
+            metalMarginLeft1 = '18.2%';
+            metalMarginTop1 = '36.7%';
+            metalMarginLeft2 = '27.3%';
+            metalMarginTop2 = '36.7%';
+            metalMarginLeft3 = '36.4%';
+            metalMarginTop3 = '36.7%';
+            
+            // defining the fire planet coordinates
+            fireMarginLeft = '36.4%';
+            fireMarginTop = '9.55%';
+            
+            // defining the ice planet coordinates
+            iceMarginLeft1 = '36.6%';
+            iceMarginTop1 = '54.75%';
+            iceMarginLeft2 = '45.6%';
+            iceMarginTop2 = '63.75%';
+            iceMarginLeft3 = '54.7%';
+            iceMarginTop3 = '72.7%';
+            
+            // defining the Earth planet coordinates
+            earthMarginLeft = '27.5%';
+            earthMarginTop = '18.5%';
+            
+            break;
         case 1:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
-            rocketMarginTop = '81.75%';
+            rocketMarginTop = '73%';
 
             //defining the rocket coordinates
             rocketX = 200;
-            rocketY = 500;
+            rocketY = 450;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // defining the metal planet coordinates
+            metalMarginLeft1 = '18.2%';
+            metalMarginTop1 = '36.7%';
+            metalMarginLeft2 = '27.3%';
+            metalMarginTop2 = '27.7%';
+            metalMarginLeft3 = '36.4%';
+            metalMarginTop3 = '18.7%';
+            
+            // defining the fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '54.55%';
+            
+            // defining the ice planet coordinates
+            iceMarginLeft1 = '45.6%';
+            iceMarginTop1 = '36.7%';
+            iceMarginLeft2 = '54.6%';
+            iceMarginTop2 = '45.7%';
+            iceMarginLeft3 = '63.7%';
+            iceMarginTop3 = '54.7%';
+            
+            // defining the Earth planet coordinates
+            earthMarginLeft = '36.75%';
+            earthMarginTop = '63.75%';
+            
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
+            rocketMarginLeft = '27.4%';
             rocketMarginTop = '81.75%';
 
             //defining the rocket coordinates
-            rocketX = 200;
+            rocketX = 150;
             rocketY = 500;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // defining the metal planet coordinates
+            metalMarginLeft1 = '18.2%';
+            metalMarginTop1 = '63.7%';
+            metalMarginLeft2 = '36.4%';
+            metalMarginTop2 = '72.7%';
+            metalMarginLeft3 = '54.4%';
+            metalMarginTop3 = '54.7%';
+            
+            // defining the fire planet coordinates
+            fireMarginLeft = '18.4%';
+            fireMarginTop = '45.55%';
+            
+            // defining the ice planet coordinates
+            iceMarginLeft1 = '36.6%';
+            iceMarginTop1 = '54.4%';
+            iceMarginLeft2 = '54.6%';
+            iceMarginTop2 = '36.4%';
+            iceMarginLeft3 = '63.7%';
+            iceMarginTop3 = '18.4%';
+            
+            // defining the Earth planet coordinates
+            earthMarginLeft = '72.75%';
+            earthMarginTop = '45.55%';
+            
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -628,15 +826,35 @@ function insertDOMandCSS2() {
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 500;
-            break;
-        case 4:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '81.75%';
-
-            //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 500;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // defining the metal planet coordinates
+            metalMarginLeft1 = '18.2%';
+            metalMarginTop1 = '63.7%';
+            metalMarginLeft2 = '27.3%';
+            metalMarginTop2 = '63.7%';
+            metalMarginLeft3 = '36.4%';
+            metalMarginTop3 = '63.7%';
+            
+            // defining the fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '45.55%';
+            
+            // defining the ice planet coordinates
+            iceMarginLeft1 = '45.6%';
+            iceMarginTop1 = '27.4%';
+            iceMarginLeft2 = '54.6%';
+            iceMarginTop2 = '27.4%';
+            iceMarginLeft3 = '63.7%';
+            iceMarginTop3 = '27.4%';
+            
+            // defining the Earth planet coordinates
+            earthMarginLeft = '63.75%';
+            earthMarginTop = '45.55%';
+            
             break;
     }
     rocketX1 = rocketX;
@@ -653,40 +871,40 @@ function insertDOMandCSS2() {
 
     $('#planetMetal_1').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
-        'margin-left': '18.2%',
-        'margin-top': '63.7%',
+        'margin-left': metalMarginLeft1,
+        'margin-top': metalMarginTop1,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $('#planetMetal_2').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
-        'margin-left': '27.3%',
-        'margin-top': '63.7%',
+        'margin-left': metalMarginLeft2,
+        'margin-top': metalMarginTop2,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $('#planetMetal_3').attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
-        'margin-left': '36.4%',
-        'margin-top': '63.7%',
+        'margin-left': metalMarginLeft3,
+        'margin-top': metalMarginTop3,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
-        'margin-left': '27.4%',
-        'margin-top': '45.55%',
+        'margin-left': fireMarginLeft,
+        'margin-top': fireMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
         'position': 'absolute',
-        'margin-left': '60.5%',
-        'margin-top': '0%',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
         'max-height': 'auto',
         'max-width': '15%',
         'transform': 'rotate(30deg)'
@@ -694,32 +912,32 @@ function insertDOMandCSS2() {
 
     $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
         'position': 'absolute',
-        'margin-left': '63.75%',
-        'margin-top': '45.55%',
+        'margin-left': earthMarginLeft,
+        'margin-top': earthMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $('#planetIce_1').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
-        'margin-left': '45.6%',
-        'margin-top': '27.4%',
+        'margin-left': iceMarginLeft1,
+        'margin-top': iceMarginTop1,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $('#planetIce_2').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
-        'margin-left': '54.6%',
-        'margin-top': '27.4%',
+        'margin-left': iceMarginLeft2,
+        'margin-top': iceMarginTop2,
         'max-height': 'auto',
         'max-width': '9%'
     });
 
     $('#planetIce_3').attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
-        'margin-left': '63.7%',
-        'margin-top': '27.4%',
+        'margin-left': iceMarginLeft3,
+        'margin-top': iceMarginTop3,
         'max-height': 'auto',
         'max-width': '9%'
     });
@@ -748,30 +966,73 @@ function insertDOMandCSS3() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
+    // Fire planet coordinates
+    var fireMarginLeft;
+    var fireMarginTop;
+    
     switch (version) {
-        case 1:
+        case 0:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
+            rocketMarginLeft = '54.7%';
             rocketMarginTop = '63.5%';
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
             //defining the rocket coordinates
-            rocketX = 200;
+            rocketX = 300;
             rocketY = 400;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '54.74%';
+            fireMarginTop = '54.55%';
+            
+            break;
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '18.4%';
+            rocketMarginTop = '45.5%';
+
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '27.5%';
+
+            //defining the rocket coordinates
+            rocketX = 100;
+            rocketY = 300;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '24%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '36.55%';
+            
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '63.5%';
+            rocketMarginLeft = '9.4%';
+            rocketMarginTop = '18.5%';
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
 
             //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
+            rocketX = 50;
+            rocketY = 150;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '78.5%';
+            destinationMarginTop = '42%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '54.7%';
+            fireMarginTop = '18.55%';
+            
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -784,18 +1045,15 @@ function insertDOMandCSS3() {
             //defining the rocket coordinates
             rocketX = 200;
             rocketY = 400;
-            break;
-        case 4:
-            //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '36.4%';
-            rocketMarginTop = '63.5%';
-
-            asteroidMarginLeft = '0%';
-            asteroidMarginTop = '27.5%';
-
-            //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
+            
+            //defining the destination coordinates
+            destinationMarginLeft = '60.5%';
+            destinationMarginTop = '0%';
+            
+            // Fire planet coordinates
+            fireMarginLeft = '27.4%';
+            fireMarginTop = '45.55%';
+            
             break;
     }
     rocketX1 = rocketX;
@@ -812,8 +1070,8 @@ function insertDOMandCSS3() {
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
         'position': 'absolute',
-        'margin-left': '60.5%',
-        'margin-top': '0%',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
         'max-height': 'auto',
         'max-width': '15%',
         'transform': 'rotate(30deg)'
@@ -821,8 +1079,8 @@ function insertDOMandCSS3() {
 
     $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
-        'margin-left': '27.4%',
-        'margin-top': '45.55%',
+        'margin-left': fireMarginLeft,
+        'margin-top': fireMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
@@ -1255,12 +1513,26 @@ function clickElements() {
 
     $planetFire.click(function () {
         modal.style.display = "block";
-        $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "5%", "width", "5%");
-        $modalText.text("Fire");
+        $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
+        $modalText.text("Choose the right answer to solve the puzzle.");
+        $(".gameImg").attr("src","img/minigames/minigame_one.png");
+        $(".gameImg").css("width", "90%");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
         dangerArea("fire");
+        
+        for (var x = 0; x < 6; x ++){
+            $(".right").append( "<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>" );
+            $("." + x).attr("src","img/minigames/minigame_one_" + x + ".png");
+            $("." + x).css("width", "30%");
+        }
+    
+
+        
+
+
+        $(".right").append("<input type='submit' value='submit'>");
     });
 
     $planetMetal.click(function () {
