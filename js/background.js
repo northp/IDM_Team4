@@ -5,15 +5,15 @@ var counter2 = 11;
 var counter3 = 21;
 
 var text1 = "Cmputational Thinking";
-var text11 ="Com is what";
+var text11 ="As mentioned in the theoretical background, computational thinking consists of four different areas. Decomposition, abstraction, pattern recognition and algorithm. The following passages describe how the game can be broken down to those four areas.";
 var text2 = "Decomposition";
 var text22 = "Decomposition is what";
 var text3 = " Abstraction\n";
-var text33 = " Abstraction is what";
+var text33 = " Abstraction is emphasized by thinking of a way to move through the galaxy by looking at the whole playing field and search for a possible pattern that avoids the less important part to get around, such as planets that don’t have an effect on the spaceship or asteroids that can’t reach the spaceship while moving. In higher levels, abstraction will be added with mini games that will challenge the player in that area.";
 var text4 = "Pattern Recognition\n";
-var text44 = "Pattern Recognition is what";
+var text44 = "The player should naturally make use of pattern recognition when going up in the higher levels because the principle of the game is the same and the functionalities of the obstacles as well. There will be planets that have danger levels, and planets that won’t. This can be applied as the player’s knowledge in the higher levels and make the player more efficient by solving the puzzle. Furthermore, mini tasks to find out the planets’ characteristics will also involve pattern recognition as content\n";
 var text5 = "Algorithms\n";
-var text55 = "Algorithms is what";
+var text55 = "This aspect of CT is clearly related to the algorithm functionality of moving the spaceship with a set of command that is stored in advance to be used when needed during the game. ";
 
 $("#next2").click(function(){
     var newcounter = counter+1;
