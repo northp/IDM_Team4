@@ -1461,16 +1461,28 @@ function dangerArea(planet) {
 
     //when the user clicks on <span> (x)
     span.onclick = function () {
-        drawZone();
-    };
+        
+            drawZone();
+            for( var x = 0; x < 6; x++){
+                $(".gameImg").attr("src", "");
+                $("." + x).remove();
+                $("label").remove();
+                $("#submit").remove();
+            }
 
+    };
 
     //when the user clicks anywhere outside of the modal
     window.onclick = function (event) {
         if (event.target == modal) {
             drawZone();
+            for( var x = 0; x < 6; x++){
+                $(".gameImg").attr("src", "");
+                $("." + x).remove();
+                $("label").remove();
+                $("#submit").remove();
+            }
         }
-
     };
 }
 
@@ -1526,13 +1538,9 @@ function clickElements() {
             $(".right").append( "<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>" );
             $("." + x).attr("src","img/minigames/minigame_one_" + x + ".png");
             $("." + x).css("width", "30%");
+            $("." + x).css("margin-right", "2%");
         }
-    
-
-        
-
-
-        $(".right").append("<input type='submit' value='submit'>");
+        $(".right").append("<input type='submit' value='submit' id='submit'>");
     });
 
     $planetMetal.click(function () {

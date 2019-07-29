@@ -198,6 +198,7 @@ body {
 }
 
 /* ====== MINI GAMES ====== */
+
 /* HIDE RADIO */
 [type=radio] { 
     position: absolute;
@@ -220,7 +221,17 @@ body {
     flex: 50%;
 }
 
-
+#submit {
+    font-family: "Squada One", cursive;
+    border: 2px solid black;
+    border-radius: 25px;
+    width: 50%;
+    margin-left: 20%;
+    margin-top: 10%;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    
+}
 
 
 /* The Modal (background) */
