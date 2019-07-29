@@ -85,6 +85,12 @@ margin-top: -49%;
 margin-bottom: 25%;
 }
 
+#computaional{
+    width: 65%;
+    margin-top: -57%;
+    margin-bottom: 25%;
+}
+
 .backgroundRow{
     margin-top: 5%;
 }
@@ -97,6 +103,10 @@ margin-bottom: 25%;
 
 .buttonBrain{
     margin-top: 4%;
+}
+
+.backgroundP{
+    padding-top: 10%;
 }
 /* ====== INSTRUCTION ====== */
 
