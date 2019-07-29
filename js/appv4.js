@@ -2100,14 +2100,15 @@ function instructionsFour() {
         'width': '9%'
     });
     $commandsOverlay.show();
+    $point.hide();
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
+
         if (counter == 1) {
             $modalText.text("It will move whenever your spaceship moves, so be careful!");
             $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
-            $point.hide();
         }
 
         else if (counter == 2) {
