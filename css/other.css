@@ -1,10 +1,10 @@
 body{
     background: url("../img/other/back-gif.gif") no-repeat center center fixed;
-    /* background-size: contain */
+     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    /*background-size: cover;*/
 }
 
 
@@ -13,11 +13,18 @@ body{
     width: 100%;
 }
 
-.title img {
+.title .space_title {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 70%
+}
+
+.title .title_image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%
 }
 
 #space_title {
@@ -26,15 +33,15 @@ body{
 }
 
 .button {
-    margin-top: 100px; 
+    margin-top: 50px;
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 .buttons {
-    margin-top: 50px; 
+    margin-top: 50px;
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 .play-btn {
@@ -74,17 +81,71 @@ body{
 
 #spaceBrain {
 width: 30%;
-margin-top: -44%;
+margin-top: -49%;
 margin-bottom: 25%;
 }
 
+.backgroundRow{
+    margin-top: 5%;
+}
+
+.brain_image{
+    width: 35%;
+    margin-top: 3%;
+    margin-left: 32%;
+}
+
+.buttonBrain{
+    margin-top: 4%;
+}
 /* ====== INSTRUCTION ====== */
+
+.row{
+    margin-top: 1%;
+}
+.buttonRow{
+    margin-top: 15%;
+}
+
+/*#next{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #4abeea !important;
+    color: #070d2b;
+    font-weight: bold;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 6px 5px 24px #666666;
+    -moz-box-shadow: 6px 5px 24px #666666;
+    box-shadow: 6px 5px 24px #666666;
+}
+*/
+
+#next2{
+    margin-left: 50%;
+}
+
+.btn{
+    width: 80px;
+    height: 40px;
+    font-size: 20px;
+    background-color: #4abeea !important;
+    color: #070d2b;
+    font-weight: bold;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 6px 5px 24px #666666;
+    -moz-box-shadow: 6px 5px 24px #666666;
+    box-shadow: 6px 5px 24px #666666;
+}
+
+
 
 .text-box {
     position: absolute;
     width: 50%;
     height: 28%;
-    background-color: grey;
     opacity: 0.6;
     top: 35%;
     left: 50%;
@@ -110,6 +171,19 @@ margin-bottom: 25%;
     text-transform: lowercase;
     color: white;
 }
+.title h2 {
+    padding-top: 70%;
+    font-family: 'Chewy', cursive;
+    text-transform: lowercase;
+    color: white;
+}
+
+.title h4 {
+    font-family: 'Chewy', cursive;
+    text-transform: lowercase;
+    color: white;
+}
+
 
 .title p {
     text-align: center;
@@ -118,5 +192,5 @@ margin-bottom: 25%;
 }
 
 .game-button {
-    margin-top: 20%;
+    margin-top: 15%;
 }
