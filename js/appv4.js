@@ -1479,7 +1479,6 @@ function dangerArea(planet) {
                     }
                 }
 
-
                 if (planet == "metal") {
                     if ((map[i][j] === 3.5) || (map[i][j] === 3)) {
                         if (metalBool === false) {
@@ -1496,13 +1495,6 @@ function dangerArea(planet) {
             yPosition = yPosition + 50;
             xPosition = 0;
         }
-        /*if (planet == "fire") {
-            fireBool = true;
-        }
-
-        if (planet == "metal") {
-            metalBool = true;
-        }*/
         yPosition = 0;
     }
 
@@ -1517,6 +1509,8 @@ function dangerArea(planet) {
                 $(".right img").remove();
                 $(".reaction").hide();
                 fireBool = true;
+                $("#submit").hide();
+                $(".gameImg").hide();
 
             } else if ($('input[type=radio]:checked').val() != 0) {
                 //console.log($('input[type=radio]:checked').val());
@@ -2173,6 +2167,7 @@ function loadNewLevel() {
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
+
 
     //hiding anything that shouldn't be there
     $point.hide();
