@@ -1629,6 +1629,7 @@ function clickElements() {
         $commandsOverlay.hide();
         $("#submit").hide();
         $(".gameImg").attr("src", "");
+        $(".reaction").hide()
         dangerArea("metal");
     });
 
@@ -1638,6 +1639,9 @@ function clickElements() {
         $modalText.text("This is your destination!");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide()
         $point.hide();
     });
 
@@ -1647,6 +1651,9 @@ function clickElements() {
         $modalText.text("Ice");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide()
         $point.hide();
         $commandsOverlay.hide();
     });
@@ -1657,6 +1664,9 @@ function clickElements() {
         $modalText.text("Earth");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide()
         $point.hide();
         $commandsOverlay.hide();
     });
