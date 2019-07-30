@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 0;
+var currentLevel = 1;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -18,7 +18,6 @@ var fallingStarMarginTop;
 //for resetting destination position
 var destinationMarginLeft;
 var destinationMarginTop;
-
 
 //defining the rocket coordinates
 var rocketX = 250;
@@ -52,7 +51,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -66,7 +65,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -92,7 +91,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
             ]
@@ -134,7 +133,7 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
                 [1, 1, 1, 0, 0, 3.5, 3, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -423,7 +422,7 @@ function insertDOMandCSS0() {
 
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
-            destinationMarginTop = '33%';
+            destinationMarginTop = '36%';
 
             break;
         case 1:
@@ -437,7 +436,7 @@ function insertDOMandCSS0() {
 
             //defining the destination coordinates
             destinationMarginLeft = '6%';
-            destinationMarginTop = '51%';
+            destinationMarginTop = '54%';
 
             break;
         case 2:
@@ -465,7 +464,7 @@ function insertDOMandCSS0() {
 
             //defining the destination coordinates
             destinationMarginLeft = '42%';
-            destinationMarginTop = '70%';
+            destinationMarginTop = '72%';
 
             break;
     }
@@ -1310,7 +1309,7 @@ $(document).ready(function () {
 
 function initialise() {
     $(document).ready(function () {
-        setTimeout(makeGame, 10); // weird bug, 1 setTimeout doesnt work, need two? No idea why.
+        setTimeout(makeGame, 10); // weird bug, 1 setTimeout doesn't work, need two? No idea why.
         setTimeout(makeGame, 100);
     });
 }
@@ -1458,6 +1457,10 @@ function removeMove(image, direction, thisArray) {
     );
 }
 
+//booleans used to stop the danger area from being drawn every single time you click off of a modal
+var fireBool = false;
+var metalBool = false;
+
 //function will be updated to only come up once a mini-game has been solved
 function dangerArea(planet) {
     function drawZone() {
@@ -1466,19 +1469,24 @@ function dangerArea(planet) {
             for (var j in map[i]) {
                 if (planet == "fire") {
                     if ((map[i][j] === 2.5) || (map[i][j] === 2)) {
-                        ctx.globalAlpha = 0.4;
-                        ctx.fillStyle = "#FF0000"; //low contrast
-                        //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision
-                        ctx.fillRect(xPosition, yPosition, 50, 50);
+                        if (fireBool === false) {
+                            ctx.globalAlpha = 0.4;
+                            ctx.fillStyle = "#FF0000"; //low contrast
+                            //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision ?
+                            ctx.fillRect(xPosition, yPosition, 50, 50);
+                        }
                     }
                 }
 
+
                 if (planet == "metal") {
                     if ((map[i][j] === 3.5) || (map[i][j] === 3)) {
-                        ctx.globalAlpha = 0.4;
-                        ctx.fillStyle = "#FF0000"; //low contrast
-                        //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision
-                        ctx.fillRect(xPosition, yPosition, 50, 50);
+                        if (metalBool === false) {
+                            ctx.globalAlpha = 0.4;
+                            ctx.fillStyle = "#FF0000"; //low contrast
+                            //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision ?
+                            ctx.fillRect(xPosition, yPosition, 50, 50);
+                        }
                     }
                 }
                 xPosition = xPosition + 50;
@@ -1487,13 +1495,20 @@ function dangerArea(planet) {
             yPosition = yPosition + 50;
             xPosition = 0;
         }
+        if (planet == "fire") {
+            fireBool = true;
+        }
+
+        if (planet == "metal") {
+            metalBool = true;
+        }
         yPosition = 0;
+
 
     }
 
     //when the user clicks on <span> (x)
     span.onclick = function () {
-
         drawZone();
         for (var x = 0; x < 6; x++) {
             $(".gameImg").attr("src", "");
@@ -1516,6 +1531,7 @@ function dangerArea(planet) {
             }
         }
     };
+
 }
 
 
@@ -2141,7 +2157,9 @@ function loadNewLevel() {
     // make new level
     chooseLevel();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    makeGame();
+    $(document).ready(function () {
+        initialise();
+    });
 
     // update rocket position for new map
     rocketPosition = findRocketPosition();
@@ -2175,6 +2193,9 @@ function loadNewLevel() {
     arraySelect = [];
 
     moveCounter = -1;
+
+    fireBool = false;
+    metalBool = false;
 
     startState();
     clickElements();
@@ -2326,7 +2347,7 @@ function instructions() {
         else if (counter == 2) {
             $modalImage.hide();
             $modalTitle.hide();
-            $modalText.text("These buttons are for moving up, down, left and right.");
+            $modalText.text("These buttons are your commands. They will move the spaceship up, down, left and right.");
             $commandsOverlay.attr("src", "img/playfield/commands.png").css({
                 "width": "50%",
                 "margin-left": "-38%", "margin-top": "111%",
@@ -2339,7 +2360,7 @@ function instructions() {
         }
 
         else if (counter == 3) {
-            $modalText.text("The Main View will list all commands that you enter in a queue. You can also remove any commands by clicking on them here.");
+            $modalText.text("Each command you select will appear in a queue in the Main View. You can remove commands by clicking on them here.");
             $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
             $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
                 "width": "77%",
@@ -2406,7 +2427,7 @@ function instructionsTwo() {
     })
 }
 
-//level 2
+//level 2 (needs debugging with CSS of overlaying commands when you go from level 3 back to level 2)
 function instructionsThree() {
     var counter = 1;
     modal.style.display = "block";
