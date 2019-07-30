@@ -576,8 +576,8 @@ function insertDOMandCSS1() {
             rocketMarginTop = '9.25%';
 
             //defining the rocket coordinates
-            rocketX = 300;
-            rocketY = 150;
+            rocketX = 350;
+            rocketY = 100;
 
             //defining the destination coordinates
             destinationMarginLeft = '6%';
@@ -1876,7 +1876,7 @@ function moveRight() {
             // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
 
-            var rocketXDistance = 100;
+            var rocketXDistance = 50;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
             var nextZeroFound = false;
@@ -1930,7 +1930,7 @@ function moveDown() {
             // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5)) {
 
-            var rocketYDistance = 100;
+            var rocketYDistance = 50;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
             var nextZeroFound = false;
@@ -1988,7 +1988,7 @@ function moveLeft() {
             // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5)) {
 
-            var rocketXDistance = 100;
+            var rocketXDistance = 50;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
             var nextZeroFound = false;
@@ -2043,7 +2043,7 @@ function moveUp() {
             // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3.5)) {
 
-            var rocketYDistance = 100;
+            var rocketYDistance = 50;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
             var nextZeroFound = false;
