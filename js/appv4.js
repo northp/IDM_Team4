@@ -1615,6 +1615,7 @@ function clickElements() {
             $("." + x).css("width", "30%");
             $("." + x).css("margin-right", "2%");
             $("#submit").show();
+            $(".gameImg").show();
         }
     });
 
