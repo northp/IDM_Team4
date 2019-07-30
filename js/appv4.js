@@ -105,10 +105,10 @@ function loadVersions() {
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -127,10 +127,10 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 4, 0, 0, 0],
                 [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
@@ -138,10 +138,10 @@ function loadVersions() {
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 0, 2.5, 0, 1, 1, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
                 [0, 0, 0, 0, 2.5, 2, 2.5, 0, 1, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 2.5, 2.5, 3.5, 0],
+                [0, 0, 0, 0, 0, 0, 0, 2.5, 0, 3.5, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -573,11 +573,11 @@ function insertDOMandCSS1() {
         case 2:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '63.75%';
-            rocketMarginTop = '9.25%';
+            rocketMarginTop = '36%';
 
             //defining the rocket coordinates
             rocketX = 350;
-            rocketY = 100;
+            rocketY = 250;
 
             //defining the destination coordinates
             destinationMarginLeft = '6%';
@@ -1758,7 +1758,7 @@ function stopAnimation() {
         winAndLossCall = oldFunction;
 
         //functionTwo.length*10 is the maximum amount of moves that can possibly be made in each level
-        for (var i = 0; i <= functionTwo.length * 10; i++) {
+        for (var i = 0; i <= algorithm.length + functionTwo.length * 10; i++) {
             $rocketAnimate.stop(); //stop animating
             $asteroid.stop();
             $fallingStar.stop();
@@ -2220,7 +2220,7 @@ var winAndLossCall = function () {
                 // rLoss.play(); //TestSound
 
                 //stops the current animation and any animation that tries to takes place after (functionTwo.length*10 is max number of moves in each level)
-                for (var j = 0; j <= functionTwo.length * 10; j++) {
+                for (var j = 0; j <= algorithm.length + functionTwo.length * 10; j++) {
                     $rocketAnimate.stop();
                     $asteroid.stop();
                     $fallingStar.stop();
@@ -2459,7 +2459,7 @@ function instructionsThree() {
                 "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
                 "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
             });
-            $modalText.text("Your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
+            $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd likse!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
                 "width": "8%", "margin-left": "28%", "margin-top": "153%"
             });
