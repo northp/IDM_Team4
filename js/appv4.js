@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 3;
+var currentLevel = 0;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
