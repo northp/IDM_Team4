@@ -1504,18 +1504,35 @@ function dangerArea(planet) {
             metalBool = true;
         }
         yPosition = 0;
-
-
     }
 
+ 
+    $("#submit").click(function(){
+        if ($('input[type=radio]:checked').val() == 0){
+            console.log($('input[type=radio]:checked').val());
+            drawZone();
+            $(".modal").hide();
+            $("label").remove();
+            $(".right img").remove();
+            $(".reaction").hide();
+
+        } else if ( $('input[type=radio]:checked').val() != 0){
+            //console.log($('input[type=radio]:checked').val());
+            $(".reaction").show();
+            setTimeout(function () {
+                $(".reaction").hide()
+            }, 3000);
+        }
+      
+    });
+
     //when the user clicks on <span> (x)
-    span.onclick = function () {
-        drawZone();
+/*     span.onclick = function () {
+        //drawZone();
         for (var x = 0; x < 6; x++) {
             $(".gameImg").attr("src", "");
             $("." + x).remove();
             $("label").remove();
-            $("#submit").remove();
         }
 
     };
@@ -1523,15 +1540,14 @@ function dangerArea(planet) {
     //when the user clicks anywhere outside of the modal
     window.onclick = function (event) {
         if (event.target == modal) {
-            drawZone();
+            //drawZone();
             for (var x = 0; x < 6; x++) {
                 $(".gameImg").attr("src", "");
                 $("." + x).remove();
                 $("label").remove();
-                $("#submit").remove();
             }
         }
-    };
+    }; */
 
 }
 
@@ -1579,7 +1595,11 @@ function clickElements() {
         $commandsOverlay.hide();
     });
 
+
+
+
     $planetFire.click(function () {
+        var x = 0;
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
@@ -1591,14 +1611,13 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("fire");
 
-        for (var x = 0; x < 6; x++) {
-            $(".right").append("<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>");
+        for (x; x < 6; x++) {
+            $(".labels").append("<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>");
             $("." + x).attr("src", "img/minigames/minigame_one_" + x + ".png");
             $("." + x).css("width", "30%");
             $("." + x).css("margin-right", "2%");
+            $("#submit").show();
         }
-        $(".right").append("<input type='submit' value='submit' id='submit'>");
-
     });
 
     $planetMetal.click(function () {
@@ -1609,6 +1628,8 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        $("#submit").hide();
+        $(".gameImg").attr("src","");
         dangerArea("metal");
     });
 
@@ -1666,6 +1687,11 @@ function clickElements() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
+            for (var x = 0; x < 6; x++) {
+                $(".gameImg").attr("src", "");
+                $("." + x).remove();
+                $("label").remove();
+            }
         } else if (event.target == navModal) {
             navModal.style.display = "none";
             $point.hide();
@@ -1681,6 +1707,11 @@ function clickElements() {
         navModal.style.display = "none";
         $point.hide();
         $commandsOverlay.hide();
+        for (var x = 0; x < 6; x++) {
+            $(".gameImg").attr("src", "");
+            $("." + x).remove();
+            $("label").remove();
+        }
     };
 }
 
