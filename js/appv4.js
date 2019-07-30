@@ -1258,7 +1258,7 @@ function makeGame() {
                 ctx.globalAlpha = 0.15;
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
-            } else if (map[i][j] === 0.1) {
+            } else if (map[i][j] === 0.1 || 0.2) {
                 ctx.clearRect(xPosition, yPosition, 50, 50);
                 ctx.drawImage(black, xPosition, yPosition, 50, 50);
             } else if (map[i][j] === 1) {
@@ -1305,6 +1305,7 @@ function makeGame() {
 
 $(document).ready(function () {
     initialise();
+
 });
 
 function initialise() {
@@ -1835,6 +1836,7 @@ function runButton() {
 
         }
         moveCounter = -1;
+        asteroidCounter = 0;
     }
 
 }
@@ -2077,6 +2079,7 @@ function moveUp() {
 
 
 var asteroidX = 0;
+var asteroidCounter = 0;
 
 //animating the asteroid and updating its index
 function asteroidAnimate() {
@@ -2093,12 +2096,20 @@ function asteroidAnimate() {
 
         if (asteroidPosition[1] < mapWidth - 1) {
             $asteroid.animate({'margin-left': "+=9%"}, "fast");
+            asteroidCounter++;
             asteroidX += 50;
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
             asteroidPosition = findAsteroidPosition();
+            if (asteroidCounter == 10) {
+                console.log("counting");
+                $asteroid.css("margin-left", "0%");
+
+            }
         }
+
+
     }
 }
 
@@ -2459,7 +2470,7 @@ function instructionsThree() {
                 "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
                 "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
             });
-            $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd likse!");
+            $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
                 "width": "8%", "margin-left": "28%", "margin-top": "153%"
             });
