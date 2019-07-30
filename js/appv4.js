@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 1;
+var currentLevel = 0;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -105,10 +105,10 @@ function loadVersions() {
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -127,10 +127,10 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 2.5, 0, 0, 4, 0, 0, 0],
                 [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
@@ -138,10 +138,10 @@ function loadVersions() {
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 0, 2.5, 0, 1, 1, 1, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
                 [0, 0, 0, 0, 2.5, 2, 2.5, 0, 1, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 2.5, 2.5, 3.5, 0],
+                [0, 0, 0, 0, 0, 0, 0, 2.5, 0, 3.5, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -573,11 +573,11 @@ function insertDOMandCSS1() {
         case 2:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '63.75%';
-            rocketMarginTop = '9.25%';
+            rocketMarginTop = '36%';
 
             //defining the rocket coordinates
             rocketX = 350;
-            rocketY = 100;
+            rocketY = 250;
 
             //defining the destination coordinates
             destinationMarginLeft = '6%';
@@ -1780,7 +1780,9 @@ function stopAnimation() {
         };
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
         winAndLossCall = oldFunction;
-        for (var i = 0; i <= 20; i++) {
+
+        //functionTwo.length*10 is the maximum amount of moves that can possibly be made in each level
+        for (var i = 0; i <= algorithm.length + functionTwo.length * 10; i++) {
             $rocketAnimate.stop(); //stop animating
             $asteroid.stop();
             $fallingStar.stop();
@@ -1877,11 +1879,12 @@ $run.click(runButton);
 var lossAndVictoryArray = [];
 
 function moveRight() {
-    asteroidAnimate();
-    fallingStarAnimate();
+
     if (rocketX >= canvas.width - tileWidth) {
         $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
     } else {
+        asteroidAnimate();
+        fallingStarAnimate();
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
         rocketX += 50;
@@ -1930,11 +1933,12 @@ function moveRight() {
 }
 
 function moveDown() {
-    asteroidAnimate();
-    fallingStarAnimate();
+
     if (rocketY >= canvas.height) {
         $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
     } else {
+        asteroidAnimate();
+        fallingStarAnimate();
         $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
         console.log(rocketX, rocketY);
         rocketY += 50;
@@ -1984,12 +1988,13 @@ function moveDown() {
 }
 
 function moveLeft() {
-    asteroidAnimate();
-    fallingStarAnimate();
+
     if (rocketX <= 0) {
         //edge of canvas - do nothing
         $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
     } else {
+        asteroidAnimate();
+        fallingStarAnimate();
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
         rocketX -= 50;
@@ -2040,12 +2045,12 @@ function moveLeft() {
 }
 
 function moveUp() {
-    asteroidAnimate();
-    fallingStarAnimate();
     if (rocketY <= tileHeight) {
         $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
 
     } else {
+        asteroidAnimate();
+        fallingStarAnimate();
         console.log(rocketX, rocketY);
         $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
         rocketY -= 50;
@@ -2096,13 +2101,11 @@ function moveUp() {
 
 
 var asteroidX = 0;
-var asteroidY = 200;
 
-
-//debug 0.1 and 0.2 staying in array
 //animating the asteroid and updating its index
 function asteroidAnimate() {
     if (currentLevel > 2) {
+
         //resetting current index before it moves to the next place in array
         for (var i in map) {
             for (var j in map[i]) {
@@ -2113,14 +2116,13 @@ function asteroidAnimate() {
         }
 
         if (asteroidPosition[1] < mapWidth - 1) {
-            $asteroid.animate({'margin-left': '+=9%'}, "fast");
+            $asteroid.animate({'margin-left': "+=9%"}, "fast");
             asteroidX += 50;
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
             asteroidPosition = findAsteroidPosition();
         }
-
     }
 }
 
@@ -2233,8 +2235,6 @@ var winAndLossCall = function () {
 
     //checking to see whether the rocket has hit a planet
     for (var i in lossAndVictoryArray) {
-        //console.log(lossAndVictoryArray);
-
         if (lossAndVictoryArray[i] == "run") {
             //do nothing
         }
@@ -2243,9 +2243,8 @@ var winAndLossCall = function () {
             if (moveCounter == i) {
                 // rLoss.play(); //TestSound
 
-                //stops the current animation and any animation that tries to takes place after
-                //30 is a random number to ensure that all the upcoming rocket's moves are stopped
-                for (var j = 0; j <= 30; j++) {
+                //stops the current animation and any animation that tries to takes place after (functionTwo.length*10 is max number of moves in each level)
+                for (var j = 0; j <= algorithm.length + functionTwo.length * 10; j++) {
                     $rocketAnimate.stop();
                     $asteroid.stop();
                     $fallingStar.stop();
@@ -2484,7 +2483,7 @@ function instructionsThree() {
                 "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
                 "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
             });
-            $modalText.text("Your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
+            $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd likse!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
                 "width": "8%", "margin-left": "28%", "margin-top": "153%"
             });
