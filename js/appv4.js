@@ -2123,7 +2123,6 @@ var asteroidCounter = 0;
 //animating the asteroid and updating its index
 function asteroidAnimate() {
     if (currentLevel > 2) {
-
         //resetting current index before it moves to the next place in array
         for (var i in map) {
             for (var j in map[i]) {
@@ -2142,13 +2141,9 @@ function asteroidAnimate() {
             map[asteroidPosition[0]][asteroidPosition[1]] = temp;
             asteroidPosition = findAsteroidPosition();
             if (asteroidCounter == 10) {
-                console.log("counting");
-                $asteroid.css("margin-left", "0%");
-
+                $asteroid.css("margin-left", "0%"); //not finished
             }
         }
-
-
     }
 }
 
@@ -2511,7 +2506,7 @@ function instructionsThree() {
             });
             $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
             $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
-                "width": "8%", "margin-left": "28%", "margin-top": "153%"
+                "width": "8%", "margin-left": "28%", "margin-top": "158%"
             });
             $commandsOverlay.show();
             $point.show();
@@ -2527,6 +2522,7 @@ function instructionsThree() {
 }
 
 //level 3
+//positioning gets messed up
 function instructionsFour() {
     var counter = 1;
     modal.style.display = "block";
@@ -2538,7 +2534,7 @@ function instructionsFour() {
     $commandsOverlay.attr("src", "img/playfield/asteroid.png").css({
         'position': 'absolute',
         'margin-left': '-23%',
-        'margin-top': '-25%',
+        'margin-top': '-22%',
         'max-height': 'auto',
         'width': '9%'
     });
@@ -2548,13 +2544,12 @@ function instructionsFour() {
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
-
         if (counter == 1) {
             $modalText.text("This is a falling star, which can also damage your spaceship.");
             $commandsOverlay.attr("src", "img/playfield/shootingstar.png").css({
                 'position': 'absolute',
                 'margin-left': '-6.5%',
-                'margin-top': '-45%',
+                'margin-top': '-42%',
                 'max-height': 'auto',
                 'width': '12%'
             });
