@@ -247,8 +247,17 @@ body {
     margin-top: 10%;
     font-size: 15px;
     letter-spacing: 0.1em;
+    display: none;
     
 }
+
+.reaction {
+    display: none;
+    margin-top: 2%;
+    font-size: 80%;
+    text-align: center;
+}
+
 
 
 

@@ -1513,9 +1513,14 @@ function dangerArea(planet) {
             $(".modal").hide();
             $("label").remove();
             $(".right img").remove();
+            $(".reaction").hide();
 
         } else if ( $('input[type=radio]:checked').val() != 0){
             //console.log($('input[type=radio]:checked').val());
+            $(".reaction").show();
+            setTimeout(function () {
+                $(".reaction").hide()
+            }, 3000);
         }
       
     });

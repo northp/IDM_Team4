@@ -234,6 +234,13 @@ body {
     
 }
 
+.reaction {
+    display: none;
+    margin-top: 2%;
+    font-size: 80%;
+    text-align: center;
+}
+
 
 /* The Modal (background) */
 .modal {
