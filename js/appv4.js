@@ -1515,7 +1515,7 @@ function dangerArea(planet) {
             $(".right img").remove();
 
         } else if ( $('input[type=radio]:checked').val() != 0){
-            console.log($('input[type=radio]:checked').val());
+            //console.log($('input[type=radio]:checked').val());
         }
       
     });
@@ -1622,6 +1622,8 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        $("#submit").hide();
+        $(".gameImg").attr("src","");
         dangerArea("metal");
     });
 
