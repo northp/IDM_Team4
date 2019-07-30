@@ -1496,59 +1496,65 @@ function dangerArea(planet) {
             yPosition = yPosition + 50;
             xPosition = 0;
         }
-        if (planet == "fire") {
+        /*if (planet == "fire") {
             fireBool = true;
         }
 
         if (planet == "metal") {
             metalBool = true;
-        }
+        }*/
         yPosition = 0;
     }
 
- 
-    $("#submit").click(function(){
-        if ($('input[type=radio]:checked').val() == 0){
-            console.log($('input[type=radio]:checked').val());
-            drawZone();
-            $(".modal").hide();
-            $("label").remove();
-            $(".right img").remove();
-            $(".reaction").hide();
 
-        } else if ( $('input[type=radio]:checked').val() != 0){
-            //console.log($('input[type=radio]:checked').val());
-            $(".reaction").show();
-            setTimeout(function () {
-                $(".reaction").hide()
-            }, 3000);
-        }
-      
-    });
+    if (planet == "fire") {
+        $("#submit").click(function () {
+            if ($('input[type=radio]:checked').val() == 0) {
+                console.log($('input[type=radio]:checked').val());
+                drawZone();
+                $(".modal").hide();
+                $("label").remove();
+                $(".right img").remove();
+                $(".reaction").hide();
+                fireBool = true;
+
+            } else if ($('input[type=radio]:checked').val() != 0) {
+                //console.log($('input[type=radio]:checked').val());
+                $(".reaction").show();
+                setTimeout(function () {
+                    $(".reaction").hide()
+                }, 3000);
+            }
+
+        });
+    }
 
     //when the user clicks on <span> (x)
-/*     span.onclick = function () {
-        //drawZone();
-        for (var x = 0; x < 6; x++) {
-            $(".gameImg").attr("src", "");
-            $("." + x).remove();
-            $("label").remove();
-        }
-
-    };
-
-    //when the user clicks anywhere outside of the modal
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            //drawZone();
+    if (planet == "metal") {
+        span.onclick = function () {
+            drawZone();
             for (var x = 0; x < 6; x++) {
                 $(".gameImg").attr("src", "");
                 $("." + x).remove();
                 $("label").remove();
             }
-        }
-    }; */
+            metalBool = true;
 
+        };
+
+        //when the user clicks anywhere outside of the modal
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                drawZone();
+                for (var x = 0; x < 6; x++) {
+                    $(".gameImg").attr("src", "");
+                    $("." + x).remove();
+                    $("label").remove();
+                }
+                metalBool = true;
+            }
+        }
+    }
 }
 
 
@@ -1596,8 +1602,6 @@ function clickElements() {
     });
 
 
-
-
     $planetFire.click(function () {
         var x = 0;
         modal.style.display = "block";
@@ -1629,7 +1633,7 @@ function clickElements() {
         $point.hide();
         $commandsOverlay.hide();
         $("#submit").hide();
-        $(".gameImg").attr("src","");
+        $(".gameImg").attr("src", "");
         dangerArea("metal");
     });
 
@@ -1715,9 +1719,8 @@ function clickElements() {
     };
 }
 
-//every time you hit run, the rocket will return back to its original position
+//every time you hit run, all animations will return back to their original position
 function originalPos() {
-
     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
 
     //reset animation
@@ -1782,19 +1785,19 @@ function stopAnimation() {
         stopClicked = true;
         $("#play-first").attr({"src": "img/playfield/play.png"});
         $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
-        originalPos(); //return to original position
         winAndLossCall = function () {
             //empty function, does nothing
         };
         $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
         winAndLossCall = oldFunction;
 
-        //functionTwo.length*10 is the maximum amount of moves that can possibly be made in each level
-        for (var i = 0; i <= algorithm.length + functionTwo.length * 10; i++) {
-            $rocketAnimate.stop(); //stop animating
-            $asteroid.stop();
-            $fallingStar.stop();
-        }
+        //stop all queued animations
+        $rocketAnimate.stop(true);
+        $asteroid.stop(true);
+        $fallingStar.stop(true);
+
+        originalPos(); //return to original position
+
         $run.off();
         $run.click(runButton);
         stopClicked = false;
@@ -2261,12 +2264,10 @@ var winAndLossCall = function () {
             if (moveCounter == i) {
                 // rLoss.play(); //TestSound
 
-                //stops the current animation and any animation that tries to takes place after (functionTwo.length*10 is max number of moves in each level)
-                for (var j = 0; j <= algorithm.length + functionTwo.length * 10; j++) {
-                    $rocketAnimate.stop();
-                    $asteroid.stop();
-                    $fallingStar.stop();
-                }
+                //stop all current animations
+                $rocketAnimate.stop(true);
+                $asteroid.stop(true);
+                $fallingStar.stop(true);
 
                 //setTimeout function here to explode the ship and move back to original position
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
@@ -2286,12 +2287,13 @@ var winAndLossCall = function () {
 
         if (lossAndVictoryArray[i] == "win") {
             // rVictory.play(); // TestSound
-            //$rocketAnimate.stop();
+
 
             if (moveCounter == i) {
 
                 if (winCondition === false) {
                     winCondition = true; //"you win" alert only to come up once
+                    $rocketAnimate.stop(true);
 
                     setTimeout(function () {
                         $point.show();
