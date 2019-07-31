@@ -1,7 +1,7 @@
 "use strict";
 
 // A variable to represent the selected map
-var currentLevel = 3;
+var currentLevel = 0;
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -1462,6 +1462,7 @@ function removeMove(image, direction, thisArray) {
 var fireBool = false;
 var metalBool = false;
 
+
 //function will be updated to only come up once a mini-game has been solved
 function dangerArea(planet) {
     function drawZone() {
@@ -1501,27 +1502,27 @@ function dangerArea(planet) {
 
     if (planet == "fire") {
         $("#submit").click(function () {
-
             if ($(".gameImg").attr("id") == "minigameone" || "minigametwo") {
                 if ($('input[type=radio]:checked').val() == 0) {
                     //console.log($('input[type=radio]:checked').val());
                     drawZone();
                     $(".modal").hide();
-                    $("label").remove();
-                    $(".right img").remove();
                     $(".reaction").hide();
                     fireBool = true;
+                    $("label").remove();
+                    $(".labels").text("You already solved the puzzle.");
                     $("#submit").hide();
-                    $(".gameImg").hide();
+                    //$(".gameImg").hide();
 
                 } else if ($('input[type=radio]:checked').val() != 0) {
                     //console.log($('input[type=radio]:checked').val());
                     $(".reaction").show();
                     setTimeout(function () {
                         $(".reaction").hide()
-                    }, 3000);
+                    }, 2000);
                 }
                 console.log($(".gameImg").attr("id"));
+
             }
 
             if ($(".gameImg").attr("id") == "minigamethree") {
@@ -1529,24 +1530,21 @@ function dangerArea(planet) {
                     //console.log($('input[type=radio]:checked').val());
                     drawZone();
                     $(".modal").hide();
-                    $("label").remove();
-                    $(".right img").remove();
                     $(".reaction").hide();
-                    fireBool = true;
+                    $("label").remove();
+                    $(".labels").text("You already solved the puzzle.");
                     $("#submit").hide();
-                    $(".gameImg").hide();
-
+                    //$(".gameImg").hide();
+                    fireBool = true;
                 } else if ($('input[type=radio]:checked').val() != 2) {
                     //console.log($('input[type=radio]:checked').val());
                     $(".reaction").show();
                     setTimeout(function () {
                         $(".reaction").hide()
-                    }, 3000);
+                    }, 2000);
                 }
                 console.log($(".gameImg").attr("id"));
             }
-
-
         });
     }
 
@@ -1582,11 +1580,11 @@ var gamesPath = [
     ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
     ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
     ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"]
-]
+];
 
 
 // generate a mini game randomly
-function generateMinigame() {
+function generateMinigame(planet) {
 
     // create array of first elements of each index
     var arrayTitle = gamesPath.map(function (x) {
@@ -1599,48 +1597,55 @@ function generateMinigame() {
 
     $(".gameImg").css("width", "90%");
 
-    if (gameTitle == "minigameone.png") {
-        // set the image according to title
-        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-        $(".gameImg").attr("id", gameTitle.slice(0, -4));
-        var solution = gamesPath[0].slice(1, 7);
-        showSolutions(solution);
-        //console.log(solution);
-    }
+    if (gamePlayed === false) {
+        if (planet == "fire") {
+            if (gameTitle == "minigameone.png") {
+                // set the image according to title
+                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+                $(".gameImg").attr("id", gameTitle.slice(0, -4));
+                var solution = gamesPath[0].slice(1, 7);
+                showSolutions(solution);
+                //console.log(solution);
+                gamePlayed = true;
+            }
 
-    if (gameTitle == "minigametwo.png") {
-        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-        $(".gameImg").attr("id", gameTitle.slice(0, -4));
-        var solution = gamesPath[1].slice(1, 7);
-        showSolutions(solution);
-        //1
+            if (gameTitle == "minigametwo.png") {
+                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+                $(".gameImg").attr("id", gameTitle.slice(0, -4));
+                var solution = gamesPath[1].slice(1, 7);
+                showSolutions(solution);
+                //1
+                gamePlayed = true;
+            }
 
-    }
-
-    if (gameTitle == "minigamethree.png") {
-        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-        $(".gameImg").attr("id", gameTitle.slice(0, -4));
-        var solution = gamesPath[2].slice(1, 7);
-        showSolutions(solution);
-        //3
-    }
-
-    function showSolutions(placeholder) {
-        for (var i = 0; i < placeholder.length; i++) {
-            $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
-            $("." + i).attr("src", "img/minigames/fire/" + placeholder[i]);
-            $("." + i).css("width", "30%");
-            $("." + i).css("margin-right", "2%");
-            $("#submit").show();
-            $(".gameImg").show();
+            if (gameTitle == "minigamethree.png") {
+                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+                $(".gameImg").attr("id", gameTitle.slice(0, -4));
+                var solution = gamesPath[2].slice(1, 7);
+                showSolutions(solution);
+                //3
+                gamePlayed = true;
+            }
         }
     }
-
-    /*
-        console.log(arrayTitle);
-        console.log(gameTitle); */
 }
 
+function showSolutions(placeholder) {
+    for (var i = 0; i < placeholder.length; i++) {
+        $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
+        $("." + i).attr("src", "img/minigames/fire/" + placeholder[i]);
+        $("." + i).css("width", "30%");
+        $("." + i).css("margin-right", "2%");
+        $("#submit").show();
+        $(".gameImg").show();
+    }
+}
+
+/*
+    console.log(arrayTitle);
+    console.log(gameTitle); */
+
+var gamePlayed = false;
 
 function clickElements() {
     $home.click(function () {
@@ -1695,9 +1700,7 @@ function clickElements() {
         $point.hide();
         $commandsOverlay.hide();
         dangerArea("fire");
-
-        generateMinigame()
-
+        generateMinigame("fire");
     });
 
     $planetMetal.click(function () {
@@ -1710,7 +1713,7 @@ function clickElements() {
         $commandsOverlay.hide();
         $("#submit").hide();
         $(".gameImg").attr("src", "");
-        $(".reaction").hide()
+        $(".reaction").hide();
         dangerArea("metal");
     });
 
@@ -1777,11 +1780,7 @@ function clickElements() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-            for (var x = 0; x < 6; x++) {
-                $(".gameImg").attr("src", "");
-                $("." + x).remove();
-                $("label").remove();
-            }
+
         } else if (event.target == navModal) {
             navModal.style.display = "none";
             $point.hide();
@@ -1797,11 +1796,6 @@ function clickElements() {
         navModal.style.display = "none";
         $point.hide();
         $commandsOverlay.hide();
-        for (var x = 0; x < 6; x++) {
-            $(".gameImg").attr("src", "");
-            $("." + x).remove();
-            $("label").remove();
-        }
     };
 }
 
@@ -2395,8 +2389,12 @@ var winAndLossCall = function () {
                     setTimeout(function () {
                         $point.show();
                         $point.attr("src", "img/playfield/astronaut.png").css({
-                            "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "0%",
-                            "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
+                            "height": "20%",
+                            "width": "20%",
+                            "margin-left": "60%",
+                            "margin-top": "0%",
+                            "animation": "bouncearrow 1s infinite",
+                            "transform": "scaleX(-1)"
                         });
                         $point.animate({"margin-top": "+=50%"}, "slow");
                         $winModal.show();
