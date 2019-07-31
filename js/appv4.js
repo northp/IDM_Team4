@@ -1501,25 +1501,54 @@ function dangerArea(planet) {
 
     if (planet == "fire") {
         $("#submit").click(function () {
-            if ($('input[type=radio]:checked').val() == 0) {
-                console.log($('input[type=radio]:checked').val());
-                drawZone();
-                $(".modal").hide();
-                $("label").remove();
-                $(".right img").remove();
-                $(".reaction").hide();
-                fireBool = true;
-                $("#submit").hide();
-                $(".gameImg").hide();
 
-            } else if ($('input[type=radio]:checked').val() != 0) {
-                //console.log($('input[type=radio]:checked').val());
-                $(".reaction").show();
-                setTimeout(function () {
-                    $(".reaction").hide()
-                }, 3000);
+            if ($(".gameImg").attr("id") == "minigameone" || "minigametwo"){
+                if ($('input[type=radio]:checked').val() == 0) {
+                    //console.log($('input[type=radio]:checked').val());
+                    drawZone();
+                    $(".modal").hide();
+                    $("label").remove();
+                    $(".right img").remove();
+                    $(".reaction").hide();
+                    fireBool = true;
+                    $("#submit").hide();
+                    $(".gameImg").hide();
+    
+                } else if ($('input[type=radio]:checked').val() != 0) {
+                    //console.log($('input[type=radio]:checked').val());
+                    $(".reaction").show();
+                    setTimeout(function () {
+                        $(".reaction").hide()
+                    }, 3000);
+                }
+                console.log($(".gameImg").attr("id"));
             }
 
+            if ($(".gameImg").attr("id") == "minigamethree"){
+                if ($('input[type=radio]:checked').val() == 2) {
+                    //console.log($('input[type=radio]:checked').val());
+                    drawZone();
+                    $(".modal").hide();
+                    $("label").remove();
+                    $(".right img").remove();
+                    $(".reaction").hide();
+                    fireBool = true;
+                    $("#submit").hide();
+                    $(".gameImg").hide();
+    
+                } else if ($('input[type=radio]:checked').val() != 2) {
+                    //console.log($('input[type=radio]:checked').val());
+                    $(".reaction").show();
+                    setTimeout(function () {
+                        $(".reaction").hide()
+                    }, 3000);
+                }
+                console.log($(".gameImg").attr("id"));
+            }
+
+
+
+            
         });
     }
 
@@ -1550,6 +1579,70 @@ function dangerArea(planet) {
         }
     }
 }
+
+var gamesPath = [
+    ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
+    ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
+    ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png","minigame_three_4.png","minigame_three_5.png"]
+]
+
+
+// generate a mini game randomly
+function generateMinigame(){
+
+    // create array of first elements of each index
+    var arrayTitle = gamesPath.map(function(x){
+        return x[0];
+    });
+
+    // choose a random title from the new array
+    var gameTitle = arrayTitle[Math.floor(Math.random()*arrayTitle.length)];
+
+
+    $(".gameImg").css("width", "90%");
+    
+    if (gameTitle == "minigameone.png"){
+         // set the image according to title
+        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+        $(".gameImg").attr("id", gameTitle.slice(0,-4));
+        var solution = gamesPath[0].slice(1,7);
+        showSolutions(solution);
+        //console.log(solution);
+    }
+
+    if (gameTitle == "minigametwo.png"){
+        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+        $(".gameImg").attr("id", gameTitle.slice(0,-4));
+        var solution = gamesPath[1].slice(1,7);
+        showSolutions(solution);
+        //1
+        
+    }
+
+    if (gameTitle == "minigamethree.png"){
+        $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
+        $(".gameImg").attr("id", gameTitle.slice(0,-4));
+        var solution = gamesPath[2].slice(1,7);
+        showSolutions(solution);
+        //3
+    }
+
+   function showSolutions(placeholder){
+    for (var i = 0; i < placeholder.length; i++) {
+            $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
+            $("." + i).attr("src", "img/minigames/fire/" + placeholder[i]);
+            $("." + i).css("width", "30%");
+            $("." + i).css("margin-right", "2%");
+            $("#submit").show();
+            $(".gameImg").show();
+        }
+   }
+
+/* 
+    console.log(arrayTitle);
+    console.log(gameTitle); */
+}
+
 
 
 function clickElements() {
@@ -1597,26 +1690,17 @@ function clickElements() {
 
 
     $planetFire.click(function () {
-        var x = 0;
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
-        $(".gameImg").attr("src", "img/minigames/minigame_one.png");
-        $(".gameImg").css("width", "90%");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
         dangerArea("fire");
+        
+        generateMinigame()
 
-        for (x; x < 6; x++) {
-            $(".labels").append("<label><input type='radio' name='answer' value=' " + x + "'><img class='" + x + "'></label>");
-            $("." + x).attr("src", "img/minigames/minigame_one_" + x + ".png");
-            $("." + x).css("width", "30%");
-            $("." + x).css("margin-right", "2%");
-            $("#submit").show();
-            $(".gameImg").show();
-        }
     });
 
     $planetMetal.click(function () {
