@@ -260,6 +260,7 @@ function loadVersions() {
 }
 
 chooseLevel();
+var gamePlayed = false;
 
 function chooseLevel() {
     if (currentLevel > 1) {
@@ -280,6 +281,8 @@ function chooseLevel() {
         map = versionListLevel0[version];
         insertDOMandCSS0();
         setTimeout(instructions, 750); //instructions
+        gamePlayed = false;
+        $(".labels").text("");
     }
 
     //currently planets level (planet with index 2 has danger zone)
@@ -295,6 +298,8 @@ function chooseLevel() {
 
         insertDOMandCSS1();
         setTimeout(instructionsTwo, 750); //instructions
+        gamePlayed = false;
+        $(".labels").text("");
     }
 
     // if level 2:
@@ -310,6 +315,8 @@ function chooseLevel() {
 
         insertDOMandCSS2();
         setTimeout(instructionsThree, 750); //instructions
+        gamePlayed = false;
+        $(".labels").text("");
     }
 
     if (currentLevel === 3) {
@@ -322,6 +329,8 @@ function chooseLevel() {
 
         insertDOMandCSS3();
         setTimeout(instructionsFour, 750); //instructions
+        gamePlayed = false;
+        $(".labels").text("");
 
     }
 }
@@ -1645,7 +1654,7 @@ function showSolutions(placeholder) {
     console.log(arrayTitle);
     console.log(gameTitle); */
 
-var gamePlayed = false;
+
 
 function clickElements() {
     $home.click(function () {
