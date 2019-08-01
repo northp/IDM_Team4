@@ -2051,6 +2051,58 @@ function clickElements() {
         $commandsOverlay.hide();
     });
 
+    $planetMoon.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/planets/planet_moon.png").css("height", "5%", "width", "5%");
+        $modalText.text("Moon");
+        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $commandsOverlay.hide();
+    });
+
+    $planetLava.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/planets/planet_lava.png").css("height", "5%", "width", "5%");
+        $modalText.text("Lava");
+        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $commandsOverlay.hide();
+    });
+
+    $asteroid.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/asteroid.png").css("height", "5%", "width", "5%");
+        $modalText.text("Asteroids move from left to right.");
+        $modalTitle.text("Asteroid").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $commandsOverlay.hide();
+    });
+
+    $fallingStar.click(function () {
+        modal.style.display = "block";
+        $modalImage.attr("src", "img/playfield/shootingstar.png").css("height", "5%", "width", "5%");
+        $modalText.text("Falling stars move downwards.");
+        $modalTitle.text("Falling star").css("font-weight", "bold");
+        $modalNext.attr("src", "");
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $commandsOverlay.hide();
+    });
+
     $rocketAnimate.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/spaceship_pink.png").css("height", "10%", "width", "10%");
@@ -2195,7 +2247,6 @@ function runButton() {
             $run.click(stopAnimation);
 
             for (var x in algorithm) {
-                console.log(map);
 
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                 if (typeof algorithm[x] === "object") {
@@ -2953,7 +3004,6 @@ function instructionsFive() {
     $modalText.text("Now that you've learnt how to navigate your way around space, you are left to your own devices! Good luck!");
     $commandsOverlay.hide();
     $point.hide();
-
     $modalNext.click(function () {
         modal.style.display = "none";
     })
