@@ -399,6 +399,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
     }
 
@@ -419,6 +422,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
     }
 
@@ -439,6 +445,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
     }
 
@@ -456,6 +465,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
     }
 
@@ -473,6 +485,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
 
     }
@@ -490,6 +505,9 @@ function chooseLevel() {
         gamePlayed2 = false;
         gamePlayed3 = false;
         existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedmice = false;
         $(".labels").text("");
 
     }
@@ -2384,7 +2402,7 @@ function dangerArea(planet) {
                     $(".reaction").hide();
                     $(".ice label").remove();
                     $(".ice").text("You already solved the puzzle.");
-                    $("#submit").hide();
+                    $("#submitice").hide();
                     iceBool = true;
                     solvedice = true;
                 } else if ($('input[type=radio]:checked').val() != 2) {
@@ -2678,6 +2696,13 @@ function clickElements() {
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $planetIce.click(function () {
@@ -2732,6 +2757,14 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
+
     });
 
     stay.onclick = function () {
@@ -3340,10 +3373,10 @@ var winAndLossCall = function () {
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
-                }, 4000);
+                }, 2000);
                 setTimeout(function () {
                     originalPos()
-                }, 4000);
+                }, 2000);
                 setTimeout(function () {
                     $("#play-first").attr({"src": "img/playfield/play.png"})
                     $run.off();
@@ -3550,6 +3583,9 @@ function instructionsThree() {
     $modalTitle.hide();
     $modalText.text("Hi, it's me again! You may have noticed that the levels become more challenging with more obstacles. 10 commands may not be enough to move your spaceship to its destination.");
     $commandsOverlay.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
@@ -3602,6 +3638,13 @@ function instructionsFour() {
     $modalText.text("This level introduces asteroids and falling stars.");
     $commandsOverlay.hide();
     $point.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
+    $("#submit").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
+
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
@@ -3637,6 +3680,12 @@ function instructionsFive() {
     $modalText.text("Now that you've learnt how to navigate your way around space, you are left to your own devices! Good luck!");
     $commandsOverlay.hide();
     $point.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
+    $("#submit").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
 
     $modalNext.click(function () {
         modal.style.display = "none";

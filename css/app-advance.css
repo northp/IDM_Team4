@@ -238,7 +238,8 @@ body {
     flex: 50%;
 }
 
-#submit {
+
+#submit, #submitmetal, #submitice {
     font-family: "Squada One", cursive;
     border: 2px solid black;
     border-radius: 25px;
