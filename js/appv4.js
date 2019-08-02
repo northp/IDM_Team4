@@ -46,6 +46,7 @@ var versionListLevel1 = [];
 var versionListLevel2 = [];
 var versionListLevel3 = [];
 var versionListLevel4 = [];
+var versionListLevel5 = [];
 
 
 function loadVersions() {
@@ -315,6 +316,59 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
+        
+            // Arrays to hold Level 5 versions 1, 2, 3 and 4:
+    versionListLevel5 =
+        [
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ]
+        ];
 }
 
 chooseLevel();
@@ -385,7 +439,7 @@ function chooseLevel() {
     }
 
     if (currentLevel === 3) {
-        // Randomise number between 1 and 4 to represent Level 2 version
+        // Randomise number between 1 and 4 to represent Level 3 version
         version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
@@ -401,7 +455,7 @@ function chooseLevel() {
     }
 
     if (currentLevel === 4) {
-        // Randomise number between 1 and 4 to represent Level 2 version
+        // Randomise number between 1 and 4 to represent Level 4 version
         version = Math.floor((Math.random() * 4));
         console.log("Level " + currentLevel + " , version " + version);
 
@@ -413,6 +467,20 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        $(".labels").text("");
+
+    }
+    if (currentLevel === 5) {
+        // Randomise number between 1 and 4 to represent Level 5 version
+        version = Math.floor((Math.random() * 4));
+        console.log("Level " + currentLevel + " , version " + version);
+
+        // Assign randomised version number to map for level 4
+        map = versionListLevel5[version];
+
+        insertDOMandCSS5();
+        setTimeout(instructionsFive, 750); //instructions
+        gamePlayed = false;
         $(".labels").text("");
 
     }
@@ -1438,6 +1506,395 @@ function insertDOMandCSS4() {
     });
 }
 
+function insertDOMandCSS5(){
+    // map 5 selected
+    // next step: insert img tags for lvl 5
+    $('.canvas')/* .prepend('<img id="hint"/>') */
+        .prepend('<img id="planetLava_3" class="planetLava"/>')
+        .prepend('<img id="planetLava_2" class="planetLava"/>')
+        .prepend('<img id="planetLava_1" class="planetLava"/>')
+        .prepend('<img id="planetEarth_3" class="planetEarth"/>')
+        .prepend('<img id="planetEarth_2" class="planetEarth"/>')
+        .prepend('<img id="planetEarth_1" class="planetEarth"/>')
+        .prepend('<img id="planetDestination"/>')
+        .prepend('<img id="planetFire_4" class="planetFire"/>')
+        .prepend('<img id="planetFire_3" class="planetFire"/>')
+        .prepend('<img id="planetFire_2" class="planetFire"/>')
+        .prepend('<img id="planetFire_1" class="planetFire"/>')
+        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="asteroid"/>')
+        .prepend('<img id ="fallingstar"/>')
+        .prepend('<img id ="originalrocketspace"/>');
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+    
+     //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
+
+    // Lava planet coordinates
+    var lavaMarginLeft1;
+    var lavaMarginTop1;
+    var lavaMarginLeft2;
+    var lavaMarginTop2;
+    var lavaMarginLeft3;
+    var lavaMarginTop3;
+
+    // Earth planet coordinates
+    var earthMarginLeft1;
+    var earthMarginTop1;
+    var earthMarginLeft2;
+    var earthMarginTop2;
+    var earthMarginLeft3;
+    var earthMarginTop3;
+    
+    // Fire planet coordinates
+    var fireMarginLeft1;
+    var fireMarginTop1;
+    var fireMarginLeft2;
+    var fireMarginTop2;
+    var fireMarginLeft3;
+    var fireMarginTop3;
+    var fireMarginLeft4;
+    var fireMarginTop4;
+
+    switch (version) {
+        case 0:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 450;
+
+            //defining the destination coordinates
+            destinationMarginLeft = '42.5%';
+            destinationMarginTop = '0%';
+            
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '72.5%';
+            asteroidX = 0;
+
+            fallingStarMarginLeft = '81.5%';
+            fallingStarMarginTop = '0%';
+            fallingStarY = 0;
+            
+            // defining the lava planet coordinates
+            lavaMarginLeft1 = '18.2%';
+            lavaMarginTop1 = '63.7%';
+            lavaMarginLeft2 = '27.3%';
+            lavaMarginTop2 = '54.7%';
+            lavaMarginLeft3 = '36.4%';
+            lavaMarginTop3 = '45.7%';
+
+            // defining the fire planet coordinates
+            fireMarginLeft1 = '45.6%';
+            fireMarginTop1 = '18.2%';
+            fireMarginLeft2 = '54.6%';
+            fireMarginTop2 = '18.2%';
+            fireMarginLeft3 = '63.7%';
+            fireMarginTop3 = '18.2%';
+            fireMarginLeft4 = '72.7%';
+            fireMarginTop4 = '18.2%';
+
+            // defining the lava planet coordinates
+            earthMarginLeft1 = '18.2%';
+            earthMarginTop1 = '36.7%';
+            earthMarginLeft2 = '18.2%';
+            earthMarginTop2 = '27.7%';
+            earthMarginLeft3 = '18.2%';
+            earthMarginTop3 = '18.7%';
+
+            break;
+        case 1:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 450;
+
+            //defining the destination coordinates
+            destinationMarginLeft = '42.5%';
+            destinationMarginTop = '0%';
+            
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '72.5%';
+            asteroidX = 0;
+
+            fallingStarMarginLeft = '81.5%';
+            fallingStarMarginTop = '0%';
+            fallingStarY = 0;
+            
+            // defining the lava planet coordinates
+            lavaMarginLeft1 = '18.2%';
+            lavaMarginTop1 = '63.7%';
+            lavaMarginLeft2 = '27.3%';
+            lavaMarginTop2 = '54.7%';
+            lavaMarginLeft3 = '36.4%';
+            lavaMarginTop3 = '45.7%';
+
+            // defining the fire planet coordinates
+            fireMarginLeft1 = '45.6%';
+            fireMarginTop1 = '18.2%';
+            fireMarginLeft2 = '54.6%';
+            fireMarginTop2 = '18.2%';
+            fireMarginLeft3 = '63.7%';
+            fireMarginTop3 = '18.2%';
+            fireMarginLeft4 = '72.7%';
+            fireMarginTop4 = '18.2%';
+
+            // defining the lava planet coordinates
+            earthMarginLeft1 = '18.2%';
+            earthMarginTop1 = '36.7%';
+            earthMarginLeft2 = '18.2%';
+            earthMarginTop2 = '27.7%';
+            earthMarginLeft3 = '18.2%';
+            earthMarginTop3 = '18.7%';
+
+            break;
+        case 2:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 450;
+
+            //defining the destination coordinates
+            destinationMarginLeft = '42.5%';
+            destinationMarginTop = '0%';
+            
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '72.5%';
+            asteroidX = 0;
+
+            fallingStarMarginLeft = '81.5%';
+            fallingStarMarginTop = '0%';
+            fallingStarY = 0;
+            
+            // defining the lava planet coordinates
+            lavaMarginLeft1 = '18.2%';
+            lavaMarginTop1 = '63.7%';
+            lavaMarginLeft2 = '27.3%';
+            lavaMarginTop2 = '54.7%';
+            lavaMarginLeft3 = '36.4%';
+            lavaMarginTop3 = '45.7%';
+
+            // defining the fire planet coordinates
+            fireMarginLeft1 = '45.6%';
+            fireMarginTop1 = '18.2%';
+            fireMarginLeft2 = '54.6%';
+            fireMarginTop2 = '18.2%';
+            fireMarginLeft3 = '63.7%';
+            fireMarginTop3 = '18.2%';
+            fireMarginLeft4 = '72.7%';
+            fireMarginTop4 = '18.2%';
+
+            // defining the lava planet coordinates
+            earthMarginLeft1 = '18.2%';
+            earthMarginTop1 = '36.7%';
+            earthMarginLeft2 = '18.2%';
+            earthMarginTop2 = '27.7%';
+            earthMarginLeft3 = '18.2%';
+            earthMarginTop3 = '18.7%';
+
+            break;
+        case 3:
+            //for resetting position of rocket - value will change depending on level
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '72.75%';
+
+            //defining the rocket coordinates
+            rocketX = 200;
+            rocketY = 450;
+
+            //defining the destination coordinates
+            destinationMarginLeft = '42.5%';
+            destinationMarginTop = '0%';
+            
+            asteroidMarginLeft = '0%';
+            asteroidMarginTop = '72.5%';
+            asteroidX = 0;
+
+            fallingStarMarginLeft = '81.5%';
+            fallingStarMarginTop = '0%';
+            fallingStarY = 0;
+            
+            // defining the lava planet coordinates
+            lavaMarginLeft1 = '18.2%';
+            lavaMarginTop1 = '63.7%';
+            lavaMarginLeft2 = '27.3%';
+            lavaMarginTop2 = '54.7%';
+            lavaMarginLeft3 = '36.4%';
+            lavaMarginTop3 = '45.7%';
+
+            // defining the fire planet coordinates
+            fireMarginLeft1 = '45.6%';
+            fireMarginTop1 = '18.2%';
+            fireMarginLeft2 = '54.6%';
+            fireMarginTop2 = '18.2%';
+            fireMarginLeft3 = '63.7%';
+            fireMarginTop3 = '18.2%';
+            fireMarginLeft4 = '72.7%';
+            fireMarginTop4 = '18.2%';
+
+            // defining the lava planet coordinates
+            earthMarginLeft1 = '18.2%';
+            earthMarginTop1 = '36.7%';
+            earthMarginLeft2 = '18.2%';
+            earthMarginTop2 = '27.7%';
+            earthMarginLeft3 = '18.2%';
+            earthMarginTop3 = '18.7%';
+
+            break;
+    }
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
+
+    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1'
+    });
+    
+    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
+        'position': 'absolute',
+        'margin-left': asteroidMarginLeft,
+        'margin-top': asteroidMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+
+    });
+
+    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
+        'position': 'absolute',
+        'margin-left': fallingStarMarginLeft,
+        'margin-top': fallingStarMarginTop,
+        'max-height': 'auto',
+        'max-width': '12%',
+    });
+
+    $("#planetFire_1").attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': fireMarginLeft1,
+        'margin-top': fireMarginTop1,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+    
+    $("#planetFire_2").attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': fireMarginLeft2,
+        'margin-top': fireMarginTop2,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+    
+    $("#planetFire_3").attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': fireMarginLeft3,
+        'margin-top': fireMarginTop3,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+    
+    $("#planetFire_4").attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': fireMarginLeft4,
+        'margin-top': fireMarginTop4,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
+        'position': 'absolute',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
+        'max-height': 'auto',
+        'max-width': '15%',
+        'transform': 'rotate(30deg)'
+    });
+
+    $('#planetEarth_1').attr('src', 'img/playfield/planets/planet_earth.png').css({
+        'position': 'absolute',
+        'margin-left': earthMarginLeft1,
+        'margin-top': earthMarginTop1,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $('#planetEarth_2').attr('src', 'img/playfield/planets/planet_earth.png').css({
+        'position': 'absolute',
+        'margin-left': earthMarginLeft2,
+        'margin-top': earthMarginTop2,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $('#planetEarth_3').attr('src', 'img/playfield/planets/planet_earth.png').css({
+        'position': 'absolute',
+        'margin-left': earthMarginLeft3,
+        'margin-top': earthMarginTop3,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+    
+    $('#planetLava_1').attr('src', 'img/playfield/planets/planet_lava.png').css({
+        'position': 'absolute',
+        'margin-left': lavaMarginLeft1,
+        'margin-top': lavaMarginTop1,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $('#planetLava_2').attr('src', 'img/playfield/planets/planet_lava.png').css({
+        'position': 'absolute',
+        'margin-left': lavaMarginLeft2,
+        'margin-top': lavaMarginTop2,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+
+    $('#planetLava_3').attr('src', 'img/playfield/planets/planet_lava.png').css({
+        'position': 'absolute',
+        'margin-left': lavaMarginLeft3,
+        'margin-top': lavaMarginTop3,
+        'max-height': 'auto',
+        'max-width': '9%'
+    });
+    
+    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
+        'position': 'absolute',
+        'margin-left': asteroidMarginLeft,
+        'margin-top': asteroidMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+
+    });
+
+    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
+        'position': 'absolute',
+        'margin-left': fallingStarMarginLeft,
+        'margin-top': fallingStarMarginTop,
+        'max-height': 'auto',
+        'max-width': '12%',
+    });
+
+    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+    })
+}
 
 // function to find rocket index (value 4 in the array).
 function findRocketPosition() {
@@ -2727,7 +3184,10 @@ function loadNewLevel() {
         currentLevel = 4;
         console.log("current level" + currentLevel);
     } else if (currentLevel === 4) {
-        currentLevel = 3;
+        currentLevel = 5;
+        console.log("current level" + currentLevel);
+    } else if (currentLevel === 5) {
+        currentLevel = 0;
         console.log("current level" + currentLevel);
     }
 
