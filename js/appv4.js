@@ -375,6 +375,7 @@ chooseLevel();
 var gamePlayed1 = false;
 var gamePlayed2 = false;
 var gamePlayed3 = false;
+var existingLabels = false;
 
 function chooseLevel() {
     if (currentLevel > 1) {
@@ -397,6 +398,7 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
     }
 
@@ -416,6 +418,7 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
     }
 
@@ -435,6 +438,7 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
     }
 
@@ -451,6 +455,7 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
     }
 
@@ -467,6 +472,7 @@ function chooseLevel() {
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
 
     }
@@ -480,7 +486,10 @@ function chooseLevel() {
 
         insertDOMandCSS5();
         setTimeout(instructionsFive, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
         $(".labels").text("");
 
     }
@@ -2501,22 +2510,27 @@ function addGameimg(title){
     if (planet == "fire"){
         $(".gameImg").attr("src", "img/minigames/fire/" + title);
         gamePlayed1 = true;
+        existingLabels = true;
     }
     if (planet == "metal"){
         $(".gameImg").attr("src", "img/minigames/metal/" + title);
         gamePlayed2 = true;
+        existingLabels = true;
     }
     if (planet == "ice"){
         $(".gameImg").attr("src", "img/minigames/ice/" + title);
         gamePlayed3 = true;
+        existingLabels = true;
     }
   
 }
 
 function showSolutions(placeholder) {
+   
     for (var i = 0; i < placeholder.length; i++) {
-        $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
-
+        if (existingLabels === false){
+            $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
+        } 
         $("." + i).css("width", "30%");
         $("." + i).css("margin-right", "2%");
         $("#submit").show();
@@ -2593,6 +2607,7 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("fire");
         generateMinigame("fire");
+        
     });
 
     $planetMetal.click(function () {
