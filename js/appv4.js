@@ -401,7 +401,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -424,7 +424,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -447,7 +447,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -467,7 +467,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -487,7 +487,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
 
     }
@@ -507,7 +507,7 @@ function chooseLevel() {
         existingLabels = false;
         solvedfire = false;
         solvedmetal = false;
-        solvedmice = false;
+        solvedice = false;
         $(".labels").text("");
 
     }
@@ -2257,7 +2257,7 @@ var metalBool = false;
 var iceBool = false;
 var solvedfire = false;
 var solvedmetal = false;
-var solvedmice = false;
+var solvedice = false;
 
 
 //function will be updated to only come up once a mini-game has been solved
@@ -2296,122 +2296,71 @@ function dangerArea(planet) {
         yPosition = 0;
     }
 
+    function checkAnswers(x, planet, solved, planetBool){
+        if ($('input[type=radio]:checked').val() == x) {
+            drawZone();
+            $(".modal").hide();
+            $(".reaction").hide();
+            planetBool = true;
+            solved = true;
+            $("." + planet + " label").remove();
+            $("." + planet).text("You already solved the puzzle.");
+        } else if ($('input[type=radio]:checked').val() != x) {
+            $(".reaction").show();
+            setTimeout(function () {
+                $(".reaction").hide()
+            }, 1000);
+        }
+    }
+
 // fire planet submit
     if (planet == "fire") {
         $("#submit").click(function () {
-            if ($(".gameImg1").attr("id") === "minigameone" || "minigametwo") {
-                if ($('input[type=radio]:checked').val() == 0) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    fireBool = true;
-                    solvedfire = true;
-                    $(".fire label").remove();
-                    $(".fire").text("You already solved the puzzle.");
-                } else if ($('input[type=radio]:checked').val() != 0) {
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg1").attr("id") === "minigameone") {
+                checkAnswers(0, "fire", solvedfire, fireBool)
             }
-
-            if ($(".gameImg1").attr("id") === "minigamethree" || "minigamefour") {
-                if ($('input[type=radio]:checked').val() == 2) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    fireBool = true;
-                    solvedfire = true;
-                    $(".fire label").remove();
-                    $(".fire").text("You already solved the puzzle.");
-                } else if ($('input[type=radio]:checked').val() != 2) {
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg1").attr("id") === "minigametwo") {
+                checkAnswers(0, "fire", solvedfire, fireBool)
             }
+            if ($(".gameImg1").attr("id") === "minigamethree") {
+                checkAnswers(2, "fire", solvedfire, fireBool)
+            }
+            if ($(".gameImg1").attr("id") === "minigamefour") {
+                checkAnswers(2, "fire", solvedfire, fireBool)
+            }  
         });
     }
 
     //metal planet submit
     if (planet == "metal") {
         $("#submitmetal").click(function () {
-            if ($(".gameImg2").attr("id") === "minigameone" || "minigametwo") {
-                if ($('input[type=radio]:checked').val() == 0) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    metalBool = true;
-                    solvedmetal = true;
-                    $(".metal label").remove();
-                    $(".metal").text("You already solved the puzzle.");
-                    $("#submitmetal").hide();
-                } else if ($('input[type=radio]:checked').val() != 0) {
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg2").attr("id") === "minigameone") {
+                checkAnswers(0, "metal", solvedmetal, metalBool)
             }
-
-            if ($(".gameImg2").attr("id") === "minigamethree" || "minigamefour") {
-                if ($('input[type=radio]:checked').val() == 2) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    metalBool = true;
-                    solvedmetal = true;
-                    $(".metal label").remove();
-                    $(".metal").text("You already solved the puzzle.");
-                    $("#submitmetal").hide();
-                } else if ($('input[type=radio]:checked').val() != 2) {
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg2").attr("id") === "minigametwo") {
+                checkAnswers(3, "metal", solvedmetal, metalBool)
+            }
+            if ($(".gameImg2").attr("id") === "minigamethree") {
+                checkAnswers(2, "metal", solvedmetal, metalBool);
+            }
+            if ($(".gameImg2").attr("id") === "minigamefour") {
+                checkAnswers(2, "metal", solvedmetal, metalBool);
             }
         });
     }
     if (planet == "ice") {
         $("#submitice").click(function () {
-            if ($(".gameImg3").attr("id") === "minigameone" || "minigametwo") {
-                if ($('input[type=radio]:checked').val() == 0) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    iceBool = true;
-                    solvedice = true;
-                    $(".ice label").remove();
-                    $(".ice").text("You already solved the puzzle.");
-                    $("#submitice").hide();
-                } else if ($('input[type=radio]:checked').val() != 0) {
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg3").attr("id") === "minigameone") {
+                checkAnswers(3, "ice", solvedice, iceBool);
             }
-
-            if ($(".gameImg3").attr("id") === "minigamethree" || "minigamefour") {
-                if ($('input[type=radio]:checked').val() == 2) {
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    $(".ice label").remove();
-                    $(".ice").text("You already solved the puzzle.");
-                    $("#submitice").hide();
-                    iceBool = true;
-                    solvedice = true;
-                } else if ($('input[type=radio]:checked').val() != 2) {
-                    //console.log($('input[type=radio]:checked').val());
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 1000);
-                }
+            if ($(".gameImg3").attr("id") === "minigametwo") {
+                checkAnswers(4, "ice", solvedice, iceBool);
+            }
+            if ($(".gameImg3").attr("id") === "minigamethree") {
+                checkAnswers(4, "ice", solvedice, iceBool);
+            }
+            if ($(".gameImg3").attr("id") === "minigamefour") {
+                checkAnswers(2, "ice", solvedice, iceBool);
             }
         });
     }
@@ -2533,20 +2482,21 @@ function generateMinigame(planet) {
     }
 
 function addGameimg(title){
-    $(".gameImg").attr("id", title.slice(0, -4));
     showSolutions(solution);
-
     if (planet == "fire"){
+        $(".gameImg1").attr("id", title.slice(0, -4));
         $(".gameImg1").attr("src", "img/minigames/fire/" + title);
         gamePlayed1 = true;
         existingLabels = true;
     }
     if (planet == "metal"){
+        $(".gameImg2").attr("id", title.slice(0, -4));
         $(".gameImg2").attr("src", "img/minigames/metal/" + title);
         gamePlayed2 = true;
         existingLabels = true;
     }
     if (planet == "ice"){
+        $(".gameImg3").attr("id", title.slice(0, -4));
         $(".gameImg3").attr("src", "img/minigames/ice/" + title);
         gamePlayed3 = true;
         existingLabels = true;
@@ -2696,6 +2646,9 @@ function clickElements() {
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
         $(".gameImg1").hide();
         $(".gameImg2").hide();
         $(".gameImg3").hide();
@@ -2708,7 +2661,7 @@ function clickElements() {
     $planetIce.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "3%", "width", "3%");
-        $modalText.text("Ice");
+        $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $("#submit").hide();
@@ -2775,21 +2728,12 @@ function clickElements() {
 
 
     //clicking off of modals
-
-    var fire = false;
-    var metal = false;
-    var ice = false;
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-            removeLabels();
-
-            function removeLabels(){
-
-            }
 
         } else if (event.target == navModal) {
             navModal.style.display = "none";
