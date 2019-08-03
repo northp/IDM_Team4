@@ -79,13 +79,17 @@ body{
 
 /* ====== BACKGROUND ====== */
 
+.Brain {
+    display: none;
+}
+
 #spaceBrain {
 width: 30%;
 margin-top: -49%;
 margin-bottom: 25%;
 }
 
-#computaional{
+#computational{
     width: 65%;
     margin-top: -57%;
     margin-bottom: 25%;
@@ -93,21 +97,71 @@ margin-bottom: 25%;
 
 .backgroundRow{
     margin-top: 5%;
+
 }
 
 .brain_image{
+    display: block;
     width: 35%;
     margin-top: 3%;
     margin-left: 32%;
 }
 
+.brain1_colour {
+    width: 21%;
+    margin-top: -44%;
+    margin-left: 35%;
+}
+.brain2_colour {
+    width: 21%;
+    margin-top: -46%;
+    margin-left: 46%;
+}
+.brain3_colour {
+    width: 12%;
+    margin-top: -44%;
+    margin-left: 32%;
+}
+.brain4_colour {
+    width: 25%;
+    margin-top: -32%;
+    margin-left: -3%;
+}
+
 .buttonBrain{
-    margin-top: 4%;
+    margin-top: -4%;
 }
 
 .backgroundP{
     padding-top: 10%;
 }
+
+.brain_decomposition {
+    width: 18%;
+    margin-top: -96%;
+    margin-left: 37%;
+ 
+}
+
+.brain_abstraction {
+    width: 18%;
+    margin-top: -98%;
+    margin-left: 46%;
+}
+
+.brain_pattern {
+    width: 10%;
+    margin-top: -91%;
+    margin-left: -29%;
+}
+
+.brain_algorithm {
+    width: 20%;
+    margin-top: -83%;
+    margin-left: -3.5%;
+   
+}
+
 /* ====== INSTRUCTION ====== */
 
 .row{
@@ -182,7 +236,7 @@ margin-bottom: 25%;
     color: white;
 }
 .title h2 {
-    padding-top: 70%;
+   /*  padding-top: 70%; */
     font-family: 'Chewy', cursive;
     text-transform: lowercase;
     color: white;
