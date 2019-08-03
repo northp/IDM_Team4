@@ -2956,7 +2956,7 @@ function moveRight() {
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
 
-            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+            // Metal effect - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 3.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 3)) {
 
             var rocketXDistance = 50;
@@ -2980,7 +2980,7 @@ function moveRight() {
                     lossAndVictoryArray.push("run");
                 }
             }
-        // Ice test - 5
+        // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) {
             
 
@@ -3037,7 +3037,7 @@ function moveDown() {
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
 
-            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+            // Metal effect - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 3.5)) {
 
             var rocketYDistance = 50;
@@ -3061,7 +3061,7 @@ function moveDown() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            // ice
+            // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) {
 
             var rocketYDistance = 50;
@@ -3119,7 +3119,7 @@ function moveLeft() {
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
 
-            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+            // Metal effect - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 3) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 3.5)) {
 
             var rocketXDistance = 50;
@@ -3143,7 +3143,7 @@ function moveLeft() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            // ice
+            // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) {
 
             var rocketXDistance = 50;
@@ -3198,7 +3198,7 @@ function moveUp() {
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
 
-            // testing condition - Outer Metal Planet 3.5 or Metal Planet 3 - Rocket zooms out of field to nearest 0 index.
+            // Metal effect - Rocket zooms out of field to nearest 0 index.
         } else if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 3) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 3.5)) {
 
             var rocketYDistance = 50;
@@ -3222,7 +3222,7 @@ function moveUp() {
                     lossAndVictoryArray.push("run");
                 }
             }
-            //ice
+            // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) {
 
             var rocketYDistance = 50;
