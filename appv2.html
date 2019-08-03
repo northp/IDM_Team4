@@ -10,7 +10,7 @@
 
     <script src="https://kit.fontawesome.com/b58e682ace.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 
     <!--<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>-->
 
@@ -21,152 +21,148 @@
 
 <body id="bg">
 
-<div class="wrapper">
+    <div class="wrapper">
 
 
-    <div class="canvas">
+        <div class="canvas">
 
-        <canvas id="myCanvas" height="500" width="550">
-        </canvas>
+            <canvas id="myCanvas" height="500" width="550">
+            </canvas>
 
-    </div>
+        </div>
 
 
-    <div class="arrows">
-        <div id="commands">
-            <div>
-                <div class="up-button">
-                    <span id="up" class="dot-up"><img src="img/playfield/up-first.png" id="up-img"></span>
+        <div class="arrows">
+            <div id="commands">
+                <div>
+                    <div class="up-button">
+                        <span id="up" class="dot-up"><img src="img/playfield/up-first.png" id="up-img"></span>
+                    </div>
+
+                    <div class="righ-left-button">
+                        <span id="left" class="dot-left"><img src="img/playfield/left-first.png" id="left-img"></span>
+                        <span id="right" class="dot-right"><img src="img/playfield/right-first.png"
+                                id="right-img"></span>
+                    </div>
+                    <div class="down-button">
+                        <span id="down" class="dot-down"><img src="img/playfield/down-first.png" id="down-img"></span>
+                    </div>
                 </div>
-
-                <div class="righ-left-button">
-                    <span id="left" class="dot-left"><img src="img/playfield/left-first.png" id="left-img"></span>
-                    <span id="right" class="dot-right"><img src="img/playfield/right-first.png" id="right-img"></span>
-                </div>
-                <div class="down-button">
-                    <span id="down" class="dot-down"><img src="img/playfield/down-first.png" id="down-img"></span>
-                </div>
-
-                <!--    <img id="right" src="right.png" alt="Right arrow">
-            <img id="left" src="left.png" alt="Left arrow">
-            <img id="up" src="up.png" alt="Up arrow">
-            <img id="down" src="down.png" alt="Down arrow">-->
-                <!--                 <img id="functiontwoselect" src="functionTwo.png" alt="F2">
-            <img id="run" src="play.png" alt="Run button">
-            <img id="save" src="save.png" alt="Save button">
-            <img id="stop" src="stop.png" alt="Stop button"> -->
 
             </div>
 
-        </div>
+            <div class="algorithm">
 
-        <div class="algorithm">
+                <div class="play-button" id="run"><img src="img/playfield/play.png" id="play-first"></div>
+                <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
+                <div class="algo-space"></div>
+                <div class="algos">
+                    <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button"
+                        style="display: none">
+                </div>
+            </div>
 
-            <div class="play-button" id="run"><img src="img/playfield/play.png" id="play-first"></div>
-            <div class="algo-button" id="mainfunction"> MAIN VIEW</div>
-            <div class="algo-space"></div>
-            <div class="algos">
-                <img id="functiontwoselect" src="img/playfield/algo-button.png" alt="Algorithm Button"
-                     style="display: none">
+
+            <div class="functions" style="display: none">
+                <div class="function-button" id="functiontwo">ALGORITHM VIEW</div>
+                <div class="func-space"></div>
+                <div class="save-button" id="save">SAVE</div>
+            </div>
+
+            <div class="side-navigation" style="display: none">
+                <span class="dot-home"></span></a>
+                <span class="dot-help"></span>
+
+            </div>
+
+
+            <div class="navigation">
+
+                <button class="home-button" id="home">HOME</button>
+
+                <button class="help-button">HELP</button>
             </div>
         </div>
 
 
-        <div class="functions" style="display: none">
-            <div class="function-button" id="functiontwo">ALGORITHM VIEW</div>
-            <div class="func-space"></div>
-            <div class="save-button" id="save">SAVE</div>
-        </div>
+        <div id="myModal" class="modal">
+            <!-- Modal content -->
+            <div class="modal-frame">
+                <div class="modal-content">
 
-        <div class="side-navigation" style="display: none">
-            <span class="dot-home"></span></a>
-            <span class="dot-help"></span>
+                    <span class="close">&times;</span>
 
-        </div>
+                    <img id="next">
+                    <p id="title"></p>
+                    <table>
+                        <tr>
+                            <td><img id="modalImage"></td>
+                            <td id="modalText"></td>
+                        </tr>
+                    </table>
 
+                    <div class="game">
+                        <div class="left">
+                    <!--         <img class="gameImg"> -->
+                            <img class="gameImg1">
+                            <img class="gameImg2">
+                            <img class="gameImg3">
+                        </div>
+                        <div class="right">
+                            <div class="labels">
+                                <div class="fire">
 
-        <div class="navigation">
+                                </div>
+                                <div class="metal">
 
-            <button class="home-button" id="home">HOME</button>
+                                </div>
+                                <div class="ice">
 
-            <button class="help-button">HELP</button>
-        </div>
-    </div>
+                                </div>
+                            </div>
+                            <input type='submit' value='submit' id='submit'>
+                            <input type='submit' value='submit' id='submitmetal'>
+                            <input type='submit' value='submit' id='submitice'>
+                            <p class="reaction"> Wrong answer. Try again!</p>
+                        </div>
 
+                        <img id="commandsoverlay">
 
-    <div id="myModal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-frame">
-            <div class="modal-content">
-
-                <span class="close">&times;</span>
-
-                <img id="next">
-                <p id="title"></p>
-                <table>
-                    <tr>
-                        <td><img id="modalImage"></td>
-                        <td id="modalText"></td>
-                    </tr>
-                </table>
-                <div class="game">
-<div class="left">
-        <img class="gameImg">
-</div>
-<div class="right">
-    <div class="labels">
-
-    </div>
-        <input type='submit' value='submit' id='submit'>
-        <p class="reaction"> Wrong answer. Try again!</p>
-</div>
-                            
-
-
-                    
-<!--                     <input type="radio" name="answer" value="a"><img class="a">
-                    <input type="radio" name="answer" value="b"><img class="b">
-                    <input type="radio" name="answer" value="c"><img class="c">
-                    <input type="radio" name="answer" value="d"><img class="d">
-                    <input type="radio" name="answer" value="e"><img class="e">
-                    <input type="radio" name="answer" value="f"><img class="f"> -->
+                    </div>
                 </div>
-                <img id="commandsoverlay">
 
             </div>
         </div>
 
-    </div>
+        <div id="navModal" class="modal">
+            <div class="modal-frame">
+                <div class="modal-content">
+                    <p> Are you sure you want to leave the game?</p>
 
-    <div id="navModal" class="modal">
-        <div class="modal-frame">
-            <div class="modal-content">
-                <p> Are you sure you want to leave the game?</p>
-
-                <div id="leavepage">
-                    <a href="landingpage.html"><button class="btn-leave">Leave</button></a>
-                    <button class="btn-stay">Stay</button>
+                    <div id="leavepage">
+                        <a href="landingpage.html"><button class="btn-leave">Leave</button></a>
+                        <button class="btn-stay">Stay</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
 
 
 
-    <div id="myModalTwo" class="modal">
+        <div id="myModalTwo" class="modal">
 
-        <div class="modalTwoContent">
-            <p>You did it!</p>
+            <div class="modalTwoContent">
+                <p>You did it!</p>
+            </div>
+
+
         </div>
 
+        <img id="point">
+
 
     </div>
-
-    <img id="point">
-
-
-</div>
 
 </body>
 

@@ -372,7 +372,10 @@ function loadVersions() {
 }
 
 chooseLevel();
-var gamePlayed = false;
+var gamePlayed1 = false;
+var gamePlayed2 = false;
+var gamePlayed3 = false;
+var existingLabels = false;
 
 function chooseLevel() {
     if (currentLevel > 1) {
@@ -392,7 +395,13 @@ function chooseLevel() {
         map = versionListLevel0[version];
         insertDOMandCSS0();
         setTimeout(instructions, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -409,7 +418,13 @@ function chooseLevel() {
 
         insertDOMandCSS1();
         setTimeout(instructionsTwo, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -426,7 +441,13 @@ function chooseLevel() {
 
         insertDOMandCSS2();
         setTimeout(instructionsThree, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -440,7 +461,13 @@ function chooseLevel() {
 
         insertDOMandCSS3();
         setTimeout(instructionsFour, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
     }
 
@@ -454,7 +481,13 @@ function chooseLevel() {
 
         insertDOMandCSS4();
         setTimeout(instructionsFive, 750); //instructions
-        gamePlayed = false;
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
 
     }
@@ -467,8 +500,14 @@ function chooseLevel() {
         map = versionListLevel5[version];
 
         insertDOMandCSS5();
-        //setTimeout(instructionsFive, 750); //instructions
-        gamePlayed = false;
+        setTimeout(instructionsFive, 750); //instructions
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
         $(".labels").text("");
 
     }
@@ -2217,6 +2256,10 @@ function removeMove(image, direction, thisArray) {
 //booleans used to stop the danger area from being drawn every single time you click off of a modal
 var fireBool = false;
 var metalBool = false;
+var iceBool = false;
+var solvedfire = false;
+var solvedmetal = false;
+var solvedice = false;
 
 
 //function will be updated to only come up once a mini-game has been solved
@@ -2235,12 +2278,23 @@ function dangerArea(planet) {
                         }
                     }
                 }
+                
+                if (planet == "ice") {
+                    if (map[i][j] === 5) {
+                        if (iceBool === false) {
+                            ctx.globalAlpha = 0.4;
+                            ctx.fillStyle = "#88ff00"; //low contrast
+                            ctx.fillRect(xPosition, yPosition, 50, 50);
+                        }
+                    }
+                }
 
                 if (planet == "metal") {
                     if ((map[i][j] === 3.5) || (map[i][j] === 3)) {
                         if (metalBool === false) {
                             ctx.globalAlpha = 0.4;
-                            ctx.fillStyle = "#FF0000"; //low contrast
+                            ctx.fillStyle = "#88ff00"; // Added Green
+                            //ctx.fillStyle = "#FF0000"; //low contrast
                             //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision ?
                             ctx.fillRect(xPosition, yPosition, 50, 50);
                         }
@@ -2255,89 +2309,91 @@ function dangerArea(planet) {
         yPosition = 0;
     }
 
+    function checkAnswers(x, planet, solved, planetBool){
+        if ($('input[type=radio]:checked').val() == x) {
+            drawZone();
+            $(".modal").hide();
+            $(".reaction").hide();
+            planetBool = true;
+            solved = true;
+            $("." + planet + " label").remove();
+            $("." + planet).text("You already solved the puzzle.");
+        } else if ($('input[type=radio]:checked').val() != x) {
+            $(".reaction").show();
+            setTimeout(function () {
+                $(".reaction").hide()
+            }, 1000);
+        }
+    }
 
+// fire planet submit
     if (planet == "fire") {
         $("#submit").click(function () {
-            if ($(".gameImg").attr("id") == "minigameone" || "minigametwo") {
-                if ($('input[type=radio]:checked').val() == 0) {
-                    //console.log($('input[type=radio]:checked').val());
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    fireBool = true;
-                    $("label").remove();
-                    $(".labels").text("You already solved the puzzle.");
-                    $("#submit").hide();
-                    //$(".gameImg").hide();
-
-                } else if ($('input[type=radio]:checked').val() != 0) {
-                    //console.log($('input[type=radio]:checked').val());
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 2000);
-                }
-                console.log($(".gameImg").attr("id"));
-
+            if ($(".gameImg1").attr("id") === "minigameone") {
+                checkAnswers(0, "fire", solvedfire, fireBool)
             }
+            if ($(".gameImg1").attr("id") === "minigametwo") {
+                checkAnswers(0, "fire", solvedfire, fireBool)
+            }
+            if ($(".gameImg1").attr("id") === "minigamethree") {
+                checkAnswers(2, "fire", solvedfire, fireBool)
+            }
+            if ($(".gameImg1").attr("id") === "minigamefour") {
+                checkAnswers(2, "fire", solvedfire, fireBool)
+            }  
+        });
+    }
 
-            if ($(".gameImg").attr("id") == "minigamethree") {
-                if ($('input[type=radio]:checked').val() == 2) {
-                    //console.log($('input[type=radio]:checked').val());
-                    drawZone();
-                    $(".modal").hide();
-                    $(".reaction").hide();
-                    $("label").remove();
-                    $(".labels").text("You already solved the puzzle.");
-                    $("#submit").hide();
-                    //$(".gameImg").hide();
-                    fireBool = true;
-                } else if ($('input[type=radio]:checked').val() != 2) {
-                    //console.log($('input[type=radio]:checked').val());
-                    $(".reaction").show();
-                    setTimeout(function () {
-                        $(".reaction").hide()
-                    }, 2000);
-                }
-                console.log($(".gameImg").attr("id"));
+    //metal planet submit
+    if (planet == "metal") {
+        $("#submitmetal").click(function () {
+            if ($(".gameImg2").attr("id") === "minigameone") {
+                checkAnswers(0, "metal", solvedmetal, metalBool)
+            }
+            if ($(".gameImg2").attr("id") === "minigametwo") {
+                checkAnswers(3, "metal", solvedmetal, metalBool)
+            }
+            if ($(".gameImg2").attr("id") === "minigamethree") {
+                checkAnswers(2, "metal", solvedmetal, metalBool);
+            }
+            if ($(".gameImg2").attr("id") === "minigamefour") {
+                checkAnswers(2, "metal", solvedmetal, metalBool);
+            }
+        });
+    }
+    if (planet == "ice") {
+        $("#submitice").click(function () {
+            if ($(".gameImg3").attr("id") === "minigameone") {
+                checkAnswers(3, "ice", solvedice, iceBool);
+            }
+            if ($(".gameImg3").attr("id") === "minigametwo") {
+                checkAnswers(4, "ice", solvedice, iceBool);
+            }
+            if ($(".gameImg3").attr("id") === "minigamethree") {
+                checkAnswers(4, "ice", solvedice, iceBool);
+            }
+            if ($(".gameImg3").attr("id") === "minigamefour") {
+                checkAnswers(2, "ice", solvedice, iceBool);
             }
         });
     }
 
-    //when the user clicks on <span> (x)
-    if (planet == "metal") {
-        span.onclick = function () {
-            drawZone();
-            for (var x = 0; x < 6; x++) {
-                $(".gameImg").attr("src", "");
-                $("." + x).remove();
-                $("label").remove();
-            }
-            metalBool = true;
-
-        };
-
-        //when the user clicks anywhere outside of the modal
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                drawZone();
-                for (var x = 0; x < 6; x++) {
-                    $(".gameImg").attr("src", "");
-                    $("." + x).remove();
-                    $("label").remove();
-                }
-                metalBool = true;
-            }
-        }
-    }
 }
 
 var gamesPath = [
     ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
     ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
-    ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"]
+    ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
+    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"],
+    ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
+    ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
+    ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
+    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"],
+    ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
+    ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
+    ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
+    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"]
 ];
-
 
 // generate a mini game randomly
 function generateMinigame(planet) {
@@ -2347,60 +2403,150 @@ function generateMinigame(planet) {
         return x[0];
     });
 
+    //game titles
+    var arrayTitleOne = arrayTitle.slice(0,4);
+    var arrayTitleTwo = arrayTitle.slice(4,8);
+    var arrayTitleThree = arrayTitle.slice(8,12);
+
     // choose a random title from the new array
-    var gameTitle = arrayTitle[Math.floor(Math.random() * arrayTitle.length)];
+    var gameTitleOne = arrayTitleOne[Math.floor(Math.random() * arrayTitleOne.length)];
+    var gameTitleTwo = arrayTitleTwo[Math.floor(Math.random() * arrayTitleTwo.length)];
+    var gameTitleThree = arrayTitleThree[Math.floor(Math.random() * arrayTitleThree.length)];
+    var solution;
 
+    $(".gameImg1").css("width", "90%");
+    $(".gameImg2").css("width", "90%");
+    $(".gameImg3").css("width", "90%");
 
-    $(".gameImg").css("width", "90%");
-
-    if (gamePlayed === false) {
+    if (gamePlayed1 === false) {
         if (planet == "fire") {
-            if (gameTitle == "minigameone.png") {
-                // set the image according to title
-                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-                $(".gameImg").attr("id", gameTitle.slice(0, -4));
-                var solution = gamesPath[0].slice(1, 7);
-                showSolutions(solution);
-                //console.log(solution);
-                gamePlayed = true;
+            console.log(planet);
+            if (gameTitleOne == "minigameone.png") {
+                solution = gamesPath[0].slice(1, 7);
+                addGameimg(gameTitleOne);
             }
 
-            if (gameTitle == "minigametwo.png") {
-                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-                $(".gameImg").attr("id", gameTitle.slice(0, -4));
-                var solution = gamesPath[1].slice(1, 7);
-                showSolutions(solution);
-                //1
-                gamePlayed = true;
+            if (gameTitleOne == "minigametwo.png") {
+                solution = gamesPath[1].slice(1, 7);
+                addGameimg(gameTitleOne);
             }
 
-            if (gameTitle == "minigamethree.png") {
-                $(".gameImg").attr("src", "img/minigames/fire/" + gameTitle);
-                $(".gameImg").attr("id", gameTitle.slice(0, -4));
-                var solution = gamesPath[2].slice(1, 7);
-                showSolutions(solution);
-                //3
-                gamePlayed = true;
+            if (gameTitleOne == "minigamethree.png") {
+                solution = gamesPath[2].slice(1, 7);
+                addGameimg(gameTitleOne);
             }
+
+            if (gameTitleOne == "minigamefour.png") {
+                solution = gamesPath[3].slice(1, 7);
+                addGameimg(gameTitleOne);
+            }
+        }
+    }
+
+    if (gamePlayed2 === false){
+        if (planet == "metal") {
+            console.log(planet);
+            if (gameTitleTwo == "minigameone.png") {
+                solution = gamesPath[4].slice(1, 7);
+                addGameimg(gameTitleTwo);
+            }
+    
+            if (gameTitleTwo == "minigametwo.png") {
+                solution = gamesPath[5].slice(1, 7);
+                addGameimg(gameTitleTwo);
+            }
+    
+            if (gameTitleTwo == "minigamethree.png") {
+                solution = gamesPath[6].slice(1, 7);
+                addGameimg(gameTitleTwo);
+            }
+    
+            if (gameTitleTwo == "minigamefour.png") {
+                solution = gamesPath[7].slice(1, 7);
+                addGameimg(gameTitleTwo);
+            }
+         }
+    }
+
+
+    if (gamePlayed3 === false ){
+        if (planet == "ice") {
+            console.log(planet);
+            if (gameTitleThree == "minigameone.png") {
+                solution = gamesPath[8].slice(1, 7);
+                addGameimg(gameTitleThree);
+            }
+    
+            if (gameTitleThree == "minigametwo.png") {
+                solution = gamesPath[9].slice(1, 7);
+                addGameimg(gameTitleThree);
+            }
+    
+            if (gameTitleThree == "minigamethree.png") {
+                solution = gamesPath[10].slice(1, 7);
+                addGameimg(gameTitleThree);
+            }
+    
+            if (gameTitleThree == "minigamefour.png") {
+                solution = gamesPath[11].slice(1, 7);
+                addGameimg(gameTitleThree);
+            }
+         }
+    }
+
+function addGameimg(title){
+    showSolutions(solution);
+    if (planet == "fire"){
+        $(".gameImg1").attr("id", title.slice(0, -4));
+        $(".gameImg1").attr("src", "img/minigames/fire/" + title);
+        gamePlayed1 = true;
+        existingLabels = true;
+    }
+    if (planet == "metal"){
+        $(".gameImg2").attr("id", title.slice(0, -4));
+        $(".gameImg2").attr("src", "img/minigames/metal/" + title);
+        gamePlayed2 = true;
+        existingLabels = true;
+    }
+    if (planet == "ice"){
+        $(".gameImg3").attr("id", title.slice(0, -4));
+        $(".gameImg3").attr("src", "img/minigames/ice/" + title);
+        gamePlayed3 = true;
+        existingLabels = true;
+    }
+  
+}
+
+function showSolutions(placeholder) {
+   if (existingLabels === false) {
+       $(".labels").append("<div class='fire'></div><div class='metal'></div><div class='ice'></div>")
+   }
+    for (var i = 0; i < placeholder.length; i++) {
+        if (existingLabels === false){
+            $(".fire").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='fire" + i + "'></label>");
+            $(".metal").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='metal" + i + "'></label>");
+            $(".ice").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='ice" + i + "'></label>");
+        } 
+        if (planet == "fire"){
+            $(".fire" + i).attr("src", "img/minigames/fire/" + placeholder[i]);
+            $(".fire" + i).css("width", "30%");
+            $(".fire" + i).css("margin-right", "2%");
+ 
+        }
+        if (planet == "metal"){
+            $(".metal" + i).attr("src", "img/minigames/metal/" + placeholder[i]);
+            $(".metal" + i).css("width", "30%");
+            $(".metal" + i).css("margin-right", "2%");
+        }
+        if (planet == "ice"){
+            $(".ice" + i).attr("src", "img/minigames/ice/" + placeholder[i]);
+            $(".ice" + i).css("width", "30%");
+            $(".ice" + i).css("margin-right", "2%");
         }
     }
 }
 
-function showSolutions(placeholder) {
-    for (var i = 0; i < placeholder.length; i++) {
-        $(".labels").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='" + i + "'></label>");
-        $("." + i).attr("src", "img/minigames/fire/" + placeholder[i]);
-        $("." + i).css("width", "30%");
-        $("." + i).css("margin-right", "2%");
-        $("#submit").show();
-        $(".gameImg").show();
-    }
 }
-
-/*
-    console.log(arrayTitle);
-    console.log(gameTitle); */
-
 
 function clickElements() {
     $home.click(function () {
@@ -2456,20 +2602,51 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("fire");
         generateMinigame("fire");
+        $(".gameImg1").show();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".fire").show();
+        $(".metal").hide();
+        $(".ice").hide();
+
+        if (solvedfire === false){
+            $("#submit").show();
+        } else {
+            $("#submit").hide();
+            $(".reaction").hide();
+        }
+        
+        $("#submitmetal").hide();
+        $("#submitice").hide();
+        
     });
 
     $planetMetal.click(function () {
         modal.style.display = "block";
-        $modalImage.attr("src", "img/playfield/planets/planet_metal.png").css("height", "5%", "width", "5%");
-        $modalText.text("Metal");
+        $modalImage.attr("src", "img/playfield/planets/planet_metal.png").css("height", "3%", "width", "3%");
+        $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         dangerArea("metal");
+        generateMinigame("metal");
+        $(".gameImg1").hide();
+        $(".gameImg2").show();
+        $(".gameImg3").hide();
+        $(".fire").hide();
+        $(".metal").show();
+        $(".ice").hide();
+        $("#submit").hide();
+        $("#submitmetal").show();
+        $("#submitice").hide();
+
+        if (solvedmetal === false){
+            $("#submitmetal").show();
+        } else {
+            $("#submitmetal").hide();
+            $(".reaction").hide();
+        }
     });
 
     $planetDestination.click(function () {
@@ -2482,12 +2659,22 @@ function clickElements() {
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $planetIce.click(function () {
         modal.style.display = "block";
-        $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "5%", "width", "5%");
-        $modalText.text("Ice");
+        $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "3%", "width", "3%");
+        $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.text("Planet").css("font-weight", "bold");
         $modalNext.attr("src", "");
         $("#submit").hide();
@@ -2495,6 +2682,24 @@ function clickElements() {
         $(".reaction").hide();
         $point.hide();
         $commandsOverlay.hide();
+        dangerArea("ice");
+        generateMinigame("ice");
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").show();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").show();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").show();
+
+        if (solvedice === false){
+            $("#submitice").show();
+        } else {
+            $("#submitice").hide();
+            $(".reaction").hide();
+        }
     });
 
     $planetEarth.click(function () {
@@ -2570,6 +2775,14 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
+
     });
 
     stay.onclick = function () {
@@ -2580,7 +2793,6 @@ function clickElements() {
 
 
     //clicking off of modals
-
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
@@ -2793,7 +3005,7 @@ function moveRight() {
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
-        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] + 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] + 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -2823,6 +3035,9 @@ function moveRight() {
                 }
             }
 
+        } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) {
+            $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
@@ -2847,7 +3062,7 @@ function moveDown() {
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
-        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] + 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] + 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
@@ -2877,6 +3092,9 @@ function moveDown() {
                 }
             }
 
+        } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) {
+            $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
             map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
@@ -2905,7 +3123,7 @@ function moveLeft() {
 
 
     if (rocketPosition[1] > 0) {
-        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
+        if ((map[rocketPosition[0]][rocketPosition[1] - 1] == 0.1) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 0.2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 2.5) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 6) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 7) || (map[rocketPosition[0]][rocketPosition[1] - 1] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 1) {
             lossAndVictoryArray.push("win");
@@ -2935,6 +3153,9 @@ function moveLeft() {
                 }
             }
 
+        } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) {
+            $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
             map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
@@ -2960,7 +3181,7 @@ function moveUp() {
 
 
     if (rocketPosition[0] > 0) {
-        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
+        if ((map[rocketPosition[0] - 1][rocketPosition[1]] == 0.1) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 0.2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 2.5) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 6) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 7) || (map[rocketPosition[0] - 1][rocketPosition[1]] == 8)) {
             lossAndVictoryArray.push("lose");
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 1) {
             lossAndVictoryArray.push("win");
@@ -2990,6 +3211,9 @@ function moveUp() {
                 }
             }
 
+        } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) {
+            $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
             map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
@@ -3170,10 +3394,10 @@ var winAndLossCall = function () {
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
-                }, 4000);
+                }, 2000);
                 setTimeout(function () {
                     originalPos()
-                }, 4000);
+                }, 2000);
                 setTimeout(function () {
                     $("#play-first").attr({"src": "img/playfield/play.png"})
                     $run.off();
@@ -3380,6 +3604,9 @@ function instructionsThree() {
     $modalTitle.hide();
     $modalText.text("Hi, it's me again! You may have noticed that the levels become more challenging with more obstacles. 10 commands may not be enough to move your spaceship to its destination.");
     $commandsOverlay.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
@@ -3432,6 +3659,13 @@ function instructionsFour() {
     $modalText.text("This level introduces asteroids and falling stars.");
     $commandsOverlay.hide();
     $point.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
+    $("#submit").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
+
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
@@ -3467,6 +3701,13 @@ function instructionsFive() {
     $modalText.text("Now that you've learnt how to navigate your way around space, you are left to your own devices! Good luck!");
     $commandsOverlay.hide();
     $point.hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
+    $("#submit").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
+    
     $modalNext.click(function () {
         modal.style.display = "none";
     })

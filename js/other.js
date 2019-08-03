@@ -17,6 +17,18 @@ var text4 = "Asteroids and falling stars:Asteroids and falling stars are to be a
 var text5="Checkpoints:Your progress will be saved after you complete each stage. To go back at any time, just click on the home button and choose which checkpoint you would like to go to.";
 
 
+var overviewImg = $("#computational");
+var brain = $(".Brain");
+var brain1 = $("#brain1");
+var brain2 = $("#brain2");
+var brain3 = $("#brain3");
+var brain4 = $("#brain4");
+
+var braincolour1 = $(".brain1_colour");
+var braincolour2 = $(".brain2_colour");
+var braincolour3 = $(".brain3_colour");
+var braincolour4 = $(".brain4_colour");
+
 $("#next2").click(function(){
     var newcounter = counter+1;
     $("#" + counter).remove();
@@ -61,3 +73,119 @@ $("#back").click(function(){
     counter = backcounter;
     console.log(backcounter);
 });
+
+
+var createdDiv = false;
+
+brain1.click(function(){
+    hideImgs(); 
+    if (createdDiv === false){
+        addTextDivs();
+        createdDiv = true;
+    }
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_colour.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain1.png");
+    $("h2").text("Decomposition");
+    $("p").text("Decomposition involves the breaking down of a problem into smaller manageable components, each of which could be worked upon individually, one at a time. This makes complex problems easier to solve.");
+})
+
+brain2.click(function(){
+    hideImgs();
+    if (createdDiv === false){
+        addTextDivs();
+        createdDiv = true;
+    }
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_colour.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain2.png");
+    $("h2").text("Abstraction");
+    $("p").text("Abstraction involves identification of general principles or rules that produce a set of patterns. It is the process of filtering out – ignoring - the characteristics of patterns that is not needed in order to concentrate on those that are needed. It is also the filtering out of specific details. From this we create a representation (idea) of what we are trying to solve.");
+})
+
+brain3.click(function(){
+    hideImgs();
+    if (createdDiv === false){
+        addTextDivs();
+        createdDiv = true;
+    }
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_colour.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain3.png");
+    $("h2").text("Pattern Recongition");
+    $("p").text("Pattern recognition involves identifying patterns and trends in a set of data. This enables to find a solution in a more efficient and effective way.");
+})
+
+brain4.click(function(){
+    hideImgs();
+    if (createdDiv === false){
+        addTextDivs();
+        createdDiv = true;
+    }
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_colour.png");
+    $(".brain_image").attr("src","img/other/Brain4.png");
+    $("h2").text("Algorithm");
+    $("p").text("Algorithmic design implies formulating a set of instructions for step-by-step solution of the present problem as well as other problems of a similar kind. ");
+})
+
+function hideImgs(){
+    overviewImg.hide();
+    brain1.hide();
+    brain2.hide();
+    brain3.hide();
+    brain4.hide();
+}
+
+function addTextDivs(){
+    $(".title").append("<div class='text'><div class='main-part'><h2></h2><p></p></div></div>");
+    brain.show();
+}
+
+braincolour1.click(function(){
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_colour.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain1.png");
+    $("h2").text("Decomposition");
+    $("p").text("Decomposition involves the breaking down of a problem into smaller manageable components, each of which could be worked upon individually, one at a time. This makes complex problems easier to solve.");
+})
+
+braincolour2.click(function(){
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_colour.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain2.png");
+    $("h2").text("Abstraction");
+    $("p").text("Abstraction involves identification of general principles or rules that produce a set of patterns. It is the process of filtering out – ignoring - the characteristics of patterns that is not needed in order to concentrate on those that are needed. It is also the filtering out of specific details. From this we create a representation (idea) of what we are trying to solve.");
+})
+
+braincolour3.click(function(){
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_colour.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_grey.png");
+    $(".brain_image").attr("src","img/other/Brain3.png");
+    $("h2").text("Pattern Recongition");
+    $("p").text("Pattern recognition involves identifying patterns and trends in a set of data. This enables to find a solution in a more efficient and effective way.");
+})
+
+braincolour4.click(function(){
+    $(".brain1_colour").attr("src","img/other/brain_decomposition_grey.png")
+    $(".brain2_colour").attr("src", "img/other/brain_abstraction_grey.png");
+    $(".brain3_colour").attr("src", "img/other/brain_pattern_grey.png");
+    $(".brain4_colour").attr("src", "img/other/brain_algorithm_colour.png");
+    $(".brain_image").attr("src","img/other/Brain4.png");
+    $("h2").text("Algorithm");
+    $("p").text("Algorithmic design implies formulating a set of instructions for step-by-step solution of the present problem as well as other problems of a similar kind. ");
+})
