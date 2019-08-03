@@ -2276,12 +2276,23 @@ function dangerArea(planet) {
                         }
                     }
                 }
+                
+                if (planet == "ice") {
+                    if (map[i][j] === 5) {
+                        if (iceBool === false) {
+                            ctx.globalAlpha = 0.4;
+                            ctx.fillStyle = "#88ff00"; //low contrast
+                            ctx.fillRect(xPosition, yPosition, 50, 50);
+                        }
+                    }
+                }
 
                 if (planet == "metal") {
                     if ((map[i][j] === 3.5) || (map[i][j] === 3)) {
                         if (metalBool === false) {
                             ctx.globalAlpha = 0.4;
-                            ctx.fillStyle = "#FF0000"; //low contrast
+                            ctx.fillStyle = "#88ff00"; // Added Green
+                            //ctx.fillStyle = "#FF0000"; //low contrast
                             //ctx.fillStyle = "#90e7fd"; //better for accessibility / colourblindness / low vision ?
                             ctx.fillRect(xPosition, yPosition, 50, 50);
                         }
