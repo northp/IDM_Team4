@@ -162,24 +162,24 @@ function loadVersions() {
         [
             [
                 [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 1, 2, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0],
                 [0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 5, 4, 0, 0, 0],
+                [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0],
+                [0, 0, 0, 0, 3.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
+                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -187,24 +187,24 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0],
                 [0, 0, 2, 0, 0, 0, 0, 0, 6, 0, 0],
-                [0, 0, 0, 0, 5, 0, 3, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
                 [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
             ]
@@ -274,8 +274,8 @@ function loadVersions() {
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 2.5, 2, 0, 0, 6, 0],
-                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -286,20 +286,8 @@ function loadVersions() {
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 2.5, 2, 0, 0, 6, 0],
-                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 2.5, 2, 0, 0, 6, 0],
-                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -310,11 +298,23 @@ function loadVersions() {
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3, 0, 0, 2.5, 2, 0, 0, 6, 0],
-                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ]
+            ],
+            [
+                [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
+                [0, 8, 8, 8, 0, 0, 0, 1, 0, 0, 0],
+                [0, 8, 8, 8, 5, 0, 0, 0.2, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
+                [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
         ];
 
     // Arrays to hold Level 5 versions 1, 2, 3 and 4:
@@ -323,48 +323,48 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
                 [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
                 [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
+                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
                 [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
@@ -500,7 +500,7 @@ function chooseLevel() {
         map = versionListLevel5[version];
 
         insertDOMandCSS5();
-        setTimeout(instructionsFive, 750); //instructions
+        //setTimeout(instructionsFive, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
@@ -548,8 +548,8 @@ function jQueryVariables() {
     $helpButton = $(".help-button");
     $planetEarth = $("#planetEarth");
     $planetDestination = $("#planetDestination");
-    $planetMetal = $(".planetMetal");
-    $planetIce = $(".planetIce");
+    $planetMetal = $("#planetMetal");
+    $planetIce = $("#planetIce");
     $planetFire = $("#planetFire");
     $planetMoon = $("#planetMoon");
     $planetLava = $("#planetLava");
@@ -700,7 +700,7 @@ function insertDOMandCSS1() {
 
     $('.canvas')
         .prepend('<img id="rocketman"/>')
-        .prepend('<img class="planetMetal"/>')
+        .prepend('<img id="planetMetal"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id ="originalrocketspace"/>')
@@ -855,15 +855,11 @@ function insertDOMandCSS2() {
     // map 2 selected
     // next step: insert img tags for lvl 2
     $('.canvas')/* .prepend('<img id="hint"/>') */
-        .prepend('<img id="planetIce_3" class="planetIce"/>')
-        .prepend('<img id="planetIce_2" class="planetIce"/>')
-        .prepend('<img id="planetIce_1" class="planetIce"/>')
+        .prepend('<img id="planetIce"/>')
         .prepend('<img id="planetEarth"/>')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
-        .prepend('<img id="planetMetal_3" class="planetMetal"/>')
-        .prepend('<img id="planetMetal_2" class="planetMetal"/>')
-        .prepend('<img id="planetMetal_1" class="planetMetal"/>')
+        .prepend('<img id="planetMetal"/>')
         .prepend('<img id="rocketman"/>')
         .prepend('<img id ="originalrocketspace"/>');
 
@@ -874,24 +870,16 @@ function insertDOMandCSS2() {
     functionTwoLevelMoves = 4;
 
     // Metal planet coordinates
-    var metalMarginLeft1;
-    var metalMarginTop1;
-    var metalMarginLeft2;
-    var metalMarginTop2;
-    var metalMarginLeft3;
-    var metalMarginTop3;
+    var metalMarginLeft;
+    var metalMarginTop;
 
     // Fire planet coordinates
     var fireMarginLeft;
     var fireMarginTop;
 
     // Ice planet coordinates
-    var iceMarginLeft1;
-    var iceMarginTop1;
-    var iceMarginLeft2;
-    var iceMarginTop2;
-    var iceMarginLeft3;
-    var iceMarginTop3;
+    var iceMarginLeft;
+    var iceMarginTop;
 
     // Earth planet coordinates
     var earthMarginLeft;
@@ -912,24 +900,16 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft1 = '18.2%';
-            metalMarginTop1 = '36.7%';
-            metalMarginLeft2 = '27.3%';
-            metalMarginTop2 = '36.7%';
-            metalMarginLeft3 = '36.4%';
-            metalMarginTop3 = '36.7%';
+            metalMarginLeft = '27%';
+            metalMarginTop = '36.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '36.4%';
+            fireMarginLeft = '45%';
             fireMarginTop = '9.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft1 = '36.6%';
-            iceMarginTop1 = '54.75%';
-            iceMarginLeft2 = '45.6%';
-            iceMarginTop2 = '63.75%';
-            iceMarginLeft3 = '54.7%';
-            iceMarginTop3 = '72.7%';
+            iceMarginLeft = '36.6%';
+            iceMarginTop = '54.75%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '27.5%';
@@ -950,24 +930,16 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft1 = '18.2%';
-            metalMarginTop1 = '36.7%';
-            metalMarginLeft2 = '27.3%';
-            metalMarginTop2 = '27.7%';
-            metalMarginLeft3 = '36.4%';
-            metalMarginTop3 = '18.7%';
+            metalMarginLeft = '27.4%';
+            metalMarginTop = '27%';
 
             // defining the fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '54.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft1 = '45.6%';
-            iceMarginTop1 = '36.7%';
-            iceMarginLeft2 = '54.6%';
-            iceMarginTop2 = '45.7%';
-            iceMarginLeft3 = '63.7%';
-            iceMarginTop3 = '54.7%';
+            iceMarginLeft = '55%';
+            iceMarginTop = '37%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '36.75%';
@@ -988,24 +960,16 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft1 = '18.2%';
-            metalMarginTop1 = '63.7%';
-            metalMarginLeft2 = '36.4%';
-            metalMarginTop2 = '72.7%';
-            metalMarginLeft3 = '54.4%';
-            metalMarginTop3 = '54.7%';
+            metalMarginLeft = '18%';
+            metalMarginTop = '64%';
 
             // defining the fire planet coordinates
             fireMarginLeft = '18.4%';
             fireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft1 = '36.6%';
-            iceMarginTop1 = '54.4%';
-            iceMarginLeft2 = '54.6%';
-            iceMarginTop2 = '36.4%';
-            iceMarginLeft3 = '63.7%';
-            iceMarginTop3 = '18.4%';
+            iceMarginLeft = '45%';
+            iceMarginTop = '28%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '72.75%';
@@ -1026,24 +990,16 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft1 = '18.2%';
-            metalMarginTop1 = '63.7%';
-            metalMarginLeft2 = '27.3%';
-            metalMarginTop2 = '63.7%';
-            metalMarginLeft3 = '36.4%';
-            metalMarginTop3 = '63.7%';
+            metalMarginLeft = '27.3%';
+            metalMarginTop = '63.7%';
 
             // defining the fire planet coordinates
             fireMarginLeft = '27.4%';
             fireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft1 = '45.6%';
-            iceMarginTop1 = '27.4%';
-            iceMarginLeft2 = '54.6%';
-            iceMarginTop2 = '27.4%';
-            iceMarginLeft3 = '63.7%';
-            iceMarginTop3 = '27.4%';
+            iceMarginLeft = '54.6%';
+            iceMarginTop = '27.4%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '63.75%';
@@ -1063,26 +1019,10 @@ function insertDOMandCSS2() {
         'z-index': '1'
     });
 
-    $('#planetMetal_1').attr('src', 'img/playfield/planets/planet_metal.png').css({
+    $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
         'position': 'absolute',
-        'margin-left': metalMarginLeft1,
-        'margin-top': metalMarginTop1,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetMetal_2').attr('src', 'img/playfield/planets/planet_metal.png').css({
-        'position': 'absolute',
-        'margin-left': metalMarginLeft2,
-        'margin-top': metalMarginTop2,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetMetal_3').attr('src', 'img/playfield/planets/planet_metal.png').css({
-        'position': 'absolute',
-        'margin-left': metalMarginLeft3,
-        'margin-top': metalMarginTop3,
+        'margin-left': metalMarginLeft,
+        'margin-top': metalMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
@@ -1112,28 +1052,12 @@ function insertDOMandCSS2() {
         'max-width': '9%'
     });
 
-    $('#planetIce_1').attr('src', 'img/playfield/planets/planet_ice.png').css({
+    $planetIce.attr('src', 'img/playfield/planets/planet_ice.png').css({
         'position': 'absolute',
-        'margin-left': iceMarginLeft1,
-        'margin-top': iceMarginTop1,
+        'margin-left': iceMarginLeft,
+        'margin-top': iceMarginTop,
         'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetIce_2').attr('src', 'img/playfield/planets/planet_ice.png').css({
-        'position': 'absolute',
-        'margin-left': iceMarginLeft2,
-        'margin-top': iceMarginTop2,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetIce_3').attr('src', 'img/playfield/planets/planet_ice.png').css({
-        'position': 'absolute',
-        'margin-left': iceMarginLeft3,
-        'margin-top': iceMarginTop3,
-        'max-height': 'auto',
-        'max-width': '9%'
+        'max-width': '18%'
     });
 
     $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
@@ -1336,9 +1260,9 @@ function insertDOMandCSS4() {
         .prepend('<img id="rocketman"/>')
         .prepend('<img id="asteroid"/>')
         .prepend('<img id ="fallingstar"/>')
-        .prepend('<img class ="planetMetal"/>')
+        .prepend('<img id ="planetMetal"/>')
         .prepend('<img id ="planetEarth"/>')
-        .prepend('<img class ="planetIce"/>')
+        .prepend('<img id ="planetIce"/>')
         .prepend('<img id ="planetLava"/>')
         .prepend('<img id ="planetMoon"/>')
         .prepend('<img id ="originalrocketspace"/>');
@@ -1537,20 +1461,14 @@ function insertDOMandCSS5() {
     // map 5 selected
     // next step: insert img tags for lvl 5
     $('.canvas')/* .prepend('<img id="hint"/>') */
-        .prepend('<img id="planetLava_3" class="planetLava"/>')
-        .prepend('<img id="planetLava_2" class="planetLava"/>')
-        .prepend('<img id="planetLava_1" class="planetLava"/>')
-        .prepend('<img id="planetEarth_3" class="planetEarth"/>')
-        .prepend('<img id="planetEarth_2" class="planetEarth"/>')
-        .prepend('<img id="planetEarth_1" class="planetEarth"/>')
+        .prepend('<img id="planetLava"/>')
+        .prepend('<img id="planetEarth"/>')
         .prepend('<img id="planetDestination"/>')
-        .prepend('<img id="planetFire_4" class="planetFire"/>')
-        .prepend('<img id="planetFire_3" class="planetFire"/>')
-        .prepend('<img id="planetFire_2" class="planetFire"/>')
-        .prepend('<img id="planetFire_1" class="planetFire"/>')
+        .prepend('<img id="planetFire"/>')
         .prepend('<img id="rocketman"/>')
         .prepend('<img id="asteroid"/>')
         .prepend('<img id ="fallingstar"/>')
+        .prepend('<img id ="planetMoon"/>')
         .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
@@ -1560,30 +1478,19 @@ function insertDOMandCSS5() {
     functionTwoLevelMoves = 4;
 
     // Lava planet coordinates
-    var lavaMarginLeft1;
-    var lavaMarginTop1;
-    var lavaMarginLeft2;
-    var lavaMarginTop2;
-    var lavaMarginLeft3;
-    var lavaMarginTop3;
+    var lavaMarginLeft;
+    var lavaMarginTop;
 
     // Earth planet coordinates
-    var earthMarginLeft1;
-    var earthMarginTop1;
-    var earthMarginLeft2;
-    var earthMarginTop2;
-    var earthMarginLeft3;
-    var earthMarginTop3;
+    var earthMarginLeft;
+    var earthMarginTop;
 
     // Fire planet coordinates
-    var fireMarginLeft1;
-    var fireMarginTop1;
-    var fireMarginLeft2;
-    var fireMarginTop2;
-    var fireMarginLeft3;
-    var fireMarginTop3;
-    var fireMarginLeft4;
-    var fireMarginTop4;
+    var fireMarginLeft;
+    var fireMarginTop;
+
+    var moonMarginLeft;
+    var moonMarginTop;
 
     switch (version) {
         case 0:
@@ -1608,30 +1515,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft1 = '18.2%';
-            lavaMarginTop1 = '63.7%';
-            lavaMarginLeft2 = '27.3%';
-            lavaMarginTop2 = '54.7%';
-            lavaMarginLeft3 = '36.4%';
-            lavaMarginTop3 = '45.7%';
+            lavaMarginLeft = '36.4%';
+            lavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft1 = '45.6%';
-            fireMarginTop1 = '18.2%';
-            fireMarginLeft2 = '54.6%';
-            fireMarginTop2 = '18.2%';
-            fireMarginLeft3 = '63.7%';
-            fireMarginTop3 = '18.2%';
-            fireMarginLeft4 = '72.7%';
-            fireMarginTop4 = '18.2%';
+            fireMarginLeft = '54.6%';
+            fireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft1 = '18.2%';
-            earthMarginTop1 = '36.7%';
-            earthMarginLeft2 = '18.2%';
-            earthMarginTop2 = '27.7%';
-            earthMarginLeft3 = '18.2%';
-            earthMarginTop3 = '18.7%';
+            earthMarginLeft = '18.2%';
+            earthMarginTop = '18.7%';
+
+            // defining the moon planet coordinates
+            moonMarginLeft = '61%';
+            moonMarginTop = '52%';
 
             break;
         case 1:
@@ -1656,30 +1553,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft1 = '18.2%';
-            lavaMarginTop1 = '63.7%';
-            lavaMarginLeft2 = '27.3%';
-            lavaMarginTop2 = '54.7%';
-            lavaMarginLeft3 = '36.4%';
-            lavaMarginTop3 = '45.7%';
+            lavaMarginLeft = '36.4%';
+            lavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft1 = '45.6%';
-            fireMarginTop1 = '18.2%';
-            fireMarginLeft2 = '54.6%';
-            fireMarginTop2 = '18.2%';
-            fireMarginLeft3 = '63.7%';
-            fireMarginTop3 = '18.2%';
-            fireMarginLeft4 = '72.7%';
-            fireMarginTop4 = '18.2%';
+            fireMarginLeft = '54.6%';
+            fireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft1 = '18.2%';
-            earthMarginTop1 = '36.7%';
-            earthMarginLeft2 = '18.2%';
-            earthMarginTop2 = '27.7%';
-            earthMarginLeft3 = '18.2%';
-            earthMarginTop3 = '18.7%';
+            earthMarginLeft = '18.2%';
+            earthMarginTop = '18.7%';
+
+            // defining the moon planet coordinates
+            moonMarginLeft = '61%';
+            moonMarginTop = '52%';
 
             break;
         case 2:
@@ -1704,30 +1591,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft1 = '18.2%';
-            lavaMarginTop1 = '63.7%';
-            lavaMarginLeft2 = '27.3%';
-            lavaMarginTop2 = '54.7%';
-            lavaMarginLeft3 = '36.4%';
-            lavaMarginTop3 = '45.7%';
+            lavaMarginLeft = '36.4%';
+            lavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft1 = '45.6%';
-            fireMarginTop1 = '18.2%';
-            fireMarginLeft2 = '54.6%';
-            fireMarginTop2 = '18.2%';
-            fireMarginLeft3 = '63.7%';
-            fireMarginTop3 = '18.2%';
-            fireMarginLeft4 = '72.7%';
-            fireMarginTop4 = '18.2%';
+            fireMarginLeft = '54.6%';
+            fireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft1 = '18.2%';
-            earthMarginTop1 = '36.7%';
-            earthMarginLeft2 = '18.2%';
-            earthMarginTop2 = '27.7%';
-            earthMarginLeft3 = '18.2%';
-            earthMarginTop3 = '18.7%';
+            earthMarginLeft = '18.2%';
+            earthMarginTop = '18.7%';
+
+            // defining the moon planet coordinates
+            moonMarginLeft = '61%';
+            moonMarginTop = '52%';
 
             break;
         case 3:
@@ -1752,30 +1629,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft1 = '18.2%';
-            lavaMarginTop1 = '63.7%';
-            lavaMarginLeft2 = '27.3%';
-            lavaMarginTop2 = '54.7%';
-            lavaMarginLeft3 = '36.4%';
-            lavaMarginTop3 = '45.7%';
+            lavaMarginLeft = '36.4%';
+            lavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft1 = '45.6%';
-            fireMarginTop1 = '18.2%';
-            fireMarginLeft2 = '54.6%';
-            fireMarginTop2 = '18.2%';
-            fireMarginLeft3 = '63.7%';
-            fireMarginTop3 = '18.2%';
-            fireMarginLeft4 = '72.7%';
-            fireMarginTop4 = '18.2%';
+            fireMarginLeft = '54.6%';
+            fireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft1 = '18.2%';
-            earthMarginTop1 = '36.7%';
-            earthMarginLeft2 = '18.2%';
-            earthMarginTop2 = '27.7%';
-            earthMarginLeft3 = '18.2%';
-            earthMarginTop3 = '18.7%';
+            earthMarginLeft = '18.2%';
+            earthMarginTop = '18.7%';
+
+            // defining the moon planet coordinates
+            moonMarginLeft = '61%';
+            moonMarginTop = '52%';
 
             break;
     }
@@ -1810,34 +1677,10 @@ function insertDOMandCSS5() {
         'max-width': '12%',
     });
 
-    $("#planetFire_1").attr('src', 'img/playfield/planets/planet_fire.png').css({
+    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
-        'margin-left': fireMarginLeft1,
-        'margin-top': fireMarginTop1,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $("#planetFire_2").attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft2,
-        'margin-top': fireMarginTop2,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $("#planetFire_3").attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft3,
-        'margin-top': fireMarginTop3,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $("#planetFire_4").attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft4,
-        'margin-top': fireMarginTop4,
+        'margin-left': fireMarginLeft,
+        'margin-top': fireMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
@@ -1851,50 +1694,27 @@ function insertDOMandCSS5() {
         'transform': 'rotate(30deg)'
     });
 
-    $('#planetEarth_1').attr('src', 'img/playfield/planets/planet_earth.png').css({
+    $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
         'position': 'absolute',
-        'margin-left': earthMarginLeft1,
-        'margin-top': earthMarginTop1,
+        'margin-left': earthMarginLeft,
+        'margin-top': earthMarginTop,
         'max-height': 'auto',
-        'max-width': '9%'
+        'max-width': '18%'
     });
 
-    $('#planetEarth_2').attr('src', 'img/playfield/planets/planet_earth.png').css({
+    $planetMoon.attr('src', 'img/playfield/planets/planet_moon.png').css({
         'position': 'absolute',
-        'margin-left': earthMarginLeft2,
-        'margin-top': earthMarginTop2,
+        'margin-left': moonMarginLeft,
+        'margin-top': moonMarginTop,
         'max-height': 'auto',
-        'max-width': '9%'
+        'max-width': '23%'
     });
 
-    $('#planetEarth_3').attr('src', 'img/playfield/planets/planet_earth.png').css({
-        'position': 'absolute',
-        'margin-left': earthMarginLeft3,
-        'margin-top': earthMarginTop3,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
 
-    $('#planetLava_1').attr('src', 'img/playfield/planets/planet_lava.png').css({
+    $planetLava.attr('src', 'img/playfield/planets/planet_lava.png').css({
         'position': 'absolute',
-        'margin-left': lavaMarginLeft1,
-        'margin-top': lavaMarginTop1,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetLava_2').attr('src', 'img/playfield/planets/planet_lava.png').css({
-        'position': 'absolute',
-        'margin-left': lavaMarginLeft2,
-        'margin-top': lavaMarginTop2,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $('#planetLava_3').attr('src', 'img/playfield/planets/planet_lava.png').css({
-        'position': 'absolute',
-        'margin-left': lavaMarginLeft3,
-        'margin-top': lavaMarginTop3,
+        'margin-left': lavaMarginLeft,
+        'margin-top': lavaMarginTop,
         'max-height': 'auto',
         'max-width': '9%'
     });
@@ -2278,7 +2098,7 @@ function dangerArea(planet) {
                         }
                     }
                 }
-                
+
                 if (planet == "ice") {
                     if (map[i][j] === 5) {
                         if (iceBool === false) {
@@ -2309,7 +2129,7 @@ function dangerArea(planet) {
         yPosition = 0;
     }
 
-    function checkAnswers(x, planet, solved, planetBool){
+    function checkAnswers(x, planet, solved, planetBool) {
         if ($('input[type=radio]:checked').val() == x) {
             drawZone();
             $(".modal").hide();
@@ -2340,7 +2160,7 @@ function dangerArea(planet) {
             }
             if ($(".gameImg1").attr("id") === "minigamefour") {
                 checkAnswers(2, "fire", solvedfire, fireBool)
-            }  
+            }
         });
     }
 
@@ -2384,15 +2204,15 @@ var gamesPath = [
     ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
     ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
     ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
-    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"],
+    ["minigamefour.png", "minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png", "minigame_four_4.png", "minigame_four_5.png"],
     ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
     ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
     ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
-    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"],
+    ["minigamefour.png", "minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png", "minigame_four_4.png", "minigame_four_5.png"],
     ["minigameone.png", "minigame_one_0.png", "minigame_one_1.png", "minigame_one_2.png", "minigame_one_3.png", "minigame_one_4.png", "minigame_one_5.png"],
     ["minigametwo.png", "minigame_two_0.png", "minigame_two_1.png", "minigame_two_2.png", "minigame_two_3.png", "minigame_two_4.png", "minigame_two_5.png"],
     ["minigamethree.png", "minigame_three_0.png", "minigame_three_1.png", "minigame_three_2.png", "minigame_three_3.png", "minigame_three_4.png", "minigame_three_5.png"],
-    ["minigamefour.png","minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png","minigame_four_4.png","minigame_four_5.png"]
+    ["minigamefour.png", "minigame_four_0.png", "minigame_four_1.png", "minigame_four_2.png", "minigame_four_3.png", "minigame_four_4.png", "minigame_four_5.png"]
 ];
 
 // generate a mini game randomly
@@ -2404,9 +2224,9 @@ function generateMinigame(planet) {
     });
 
     //game titles
-    var arrayTitleOne = arrayTitle.slice(0,4);
-    var arrayTitleTwo = arrayTitle.slice(4,8);
-    var arrayTitleThree = arrayTitle.slice(8,12);
+    var arrayTitleOne = arrayTitle.slice(0, 4);
+    var arrayTitleTwo = arrayTitle.slice(4, 8);
+    var arrayTitleThree = arrayTitle.slice(8, 12);
 
     // choose a random title from the new array
     var gameTitleOne = arrayTitleOne[Math.floor(Math.random() * arrayTitleOne.length)];
@@ -2443,108 +2263,108 @@ function generateMinigame(planet) {
         }
     }
 
-    if (gamePlayed2 === false){
+    if (gamePlayed2 === false) {
         if (planet == "metal") {
             console.log(planet);
             if (gameTitleTwo == "minigameone.png") {
                 solution = gamesPath[4].slice(1, 7);
                 addGameimg(gameTitleTwo);
             }
-    
+
             if (gameTitleTwo == "minigametwo.png") {
                 solution = gamesPath[5].slice(1, 7);
                 addGameimg(gameTitleTwo);
             }
-    
+
             if (gameTitleTwo == "minigamethree.png") {
                 solution = gamesPath[6].slice(1, 7);
                 addGameimg(gameTitleTwo);
             }
-    
+
             if (gameTitleTwo == "minigamefour.png") {
                 solution = gamesPath[7].slice(1, 7);
                 addGameimg(gameTitleTwo);
             }
-         }
+        }
     }
 
 
-    if (gamePlayed3 === false ){
+    if (gamePlayed3 === false) {
         if (planet == "ice") {
             console.log(planet);
             if (gameTitleThree == "minigameone.png") {
                 solution = gamesPath[8].slice(1, 7);
                 addGameimg(gameTitleThree);
             }
-    
+
             if (gameTitleThree == "minigametwo.png") {
                 solution = gamesPath[9].slice(1, 7);
                 addGameimg(gameTitleThree);
             }
-    
+
             if (gameTitleThree == "minigamethree.png") {
                 solution = gamesPath[10].slice(1, 7);
                 addGameimg(gameTitleThree);
             }
-    
+
             if (gameTitleThree == "minigamefour.png") {
                 solution = gamesPath[11].slice(1, 7);
                 addGameimg(gameTitleThree);
             }
-         }
+        }
     }
 
-function addGameimg(title){
-    showSolutions(solution);
-    if (planet == "fire"){
-        $(".gameImg1").attr("id", title.slice(0, -4));
-        $(".gameImg1").attr("src", "img/minigames/fire/" + title);
-        gamePlayed1 = true;
-        existingLabels = true;
-    }
-    if (planet == "metal"){
-        $(".gameImg2").attr("id", title.slice(0, -4));
-        $(".gameImg2").attr("src", "img/minigames/metal/" + title);
-        gamePlayed2 = true;
-        existingLabels = true;
-    }
-    if (planet == "ice"){
-        $(".gameImg3").attr("id", title.slice(0, -4));
-        $(".gameImg3").attr("src", "img/minigames/ice/" + title);
-        gamePlayed3 = true;
-        existingLabels = true;
-    }
-  
-}
+    function addGameimg(title) {
+        showSolutions(solution);
+        if (planet == "fire") {
+            $(".gameImg1").attr("id", title.slice(0, -4));
+            $(".gameImg1").attr("src", "img/minigames/fire/" + title);
+            gamePlayed1 = true;
+            existingLabels = true;
+        }
+        if (planet == "metal") {
+            $(".gameImg2").attr("id", title.slice(0, -4));
+            $(".gameImg2").attr("src", "img/minigames/metal/" + title);
+            gamePlayed2 = true;
+            existingLabels = true;
+        }
+        if (planet == "ice") {
+            $(".gameImg3").attr("id", title.slice(0, -4));
+            $(".gameImg3").attr("src", "img/minigames/ice/" + title);
+            gamePlayed3 = true;
+            existingLabels = true;
+        }
 
-function showSolutions(placeholder) {
-   if (existingLabels === false) {
-       $(".labels").append("<div class='fire'></div><div class='metal'></div><div class='ice'></div>")
-   }
-    for (var i = 0; i < placeholder.length; i++) {
-        if (existingLabels === false){
-            $(".fire").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='fire" + i + "'></label>");
-            $(".metal").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='metal" + i + "'></label>");
-            $(".ice").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='ice" + i + "'></label>");
-        } 
-        if (planet == "fire"){
-            $(".fire" + i).attr("src", "img/minigames/fire/" + placeholder[i]);
-            $(".fire" + i).css("width", "30%");
-            $(".fire" + i).css("margin-right", "2%");
- 
+    }
+
+    function showSolutions(placeholder) {
+        if (existingLabels === false) {
+            $(".labels").append("<div class='fire'></div><div class='metal'></div><div class='ice'></div>")
         }
-        if (planet == "metal"){
-            $(".metal" + i).attr("src", "img/minigames/metal/" + placeholder[i]);
-            $(".metal" + i).css("width", "30%");
-            $(".metal" + i).css("margin-right", "2%");
-        }
-        if (planet == "ice"){
-            $(".ice" + i).attr("src", "img/minigames/ice/" + placeholder[i]);
-            $(".ice" + i).css("width", "30%");
-            $(".ice" + i).css("margin-right", "2%");
+        for (var i = 0; i < placeholder.length; i++) {
+            if (existingLabels === false) {
+                $(".fire").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='fire" + i + "'></label>");
+                $(".metal").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='metal" + i + "'></label>");
+                $(".ice").append("<label><input type='radio' name='answer' value=' " + i + "'><img class='ice" + i + "'></label>");
+            }
+            if (planet == "fire") {
+                $(".fire" + i).attr("src", "img/minigames/fire/" + placeholder[i]);
+                $(".fire" + i).css("width", "30%");
+                $(".fire" + i).css("margin-right", "2%");
+
+            }
+            if (planet == "metal") {
+                $(".metal" + i).attr("src", "img/minigames/metal/" + placeholder[i]);
+                $(".metal" + i).css("width", "30%");
+                $(".metal" + i).css("margin-right", "2%");
+            }
+            if (planet == "ice") {
+                $(".ice" + i).attr("src", "img/minigames/ice/" + placeholder[i]);
+                $(".ice" + i).css("width", "30%");
+                $(".ice" + i).css("margin-right", "2%");
+            }
         }
     }
-}
 
 }
 
@@ -2596,7 +2416,7 @@ function clickElements() {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
@@ -2609,23 +2429,23 @@ function clickElements() {
         $(".metal").hide();
         $(".ice").hide();
 
-        if (solvedfire === false){
+        if (solvedfire === false) {
             $("#submit").show();
         } else {
             $("#submit").hide();
             $(".reaction").hide();
         }
-        
+
         $("#submitmetal").hide();
         $("#submitice").hide();
-        
+
     });
 
     $planetMetal.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_metal.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
@@ -2641,7 +2461,7 @@ function clickElements() {
         $("#submitmetal").show();
         $("#submitice").hide();
 
-        if (solvedmetal === false){
+        if (solvedmetal === false) {
             $("#submitmetal").show();
         } else {
             $("#submitmetal").hide();
@@ -2652,8 +2472,9 @@ function clickElements() {
     $planetDestination.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_destination.png").css("height", "5%", "width", "5%");
+        $modalImage.show();
         $modalText.text("This is your destination!");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
@@ -2675,7 +2496,7 @@ function clickElements() {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
@@ -2694,7 +2515,7 @@ function clickElements() {
         $("#submitmetal").hide();
         $("#submitice").show();
 
-        if (solvedice === false){
+        if (solvedice === false) {
             $("#submitice").show();
         } else {
             $("#submitice").hide();
@@ -2706,72 +2527,132 @@ function clickElements() {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_earth.png").css("height", "5%", "width", "5%");
         $modalText.text("Earth");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
         $commandsOverlay.hide();
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $planetMoon.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_moon.png").css("height", "5%", "width", "5%");
         $modalText.text("Moon");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
         $commandsOverlay.hide();
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $planetLava.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_lava.png").css("height", "5%", "width", "5%");
         $modalText.text("Lava");
-        $modalTitle.text("Planet").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
         $commandsOverlay.hide();
+        $("#submit").hide();
+        $(".gameImg").attr("src", "");
+        $(".reaction").hide();
+        $point.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $asteroid.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/asteroid.png").css("height", "5%", "width", "5%");
         $modalText.text("Asteroids move from left to right.");
-        $modalTitle.text("Asteroid").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
-        $commandsOverlay.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $fallingStar.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/shootingstar.png").css("height", "5%", "width", "5%");
         $modalText.text("Falling stars move downwards.");
-        $modalTitle.text("Falling star").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
         $point.hide();
-        $commandsOverlay.hide();
+        $(".fire").hide();
+        $(".metal").hide();
+        $(".ice").hide();
+        $(".gameImg1").hide();
+        $(".gameImg2").hide();
+        $(".gameImg3").hide();
+        $(".reaction").hide();
+        $("#submit").hide();
+        $("#submitmetal").hide();
+        $("#submitice").hide();
     });
 
     $rocketAnimate.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/spaceship_pink.png").css("height", "10%", "width", "10%");
         $modalText.text("Move the rocket to its destination by using the arrow keys below.");
-        $modalTitle.text("Rocket").css("font-weight", "bold");
+        $modalTitle.hide();
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
@@ -3518,7 +3399,7 @@ function instructions() {
             $modalText.text("These buttons are your commands. They will move the spaceship up, down, left and right.");
             $commandsOverlay.attr("src", "img/playfield/commands.png").css({
                 "width": "50%",
-                "margin-left": "-38%", "margin-top": "111%",
+                "margin-left": "-38%", "margin-top": "115%",
             });
 
             $point.attr("src", "img/playfield/astronaut.png").css({
@@ -3541,7 +3422,7 @@ function instructions() {
             $modalText.text("Your listed commands will be executed when you hit the play button.");
             $commandsOverlay.attr("src", "play.png").css({
                 "width": "50%",
-                "margin-left": "25%", "margin-top": "93%",
+                "margin-left": "25%", "margin-top": "97%",
             });
         }
 
@@ -3575,6 +3456,7 @@ function instructionsTwo() {
     $commandsOverlay.hide();
     $point.hide();
 
+
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
@@ -3607,6 +3489,9 @@ function instructionsThree() {
     $(".gameImg1").hide();
     $(".gameImg2").hide();
     $(".gameImg3").hide();
+    $("#submit").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
@@ -3707,7 +3592,7 @@ function instructionsFive() {
     $("#submit").hide();
     $("#submitmetal").hide();
     $("#submitice").hide();
-    
+
     $modalNext.click(function () {
         modal.style.display = "none";
     })
