@@ -2972,6 +2972,7 @@ function moveRight() {
 
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) {
             $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
@@ -3028,6 +3029,7 @@ function moveDown() {
 
         } else if (map[rocketPosition[0] + 1][rocketPosition[1]] == 5) {
             $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0] + 1][rocketPosition[1]];
             map[rocketPosition[0] + 1][rocketPosition[1]] = 4;
@@ -3088,6 +3090,7 @@ function moveLeft() {
 
         } else if (map[rocketPosition[0]][rocketPosition[1] - 1] == 5) {
             $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] - 1];
             map[rocketPosition[0]][rocketPosition[1] - 1] = 4;
@@ -3145,6 +3148,7 @@ function moveUp() {
 
         } else if (map[rocketPosition[0] - 1][rocketPosition[1]] == 5) {
             $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
+            lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0] - 1][rocketPosition[1]];
             map[rocketPosition[0] - 1][rocketPosition[1]] = 4;
