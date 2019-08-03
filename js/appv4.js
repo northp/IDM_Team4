@@ -316,13 +316,25 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
-        
-            // Arrays to hold Level 5 versions 1, 2, 3 and 4:
+
+    // Arrays to hold Level 5 versions 1, 2, 3 and 4:
     versionListLevel5 =
         [
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
+                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            ],
+            [
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
                 [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
                 [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -345,20 +357,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
-                [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 8, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-            ],
-            [
-                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0.2, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
                 [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 6, 0, 0, 2, 2, 2, 2, 0, 0],
                 [0, 0, 6, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -467,7 +467,7 @@ function chooseLevel() {
         map = versionListLevel5[version];
 
         insertDOMandCSS5();
-        setTimeout(instructionsFive, 750); //instructions
+        //setTimeout(instructionsFive, 750); //instructions
         gamePlayed = false;
         $(".labels").text("");
 
@@ -1494,7 +1494,7 @@ function insertDOMandCSS4() {
     });
 }
 
-function insertDOMandCSS5(){
+function insertDOMandCSS5() {
     // map 5 selected
     // next step: insert img tags for lvl 5
     $('.canvas')/* .prepend('<img id="hint"/>') */
@@ -1515,8 +1515,8 @@ function insertDOMandCSS5(){
         .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
-    
-     //number of moves you can make
+
+    //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
@@ -1535,7 +1535,7 @@ function insertDOMandCSS5(){
     var earthMarginTop2;
     var earthMarginLeft3;
     var earthMarginTop3;
-    
+
     // Fire planet coordinates
     var fireMarginLeft1;
     var fireMarginTop1;
@@ -1559,15 +1559,15 @@ function insertDOMandCSS5(){
             //defining the destination coordinates
             destinationMarginLeft = '42.5%';
             destinationMarginTop = '0%';
-            
+
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '72.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '81.5%';
-            fallingStarMarginTop = '0%';
-            fallingStarY = 0;
-            
+            fallingStarMarginLeft = '81%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
+
             // defining the lava planet coordinates
             lavaMarginLeft1 = '18.2%';
             lavaMarginTop1 = '63.7%';
@@ -1607,15 +1607,15 @@ function insertDOMandCSS5(){
             //defining the destination coordinates
             destinationMarginLeft = '42.5%';
             destinationMarginTop = '0%';
-            
+
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '72.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '81.5%';
-            fallingStarMarginTop = '0%';
-            fallingStarY = 0;
-            
+            fallingStarMarginLeft = '81%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
+
             // defining the lava planet coordinates
             lavaMarginLeft1 = '18.2%';
             lavaMarginTop1 = '63.7%';
@@ -1655,15 +1655,15 @@ function insertDOMandCSS5(){
             //defining the destination coordinates
             destinationMarginLeft = '42.5%';
             destinationMarginTop = '0%';
-            
+
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '72.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '81.5%';
-            fallingStarMarginTop = '0%';
-            fallingStarY = 0;
-            
+            fallingStarMarginLeft = '81%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
+
             // defining the lava planet coordinates
             lavaMarginLeft1 = '18.2%';
             lavaMarginTop1 = '63.7%';
@@ -1703,15 +1703,15 @@ function insertDOMandCSS5(){
             //defining the destination coordinates
             destinationMarginLeft = '42.5%';
             destinationMarginTop = '0%';
-            
+
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '72.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '81.5%';
-            fallingStarMarginTop = '0%';
-            fallingStarY = 0;
-            
+            fallingStarMarginLeft = '81%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
+
             // defining the lava planet coordinates
             lavaMarginLeft1 = '18.2%';
             lavaMarginTop1 = '63.7%';
@@ -1742,6 +1742,8 @@ function insertDOMandCSS5(){
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
+    originalAsteroidX = asteroidX;
+    originalFallingStarY = fallingStarY;
 
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
@@ -1751,7 +1753,7 @@ function insertDOMandCSS5(){
         'max-width': '9%',
         'z-index': '1'
     });
-    
+
     $asteroid.attr('src', 'img/playfield/asteroid.png').css({
         'position': 'absolute',
         'margin-left': asteroidMarginLeft,
@@ -1776,7 +1778,7 @@ function insertDOMandCSS5(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $("#planetFire_2").attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
         'margin-left': fireMarginLeft2,
@@ -1784,7 +1786,7 @@ function insertDOMandCSS5(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $("#planetFire_3").attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
         'margin-left': fireMarginLeft3,
@@ -1792,7 +1794,7 @@ function insertDOMandCSS5(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $("#planetFire_4").attr('src', 'img/playfield/planets/planet_fire.png').css({
         'position': 'absolute',
         'margin-left': fireMarginLeft4,
@@ -1833,7 +1835,7 @@ function insertDOMandCSS5(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $('#planetLava_1').attr('src', 'img/playfield/planets/planet_lava.png').css({
         'position': 'absolute',
         'margin-left': lavaMarginLeft1,
@@ -1857,7 +1859,7 @@ function insertDOMandCSS5(){
         'max-height': 'auto',
         'max-width': '9%'
     });
-    
+
     $asteroid.attr('src', 'img/playfield/asteroid.png').css({
         'position': 'absolute',
         'margin-left': asteroidMarginLeft,
@@ -2704,6 +2706,7 @@ function runButton() {
             $run.click(stopAnimation);
 
             for (var x in algorithm) {
+                console.log("Amy " + fallingStarY);
 
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                 if (typeof algorithm[x] === "object") {
@@ -2755,8 +2758,8 @@ function runButton() {
 
         }
         moveCounter = -1;
-        asteroidX = 0;
-        fallingStarY = 150;
+        asteroidX = originalAsteroidX;
+        fallingStarY = originalFallingStarY;
     }
 
 }
