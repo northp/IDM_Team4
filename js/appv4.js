@@ -558,7 +558,11 @@ var $planetEarth;
 var $planetIce;
 var $planetMoon;
 var $planetLava;
+var $rocket;
 var $rocketAnimate;
+var $rocketAnimateRight;
+var $rocketAnimateLeft;
+var $rocketAnimateDown;
 var $originalRocketSpace;
 var $hint;
 var $helpDot;
@@ -580,7 +584,11 @@ function jQueryVariables() {
     $planetFire = $("#planetFire");
     $planetMoon = $("#planetMoon");
     $planetLava = $("#planetLava");
+    $rocket = $(".rocket");
     $rocketAnimate = $("#rocketman");
+    $rocketAnimateRight = $("#rocketmanRight");
+    $rocketAnimateDown = $("#rocketmanDown");
+    $rocketAnimateLeft = $("#rocketmanLeft");
     $originalRocketSpace = $("#originalrocketspace");
     $home = $("#home");
     $homeDot = $(".dot-home");
@@ -618,7 +626,10 @@ function insertDOMandCSS0() {
     // next step: insert img tags
 
     $('.canvas')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id ="originalrocketspace"/>');
 
@@ -695,7 +706,35 @@ function insertDOMandCSS0() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
@@ -726,7 +765,10 @@ function insertDOMandCSS1() {
     // next step: insert img tags
 
     $('.canvas')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id="planetMetal"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="planetDestination"/>')
@@ -865,7 +907,35 @@ function insertDOMandCSS1() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
@@ -887,7 +957,10 @@ function insertDOMandCSS2() {
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
         .prepend('<img id="planetMetal"/>')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id ="originalrocketspace"/>');
 
     jQueryVariables(); //calling function that puts above img elements into variables
@@ -1043,7 +1116,35 @@ function insertDOMandCSS2() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
@@ -1101,7 +1202,10 @@ function insertDOMandCSS3() {
     $('.canvas')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id="asteroid"/>')
         .prepend('<img id ="fallingstar"/>')
         .prepend('<img id ="originalrocketspace"/>');
@@ -1233,7 +1337,35 @@ function insertDOMandCSS3() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
@@ -1283,7 +1415,10 @@ function insertDOMandCSS4() {
     $('.canvas')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id="asteroid"/>')
         .prepend('<img id ="fallingstar"/>')
         .prepend('<img id ="planetMetal"/>')
@@ -1400,7 +1535,35 @@ function insertDOMandCSS4() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
@@ -1491,7 +1654,10 @@ function insertDOMandCSS5() {
         .prepend('<img id="planetEarth"/>')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
-        .prepend('<img id="rocketman"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
         .prepend('<img id="asteroid"/>')
         .prepend('<img id ="fallingstar"/>')
         .prepend('<img id ="planetMoon"/>')
@@ -1683,7 +1849,35 @@ function insertDOMandCSS5() {
         'margin-top': rocketMarginTop,
         'max-height': 'auto',
         'max-width': '9%',
-        'z-index': '1'
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
     });
 
     $asteroid.attr('src', 'img/playfield/asteroid.png').css({
@@ -2590,7 +2784,8 @@ function clickElements() {
         hideElements()
     });
 
-    $rocketAnimate.click(function () {
+    //$rocketAnimate.click(function () {
+    $rocket.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/spaceship_pink.png").css("height", "10%", "width", "10%");
         $modalText.text("Move the rocket to its destination by using the arrow keys below.");
@@ -2641,7 +2836,8 @@ function originalPos() {
 
     //reset animation
     //resetting the rocket to its default position
-    $rocketAnimate.css({
+    // $rocketAnimate.css({
+    $rocket.css({
         'margin-left': rocketMarginLeft,
         'margin-top': rocketMarginTop
     });
@@ -2708,7 +2904,8 @@ function stopAnimation() {
         winAndLossCall = oldFunction;
 
         //stop all queued animations
-        $rocketAnimate.stop(true);
+        //$rocketAnimate.stop(true);
+        $rocket.stop(true);
         $asteroid.stop(true);
         $fallingStar.stop(true);
 
@@ -2808,17 +3005,26 @@ $run.click(runButton);
 
 var lossAndVictoryArray = [];
 
+// A variable to change the animation speed
+var animationSpeed = 100;
+
 function moveRight() {
 
     if (rocketX >= canvas.width - tileWidth) {
-        $rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
+        //$rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
+        $rocket.animate({'margin-left': "+=0%"}, animationSpeed);
     } else {
         asteroidAnimate();
         fallingStarAnimate();
         console.log(rocketX, rocketY);
-        $rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
+        //$rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
+        $rocketAnimateRight.animate({'opacity': "1"}, animationSpeed);
+        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
+        $rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
         rocketX += 50;
-        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
+        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
@@ -2842,9 +3048,10 @@ function moveRight() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketX += rocketXDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
                     map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -2867,9 +3074,10 @@ function moveRight() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketX += rocketXDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
                     map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -2892,14 +3100,20 @@ function moveRight() {
 function moveDown() {
 
     if (rocketY >= canvas.height) {
-        $rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
+        //$rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
+        $rocket.animate({'margin-top': "+=0%"}, animationSpeed);
     } else {
         asteroidAnimate();
         fallingStarAnimate();
-        $rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
+        //$rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
+        $rocketAnimateDown.animate({'opacity': "1"}, animationSpeed);
+        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
+        $rocket.animate({'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
         console.log(rocketX, rocketY);
         rocketY += 50;
-        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
+        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
     }
 
     if (rocketPosition[0] < mapHeight - 1) {
@@ -2923,9 +3137,10 @@ function moveDown() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketY += rocketYDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
                     map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -2947,9 +3162,10 @@ function moveDown() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketY += rocketYDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
                     map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -2972,14 +3188,20 @@ function moveLeft() {
 
     if (rocketX <= 0) {
         //edge of canvas - do nothing
-        $rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
+        //$rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
+        $rocket.animate({'margin-left': "-=0%"}, animationSpeed);
     } else {
         asteroidAnimate();
         fallingStarAnimate();
         console.log(rocketX, rocketY);
-        $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
+        //$rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
+        $rocketAnimateLeft.animate({'opacity': "1"}, animationSpeed);
+        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
+        $rocket.animate({'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
         rocketX -= 50;
-        $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
+        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
 
     }
 
@@ -3005,9 +3227,10 @@ function moveLeft() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketX -= rocketXDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
                     map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -3029,9 +3252,10 @@ function moveLeft() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketX -= rocketXDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
                     map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -3051,15 +3275,21 @@ function moveLeft() {
 
 function moveUp() {
     if (rocketY <= tileHeight) {
-        $rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
+        //$rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
+        $rocket.animate({'margin-top': "-=0%"}, 10);
 
     } else {
         asteroidAnimate();
         fallingStarAnimate();
         console.log(rocketX, rocketY);
-        $rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
+        //$rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
+        $rocketAnimate.animate({'opacity': "1"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
+        $rocket.animate({'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
         rocketY -= 50;
-        $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
     }
 
 
@@ -3084,9 +3314,10 @@ function moveUp() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketY -= rocketYDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                     map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -3108,9 +3339,10 @@ function moveUp() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    //$rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
+                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketY -= rocketYDistance;
-                    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                     map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -3288,16 +3520,21 @@ var winAndLossCall = function () {
                 // rLoss.play(); //TestSound
 
                 //stop all current animations
-                $rocketAnimate.stop(true);
+                //$rocketAnimate.stop(true);
+                $rocket.stop(true);
                 $asteroid.stop(true);
                 $fallingStar.stop(true);
 
                 //setTimeout function here to explode the ship and move back to original position
-                $rocketAnimate.attr("src", "img/playfield/explosion.gif");
+                //$rocketAnimate.attr("src", "img/playfield/explosion.gif");
+                $rocket.attr("src", "img/playfield/explosion.gif");
 
                 //below set time outs are buggy because timing is sometimes off. get rid of it?
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+                    $rocketAnimateDown.attr("src", "img/playfield/spaceship_pink_down.png");
+                    $rocketAnimateRight.attr("src", "img/playfield/spaceship_pink_right.png");
+                    $rocketAnimateLeft.attr("src", "img/playfield/spaceship_pink_left.png");
                 }, 2000);
                 setTimeout(function () {
                     originalPos()
@@ -3320,8 +3557,10 @@ var winAndLossCall = function () {
                     winCondition = true; //"you win" alert only to come up once
 
                     setTimeout(function(){
-                        $rocketAnimate.stop(true);
-                    },300);
+                        $rocket.stop(true);
+                        //$rocketAnimate.stop(true);
+                    //},300);
+                    },900);
 
                     setTimeout(function () {
                         $point.show();
@@ -3337,7 +3576,8 @@ var winAndLossCall = function () {
                         $winModal.show();
                         setTimeout(loadNewLevel, 3000);
 
-                    }, 300)
+                    //}, 300)
+                    }, 900)
                 }
             }
 
