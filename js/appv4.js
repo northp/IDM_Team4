@@ -163,7 +163,7 @@ function loadVersions() {
             [
                 [0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0],
-                [0, 0, 0, 6, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 6, 0, 2.5, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -179,8 +179,8 @@ function loadVersions() {
                 [0, 0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3.5, 0, 0, 5, 5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
+                [0, 0, 2.5, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2.5, 6, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
@@ -189,8 +189,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 5, 5, 0, 0, 0, 0],
-                [0, 0, 2, 0, 0, 0, 0, 0, 6, 0, 0],
+                [0, 0, 2.5, 2.5, 0, 5, 5, 0, 0, 0, 0],
+                [0, 0, 2, 2.5, 0, 0, 0, 0, 6, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -201,8 +201,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 6, 0, 0, 0],
+                [0, 0, 0, 2.5, 2.5, 0, 5, 5, 0, 0, 0],
+                [0, 0, 0, 2, 2.5, 0, 0, 6, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -219,8 +219,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 2, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -229,8 +229,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
                 [0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
+                [0.1, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -240,8 +240,8 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 4, 0, 0, 0, 0, 2, 0, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 4, 0, 0, 0, 0, 2, 2.5, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
@@ -255,8 +255,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -269,8 +269,8 @@ function loadVersions() {
         [
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 8, 8, 8, 0, 0, 0, 1, 0, 0, 0],
-                [0, 8, 8, 8, 5, 0, 0, 0.2, 0, 0, 0],
+                [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -281,8 +281,8 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 8, 8, 8, 0, 0, 0, 1, 0, 0, 0],
-                [0, 8, 8, 8, 5, 0, 0, 0.2, 0, 0, 0],
+                [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -293,8 +293,8 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 8, 8, 8, 0, 0, 0, 1, 0, 0, 0],
-                [0, 8, 8, 8, 5, 0, 0, 0.2, 0, 0, 0],
+                [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -305,8 +305,8 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 8, 8, 8, 0, 0, 0, 1, 0, 0, 0],
-                [0, 8, 8, 8, 5, 0, 0, 0.2, 0, 0, 0],
+                [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
+                [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -323,8 +323,8 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
@@ -335,8 +335,8 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
@@ -347,8 +347,8 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
@@ -359,8 +359,8 @@ function loadVersions() {
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 1, 0, 0, 0, 0.2, 0],
-                [0, 0, 6, 6, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 0, 6, 6, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 6, 6, 0, 0, 2, 0, 0, 0, 0],
+                [0, 0, 6, 6, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
@@ -376,6 +376,21 @@ var gamePlayed1 = false;
 var gamePlayed2 = false;
 var gamePlayed3 = false;
 var existingLabels = false;
+
+//put following in function because it was being called repetitively
+function hideElements() {
+    $("#submit").hide();
+    $(".gameImg").attr("src", "");
+    $(".reaction").hide();
+    $(".fire").hide();
+    $(".metal").hide();
+    $(".ice").hide();
+    $(".gameImg1").hide();
+    $(".gameImg2").hide();
+    $(".gameImg3").hide();
+    $("#submitmetal").hide();
+    $("#submitice").hide();
+}
 
 function chooseLevel() {
     if (currentLevel > 1) {
@@ -403,6 +418,12 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+
+        $(".functions").hide();
+        $(".side-navigation").hide();
+        $('.navigation').show();
+        $("head link#levels").attr("href", "css/app-simple.css");
+        hideElements()
     }
 
     //currently planets level (planet with index 2 has danger zone)
@@ -426,6 +447,12 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+
+        $(".functions").hide();
+        $(".side-navigation").hide();
+        $('.navigation').show();
+        $("head link#levels").attr("href", "css/app-simple.css");
+        hideElements()
     }
 
     // if level 2:
@@ -541,7 +568,7 @@ var $homeDot;
 var $asteroid;
 var $fallingStar;
 
-//putting it in a function because variables can only be assigned after the images have been created in the chooseLevel() function
+//putting it in a function because variables can only be assigned after the images have been created in the insertDOMandCSS functions
 function jQueryVariables() {
     $hint = $("#hintSimple");
     $helpDot = $(".dot-help");
@@ -772,7 +799,7 @@ function insertDOMandCSS1() {
 
             //defining the destination coordinates
             destinationMarginLeft = '6%';
-            destinationMarginTop = '69.5%';
+            destinationMarginTop = '72%';
 
             // defining the planet coordinates
             metalMarginLeft = '54.6%';
@@ -908,8 +935,8 @@ function insertDOMandCSS2() {
             fireMarginTop = '9.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '36.6%';
-            iceMarginTop = '54.75%';
+            iceMarginLeft = '38%';
+            iceMarginTop = '56%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '27.5%';
@@ -938,8 +965,8 @@ function insertDOMandCSS2() {
             fireMarginTop = '54.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '55%';
-            iceMarginTop = '37%';
+            iceMarginLeft = '56%';
+            iceMarginTop = '38%';
 
             // defining the Earth planet coordinates
             earthMarginLeft = '36.75%';
@@ -968,7 +995,7 @@ function insertDOMandCSS2() {
             fireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '45%';
+            iceMarginLeft = '47%';
             iceMarginTop = '28%';
 
             // defining the Earth planet coordinates
@@ -998,7 +1025,7 @@ function insertDOMandCSS2() {
             fireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '54.6%';
+            iceMarginLeft = '56.6%';
             iceMarginTop = '27.4%';
 
             // defining the Earth planet coordinates
@@ -1057,7 +1084,7 @@ function insertDOMandCSS2() {
         'margin-left': iceMarginLeft,
         'margin-top': iceMarginTop,
         'max-height': 'auto',
-        'max-width': '18%'
+        'max-width': '15%'
     });
 
     $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
@@ -1197,7 +1224,6 @@ function insertDOMandCSS3() {
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
-
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
 
@@ -1942,10 +1968,7 @@ function funcTwoState() {
     arraySelect = functionTwo; //directions selected will be put into this array
     classSelect = $(".func-space"); //images put into this class
     levelMoves = functionTwoLevelMoves; //can only enter 4 moves
-    //$functionTwoIcon.css("color", "#F5BC6C"); //highlight
-    //$functionTwoIcon.css("font-weight", "bold");
     $mainFunctionIcon.css("color", "white"); //reset
-    //$mainFunctionIcon.css("font-weight", "") //reset
 
     if (currentLevel >= 2) {
         $("#bg").css("background", "url(img/playfield/playfield_advance_final_highlight_functions.png)");
@@ -1958,10 +1981,8 @@ function startState() {
     arraySelect = algorithm; //directions selected will be put into this array
     classSelect = $(".algo-space"); //images put into this class
     levelMoves = algorithmLevelMoves; //can only enter 10 moves
-    //$mainFunctionIcon.css("color", "#F5BC6C"); //highlight
-    //$mainFunctionIcon.css("font-weight", "bold"); //highlight
     $functionTwoIcon.css("color", "white");
-    //$functionTwoIcon.css("font-weight", "");//reset */
+
     if (currentLevel === 0 || 1) {
         $("#bg").css("background", "url(img/playfield/playfield_simple_final_highlight_main.jpg)");
         $("#bg").css("background-size", "contain");
@@ -2388,6 +2409,7 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        hideElements()
     });
 
 
@@ -2399,6 +2421,7 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        hideElements()
     });
 
     $helpButton.click(function () {
@@ -2409,6 +2432,7 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
+        hideElements()
     });
 
 
@@ -2476,20 +2500,9 @@ function clickElements() {
         $modalText.text("This is your destination!");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
+        $commandsOverlay.hide();
         $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements();
     });
 
     $planetIce.click(function () {
@@ -2526,82 +2539,35 @@ function clickElements() {
     $planetEarth.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_earth.png").css("height", "5%", "width", "5%");
+        $modalImage.show();
         $modalText.text("Earth");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         $point.hide();
-        $commandsOverlay.hide();
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
-        $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
     });
 
     $planetMoon.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_moon.png").css("height", "5%", "width", "5%");
+        $modalImage.show();
         $modalText.text("Moon");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         $point.hide();
-        $commandsOverlay.hide();
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
-        $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
     });
 
     $planetLava.click(function () {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_lava.png").css("height", "5%", "width", "5%");
+        $modalImage.show();
         $modalText.text("Lava");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         $point.hide();
         $commandsOverlay.hide();
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
-        $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
     });
 
     $asteroid.click(function () {
@@ -2610,20 +2576,8 @@ function clickElements() {
         $modalText.text("Asteroids move from left to right.");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
     });
 
     $fallingStar.click(function () {
@@ -2632,20 +2586,8 @@ function clickElements() {
         $modalText.text("Falling stars move downwards.");
         $modalTitle.hide();
         $modalNext.attr("src", "");
-        $("#submit").hide();
-        $(".gameImg").attr("src", "");
-        $(".reaction").hide();
         $point.hide();
-        $(".fire").hide();
-        $(".metal").hide();
-        $(".ice").hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
     });
 
     $rocketAnimate.click(function () {
@@ -2656,13 +2598,7 @@ function clickElements() {
         $modalNext.attr("src", "");
         $point.hide();
         $commandsOverlay.hide();
-        $(".gameImg1").hide();
-        $(".gameImg2").hide();
-        $(".gameImg3").hide();
-        $(".reaction").hide();
-        $("#submit").hide();
-        $("#submitmetal").hide();
-        $("#submitice").hide();
+        hideElements()
 
     });
 
@@ -3250,19 +3186,19 @@ function fallingStarAnimate() {
 
 //function for loading the next level and for resetting every variable and index back to their original value
 function loadNewLevel() {
-    // temporary test to change level
+    //removing commands you've selected
     $('.canvas > img').remove();
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
 
 
-    //hiding anything that shouldn't be there
+    //hiding anything that doesn't need to be shown
     $point.hide();
     $commandsOverlay.hide();
     $winModal.hide();
     $("#functiontwoselect").hide();
 
-    //resetting play button to 'play' rather than 'stop'
+    //resetting play button to 'play' rather than 'restart'
     $run.off();
     $run.click(runButton);
     $("#play-first").attr({"src": "img/playfield/play.png"});
@@ -3290,7 +3226,7 @@ function loadNewLevel() {
         console.log("current level" + currentLevel);
     }
 
-    // make new level
+    // drawing the new level
     chooseLevel();
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     $(document).ready(function () {
@@ -3321,8 +3257,6 @@ function loadNewLevel() {
     lossAndVictoryArray = [];
 
     winCondition = false;
-
-    $rocketAnimate = $("#rocketman");
 
     something = -1;
 
@@ -3360,6 +3294,8 @@ var winAndLossCall = function () {
 
                 //setTimeout function here to explode the ship and move back to original position
                 $rocketAnimate.attr("src", "img/playfield/explosion.gif");
+
+                //below set time outs are buggy because timing is sometimes off. get rid of it?
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                 }, 2000);
@@ -3367,7 +3303,7 @@ var winAndLossCall = function () {
                     originalPos()
                 }, 2000);
                 setTimeout(function () {
-                    $("#play-first").attr({"src": "img/playfield/play.png"})
+                    $("#play-first").attr({"src": "img/playfield/play.png"});
                     $run.off();
                     $run.click(runButton);
                 }, 4000);
@@ -3382,7 +3318,10 @@ var winAndLossCall = function () {
 
                 if (winCondition === false) {
                     winCondition = true; //"you win" alert only to come up once
-                    $rocketAnimate.stop(true);
+
+                    setTimeout(function(){
+                        $rocketAnimate.stop(true);
+                    },300);
 
                     setTimeout(function () {
                         $point.show();
@@ -3472,17 +3411,20 @@ function instructions() {
     $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
     $modalText.text("Hi there, I'm Hugo! I'm here to show you how to use this spaceship properly.");
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
-
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
         if (counter == 1) {
+            modal.style.display = "block";
             $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm.");
         }
 
         else if (counter == 2) {
             $modalImage.hide();
             $modalTitle.hide();
+            $point.show();
+            $commandsOverlay.show();
+            modal.style.display = "block";
             $modalText.text("These buttons are your commands. They will move the spaceship up, down, left and right.");
             $commandsOverlay.attr("src", "img/playfield/commands.png").css({
                 "width": "50%",
@@ -3496,6 +3438,9 @@ function instructions() {
         }
 
         else if (counter == 3) {
+            $point.show();
+            $commandsOverlay.show();
+            modal.style.display = "block";
             $modalText.text("Each command you select will appear in a queue in the Main View. You can remove commands by clicking on them here. You can insert a maximum of 10 commands.");
             $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
             $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
@@ -3505,6 +3450,9 @@ function instructions() {
         }
 
         else if (counter == 4) {
+            $point.show();
+            $commandsOverlay.show();
+            modal.style.display = "block";
             $point.css({"margin-left": "65%", "margin-top": "85%"});
             $modalText.text("Your listed commands will be executed when you hit the play button.");
             $commandsOverlay.attr("src", "play.png").css({
@@ -3548,17 +3496,24 @@ function instructionsTwo() {
         var newcounter = counter + 1;
 
         if (counter == 1) {
+            modal.style.display = "block";
             $modalText.text("You must click each planet to find out its level of danger.");
+            $commandsOverlay.hide();
+            $point.hide();
         }
 
         else if (counter == 2) {
+            modal.style.display = "block";
             $modalText.text("However, you may be prompted to solve a puzzle first!");
             $modalImage.show();
+            $commandsOverlay.hide();
+            $point.hide();
         }
 
         else if (counter == 3) {
             modal.style.display = "none";
             $commandsOverlay.hide();
+            $point.hide();
         }
         counter = newcounter;
     })
@@ -3573,17 +3528,13 @@ function instructionsThree() {
     $modalTitle.hide();
     $modalText.text("Hi, it's me again! You may have noticed that the levels become more challenging with more obstacles. 10 commands may not be enough to move your spaceship to its destination.");
     $commandsOverlay.hide();
-    $(".gameImg1").hide();
-    $(".gameImg2").hide();
-    $(".gameImg3").hide();
-    $("#submit").hide();
-    $("#submitmetal").hide();
-    $("#submitice").hide();
+    hideElements();
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
         if (counter == 1) {
+            modal.style.display = "block";
             $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have learnt with the Main View.");
             $modalImage.hide();
             $point.attr("src", "img/playfield/astronaut.png").css({
@@ -3598,6 +3549,7 @@ function instructionsThree() {
         }
 
         else if (counter == 2) {
+            modal.style.display = "block";
             $modalImage.hide();
             $point.attr("src", "img/playfield/astronaut.png").css({
                 "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
@@ -3631,24 +3583,23 @@ function instructionsFour() {
     $modalText.text("This level introduces asteroids and falling stars.");
     $commandsOverlay.hide();
     $point.hide();
-    $(".gameImg1").hide();
-    $(".gameImg2").hide();
-    $(".gameImg3").hide();
-    $("#submit").hide();
-    $("#submitmetal").hide();
-    $("#submitice").hide();
+    hideElements();
 
 
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
         if (counter == 1) {
+            modal.style.display = "block";
             $modalText.text("Asteroids move from left to right while falling stars move from top to bottom.");
             $commandsOverlay.hide();
+            $point.hide();
         }
 
         else if (counter == 2) {
+            modal.style.display = "block";
             $commandsOverlay.hide();
+            $point.hide();
             $modalText.text("They will move whenever your spaceship moves, so watch out!");
             $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
 
@@ -3657,6 +3608,7 @@ function instructionsFour() {
         else if (counter == 3) {
             modal.style.display = "none";
             $commandsOverlay.hide();
+            $point.hide();
 
         }
         counter = newcounter;
@@ -3673,15 +3625,11 @@ function instructionsFive() {
     $modalText.text("Now that you've learnt how to navigate your way around space, you are left to your own devices! Good luck!");
     $commandsOverlay.hide();
     $point.hide();
-    $(".gameImg1").hide();
-    $(".gameImg2").hide();
-    $(".gameImg3").hide();
-    $("#submit").hide();
-    $("#submitmetal").hide();
-    $("#submitice").hide();
-
+    hideElements();
     $modalNext.click(function () {
         modal.style.display = "none";
+        $commandsOverlay.hide();
+        $point.hide();
     })
 
 }
