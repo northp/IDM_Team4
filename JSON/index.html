@@ -8,16 +8,16 @@
 </head>
 <body>
 
-<h1>JSON test for App. Need to use console for test. Will not work in browser.</h1>
+<h1>JSON test for remembering Levels</h1>
 <h2>Steps:</h2>
 
-<p>1 - Install node js in this directory (npm init)</p>
+<p>1 - Initialise node.js and install express in this directory (npm init, npm install express --save)</p>
 <p>2 - type "node index.js" in CMD</p>
-<p>3 - CMD will display the JSON entry { level: 4 }</p>
-<p>4 - Change the value of currentLevel in the index.js file (this represents the current level being played.</p>
-<p>5 - if this value is lower than 4, the JSON value will not update (as level 1, 2, & 3 are complete)</p>
-<p>6 - if this value is greater than 4, the JSON value will update to that value (as the highest level completed now surpasses 4)</p>
-<p>7 - running "node index.js" again should update to reflect this higher value.</p>
+<p>3 - Go to "http://localhost:8082/" to see Current Level and Highest Completed Level.</p>
+<p>4 - Refresh the page to observe the Current Level Value increasing.</p>
+<p>5 - Highest Level Value will increase if Current Level surpasses it.</p>
+<p>6 - To reset current Level, go to "http://localhost:8082/reset".</p>
+<p>7 - Highest Level will keep the value of the latest level completed.</p>
 
 </body>
 </html>

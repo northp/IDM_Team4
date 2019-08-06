@@ -1,49 +1,70 @@
 'use strict';
 
+
 var fs = require('fs');
+var express = require("express");
+var app = express();
+var port = 8082;
+app.listen(port);
+console.log("Server running on http://localhost:" + port);
 
-// Step 1: Player chooses level they want to play. Change this value for tests. Value represents current level.
-var level = 4;
-
-// Step 2: check if current level has already been completed. If yes, no need to modify JSON entry. If not, then need to modify JSON.
-
-// fs.readFile("index.json", function(err, results)  {
-fs.readFile("index.json", (err, results) => { // ES6
-    if(err){
-        return console.error(err);
-    };
-
-    var results = JSON.parse(results.toString());
+app.get("/reset", function(request, response){
+    // response.send("Reset current Level to 1");
     
-    
-    
-    // This can be modified, use variables
-    if(results.level > level){
-        
-        results.level = results.level;
-        
-    } else if (results.level <= level){
-        
-        results.level = level;
-        level++;
-    }
-    
-    // var writeData = fs.writeFile("index.json", JSON.stringify(results), function(err) {
-    var writeData = fs.writeFile("index.json", JSON.stringify(results), (err) => { // Es6
-        if(err){
-            return console.error(err);
-        }else{
-            console.log(results);
-        }
+    fs.readFile("index.json", (err, results) => {
+       if(err){
+           return console.log(err);
+       }
+       var results = JSON.parse(results.toString());
+       results.current_level = 1;
+       
+       var currentLevel = results.current_level;
+       
+        var writeData = fs.writeFile("index.json", JSON.stringify(results), (err) => {
+            if (err) {
+                return console.error(err);
+            } else {
+                console.log("current Level: " + results.current_level);
+                console.log("Highest Level Completed: " + results.highest_level_completed);
+            }
+        });
+        response.send("Reset current Level to 1; current Level: " + results.current_level + "; Highest Level Completed: " + results.highest_level_completed);
     });
 });
 
+app.get("/", function(request, response) {
 
+    //response.send("Compare current level to highest completed level.\n Increase highest completed level if current level > highest completed level.");
+    
+    fs.readFile("index.json", (err, results) => {
+        if (err) {
+            return console.error(err);
+        };
 
+        var results = JSON.parse(results.toString());
 
-  
+        var currentLevel = results.current_level;
 
+        if (results.highest_level_completed > currentLevel) {
 
+            results.highest_level_completed = results.highest_level_completed;
+            results.current_level = currentLevel + 1;
 
+        } else if (results.highest_level_completed <= currentLevel) {
 
+            results.highest_level_completed = currentLevel;
+            results.current_level = currentLevel + 1;
+        }
 
+        var writeData = fs.writeFile("index.json", JSON.stringify(results), (err) => {
+            if (err) {
+                return console.error(err);
+            } else {
+                console.log("current Level: " + results.current_level);
+                console.log("Highest Level Completed: " + results.highest_level_completed);
+            }
+        });
+        response.send("current Level: " + results.current_level + "; Highest Level Completed: " + results.highest_level_completed);
+    });
+
+});
