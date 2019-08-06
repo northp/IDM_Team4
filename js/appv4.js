@@ -2830,9 +2830,13 @@ function clickElements() {
     };
 }
 
-//every time you hit run, all animations will return back to their original position
+//every time you hit stop, all animations will return back to their original position
 function originalPos() {
-    $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+
+    $rocketAnimateRight.css({'opacity': "0"});
+    $rocketAnimate.css({'opacity': "1"});
+    $rocketAnimateLeft.css({'opacity': "0"});
+    $rocketAnimateDown.css({'opacity': "0"});
 
     //reset animation
     //resetting the rocket to its default position
@@ -2901,11 +2905,6 @@ function stopAnimation() {
             //empty function, does nothing
         };
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
-        $rocketAnimateRight.css({'opacity': "0"});
-        $rocketAnimate.css({'opacity': "1"});
-        $rocketAnimateLeft.css({'opacity': "0"});
-        $rocketAnimateDown.css({'opacity': "0"});
-
         winAndLossCall = oldFunction;
 
         //stop all queued animations
@@ -2937,7 +2936,6 @@ function runButton() {
             $run.click(stopAnimation);
 
             for (var x in algorithm) {
-                console.log("Amy " + fallingStarY);
 
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                 if (typeof algorithm[x] === "object") {
@@ -3011,7 +3009,7 @@ $run.click(runButton);
 var lossAndVictoryArray = [];
 
 // A variable to change the animation speed
-var animationSpeed = 100;
+var animationSpeed = "fast";
 
 function moveRight() {
 
@@ -3023,11 +3021,12 @@ function moveRight() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
-        $rocketAnimateRight.animate({'opacity': "1"}, animationSpeed);
-        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
-        $rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimateRight.animate({'opacity': "1",'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
+
+        //$rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall); //calling function 4 times (because there's 4 images in the class?)
         rocketX += 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
     }
@@ -3111,11 +3110,11 @@ function moveDown() {
         asteroidAnimate();
         fallingStarAnimate();
         //$rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
-        $rocketAnimateDown.animate({'opacity': "1"}, animationSpeed);
-        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
-        $rocket.animate({'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimateDown.animate({'opacity': "1",'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
+        //$rocket.animate({'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
         console.log(rocketX, rocketY);
         rocketY += 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
@@ -3200,11 +3199,11 @@ function moveLeft() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
-        $rocketAnimateLeft.animate({'opacity': "1"}, animationSpeed);
-        $rocketAnimate.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
-        $rocket.animate({'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimateLeft.animate({'opacity': "1",'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
+        //$rocket.animate({'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
         rocketX -= 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
 
@@ -3288,11 +3287,11 @@ function moveUp() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
-        $rocketAnimate.animate({'opacity': "1"}, animationSpeed);
-        $rocketAnimateDown.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0"}, animationSpeed);
-        $rocket.animate({'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "1",'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimateDown.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
+       // $rocket.animate({'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
         rocketY -= 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
     }
@@ -3511,13 +3510,15 @@ function loadNewLevel() {
 var winCondition = false; //boolean used so that the winning pop-up only appears once
 
 var winAndLossCall = function () {
-
     moveCounter++; //increment value for every move the rocket makes
+    console.log(lossAndVictoryArray);
+    console.log(moveCounter);
 
     //checking to see whether the rocket has hit a planet
     for (var i in lossAndVictoryArray) {
         if (lossAndVictoryArray[i] == "run") {
             //do nothing
+
         }
 
         if (lossAndVictoryArray[i] == "lose") {
@@ -3534,7 +3535,6 @@ var winAndLossCall = function () {
                 //$rocketAnimate.attr("src", "img/playfield/explosion.gif");
                 $rocket.attr("src", "img/playfield/explosion.gif");
 
-                //below set time outs are buggy because timing is sometimes off. get rid of it?
                 setTimeout(function () {
                     $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                     $rocketAnimateDown.attr("src", "img/playfield/spaceship_pink_down.png");
@@ -3565,7 +3565,7 @@ var winAndLossCall = function () {
                         $rocket.stop(true);
                         //$rocketAnimate.stop(true);
                         //},300);
-                    }, 900);
+                    }, 300);
 
                     setTimeout(function () {
                         $point.show();
