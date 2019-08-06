@@ -2900,7 +2900,12 @@ function stopAnimation() {
         winAndLossCall = function () {
             //empty function, does nothing
         };
-        $rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
+        $rocketAnimateRight.css({'opacity': "0"});
+        $rocketAnimate.css({'opacity': "1"});
+        $rocketAnimateLeft.css({'opacity': "0"});
+        $rocketAnimateDown.css({'opacity': "0"});
+
         winAndLossCall = oldFunction;
 
         //stop all queued animations
@@ -3058,9 +3063,9 @@ function moveRight() {
                     lossAndVictoryArray.push("run");
                 }
             }
-        // Ice effect - Rocket zooms out of field to nearest 0 index.
+            // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) {
-            
+
 
             var rocketXDistance = 50;
             var animateDistancePercent = 9;
@@ -3556,11 +3561,11 @@ var winAndLossCall = function () {
                 if (winCondition === false) {
                     winCondition = true; //"you win" alert only to come up once
 
-                    setTimeout(function(){
+                    setTimeout(function () {
                         $rocket.stop(true);
                         //$rocketAnimate.stop(true);
-                    //},300);
-                    },900);
+                        //},300);
+                    }, 900);
 
                     setTimeout(function () {
                         $point.show();
@@ -3576,7 +3581,7 @@ var winAndLossCall = function () {
                         $winModal.show();
                         setTimeout(loadNewLevel, 3000);
 
-                    //}, 300)
+                        //}, 300)
                     }, 900)
                 }
             }
