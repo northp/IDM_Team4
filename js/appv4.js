@@ -1,7 +1,35 @@
 "use strict";
 
 // A variable to represent the selected map
+// A variable to represent the selected map
 var currentLevel = 0;
+
+// A variable to represent the highest completed level.
+var highestCompletedLevel = 0;
+
+
+/* Adding LocalStorage Code
+
+
+// Keeping local storage clear until checkpoint overview is compelte.
+localStorage.clear();
+
+if(localStorage){
+    currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+} else {
+    currentLevel = 0;
+    highestCompletedLevel = 0;
+}
+
+// Local storage: Current Level and Highest Completed level start at 0;
+localStorage.setItem("currentLevel", currentLevel);
+currentLevel = parseInt(localStorage.getItem("currentLevel"));
+
+localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+
+*/
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -3164,6 +3192,21 @@ function loadNewLevel() {
         currentLevel = 0;
         console.log("current level" + currentLevel);
     }
+    
+       highestCompletedLevel++;
+    
+    /* localStorage Functionality
+    
+    
+    // reassign local storage of current level
+    localStorage.setItem("currentLevel", currentLevel);
+    currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    
+    localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+    
+    */
+    
 
     // drawing the new level
     chooseLevel();
