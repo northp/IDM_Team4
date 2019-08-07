@@ -1,7 +1,6 @@
 "use strict";
 
 // A variable to represent the selected map
-// A variable to represent the selected map
 var currentLevel = 0;
 
 // A variable to represent the highest completed level.
@@ -471,7 +470,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-        $(".gif").attr("src","img/instruction/instruction1.gif");
+        $(".gif").attr("src", "img/instruction/instruction1.gif");
         $(".functions").hide();
         $(".side-navigation").hide();
         $('.navigation').show();
@@ -500,7 +499,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-        $(".gif").attr("src","img/instruction/instruction2.gif");
+        $(".gif").attr("src", "img/instruction/instruction2.gif");
         $(".functions").hide();
         $(".side-navigation").hide();
         $('.navigation').show();
@@ -529,7 +528,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-        $(".gif").attr("src","img/instruction/instruction3.gif");
+        $(".gif").attr("src", "img/instruction/instruction3.gif");
     }
 
     if (currentLevel === 3) {
@@ -550,7 +549,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-        $(".gif").attr("src","img/instruction/instruction4.gif");
+        $(".gif").attr("src", "img/instruction/instruction4.gif");
     }
 
     if (currentLevel === 4) {
@@ -582,7 +581,6 @@ function chooseLevel() {
         map = versionListLevel5[version];
 
         insertDOM5();
-        //setTimeout(instructionsFive, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
@@ -597,8 +595,6 @@ function chooseLevel() {
 
 
 function insertCSS() {
-
-
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
         'position': 'absolute',
         'margin-left': rocketMarginLeft,
@@ -1283,7 +1279,6 @@ function insertDOM3() {
     rocketY1 = rocketY;
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
-
     insertCSS();
 }
 
@@ -1505,8 +1500,6 @@ function insertDOM4() {
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
     insertCSS();
-
-
 }
 
 function insertDOM5() {
@@ -2337,6 +2330,7 @@ function clickElements() {
         $modalImage.hide();
         $modalNext.hide();
         hideElements();
+        $(".gif").css({"width": "100%", "margin-left": "0", "margin-top": "2%"});
         $(".gif").show();
     });
 
@@ -2348,6 +2342,7 @@ function clickElements() {
         $modalImage.hide();
         $modalNext.hide();
         hideElements();
+        $(".gif").css({"width": "100%", "margin-left": "0", "margin-top": "0%"});
         $(".gif").show();
 
     });
@@ -3192,9 +3187,9 @@ function loadNewLevel() {
         currentLevel = 0;
         console.log("current level" + currentLevel);
     }
-    
-       highestCompletedLevel++;
-    
+
+    highestCompletedLevel++;
+
     /* localStorage Functionality
     
     
@@ -3206,7 +3201,7 @@ function loadNewLevel() {
     highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
     
     */
-    
+
 
     // drawing the new level
     chooseLevel();
@@ -3394,7 +3389,6 @@ $("#run").hover(function () {
 /*DEMO MODALS*/
 
 //level 0
-//level 0
 function instructions() {
     var counter = 1;
     modal.style.display = "block";
@@ -3412,13 +3406,14 @@ function instructions() {
 
         else if (counter == 2) {
             $modalText.text("");
-            $modalImage.attr("src","");
+            $modalImage.attr("src", "");
+            $(".gif").css({"width": "122%", "margin-left": "0%", "margin-top": "-8%"});
             $(".gif").show();
         }
 
         else if (counter == 3) {
             $(".gif").hide();
-            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalImage.attr("src", "img/playfield/astronaut.png");
             $modalText.text("Now, see if you can make a list of commands that moves the spaceship toward the destination planet!");
         }
         else if (counter == 4) {
@@ -3453,12 +3448,13 @@ function instructionsTwo() {
 
         else if (counter == 2) {
             $modalText.text("");
-            $modalImage.attr("src","");
+            $modalImage.attr("src", "");
+            $(".gif").css({"width": "110%", "margin-left": "6%", "margin-top": "0%"});
             $(".gif").show();
         }
         else if (counter == 3) {
             $(".gif").hide();
-            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalImage.attr("src", "img/playfield/astronaut.png");
             $modalText.text("So, let's get started!");
         }
         else if (counter == 4) {
@@ -3468,11 +3464,11 @@ function instructionsTwo() {
     })
 }
 
-//level 2 (needs debugging with CSS of overlaying commands when you go from level 3 back to level 2)
+//level 2
 function instructionsThree() {
     var counter = 1;
     modal.style.display = "block";
-    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalNext.attr("src", "next.png");
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();
     $(".gif").hide();
@@ -3491,12 +3487,13 @@ function instructionsThree() {
         }
         else if (counter == 2) {
             $modalText.text("");
-            $modalImage.attr("src","");
+            $modalImage.attr("src", "");
+            $(".gif").css({"width": "110%", "margin-left": "6%", "margin-top": "0%"});
             $(".gif").show();
         }
-        else if (counter == 3){
+        else if (counter == 3) {
             $(".gif").hide();
-            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalImage.attr("src", "img/playfield/astronaut.png");
             $modalText.text("It's your turn now!");
         }
         else if (counter == 4) {
@@ -3512,7 +3509,7 @@ function instructionsFour() {
     var counter = 1;
     modal.style.display = "block";
     $(".gif").hide();
-    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalNext.attr("src", "next.png");
     $modalImage.show();
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();
@@ -3528,13 +3525,13 @@ function instructionsFour() {
 
         if (counter == 1) {
             $modalText.text("");
-            $modalImage.attr("src","");
+            $modalImage.attr("src", "");
             $(".gif").show();
         }
 
         else if (counter == 2) {
             $(".gif").hide();
-            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalImage.attr("src", "img/playfield/astronaut.png");
             $modalText.text("They will move whenever your spaceship moves, so watch out!");
 
         }
@@ -3552,7 +3549,7 @@ function instructionsFour() {
 
 function instructionsFive() {
     modal.style.display = "block";
-    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalNext.attr("src", "next.png");
     $modalImage.show();
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();

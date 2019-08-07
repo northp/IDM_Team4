@@ -285,10 +285,17 @@ body {
 }
 
 .gif{
-    width: 100%;
+    width: 110%;
     display: none;
+    position:relative;
+    z-index:1;
+    margin-left:6%
 }
 
+.tableclass {
+    position:relative;
+    z-index:2;
+}
 
 /*
 #modalImage {
@@ -305,8 +312,10 @@ body {
 
 #next {
     float:right;
-    margin-top: 60%;
+    margin-top: 57%;
     width: 15%;
+    position: relative;
+    z-index: 2;
 }
 
 .close:hover,
