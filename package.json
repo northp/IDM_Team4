@@ -1,0 +1,22 @@
+{
+  "name": "idm_team4",
+  "version": "1.0.0",
+  "description": "\"# IDM_Team4\"",
+  "main": "js/data.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/northp/IDM_Team4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/northp/IDM_Team4/issues"
+  },
+  "homepage": "https://github.com/northp/IDM_Team4#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
