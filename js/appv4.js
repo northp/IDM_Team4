@@ -1,7 +1,35 @@
 "use strict";
 
 // A variable to represent the selected map
+// A variable to represent the selected map
 var currentLevel = 0;
+
+// A variable to represent the highest completed level.
+var highestCompletedLevel = 0;
+
+
+/* Adding LocalStorage Code
+
+
+// Keeping local storage clear until checkpoint overview is compelte.
+localStorage.clear();
+
+if(localStorage){
+    currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+} else {
+    currentLevel = 0;
+    highestCompletedLevel = 0;
+}
+
+// Local storage: Current Level and Highest Completed level start at 0;
+localStorage.setItem("currentLevel", currentLevel);
+currentLevel = parseInt(localStorage.getItem("currentLevel"));
+
+localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+
+*/
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -27,9 +55,34 @@ var fallingStarMarginTop;
 var fallingStarY;
 var originalFallingStarY;
 
-//for resetting destination position
+/*planet positioning*/
+
 var destinationMarginLeft;
 var destinationMarginTop;
+
+var planetIceMarginLeft;
+var planetIceMarginTop;
+var planetIceWidth;
+
+var planetLavaMarginLeft;
+var planetLavaMarginTop;
+var planetLavaWidth;
+
+var planetMoonMarginLeft;
+var planetMoonMarginTop;
+var planetMoonWidth;
+
+var planetEarthMarginLeft;
+var planetEarthMarginTop;
+var planetEarthWidth;
+
+var planetFireMarginLeft;
+var planetFireMarginTop;
+var planetFireWidth;
+
+var planetMetalMarginLeft;
+var planetMetalMarginTop;
+var planetMetalWidth;
 
 var map = [];
 
@@ -408,7 +461,7 @@ function chooseLevel() {
 
         // Assign randomised version number to map for level 0
         map = versionListLevel0[version];
-        insertDOMandCSS0();
+        insertDOM0();
         setTimeout(instructions, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -437,7 +490,7 @@ function chooseLevel() {
         // Assign randomised version number to map for level 1
         map = versionListLevel1[version];
 
-        insertDOMandCSS1();
+        insertDOM1();
         setTimeout(instructionsTwo, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -466,7 +519,7 @@ function chooseLevel() {
         // Assign randomised version number to map for level 2
         map = versionListLevel2[version];
 
-        insertDOMandCSS2();
+        insertDOM2();
         setTimeout(instructionsThree, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -487,7 +540,7 @@ function chooseLevel() {
         // Assign randomised version number to map for level 3
         map = versionListLevel3[version];
 
-        insertDOMandCSS3();
+        insertDOM3();
         setTimeout(instructionsFour, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -508,7 +561,7 @@ function chooseLevel() {
         // Assign randomised version number to map for level 4
         map = versionListLevel4[version];
 
-        insertDOMandCSS4();
+        insertDOM4();
         setTimeout(instructionsFive, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -528,7 +581,7 @@ function chooseLevel() {
         // Assign randomised version number to map for level 4
         map = versionListLevel5[version];
 
-        insertDOMandCSS5();
+        insertDOM5();
         //setTimeout(instructionsFive, 750); //instructions
         gamePlayed1 = false;
         gamePlayed2 = false;
@@ -541,6 +594,128 @@ function chooseLevel() {
 
     }
 }
+
+
+function insertCSS() {
+
+
+    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '1'
+    });
+    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+        'z-index': '1',
+        'opacity': '0'
+    });
+
+    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
+        'position': 'absolute',
+        'margin-left': destinationMarginLeft,
+        'margin-top': destinationMarginTop,
+        'max-height': 'auto',
+        'max-width': '15%',
+        'transform': 'rotate(30deg)'
+    });
+
+    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
+        'position': 'absolute',
+        'margin-left': asteroidMarginLeft,
+        'margin-top': asteroidMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%'
+
+    });
+
+    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
+        'position': 'absolute',
+        'margin-left': fallingStarMarginLeft,
+        'margin-top': fallingStarMarginTop,
+        'max-height': 'auto',
+        'max-width': '12%',
+    });
+
+    $originalRocketSpace.attr('src', 'img/playfield/start_pos.png').css({
+        'position': 'absolute',
+        'margin-left': rocketMarginLeft,
+        'margin-top': rocketMarginTop,
+        'max-height': 'auto',
+        'max-width': '9%',
+    });
+
+    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
+        'position': 'absolute',
+        'margin-left': planetFireMarginLeft,
+        'margin-top': planetFireMarginTop,
+        'max-height': 'auto',
+        'max-width': planetFireWidth,
+    });
+
+    $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
+        'position': 'absolute',
+        'margin-left': planetMetalMarginLeft,
+        'margin-top': planetMetalMarginTop,
+        'max-height': 'auto',
+        'max-width': planetMetalWidth,
+    });
+
+    $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
+        'position': 'absolute',
+        'margin-left': planetEarthMarginLeft,
+        'margin-top': planetEarthMarginTop,
+        'max-height': 'auto',
+        'max-width': planetEarthWidth,
+    });
+    $planetMoon.attr('src', 'img/playfield/planets/planet_moon.png').css({
+        'position': 'absolute',
+        'margin-left': planetMoonMarginLeft,
+        'margin-top': planetMoonMarginTop,
+        'max-height': 'auto',
+        'max-width': planetMoonWidth,
+    });
+    $planetLava.attr('src', 'img/playfield/planets/planet_lava.png').css({
+        'position': 'absolute',
+        'margin-left': planetLavaMarginLeft,
+        'margin-top': planetLavaMarginTop,
+        'max-height': 'auto',
+        'max-width': planetLavaWidth,
+    });
+    $planetIce.attr('src', 'img/playfield/planets/planet_ice.png').css({
+        'position': 'absolute',
+        'margin-left': planetIceMarginLeft,
+        'margin-top': planetIceMarginTop,
+        'max-height': 'auto',
+        'max-width': planetIceWidth,
+    });
+}
+
 
 /*JQUERY VARIABLES*/
 //modal
@@ -623,7 +798,7 @@ var span = document.getElementsByClassName("close")[0];
 var stay = document.getElementsByClassName("btn-stay")[0];
 
 
-function insertDOMandCSS0() {
+function insertDOM0() {
     // map 0 selected
     // next step: insert img tags
 
@@ -701,66 +876,13 @@ function insertDOMandCSS0() {
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
-
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    })
+    insertCSS();
 
 }
 
 
 // below function loads DOM and CSS for map 1 only
-function insertDOMandCSS1() {
+function insertDOM1() {
     // a function to load DOM and CSS elements based on map.
 
     // map 1 selected
@@ -783,11 +905,8 @@ function insertDOMandCSS1() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
-    // Metal and fire planet coordinates
-    var metalMarginLeft;
-    var metalMarginTop;
-    var fireMarginLeft;
-    var fireMarginTop;
+    planetFireWidth = '9%';
+    planetMetalWidth = '9%';
 
     switch (version) {
         case 0:
@@ -804,11 +923,11 @@ function insertDOMandCSS1() {
             destinationMarginTop = '0%';
 
             // defining the planet coordinates
-            metalMarginLeft = '27.6%';
-            metalMarginTop = '63.75%';
+            planetMetalMarginLeft = '27.6%';
+            planetMetalMarginTop = '63.75%';
 
-            fireMarginLeft = '45.4%';
-            fireMarginTop = '36.5%';
+            planetFireMarginLeft = '45.4%';
+            planetFireMarginTop = '36.5%';
 
             break;
         case 1:
@@ -825,11 +944,11 @@ function insertDOMandCSS1() {
             destinationMarginTop = '0%';
 
             // defining the planet coordinates
-            metalMarginLeft = '54.6%';
-            metalMarginTop = '72.75%';
+            planetMetalMarginLeft = '54.6%';
+            planetMetalMarginTop = '72.75%';
 
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '36.5%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '36.5%';
 
             break;
         case 2:
@@ -846,11 +965,11 @@ function insertDOMandCSS1() {
             destinationMarginTop = '72%';
 
             // defining the planet coordinates
-            metalMarginLeft = '54.6%';
-            metalMarginTop = '72.75%';
+            planetMetalMarginLeft = '54.6%';
+            planetMetalMarginTop = '72.75%';
 
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '36.5%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '36.5%';
 
             break;
         case 3:
@@ -867,90 +986,21 @@ function insertDOMandCSS1() {
             destinationMarginTop = '0%';
 
             // defining the planet coordinates
-            metalMarginLeft = '82.3%';
-            metalMarginTop = '36.4%';
+            planetMetalMarginLeft = '82.3%';
+            planetMetalMarginTop = '36.4%';
 
-            fireMarginLeft = '45.4%';
-            fireMarginTop = '9.5%';
+            planetFireMarginLeft = '45.4%';
+            planetFireMarginTop = '9.5%';
 
             break;
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
-
-    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft,
-        'margin-top': fireMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
-        'position': 'absolute',
-        'margin-left': metalMarginLeft,
-        'margin-top': metalMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    })
+    insertCSS();
 }
 
 // Insert DOM and CSS for map 2
-function insertDOMandCSS2() {
+function insertDOM2() {
     // map 2 selected
     // next step: insert img tags for lvl 2
     $('.canvas')/* .prepend('<img id="hint"/>') */
@@ -971,22 +1021,10 @@ function insertDOMandCSS2() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
-    // Metal planet coordinates
-    var metalMarginLeft;
-    var metalMarginTop;
-
-    // Fire planet coordinates
-    var fireMarginLeft;
-    var fireMarginTop;
-
-    // Ice planet coordinates
-    var iceMarginLeft;
-    var iceMarginTop;
-
-    // Earth planet coordinates
-    var earthMarginLeft;
-    var earthMarginTop;
-
+    planetFireWidth = '9%';
+    planetMetalWidth = '9%';
+    planetIceWidth = '15%';
+    planetEarthWidth = '9%';
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
@@ -1002,20 +1040,20 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft = '27%';
-            metalMarginTop = '36.7%';
+            planetMetalMarginLeft = '27%';
+            planetMetalMarginTop = '36.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '45%';
-            fireMarginTop = '9.55%';
+            planetFireMarginLeft = '45%';
+            planetFireMarginTop = '9.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '38%';
-            iceMarginTop = '56%';
+            planetIceMarginLeft = '38%';
+            planetIceMarginTop = '56%';
 
             // defining the Earth planet coordinates
-            earthMarginLeft = '27.5%';
-            earthMarginTop = '18.5%';
+            planetEarthMarginLeft = '27.5%';
+            planetEarthMarginTop = '18.5%';
 
             break;
         case 1:
@@ -1032,20 +1070,20 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft = '27.4%';
-            metalMarginTop = '27%';
+            planetMetalMarginLeft = '27.4%';
+            planetMetalMarginTop = '27%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '54.55%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '54.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '56%';
-            iceMarginTop = '38%';
+            planetIceMarginLeft = '56%';
+            planetIceMarginTop = '38%';
 
             // defining the Earth planet coordinates
-            earthMarginLeft = '36.75%';
-            earthMarginTop = '63.75%';
+            planetEarthMarginLeft = '36.75%';
+            planetEarthMarginTop = '63.75%';
 
             break;
         case 2:
@@ -1062,20 +1100,20 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft = '18%';
-            metalMarginTop = '64%';
+            planetMetalMarginLeft = '18%';
+            planetMetalMarginTop = '64%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '18.4%';
-            fireMarginTop = '45.55%';
+            planetFireMarginLeft = '18.4%';
+            planetFireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '47%';
-            iceMarginTop = '28%';
+            planetIceMarginLeft = '47%';
+            planetIceMarginTop = '28%';
 
             // defining the Earth planet coordinates
-            earthMarginLeft = '72.75%';
-            earthMarginTop = '45.55%';
+            planetEarthMarginLeft = '72.75%';
+            planetEarthMarginTop = '45.55%';
 
             break;
         case 3:
@@ -1092,114 +1130,31 @@ function insertDOMandCSS2() {
             destinationMarginTop = '0%';
 
             // defining the metal planet coordinates
-            metalMarginLeft = '27.3%';
-            metalMarginTop = '63.7%';
+            planetMetalMarginLeft = '27.3%';
+            planetMetalMarginTop = '63.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '45.55%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '45.55%';
 
             // defining the ice planet coordinates
-            iceMarginLeft = '56.6%';
-            iceMarginTop = '27.4%';
+            planetIceMarginLeft = '56.6%';
+            planetIceMarginTop = '27.4%';
 
             // defining the Earth planet coordinates
-            earthMarginLeft = '63.75%';
-            earthMarginTop = '45.55%';
+            planetEarthMarginLeft = '63.75%';
+            planetEarthMarginTop = '45.55%';
 
             break;
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
+    insertCSS();
 
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
 
-    $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
-        'position': 'absolute',
-        'margin-left': metalMarginLeft,
-        'margin-top': metalMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft,
-        'margin-top': fireMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
-        'position': 'absolute',
-        'margin-left': earthMarginLeft,
-        'margin-top': earthMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetIce.attr('src', 'img/playfield/planets/planet_ice.png').css({
-        'position': 'absolute',
-        'margin-left': iceMarginLeft,
-        'margin-top': iceMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%'
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    })
 }
 
-function insertDOMandCSS3() {
+function insertDOM3() {
 
     $('.canvas')
         .prepend('<img id="planetDestination"/>')
@@ -1217,11 +1172,7 @@ function insertDOMandCSS3() {
     //number of moves you can make
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
-
-    // Fire planet coordinates
-    var fireMarginLeft;
-    var fireMarginTop;
-
+    planetFireWidth = '9%';
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
@@ -1245,8 +1196,8 @@ function insertDOMandCSS3() {
             destinationMarginTop = '0%';
 
             // Fire planet coordinates
-            fireMarginLeft = '54.74%';
-            fireMarginTop = '54.55%';
+            planetFireMarginLeft = '54.74%';
+            planetFireMarginTop = '54.55%';
 
             break;
         case 1:
@@ -1271,8 +1222,8 @@ function insertDOMandCSS3() {
             destinationMarginTop = '0%';
 
             // Fire planet coordinates
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '36.55%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '36.55%';
 
             break;
         case 2:
@@ -1297,8 +1248,8 @@ function insertDOMandCSS3() {
             destinationMarginTop = '45%';
 
             // Fire planet coordinates
-            fireMarginLeft = '54.7%';
-            fireMarginTop = '18.55%';
+            planetFireMarginLeft = '54.7%';
+            planetFireMarginTop = '18.55%';
 
             break;
         case 3:
@@ -1323,8 +1274,8 @@ function insertDOMandCSS3() {
             destinationMarginTop = '0%';
 
             // Fire planet coordinates
-            fireMarginLeft = '27.4%';
-            fireMarginTop = '45.55%';
+            planetFireMarginLeft = '27.4%';
+            planetFireMarginTop = '45.55%';
 
             break;
     }
@@ -1333,87 +1284,10 @@ function insertDOMandCSS3() {
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
 
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft,
-        'margin-top': fireMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
-        'position': 'absolute',
-        'margin-left': asteroidMarginLeft,
-        'margin-top': asteroidMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-
-    });
-
-    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
-        'position': 'absolute',
-        'margin-left': fallingStarMarginLeft,
-        'margin-top': fallingStarMarginTop,
-        'max-height': 'auto',
-        'max-width': '12%',
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start_pos.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-    })
+    insertCSS();
 }
 
-function insertDOMandCSS4() {
+function insertDOM4() {
     $('.canvas')
         .prepend('<img id="planetDestination"/>')
         .prepend('<img id="planetFire"/>')
@@ -1458,6 +1332,31 @@ function insertDOMandCSS4() {
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
 
+
+            planetFireMarginLeft = '54%';
+            planetFireMarginTop = '55%';
+            planetFireWidth = '9%';
+
+            planetMetalMarginLeft = '18%';
+            planetMetalMarginTop = '54%';
+            planetMetalWidth = '9%';
+
+            planetEarthMarginLeft = '82%';
+            planetEarthMarginTop = '55%';
+            planetEarthWidth = '9%';
+
+            planetMoonMarginLeft = '27%';
+            planetMoonMarginTop = '36%';
+            planetMoonWidth = '9%';
+
+            planetLavaMarginLeft = '10%';
+            planetLavaMarginTop = '11%';
+            planetLavaWidth = '15%';
+
+            planetIceMarginLeft = '36.5%';
+            planetIceMarginTop = '18%';
+            planetIceWidth = '9%';
+
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
@@ -1479,6 +1378,31 @@ function insertDOMandCSS4() {
             //defining the destination coordinates
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
+
+
+            planetFireMarginLeft = '54%';
+            planetFireMarginTop = '55%';
+            planetFireWidth = '9%';
+
+            planetMetalMarginLeft = '18%';
+            planetMetalMarginTop = '54%';
+            planetMetalWidth = '9%';
+
+            planetEarthMarginLeft = '82%';
+            planetEarthMarginTop = '55%';
+            planetEarthWidth = '9%';
+
+            planetMoonMarginLeft = '27%';
+            planetMoonMarginTop = '36%';
+            planetMoonWidth = '9%';
+
+            planetLavaMarginLeft = '10%';
+            planetLavaMarginTop = '11%';
+            planetLavaWidth = '15%';
+
+            planetIceMarginLeft = '36.5%';
+            planetIceMarginTop = '18%';
+            planetIceWidth = '9%';
 
             break;
         case 2:
@@ -1502,6 +1426,31 @@ function insertDOMandCSS4() {
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
 
+
+            planetFireMarginLeft = '54%';
+            planetFireMarginTop = '55%';
+            planetFireWidth = '9%';
+
+            planetMetalMarginLeft = '18%';
+            planetMetalMarginTop = '54%';
+            planetMetalWidth = '9%';
+
+            planetEarthMarginLeft = '82%';
+            planetEarthMarginTop = '55%';
+            planetEarthWidth = '9%';
+
+            planetMoonMarginLeft = '27%';
+            planetMoonMarginTop = '36%';
+            planetMoonWidth = '9%';
+
+            planetLavaMarginLeft = '10%';
+            planetLavaMarginTop = '11%';
+            planetLavaWidth = '15%';
+
+            planetIceMarginLeft = '36.5%';
+            planetIceMarginTop = '18%';
+            planetIceWidth = '9%';
+
             break;
         case 3:
             //for resetting position of rocket - value will change depending on level
@@ -1524,131 +1473,43 @@ function insertDOMandCSS4() {
             destinationMarginLeft = '60.5%';
             destinationMarginTop = '0%';
 
+
+            planetFireMarginLeft = '54%';
+            planetFireMarginTop = '55%';
+            planetFireWidth = '9%';
+
+            planetMetalMarginLeft = '18%';
+            planetMetalMarginTop = '54%';
+            planetMetalWidth = '9%';
+
+            planetEarthMarginLeft = '82%';
+            planetEarthMarginTop = '55%';
+            planetEarthWidth = '9%';
+
+            planetMoonMarginLeft = '27%';
+            planetMoonMarginTop = '36%';
+            planetMoonWidth = '9%';
+
+            planetLavaMarginLeft = '10%';
+            planetLavaMarginTop = '11%';
+            planetLavaWidth = '15%';
+
+            planetIceMarginLeft = '36.5%';
+            planetIceMarginTop = '18%';
+            planetIceWidth = '9%';
+
             break;
     }
     rocketX1 = rocketX;
     rocketY1 = rocketY;
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
+    insertCSS();
 
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
 
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
-        'position': 'absolute',
-        'margin-left': asteroidMarginLeft,
-        'margin-top': asteroidMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-
-    });
-
-    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
-        'position': 'absolute',
-        'margin-left': fallingStarMarginLeft,
-        'margin-top': fallingStarMarginTop,
-        'max-height': 'auto',
-        'max-width': '12%',
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start_pos.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
-
-    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': '54%',
-        'margin-top': '55%',
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
-
-    $planetMetal.attr('src', 'img/playfield/planets/planet_metal.png').css({
-        'position': 'absolute',
-        'margin-left': '18%',
-        'margin-top': '54%',
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
-
-    $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
-        'position': 'absolute',
-        'margin-left': '82%',
-        'margin-top': '55%',
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
-    $planetMoon.attr('src', 'img/playfield/planets/planet_moon.png').css({
-        'position': 'absolute',
-        'margin-left': '27%',
-        'margin-top': '36%',
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
-    $planetLava.attr('src', 'img/playfield/planets/planet_lava.png').css({
-        'position': 'absolute',
-        'margin-left': '10%',
-        'margin-top': '11%',
-        'max-height': 'auto',
-        'max-width': '15%',
-    });
-    $planetIce.attr('src', 'img/playfield/planets/planet_ice.png').css({
-        'position': 'absolute',
-        'margin-left': '36.5%',
-        'margin-top': '18%',
-        'max-height': 'auto',
-        'max-width': '9%',
-    });
 }
 
-function insertDOMandCSS5() {
+function insertDOM5() {
     // map 5 selected
     // next step: insert img tags for lvl 5
     $('.canvas')/* .prepend('<img id="hint"/>') */
@@ -1671,20 +1532,10 @@ function insertDOMandCSS5() {
     algorithmLevelMoves = 10;
     functionTwoLevelMoves = 4;
 
-    // Lava planet coordinates
-    var lavaMarginLeft;
-    var lavaMarginTop;
-
-    // Earth planet coordinates
-    var earthMarginLeft;
-    var earthMarginTop;
-
-    // Fire planet coordinates
-    var fireMarginLeft;
-    var fireMarginTop;
-
-    var moonMarginLeft;
-    var moonMarginTop;
+    planetEarthWidth = '18%';
+    planetMoonWidth = '23%';
+    planetFireWidth = '9%';
+    planetLavaWidth = '9%';
 
     switch (version) {
         case 0:
@@ -1709,20 +1560,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft = '36.4%';
-            lavaMarginTop = '45.7%';
+            planetLavaMarginLeft = '36.4%';
+            planetLavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '54.6%';
-            fireMarginTop = '18.2%';
+            planetFireMarginLeft = '54.6%';
+            planetFireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft = '18.2%';
-            earthMarginTop = '18.7%';
+            planetEarthMarginLeft = '18.2%';
+            planetEarthMarginTop = '18.7%';
 
             // defining the moon planet coordinates
-            moonMarginLeft = '61%';
-            moonMarginTop = '52%';
+            planetMoonMarginLeft = '61%';
+            planetMoonMarginTop = '52%';
 
             break;
         case 1:
@@ -1747,20 +1598,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft = '36.4%';
-            lavaMarginTop = '45.7%';
+            planetLavaMarginLeft = '36.4%';
+            planetLavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '54.6%';
-            fireMarginTop = '18.2%';
+            planetFireMarginLeft = '54.6%';
+            planetFireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft = '18.2%';
-            earthMarginTop = '18.7%';
+            planetEarthMarginLeft = '18.2%';
+            planetEarthMarginTop = '18.7%';
 
             // defining the moon planet coordinates
-            moonMarginLeft = '61%';
-            moonMarginTop = '52%';
+            planetMoonMarginLeft = '61%';
+            planetMoonMarginTop = '52%';
 
             break;
         case 2:
@@ -1785,20 +1636,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft = '36.4%';
-            lavaMarginTop = '45.7%';
+            planetLavaMarginLeft = '36.4%';
+            planetLavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '54.6%';
-            fireMarginTop = '18.2%';
+            planetFireMarginLeft = '54.6%';
+            planetFireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft = '18.2%';
-            earthMarginTop = '18.7%';
+            planetEarthMarginLeft = '18.2%';
+            planetEarthMarginTop = '18.7%';
 
             // defining the moon planet coordinates
-            moonMarginLeft = '61%';
-            moonMarginTop = '52%';
+            planetMoonMarginLeft = '61%';
+            planetMoonMarginTop = '52%';
 
             break;
         case 3:
@@ -1823,20 +1674,20 @@ function insertDOMandCSS5() {
             fallingStarY = 50;
 
             // defining the lava planet coordinates
-            lavaMarginLeft = '36.4%';
-            lavaMarginTop = '45.7%';
+            planetLavaMarginLeft = '36.4%';
+            planetLavaMarginTop = '45.7%';
 
             // defining the fire planet coordinates
-            fireMarginLeft = '54.6%';
-            fireMarginTop = '18.2%';
+            planetFireMarginLeft = '54.6%';
+            planetFireMarginTop = '18.2%';
 
             // defining the lava planet coordinates
-            earthMarginLeft = '18.2%';
-            earthMarginTop = '18.7%';
+            planetEarthMarginLeft = '18.2%';
+            planetEarthMarginTop = '18.7%';
 
             // defining the moon planet coordinates
-            moonMarginLeft = '61%';
-            moonMarginTop = '52%';
+            planetMoonMarginLeft = '61%';
+            planetMoonMarginTop = '52%';
 
             break;
     }
@@ -1844,127 +1695,7 @@ function insertDOMandCSS5() {
     rocketY1 = rocketY;
     originalAsteroidX = asteroidX;
     originalFallingStarY = fallingStarY;
-
-    $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '1'
-    });
-    $rocketAnimateRight.attr('src', 'img/playfield/spaceship_pink_right.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateDown.attr('src', 'img/playfield/spaceship_pink_down.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-    $rocketAnimateLeft.attr('src', 'img/playfield/spaceship_pink_left.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%',
-        'z-index': '1',
-        'opacity': '0'
-    });
-
-    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
-        'position': 'absolute',
-        'margin-left': asteroidMarginLeft,
-        'margin-top': asteroidMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-
-    });
-
-    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
-        'position': 'absolute',
-        'margin-left': fallingStarMarginLeft,
-        'margin-top': fallingStarMarginTop,
-        'max-height': 'auto',
-        'max-width': '12%',
-    });
-
-    $planetFire.attr('src', 'img/playfield/planets/planet_fire.png').css({
-        'position': 'absolute',
-        'margin-left': fireMarginLeft,
-        'margin-top': fireMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $planetDestination.attr('src', 'img/playfield/planets/planet_destination.png').css({
-        'position': 'absolute',
-        'margin-left': destinationMarginLeft,
-        'margin-top': destinationMarginTop,
-        'max-height': 'auto',
-        'max-width': '15%',
-        'transform': 'rotate(30deg)'
-    });
-
-    $planetEarth.attr('src', 'img/playfield/planets/planet_earth.png').css({
-        'position': 'absolute',
-        'margin-left': earthMarginLeft,
-        'margin-top': earthMarginTop,
-        'max-height': 'auto',
-        'max-width': '18%'
-    });
-
-    $planetMoon.attr('src', 'img/playfield/planets/planet_moon.png').css({
-        'position': 'absolute',
-        'margin-left': moonMarginLeft,
-        'margin-top': moonMarginTop,
-        'max-height': 'auto',
-        'max-width': '23%'
-    });
-
-
-    $planetLava.attr('src', 'img/playfield/planets/planet_lava.png').css({
-        'position': 'absolute',
-        'margin-left': lavaMarginLeft,
-        'margin-top': lavaMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    });
-
-    $asteroid.attr('src', 'img/playfield/asteroid.png').css({
-        'position': 'absolute',
-        'margin-left': asteroidMarginLeft,
-        'margin-top': asteroidMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-
-    });
-
-    $fallingStar.attr('src', 'img/playfield/shootingstar.png').css({
-        'position': 'absolute',
-        'margin-left': fallingStarMarginLeft,
-        'margin-top': fallingStarMarginTop,
-        'max-height': 'auto',
-        'max-width': '12%',
-    });
-
-    $originalRocketSpace.attr('src', 'img/playfield/start.png').css({
-        'position': 'absolute',
-        'margin-left': rocketMarginLeft,
-        'margin-top': rocketMarginTop,
-        'max-height': 'auto',
-        'max-width': '9%'
-    })
+    insertCSS();
 }
 
 // function to find rocket index (value 4 in the array).
@@ -2618,7 +2349,7 @@ function clickElements() {
         $modalNext.hide();
         hideElements();
         $(".gif").show();
-    
+
     });
 
 
@@ -3021,10 +2752,10 @@ function moveRight() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
-        $rocketAnimateRight.animate({'opacity': "1",'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
-        $rocketAnimate.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
-        $rocketAnimateDown.animate({'opacity': "0",'margin-left': "+=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "1", 'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
 
         //$rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall); //calling function 4 times (because there's 4 images in the class?)
         rocketX += 50;
@@ -3110,10 +2841,10 @@ function moveDown() {
         asteroidAnimate();
         fallingStarAnimate();
         //$rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
-        $rocketAnimateDown.animate({'opacity': "1",'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
-        $rocketAnimate.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0",'margin-top': "+=9%"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "1", 'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0", 'margin-top': "+=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0", 'margin-top': "+=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0", 'margin-top': "+=9%"}, animationSpeed);
         //$rocket.animate({'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
         console.log(rocketX, rocketY);
         rocketY += 50;
@@ -3199,10 +2930,10 @@ function moveLeft() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
-        $rocketAnimateLeft.animate({'opacity': "1",'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
-        $rocketAnimate.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
-        $rocketAnimateDown.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0",'margin-left': "-=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "1", 'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "0", 'margin-left': "-=9%"}, animationSpeed);
+        $rocketAnimateDown.animate({'opacity': "0", 'margin-left': "-=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0", 'margin-left': "-=9%"}, animationSpeed);
         //$rocket.animate({'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
         rocketX -= 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
@@ -3287,11 +3018,11 @@ function moveUp() {
         fallingStarAnimate();
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
-        $rocketAnimate.animate({'opacity': "1",'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
-        $rocketAnimateDown.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
-        $rocketAnimateLeft.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
-        $rocketAnimateRight.animate({'opacity': "0",'margin-top': "-=9%"}, animationSpeed);
-       // $rocket.animate({'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimate.animate({'opacity': "1", 'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
+        $rocketAnimateDown.animate({'opacity': "0", 'margin-top': "-=9%"}, animationSpeed);
+        $rocketAnimateLeft.animate({'opacity': "0", 'margin-top': "-=9%"}, animationSpeed);
+        $rocketAnimateRight.animate({'opacity': "0", 'margin-top': "-=9%"}, animationSpeed);
+        // $rocket.animate({'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
         rocketY -= 50;
         //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
     }
@@ -3461,6 +3192,21 @@ function loadNewLevel() {
         currentLevel = 0;
         console.log("current level" + currentLevel);
     }
+    
+       highestCompletedLevel++;
+    
+    /* localStorage Functionality
+    
+    
+    // reassign local storage of current level
+    localStorage.setItem("currentLevel", currentLevel);
+    currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    
+    localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+    
+    */
+    
 
     // drawing the new level
     chooseLevel();
@@ -3563,8 +3309,7 @@ var winAndLossCall = function () {
 
                     setTimeout(function () {
                         $rocket.stop(true);
-                        //$rocketAnimate.stop(true);
-                        //},300);
+
                     }, 300);
 
                     setTimeout(function () {
@@ -3581,8 +3326,8 @@ var winAndLossCall = function () {
                         $winModal.show();
                         setTimeout(loadNewLevel, 3000);
 
-                        //}, 300)
-                    }, 900)
+                    }, 300)
+
                 }
             }
 
@@ -3666,9 +3411,9 @@ function instructions() {
         }
 
         else if (counter == 2) {
-        $modalText.text("");
-        $modalImage.attr("src","");
-        $(".gif").show();
+            $modalText.text("");
+            $modalImage.attr("src","");
+            $(".gif").show();
         }
 
         else if (counter == 3) {
@@ -3741,8 +3486,8 @@ function instructionsThree() {
         var newcounter = counter + 1;
 
         if (counter == 1) {
-                modal.style.display = "block";
-                $modalText.text("You have to create algorithms to reach your goal. This is how to do it.");
+            modal.style.display = "block";
+            $modalText.text("You have to create algorithms to reach your goal. This is how to do it.");
         }
         else if (counter == 2) {
             $modalText.text("");
@@ -3758,7 +3503,7 @@ function instructionsThree() {
             modal.style.display = "none";
         }
         counter = newcounter;
-    
+
     });
 }
 
