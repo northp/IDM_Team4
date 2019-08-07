@@ -278,8 +278,8 @@ body {
 
 /* Modal Content/Box */
 .modal-frame {
-    width: 60%;
-    height: 30%;
+    width: 60vw;
+    height: 35%;
     border: 5px solid #fab85b;
     margin-top: 30%;
     margin-left: auto;
@@ -295,14 +295,19 @@ body {
     margin-top: 3%;
     padding: 2%;
     border: 1px solid #888;
-    width: 90%;
-    height: 85%;
+    width: 55vw;
+    height: 86%;
     font-family: "Squada One", "cursive";
     font-size: 20px;
 }
 
 #title {
     font-size: 24px;
+}
+
+.gif{
+    width: 100%;
+    display: none;
 }
 
 /*
@@ -320,8 +325,8 @@ body {
 
 #next {
     float:right;
-    margin-top: 40%
-
+    margin-top: 60%;
+    width: 15%;
 }
 
 .close:hover,

@@ -418,7 +418,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-
+        $(".gif").attr("src","img/instruction/instruction1.gif");
         $(".functions").hide();
         $(".side-navigation").hide();
         $('.navigation').show();
@@ -447,7 +447,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-
+        $(".gif").attr("src","img/instruction/instruction2.gif");
         $(".functions").hide();
         $(".side-navigation").hide();
         $('.navigation').show();
@@ -476,6 +476,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+        $(".gif").attr("src","img/instruction/instruction3.gif");
     }
 
     if (currentLevel === 3) {
@@ -496,6 +497,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+        $(".gif").attr("src","img/instruction/instruction4.gif");
     }
 
     if (currentLevel === 4) {
@@ -2596,46 +2598,37 @@ function clickElements() {
         $commandsOverlay.hide();
     });
 
-    $hint.click(function () {
-        $modalText.text("Instructions...");
-        $modalTitle.text("Hint").css("font-weight", "bold");
-        $modalImage.attr("src", "");
-        $modalNext.attr("src", "");
-        $point.hide();
-        $commandsOverlay.hide();
-        hideElements()
-    });
-
-
     $helpDot.click(function () {
         modal.style.display = "block";
-        $modalText.text("Instructions...");
+        $modalText.text("");
+        $modalTitle.show();
         $modalTitle.text("Hint").css("font-weight", "bold");
-        $modalImage.attr("src", "");
-        $modalNext.attr("src", "");
-        $point.hide();
-        $commandsOverlay.hide();
-        hideElements()
+        $modalImage.hide();
+        $modalNext.hide();
+        hideElements();
+        $(".gif").show();
     });
 
     $helpButton.click(function () {
         modal.style.display = "block";
-        $modalText.text("Instructions...");
+        $modalText.text("");
+        $modalTitle.show();
         $modalTitle.text("Hint").css("font-weight", "bold");
-        $modalImage.attr("src", "");
-        $modalNext.attr("src", "");
-        $point.hide();
-        $commandsOverlay.hide();
-        hideElements()
+        $modalImage.hide();
+        $modalNext.hide();
+        hideElements();
+        $(".gif").show();
+    
     });
 
 
     $planetFire.click(function () {
         modal.style.display = "block";
+        $modalImage.show();
         $modalImage.attr("src", "img/playfield/planets/planet_fire.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         $commandsOverlay.hide();
         dangerArea("fire");
@@ -2646,7 +2639,7 @@ function clickElements() {
         $(".fire").show();
         $(".metal").hide();
         $(".ice").hide();
-
+        $(".gif").hide();
         if (solvedfire === false) {
             $("#submit").show();
         } else {
@@ -2661,10 +2654,11 @@ function clickElements() {
 
     $planetMetal.click(function () {
         modal.style.display = "block";
+        $modalImage.show();
         $modalImage.attr("src", "img/playfield/planets/planet_metal.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         $commandsOverlay.hide();
         dangerArea("metal");
@@ -2678,7 +2672,7 @@ function clickElements() {
         $("#submit").hide();
         $("#submitmetal").show();
         $("#submitice").hide();
-
+        $(".gif").hide();
         if (solvedmetal === false) {
             $("#submitmetal").show();
         } else {
@@ -2693,18 +2687,20 @@ function clickElements() {
         $modalImage.show();
         $modalText.text("This is your destination!");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $commandsOverlay.hide();
+        $(".gif").hide();
         $point.hide();
         hideElements();
     });
 
     $planetIce.click(function () {
         modal.style.display = "block";
+        $modalImage.show();
         $modalImage.attr("src", "img/playfield/planets/planet_ice.png").css("height", "3%", "width", "3%");
         $modalText.text("Choose the right answer to solve the puzzle.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $("#submit").hide();
         $(".gameImg").attr("src", "");
         $(".reaction").hide();
@@ -2721,7 +2717,7 @@ function clickElements() {
         $("#submit").hide();
         $("#submitmetal").hide();
         $("#submitice").show();
-
+        $(".gif").hide();
         if (solvedice === false) {
             $("#submitice").show();
         } else {
@@ -2732,11 +2728,12 @@ function clickElements() {
 
     $planetEarth.click(function () {
         modal.style.display = "block";
+        $modalImage.show();
         $modalImage.attr("src", "img/playfield/planets/planet_earth.png").css("height", "5%", "width", "5%");
         $modalImage.show();
         $modalText.text("Earth");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         hideElements()
     });
@@ -2747,7 +2744,7 @@ function clickElements() {
         $modalImage.show();
         $modalText.text("Moon");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         hideElements()
     });
@@ -2758,7 +2755,7 @@ function clickElements() {
         $modalImage.show();
         $modalText.text("Lava");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         $commandsOverlay.hide();
         hideElements()
@@ -2769,7 +2766,8 @@ function clickElements() {
         $modalImage.attr("src", "img/playfield/asteroid.png").css("height", "5%", "width", "5%");
         $modalText.text("Asteroids move from left to right.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalImage.show();
+        $modalNext.hide();
         $point.hide();
         hideElements()
     });
@@ -2779,20 +2777,22 @@ function clickElements() {
         $modalImage.attr("src", "img/playfield/shootingstar.png").css("height", "5%", "width", "5%");
         $modalText.text("Falling stars move downwards.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalImage.show();
+        $modalNext.hide();
         $point.hide();
         hideElements()
     });
 
-    //$rocketAnimate.click(function () {
-    $rocket.click(function () {
+    $rocketAnimate.click(function () {
         modal.style.display = "block";
+        $modalImage.show();
         $modalImage.attr("src", "img/playfield/spaceship_pink.png").css("height", "10%", "width", "10%");
         $modalText.text("Move the rocket to its destination by using the arrow keys below.");
         $modalTitle.hide();
-        $modalNext.attr("src", "");
+        $modalNext.hide();
         $point.hide();
         $commandsOverlay.hide();
+        $(".gif").hide();
         hideElements()
 
     });
@@ -3644,73 +3644,34 @@ $("#run").hover(function () {
 /*DEMO MODALS*/
 
 //level 0
+//level 0
 function instructions() {
     var counter = 1;
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
-    $modalTitle.text("Welcome to Space Navigation!").css("font-weight", "bold");
-    $modalText.text("Hi there, I'm Hugo! I'm here to show you how to use this spaceship properly.");
-    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $modalTitle.text("Welcome to Cosmic Computing!").css("font-weight", "bold");
+    $modalText.text("Hi there, I'm Hugo!");
+    $modalNext.attr("src", "next.png");
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
         if (counter == 1) {
             modal.style.display = "block";
-            $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm.");
+            $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm. Let me show you how to do it!");
         }
 
         else if (counter == 2) {
-            $modalImage.hide();
-            $modalTitle.hide();
-            $point.show();
-            $commandsOverlay.show();
-            modal.style.display = "block";
-            $modalText.text("These buttons are your commands. They will move the spaceship up, down, left and right.");
-            $commandsOverlay.attr("src", "img/playfield/commands.png").css({
-                "width": "50%",
-                "margin-left": "-38%", "margin-top": "115%",
-            });
-
-            $point.attr("src", "img/playfield/astronaut.png").css({
-                "height": "20%", "width": "20%", "margin-left": "20%", "margin-top": "95%",
-                "animation": "bouncearrow 1s infinite", "transform": "scaleX(-1)"
-            });
+        $modalText.text("");
+        $modalImage.attr("src","");
+        $(".gif").show();
         }
 
         else if (counter == 3) {
-            $point.show();
-            $commandsOverlay.show();
-            modal.style.display = "block";
-            $modalText.text("Each command you select will appear in a queue in the Main View. You can remove commands by clicking on them here. You can insert a maximum of 10 commands.");
-            $point.css({"transform": "scaleX(-1)", "margin-left": "60%"});
-            $commandsOverlay.attr("src", "img/playfield/mainpanel.png").css({
-                "width": "77%",
-                "margin-left": "12%", "margin-top": "66%",
-            });
-        }
-
-        else if (counter == 4) {
-            $point.show();
-            $commandsOverlay.show();
-            modal.style.display = "block";
-            $point.css({"margin-left": "65%", "margin-top": "85%"});
-            $modalText.text("Your listed commands will be executed when you hit the play button.");
-            $commandsOverlay.attr("src", "play.png").css({
-                "width": "50%",
-                "margin-left": "25%", "margin-top": "97%",
-            });
-        }
-
-        else if (counter == 5) {
-            modal.style.display = "block";
-            $point.hide();
+            $(".gif").hide();
+            $modalImage.attr("src","img/playfield/astronaut.png");
             $modalText.text("Now, see if you can make a list of commands that moves the spaceship toward the destination planet!");
-            $commandsOverlay.hide();
-            $modalImage.show();
-
         }
-
-        else if (counter == 6) {
+        else if (counter == 4) {
             modal.style.display = "none";
 
         }
@@ -3727,33 +3688,31 @@ function instructionsTwo() {
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalImage.show();
     $modalTitle.hide();
-    $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
+    $(".gif").hide();
+    $modalNext.show();
+    $modalNext.attr("src", "next.png");
     $commandsOverlay.hide();
     $point.hide();
-
-
     $modalNext.click(function () {
         var newcounter = counter + 1;
 
         if (counter == 1) {
             modal.style.display = "block";
-            $modalText.text("You must click each planet to find out its level of danger.");
-            $commandsOverlay.hide();
-            $point.hide();
+            $modalText.text("But don't worry. I'll show you how to deal with them.");
         }
 
         else if (counter == 2) {
-            modal.style.display = "block";
-            $modalText.text("However, you may be prompted to solve a puzzle first!");
-            $modalImage.show();
-            $commandsOverlay.hide();
-            $point.hide();
+            $modalText.text("");
+            $modalImage.attr("src","");
+            $(".gif").show();
         }
-
         else if (counter == 3) {
+            $(".gif").hide();
+            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalText.text("So, let's get started!");
+        }
+        else if (counter == 4) {
             modal.style.display = "none";
-            $commandsOverlay.hide();
-            $point.hide();
         }
         counter = newcounter;
     })
@@ -3766,7 +3725,10 @@ function instructionsThree() {
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();
-    $modalText.text("Hi, it's me again! You may have noticed that the levels become more challenging with more obstacles. 10 commands may not be enough to move your spaceship to its destination.");
+    $(".gif").hide();
+    $modalNext.show();
+    $modalImage.show();
+    $modalText.text("At this point, 10 commands may not be enough to move your spaceship to its destination.");
     $commandsOverlay.hide();
     hideElements();
 
@@ -3774,54 +3736,39 @@ function instructionsThree() {
         var newcounter = counter + 1;
 
         if (counter == 1) {
-            modal.style.display = "block";
-            $modalText.text("You can use the algorithm panel for this problem, by clicking on the panel and adding commands to it, the same way you have learnt with the Main View.");
-            $modalImage.hide();
-            $point.attr("src", "img/playfield/astronaut.png").css({
-                "height": "20%", "width": "20%", "margin-left": "60%", "margin-top": "100%",
-                "animation": "bouncearrow 1s infinite", "transform": ""
-            });
-            $commandsOverlay.attr("src", "img/playfield/func2.png").css({
-                "width": "43%", "margin-left": "90.25%", "margin-top": "71.5%"
-            });
-            $point.show();
-            $commandsOverlay.show();
+                modal.style.display = "block";
+                $modalText.text("You have to create algorithms to reach your goal. This is how to do it.");
         }
-
         else if (counter == 2) {
-            modal.style.display = "block";
-            $modalImage.hide();
-            $point.attr("src", "img/playfield/astronaut.png").css({
-                "height": "20%", "width": "20%", "margin-left": "24%", "margin-top": "103%",
-                "animation": "bouncearrow 1s infinite", "transform": "rotate(85deg)"
-            });
-            $modalText.text("Once you hit save, your algorithm will be stored in a button that you can insert into the Main View as many times as you'd like!");
-            $commandsOverlay.attr("src", "img/playfield/algo-button.png").css({
-                "width": "8%", "margin-left": "28%", "margin-top": "158%"
-            });
-            $commandsOverlay.show();
-            $point.show();
+            $modalText.text("");
+            $modalImage.attr("src","");
+            $(".gif").show();
         }
-
-        else if (counter == 3) {
+        else if (counter == 3){
+            $(".gif").hide();
+            $modalImage.attr("src","img/playfield/astronaut.png");
+            $modalText.text("It's your turn now!");
+        }
+        else if (counter == 4) {
             modal.style.display = "none";
-            $point.hide();
-            $commandsOverlay.hide();
         }
         counter = newcounter;
-    })
+    
+    });
 }
 
 //level 3
 function instructionsFour() {
     var counter = 1;
     modal.style.display = "block";
+    $(".gif").hide();
     $modalNext.attr("src", "next.png").css("height", "25%", "width", "25%");
     $modalImage.show();
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.hide();
-    $modalText.text("This level introduces asteroids and falling stars.");
+    $modalText.text("In this level you have to cope with asteroids and falling stars.");
     $commandsOverlay.hide();
+    $modalNext.show();
     $point.hide();
     hideElements();
 
@@ -3830,18 +3777,15 @@ function instructionsFour() {
         var newcounter = counter + 1;
 
         if (counter == 1) {
-            modal.style.display = "block";
-            $modalText.text("Asteroids move from left to right while falling stars move from top to bottom.");
-            $commandsOverlay.hide();
-            $point.hide();
+            $modalText.text("");
+            $modalImage.attr("src","");
+            $(".gif").show();
         }
 
         else if (counter == 2) {
-            modal.style.display = "block";
-            $commandsOverlay.hide();
-            $point.hide();
+            $(".gif").hide();
+            $modalImage.attr("src","img/playfield/astronaut.png");
             $modalText.text("They will move whenever your spaceship moves, so watch out!");
-            $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
 
         }
 
@@ -3866,6 +3810,7 @@ function instructionsFive() {
     $commandsOverlay.hide();
     $point.hide();
     hideElements();
+    $modalNext.show();
     $modalNext.click(function () {
         modal.style.display = "none";
         $commandsOverlay.hide();

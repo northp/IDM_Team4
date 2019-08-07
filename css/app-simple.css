@@ -258,7 +258,7 @@ body {
 /* Modal Content/Box */
 .modal-frame {
     width: 60vw;
-    height: 30%;
+    height: 35%;
     border: 5px solid #fab85b;
     margin-top: 30%;
     margin-left: auto;
@@ -275,7 +275,7 @@ body {
     padding: 2%;
     border: 1px solid #888;
     width: 55vw;
-    height: 85%;
+    height: 86%;
     font-family: "Squada One", "cursive";
     font-size: 20px;
 }
@@ -283,6 +283,12 @@ body {
 #title {
     font-size: 24px;
 }
+
+.gif{
+    width: 100%;
+    display: none;
+}
+
 
 /*
 #modalImage {
@@ -299,8 +305,8 @@ body {
 
 #next {
     float:right;
-    margin-top: 40%
-
+    margin-top: 60%;
+    width: 15%;
 }
 
 .close:hover,
