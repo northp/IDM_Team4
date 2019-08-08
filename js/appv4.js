@@ -295,9 +295,9 @@ function loadVersions() {
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0.2, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 4, 0, 0, 0, 0, 2, 2.5, 0, 0, 0],
-                [0.1, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 0, 0.2, 0, 0, 0, 2.5, 0, 0, 0, 0],
+                [0, 4, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
@@ -357,19 +357,30 @@ function loadVersions() {
         [
             [0, 0, 0, 0, 0, 0, 0.2, 0, 1, 1, 1],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0.1, 0, 0, 0, 0, 6, 0, 0, 5, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0],
             [0, 0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
             [0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 3, 3, 0, 0, 0, 0, 8, 0, 0],
-            [0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0],
+            [0, 0, 3, 3, 0, 0, 0, 0, 0, 8, 8],
+            [0, 0, 0, 0, 0, 7, 0, 0, 0, 8, 8],
             [0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
-    versionListLevel7 = [];
-    versionListLevel8 = [];
-    versionListLevel9 = [];
+    versionListLevel7 =
+        [
+            [0, 1, 1, 1, 0, 0.2, 0, 0, 0, 0, 0],
+            [0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 0],
+            [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
+            [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0],
+            [0, 0, 2.5, 2.5, 2.5, 0, 0, 5, 5, 0, 0],
+            [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+            [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 3.5, 3, 0],
+            [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 4]
+        ];
+
 }
 
 chooseLevel();
@@ -553,6 +564,27 @@ function chooseLevel() {
         map = versionListLevel6;
 
         insertDOM6();
+        gamePlayed1 = false;
+        gamePlayed2 = false;
+        gamePlayed3 = false;
+        existingLabels = false;
+        solvedfire = false;
+        solvedmetal = false;
+        solvedice = false;
+        $(".labels").text("");
+
+    }
+
+    if (currentLevel === 7) {
+        // Randomise number between 1 and 4 to represent Level 5 version
+        //version = Math.floor((Math.random() * 4));
+        //console.log("Level " + currentLevel + " , version " + version);
+        console.log("Level " + currentLevel);
+
+        // Assign randomised version number to map for level 4
+        map = versionListLevel7;
+
+        insertDOM7();
         gamePlayed1 = false;
         gamePlayed2 = false;
         gamePlayed3 = false;
@@ -1439,7 +1471,7 @@ function insertDOM6() {
     rocketY = 500;
 
     //defining the destination coordinates
-    destinationMarginLeft = '80%';
+    destinationMarginLeft = '78%';
     destinationMarginTop = '0%';
 
     planetFireMarginLeft = '36%';
@@ -1450,21 +1482,96 @@ function insertDOM6() {
     planetMetalMarginTop = '56%';
     planetMetalWidth = '15%';
 
-    planetEarthMarginLeft = '45%';
-    planetEarthMarginTop = '18%';
+    planetEarthMarginLeft = '18%';
+    planetEarthMarginTop = '28%';
     planetEarthWidth = '9%';
 
     planetMoonMarginLeft = '45.5%';
     planetMoonMarginTop = '73%';
     planetMoonWidth = '9%';
 
-    planetLavaMarginLeft = '73%';
-    planetLavaMarginTop = '64%';
-    planetLavaWidth = '9%';
+    planetLavaMarginLeft = '83%';
+    planetLavaMarginTop = '65%';
+    planetLavaWidth = '15%';
 
     planetIceMarginLeft = '72.5%';
-    planetIceMarginTop = '18%';
+    planetIceMarginTop = '27%';
     planetIceWidth = '9%';
+
+    rocketX1 = rocketX;
+    rocketY1 = rocketY;
+    originalAsteroidX = asteroidX;
+    originalFallingStarY = fallingStarY;
+    insertCSS();
+
+}
+
+function insertDOM7() {
+    $('.canvas')
+        .prepend('<img id="planetDestination"/>')
+        .prepend('<img id="planetFire"/>')
+        .prepend('<img id="rocketman" class="rocket"/>')
+        .prepend('<img id="rocketmanRight" class="rocket"/>')
+        .prepend('<img id="rocketmanDown" class="rocket"/>')
+        .prepend('<img id="rocketmanLeft" class="rocket"/>')
+        .prepend('<img id="asteroid"/>')
+        .prepend('<img id ="fallingstar"/>')
+        .prepend('<img id ="planetMetal"/>')
+        .prepend('<img id ="planetEarth"/>')
+        .prepend('<img id ="planetIce"/>')
+        .prepend('<img id ="planetLava"/>')
+        .prepend('<img id ="planetMoon"/>')
+        .prepend('<img id ="originalrocketspace"/>');
+
+    jQueryVariables(); //calling function that puts above img elements into variables
+
+    //number of moves you can make
+    algorithmLevelMoves = 10;
+    functionTwoLevelMoves = 4;
+
+    //for resetting position of rocket - value will change depending on level
+    rocketMarginLeft = '91%';
+    rocketMarginTop = '82%';
+
+    //defining the rocket coordinates
+    rocketX = 550;
+    rocketY = 500;
+
+    asteroidMarginLeft = '0%';
+    asteroidMarginTop = '27.5%';
+    asteroidX = 0;
+
+    fallingStarMarginLeft = '44.5%';
+    fallingStarMarginTop = '-2%';
+    fallingStarY = 0;
+
+    //defining the destination coordinates
+    destinationMarginLeft = '15%';
+    destinationMarginTop = '0%';
+
+    planetFireMarginLeft = '27%';
+    planetFireMarginTop = '55%';
+    planetFireWidth = '9%';
+
+    planetMetalMarginLeft = '82%';
+    planetMetalMarginTop = '73%';
+    planetMetalWidth = '9%';
+
+    planetEarthMarginLeft = '36%';
+    planetEarthMarginTop = '18%';
+    planetEarthWidth = '9%';
+
+    planetMoonMarginLeft = '8%';
+    planetMoonMarginTop = '81%';
+    planetMoonWidth = '12%';
+
+    planetLavaMarginLeft = '73%';
+    planetLavaMarginTop = '9.1%';
+    planetLavaWidth = '9%';
+
+    planetIceMarginLeft = '65.5%';
+    planetIceMarginTop = '38%';
+    planetIceWidth = '15%';
 
     rocketX1 = rocketX;
     rocketY1 = rocketY;
@@ -2970,6 +3077,9 @@ function loadNewLevel() {
         currentLevel = 6;
         console.log("current level" + currentLevel);
     } else if (currentLevel === 6) {
+        currentLevel = 7;
+        console.log("current level" + currentLevel);
+    } else if (currentLevel === 7) {
         currentLevel = 0;
         console.log("current level" + currentLevel);
     }
@@ -3183,6 +3293,7 @@ function instructions() {
     $modalText.text("Hi there, I'm Hugo!");
     $modalNext.attr("src", "next.png");
     $modalNext.show();
+    $modalTitle.show();
     $modalNext.click(function () {
         var newcounter = counter + 1;
 

@@ -84,4 +84,4 @@ $("#back").click(function(){
     counter2 = backcounter2;
     counter = backcounter;
     console.log(backcounter);
-})
+});

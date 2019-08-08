@@ -1,7 +1,7 @@
 "use strict";
 
 var counter = 1;
-var text1 = "You're the commander of the spaceship. Your goal is to move the ship around the galaxy to the correct destination.The aim of the game is to get to your destination in one piece, avoiding the obstacles that are scattered across the playing field";
+var text1 = "You're the commander of the spaceship. Your goal is to move the ship around the galaxy to the correct destination. The aim of the game is to get to your destination in one piece, avoiding the obstacles that are scattered across the playing field";
 
 var text2 = "Movement: In order to move you must create a series of movements using directional arrows and click the play button to carry them out. ";
 var text222 =   "By clicking on the direction button you add it to the series. You can use up to 10 buttons";
