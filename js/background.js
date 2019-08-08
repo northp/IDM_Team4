@@ -5,7 +5,7 @@ var counter2 = 11;
 var counter3 = 21;
 
 var text1 = "Computational Thinking";
-var text11 ="Computational thinking is a problem solving process that allows us to take a complex problem, understand what the problem is and develop possible solutions.CT is essential to the development of computer applications, but it can also be used to support problem solving across all disciplines, including the humanities, math, and science.There are four corenerstones to Computational Thinking. Decomposition, Pattern recognition, Abstraction and Algorithms.";
+var text11 ="Computational thinking is a problem solving process that allows us to take a complex problem, understand what the problem is and develop possible solutions. CT is essential to the development of computer applications, but it can also be used to support problem solving across all disciplines, including the humanities, math, and science. There are four cornerstones to Computational Thinking: Decomposition, Pattern recognition, Abstraction and Algorithms.";
 var text2 = "Decomposition";
 var text22 = "Decomposition is breaking down complex problems into more manageable parts. So for a user to navigate the space playing field, they must first break down each area to the parts of it which they can navigate.";
 var text3 = " Abstraction\n";
