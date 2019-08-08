@@ -11,7 +11,7 @@ var text22 = "Decomposition is breaking down complex problems into more manageab
 var text3 = " Abstraction\n";
 var text33 = " Abstraction is gathering general characteristics and filtering out of details we do not need in order to solve our problem. In Cosmic Computing this is represented by how the player chooses which planets are releveant to their potential path.";
 var text4 = "Pattern Recognition\n";
-var text44 = "Pattern recognition involves  involves finding the similarities or patterns among small, decomposed problems that can help us solve more complex problems more efficiently. This is particulary prevalent in our mini-games. \n";
+var text44 = "Pattern recognition involves finding the similarities or patterns among small, decomposed problems that can help us solve more complex problems more efficiently. This is particulary prevalent in our mini-games. \n";
 var text5 = "Algorithms\n";
 var text55 = "An algorithm is a plan, a set of step-by-step instructions to solve a problem. This aspect of CT is clearly related to the algorithm functionality of moving the spaceship with a set of command that is stored in advance to be used when needed during the game. ";
 
