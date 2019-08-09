@@ -2200,6 +2200,7 @@ function generateMinigame(planet) {
 }
 
 function clickElements() {
+
     $home.click(function () {
         navModal.style.display = "block";
         $point.hide();
@@ -2347,7 +2348,7 @@ function clickElements() {
         $modalImage.show();
         $modalImage.attr("src", "img/playfield/planets/planet_earth.png").css("height", "5%", "width", "5%");
         $modalImage.show();
-        $modalText.text("Earth");
+        $modalText.text("This planet is dangerous."); //make it safe for abstraction purposes?
         $modalTitle.hide();
         $modalNext.hide();
         $point.hide();
@@ -2358,7 +2359,7 @@ function clickElements() {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_moon.png").css("height", "5%", "width", "5%");
         $modalImage.show();
-        $modalText.text("Moon");
+        $modalText.text("This planet is dangerous.");
         $modalTitle.hide();
         $modalNext.hide();
         $point.hide();
@@ -2369,7 +2370,7 @@ function clickElements() {
         modal.style.display = "block";
         $modalImage.attr("src", "img/playfield/planets/planet_lava.png").css("height", "5%", "width", "5%");
         $modalImage.show();
-        $modalText.text("Lava");
+        $modalText.text("This planet is dangerous.");
         $modalTitle.hide();
         $modalNext.hide();
         $point.hide();
@@ -2420,30 +2421,6 @@ function clickElements() {
     };
 
 
-    //clicking off of modals
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-            $point.hide();
-            $commandsOverlay.hide();
-
-        } else if (event.target == navModal) {
-            navModal.style.display = "none";
-            $point.hide();
-            $commandsOverlay.hide();
-        }
-
-
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-        navModal.style.display = "none";
-        $point.hide();
-        $commandsOverlay.hide();
-    };
 }
 
 //every time you hit stop, all animations will return back to their original position
@@ -3284,8 +3261,56 @@ $("#run").hover(function () {
 
 /*DEMO MODALS*/
 
+//function so that you can't skip the demo instruction modals at beginning of levels
+function cantSkipDemo() {
+    /*
+    $(".close").hide();
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+        }
+    };
+
+    span.onclick = function () {
+    };*/
+
+    closeModal();
+}
+
+
+
+//clicking off of modals
+function closeModal() {
+    $(".close").show();
+
+    //when the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            $point.hide();
+            $commandsOverlay.hide();
+
+        } else if (event.target == navModal) {
+            navModal.style.display = "none";
+            $point.hide();
+            $commandsOverlay.hide();
+        }
+
+
+    };
+
+    //when the user clicks on x button close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+        navModal.style.display = "none";
+        $point.hide();
+        $commandsOverlay.hide();
+    };
+}
+
 //level 0
 function instructions() {
+    cantSkipDemo();
     var counter = 1;
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
@@ -3305,7 +3330,7 @@ function instructions() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "122%", "margin-left": "0%", "margin-top": "-8%"});
+            $(".gif").css({"width": "122%", "margin-left": "-1%", "margin-top": "-8%"});
             $(".gif").show();
         }
 
@@ -3316,6 +3341,7 @@ function instructions() {
         }
         else if (counter == 4) {
             modal.style.display = "none";
+            closeModal();
 
         }
         counter = newcounter;
@@ -3325,6 +3351,7 @@ function instructions() {
 
 //level 1
 function instructionsTwo() {
+    cantSkipDemo();
     modal.style.display = "block";
     var counter = 1;
     $modalText.text("Planets may harm your spaceship if you collide with them.");
@@ -3347,7 +3374,7 @@ function instructionsTwo() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "6%", "margin-top": "0%"});
+            $(".gif").css({"width": "110%", "margin-left": "5%", "margin-top": "0%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3357,6 +3384,7 @@ function instructionsTwo() {
         }
         else if (counter == 4) {
             modal.style.display = "none";
+            closeModal();
         }
         counter = newcounter;
     })
@@ -3364,6 +3392,7 @@ function instructionsTwo() {
 
 //level 2
 function instructionsThree() {
+    cantSkipDemo();
     var counter = 1;
     modal.style.display = "block";
     $modalNext.attr("src", "next.png");
@@ -3386,7 +3415,7 @@ function instructionsThree() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "6%", "margin-top": "0%"});
+            $(".gif").css({"width": "110%", "margin-left": "5%", "margin-top": "0%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3396,6 +3425,7 @@ function instructionsThree() {
         }
         else if (counter == 4) {
             modal.style.display = "none";
+            closeModal();
         }
         counter = newcounter;
 
@@ -3404,6 +3434,7 @@ function instructionsThree() {
 
 //level 3
 function instructionsFour() {
+    cantSkipDemo();
     var counter = 1;
     modal.style.display = "block";
     $(".gif").hide();
@@ -3438,6 +3469,7 @@ function instructionsFour() {
             modal.style.display = "none";
             $commandsOverlay.hide();
             $point.hide();
+            closeModal();
 
         }
         counter = newcounter;
@@ -3446,6 +3478,7 @@ function instructionsFour() {
 }
 
 function instructionsFive() {
+    cantSkipDemo();
     modal.style.display = "block";
     $modalNext.attr("src", "next.png");
     $modalImage.show();
@@ -3460,6 +3493,7 @@ function instructionsFive() {
         modal.style.display = "none";
         $commandsOverlay.hide();
         $point.hide();
+        closeModal();
     })
 
 }
