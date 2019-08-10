@@ -297,6 +297,11 @@ body {
     z-index:2;
 }
 
+.answers {
+    margin-top: -1%;
+    margin-left: 30%;
+}
+
 /*
 #modalImage {
     padding: 15px

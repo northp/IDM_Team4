@@ -391,6 +391,7 @@ function hideElements() {
     $(".gameImg3").hide();
     $("#submitmetal").hide();
     $("#submitice").hide();
+    $(".answers").hide();
 }
 
 function chooseLevel() {
@@ -2142,6 +2143,7 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("fire");
         generateMinigame("fire");
+        $(".answers").show();
         $(".gameImg1").show();
         $(".gameImg2").hide();
         $(".gameImg3").hide();
@@ -2172,6 +2174,7 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("metal");
         generateMinigame("metal");
+        $(".answers").show();
         $(".gameImg1").hide();
         $(".gameImg2").show();
         $(".gameImg3").hide();
@@ -2217,6 +2220,7 @@ function clickElements() {
         $commandsOverlay.hide();
         dangerArea("ice");
         generateMinigame("ice");
+        $(".answers").show();
         $(".gameImg1").hide();
         $(".gameImg2").hide();
         $(".gameImg3").show();
