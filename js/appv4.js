@@ -1,34 +1,31 @@
 "use strict";
 
-// A variable to represent the selected map
-var currentLevel = 0;
-
-// A variable to represent the highest completed level.
-var highestCompletedLevel = 0;
+/* Below code now in checkpoint.js */
 
 
-/* Adding LocalStorage Code
+// // A variable to represent the selected map
+// var currentLevel = 0;
+
+// // A variable to represent the highest completed level.
+// var highestCompletedLevel = 0;
 
 
-// Keeping local storage clear until checkpoint overview is compelte.
-localStorage.clear();
+/* Adding LocalStorage Code */
 
-if(localStorage){
-    currentLevel = parseInt(localStorage.getItem("currentLevel"));
-    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
-} else {
-    currentLevel = 0;
-    highestCompletedLevel = 0;
-}
+// function loadStorageData(){
+    // // Local storage: Current Level and Highest Completed level start at 0;
+    // currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    // localStorage.setItem("currentLevel", currentLevel);
+    
+    // highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+    // localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+// }
 
-// Local storage: Current Level and Highest Completed level start at 0;
-localStorage.setItem("currentLevel", currentLevel);
-currentLevel = parseInt(localStorage.getItem("currentLevel"));
+// loadStorageData();
 
-localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
-highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+loadStorageData();
 
-*/
+
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -3063,7 +3060,7 @@ function loadNewLevel() {
 
     highestCompletedLevel++;
 
-    /* localStorage Functionality
+    /* localStorage Functionality */
     
     
     // reassign local storage of current level
@@ -3073,7 +3070,7 @@ function loadNewLevel() {
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
     highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
     
-    */
+    
 
 
     // drawing the new level
