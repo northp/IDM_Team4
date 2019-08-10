@@ -3348,7 +3348,7 @@ function instructions() {
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.text("Welcome to Cosmic Computing!").css("font-weight", "bold");
-    $modalText.text("Hi there, I'm Hugo!");
+    $modalText.text("Hi there, I'm Hugo!"); //Narrative? - "I need your help - my home planet is dying and I need you to guide me to specific planets to see if they could sustain life."
     $modalNext.attr("src", "next.png");
     $modalNext.show();
     $modalTitle.show();

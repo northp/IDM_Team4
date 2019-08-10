@@ -1,20 +1,22 @@
 "use strict";
 
 var counter = 1;
-var text1 = "You're the commander of the spaceship. Your goal is to move the ship around the galaxy to the correct destination. The aim of the game is to get to your destination in one piece, avoiding the obstacles that are scattered across the playing field";
+var text1 = "You're the commander of the spaceship. Your goal is to guide the ship around space to the correct destination. You must avoid any dangerous obstacles that are scattered across the playing field.";
+//var text1 = "Your home planet is dying so you must travel to different planets to see if they can sustain life. Your goal is to move your spaceship to the correct " +
+// "destination in each level while avoiding any dangerous obstacles that are scattered across the playing field.";
 
-var text2 = "Movement: In order to move you must create a series of movements using directional arrows and click the play button to carry them out. ";
-var text222 = "By clicking on the direction button you add it to the series. You can use up to 10 buttons";
-var text224 = "An algorithm is a series of up to 5 movements that can be used as one button. You can create 3 algorithms. ";
+var text2 = "You must create a series of movements by tapping the arrow commands. This is your algorithm. You can then click the run button to carry it out.";
+var text222 = "Once you tap an arrow button it will be added to your list of commands. You can use up to 10 moves. You can remove any commands by tapping on them.";
+var text224 = "From level 3, you can make a second algorithm and use it as a single command. Once you create this algorithm, you can save it and then call it in the main view.";
 
-var text3 = " Planets: Each planet has a different zone around it which will affect your ship differently.";
-var text331 = "To see the zone you must click on the planet and complete the task. ";
-var text332 = "Negative zones cannot be entered by your ship or will you will have to start again.";
-var text333 = "Positive zones will move your ship in a particular direction. ";
+var text3 = "Some planets are safe to fly through, while some are dangerous. You need to consider each planet individually.";
+var text331 = "Some planets have hidden zones around them which will affect your ship differently. To unlock the zone you must click on the planet and complete the task.";
+var text332 = "Red zones are dangerous.";
+var text333 = "Green zones will push your ship to the end of the zone immediately, giving you an extra move. ";
 
-var text4 = "Asteroids and falling stars: Asteroids and falling stars are to be avoided at all costs. Watch them closely to see how they move as they respond to your movements.";
+var text4 = "Asteroids and falling stars are to be avoided at all costs. Watch them closely to see how they move as they respond to your movements.";
 
-var text5 = "Checkpoints: Your progress will be saved after you complete each stage. To go back at any time, just click on the home button and choose which checkpoint you would like to go to.";
+var text5 = "Your progress will be saved after you complete each level. To go back at any time, just click on the home button and choose which checkpoint you would like to go to.";
 
 
 var overviewImg = $("#computational");
