@@ -5,11 +5,11 @@
 
 
 // // A variable to represent the selected map
-// var currentLevel = 0;
+var currentLevel = 0;
 
 
 // // A variable to represent the highest completed level.
-// var highestCompletedLevel = 0;
+var highestCompletedLevel = 0;
 
 
 /* Adding LocalStorage Code */
@@ -24,6 +24,11 @@
 // }
 
 // loadStorageData();
+
+if((!parseInt(localStorage.getItem("currentLevel")) >= 1) || (!parseInt(localStorage.getItem("currentLevel")) > 8)){
+    localStorage.setItem("currentLevel", currentLevel);
+    localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+}
 
 loadStorageData();
 

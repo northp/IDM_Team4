@@ -7,6 +7,11 @@ var currentLevel = 0;
 var highestCompletedLevel = 0;
 
 
+if((!parseInt(localStorage.getItem("currentLevel")) >= 1) || (!parseInt(localStorage.getItem("currentLevel")) > 8)){
+    localStorage.setItem("currentLevel", currentLevel);
+    localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+}
+
 /* Adding LocalStorage Code */
 function loadStorageData(){
     // Local storage: Current Level and Highest Completed level start at 0;
