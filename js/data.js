@@ -1,10 +1,16 @@
 'use strict';
 
+
 var fs = require('fs');
+// var express = require('express');
+// var app = express();
+// app.use(express.static("../js"));
+var filePath = "JSON/data.json";
+
 
 // A function to find the current Level (tracked in JSON file)
 function findCurrentLevel(){
-    fs.readFile("index.json", (err, results) => {
+    fs.readFile(filePath, (err, results) => {
         if (err) {
             return console.error(err);
         };
@@ -15,7 +21,7 @@ function findCurrentLevel(){
 
 // A function to find the highest completed Level (tracked in JSON file)
 function findHighestCompletedLevel(){
-    fs.readFile("index.json", (err, results) => {
+    fs.readFile(filePath, (err, results) => {
         if (err) {
             return console.error(err);
         };
@@ -24,9 +30,10 @@ function findHighestCompletedLevel(){
     });
 }
 
+
 // a function to reset the current level to 0 (can be modified, in theory, to choose any previously completed level)
 function resetProgress(){
-    fs.readFile("index.json", (err, results) => {
+    fs.readFile(filePath, (err, results) => {
         if(err){
             return console.log(err);
         }
@@ -48,7 +55,7 @@ function resetProgress(){
 
 // a function to "complete" a level. Should increment current level. Should only increment highest level completed if current level completed is higher than highest level completed in the JSON file.
 function completeLevel(){
-    fs.readFile("index.json", (err, results) => {
+    fs.readFile(filePath, (err, results) => {
         if (err) {
             return console.error(err);
         };

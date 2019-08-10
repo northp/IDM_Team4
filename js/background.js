@@ -4,16 +4,16 @@ var counter = 1;
 var counter2 = 11;
 var counter3 = 21;
 
-var text1 = "Cmputational Thinking";
-var text11 ="As mentioned in the theoretical background, computational thinking consists of four different areas. Decomposition, abstraction, pattern recognition and algorithm. The following passages describe how the game can be broken down to those four areas.";
+var text1 = "Computational Thinking";
+var text11 ="Computational thinking is a problem solving process that allows us to take a complex problem, understand what the problem is and develop possible solutions. CT is essential to the development of computer applications, but it can also be used to support problem solving across all disciplines, including the humanities, math, and science. There are four cornerstones to Computational Thinking: Decomposition, Pattern recognition, Abstraction and Algorithms.";
 var text2 = "Decomposition";
-var text22 = "Decomposition is what";
+var text22 = "Decomposition is breaking down complex problems into more manageable parts. So for a user to navigate the space playing field, they must first break down each area to the parts of it which they can navigate.";
 var text3 = " Abstraction\n";
-var text33 = " Abstraction is emphasized by thinking of a way to move through the galaxy by looking at the whole playing field and search for a possible pattern that avoids the less important part to get around, such as planets that don’t have an effect on the spaceship or asteroids that can’t reach the spaceship while moving. In higher levels, abstraction will be added with mini games that will challenge the player in that area.";
+var text33 = " Abstraction is gathering general characteristics and filtering out of details we do not need in order to solve our problem. In Cosmic Computing this is represented by how the player chooses which planets are releveant to their potential path.";
 var text4 = "Pattern Recognition\n";
-var text44 = "The player should naturally make use of pattern recognition when going up in the higher levels because the principle of the game is the same and the functionalities of the obstacles as well. There will be planets that have danger levels, and planets that won’t. This can be applied as the player’s knowledge in the higher levels and make the player more efficient by solving the puzzle. Furthermore, mini tasks to find out the planets’ characteristics will also involve pattern recognition as content\n";
+var text44 = "Pattern recognition involves finding the similarities or patterns among small, decomposed problems that can help us solve more complex problems more efficiently. This is particulary prevalent in our mini-games. \n";
 var text5 = "Algorithms\n";
-var text55 = "This aspect of CT is clearly related to the algorithm functionality of moving the spaceship with a set of command that is stored in advance to be used when needed during the game. ";
+var text55 = "An algorithm is a plan, a set of step-by-step instructions to solve a problem. This aspect of CT is clearly related to the algorithm functionality of moving the spaceship with a set of command that is stored in advance to be used when needed during the game. ";
 
 $("#next2").click(function(){
     var newcounter = counter+1;
@@ -84,4 +84,4 @@ $("#back").click(function(){
     counter2 = backcounter2;
     counter = backcounter;
     console.log(backcounter);
-})
+});
