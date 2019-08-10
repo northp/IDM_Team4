@@ -1,40 +1,33 @@
 "use strict";
 
-// A variable to represent the selected map
-var currentLevel = 0;
-
-// A variable to represent the highest completed level.
-var highestCompletedLevel = 0;
-
-//DOM accessing modal
-var modal = document.getElementById("myModal");
-var navModal = document.getElementById("navModal");
-var span = document.getElementsByClassName("close")[0];
-var stay = document.getElementsByClassName("btn-stay")[0];
+/* Below code now in checkpoint.js */
 
 
-/* Adding LocalStorage Code
+
+// // A variable to represent the selected map
+// var currentLevel = 0;
 
 
-// Keeping local storage clear until checkpoint overview is compelte.
-localStorage.clear();
+// // A variable to represent the highest completed level.
+// var highestCompletedLevel = 0;
 
-if(localStorage){
-    currentLevel = parseInt(localStorage.getItem("currentLevel"));
-    highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
-} else {
-    currentLevel = 0;
-    highestCompletedLevel = 0;
-}
 
-// Local storage: Current Level and Highest Completed level start at 0;
-localStorage.setItem("currentLevel", currentLevel);
-currentLevel = parseInt(localStorage.getItem("currentLevel"));
+/* Adding LocalStorage Code */
 
-localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
-highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+// function loadStorageData(){
+    // // Local storage: Current Level and Highest Completed level start at 0;
+    // currentLevel = parseInt(localStorage.getItem("currentLevel"));
+    // localStorage.setItem("currentLevel", currentLevel);
 
-*/
+    // highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+    // localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+// }
+
+// loadStorageData();
+
+loadStorageData();
+
+
 
 //for resetting position of rocket - value will change depending on level
 var rocketMarginLeft;
@@ -108,6 +101,13 @@ var versionListLevel4 = [];
 var versionListLevel5 = [];
 var versionListLevel6 = [];
 var versionListLevel7 = [];
+
+
+//DOM accessing modal
+var modal = document.getElementById("myModal");
+var navModal = document.getElementById("navModal");
+var span = document.getElementsByClassName("close")[0];
+var stay = document.getElementsByClassName("btn-stay")[0];
 
 
 function loadVersions() {
@@ -3098,17 +3098,17 @@ function loadNewLevel() {
 
     highestCompletedLevel++;
 
-    /* localStorage Functionality
-    
-    
+    /* localStorage Functionality */
+
+
     // reassign local storage of current level
     localStorage.setItem("currentLevel", currentLevel);
     currentLevel = parseInt(localStorage.getItem("currentLevel"));
-    
+
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
     highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
-    
-    */
+
+
 
 
     // drawing the new level
