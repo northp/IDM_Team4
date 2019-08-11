@@ -153,6 +153,12 @@ rRemove.loop = false;
 var rRun = new Audio("sounds/run.wav");
 rRun.loop = false;
 
+//ambience
+var rMusic = new Audio("sounds/gamemusic.wav");
+rMusic.loop = true;
+rMusic.volume = 0.3;
+
+
 function loadVersions() {
 // Arrays to hold Level 0 versions 1, 2, 3 and 4:
     versionListLevel0 =
@@ -1842,6 +1848,8 @@ function initialise() {
     $(document).ready(function () {
         setTimeout(makeGame, 10); // weird bug, 1 setTimeout doesn't work, need two? No idea why.
         setTimeout(makeGame, 100);
+        rMusic.play();
+        rNewLevel.play();
     });
 }
 
@@ -3129,8 +3137,6 @@ function loadNewLevel() {
     $("#play-first").attr({"src": "img/playfield/play.png"});
     $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
 
-    rNewLevel.play();
-
     // change from each level
     if (currentLevel === 0) {
         currentLevel = 1;
@@ -3269,6 +3275,8 @@ var winAndLossCall = function () {
 
                     setTimeout(function () {
                         $rocket.stop(true);
+                        //rMusic.pause();
+                        //rMusic.currentTime = 0;
                         rVictory.play(); // TestSound
 
                     }, 300);
