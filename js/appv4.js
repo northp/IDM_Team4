@@ -159,6 +159,39 @@ rMusic.loop = true;
 rMusic.volume = 0.3;
 
 
+/*placeholder code below for pausing and playing music & sound effects*/
+var musicIsPlaying = true;
+var soundEffectsOn = true;
+var $musicButton = $(".musicbutton");
+var $soundEffectButton = $(".soundbutton");
+
+$musicButton.click(function () {
+    if (musicIsPlaying) {
+        musicIsPlaying = false;
+        rMusic.pause();
+        $musicButton.attr("src", "img/playfield/musicnone.png");
+    } else {
+        musicIsPlaying = true;
+        rMusic.play();
+        $musicButton.attr("src", "img/playfield/music.png");
+    }
+});
+
+$soundEffectButton.click(function () {
+
+    if (soundEffectsOn) {
+        soundEffectsOn = false;
+        $soundEffectButton.attr("src", "img/playfield/soundeffectsnone.png");
+    }
+
+    else {
+        soundEffectsOn = true;
+        $soundEffectButton.attr("src", "img/playfield/soundeffects.png");
+    }
+
+});
+
+
 function loadVersions() {
 // Arrays to hold Level 0 versions 1, 2, 3 and 4:
     versionListLevel0 =
@@ -1848,8 +1881,12 @@ function initialise() {
     $(document).ready(function () {
         setTimeout(makeGame, 10); // weird bug, 1 setTimeout doesn't work, need two? No idea why.
         setTimeout(makeGame, 100);
-        rMusic.play();
-        rNewLevel.play();
+        if (musicIsPlaying) {
+            rMusic.play();
+        }
+        if (soundEffectsOn) {
+            rNewLevel.play();
+        }
     });
 }
 
@@ -1903,7 +1940,10 @@ function movementFunction() {
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
             removeMove(rightAlgorithm, rightPush, arraySelect);
-            rClick.play();
+
+            if (soundEffectsOn) {
+                rClick.play();
+            }
         }
     });
 
@@ -1915,7 +1955,10 @@ function movementFunction() {
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
-            rClick.play();
+
+            if (soundEffectsOn) {
+                rClick.play();
+            }
         }
     });
 
@@ -1927,7 +1970,10 @@ function movementFunction() {
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
-            rClick.play();
+
+            if (soundEffectsOn) {
+                rClick.play();
+            }
         }
     });
 
@@ -1939,14 +1985,19 @@ function movementFunction() {
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
-            rClick.play();
+
+            if (soundEffectsOn) {
+                rClick.play();
+            }
         }
     });
 
 
     $functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
-            rClick.play();
+            if (soundEffectsOn) {
+                rClick.play();
+            }
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
@@ -1980,7 +2031,9 @@ function movementFunction() {
 function removeMove(image, direction, thisArray) {
     image.click(function () {
 
-            rRemove.play();
+            if (soundEffectsOn) {
+                rRemove.play();
+            }
 
             image.remove(); //removes the image clicked
             thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
@@ -2063,7 +2116,9 @@ function dangerArea(planet) {
             solved = true;
             $("." + planet + " label").remove();
             $("." + planet).text("You already solved the puzzle.");
-            rWinPuzzle.play();
+            if (soundEffectsOn) {
+                rWinPuzzle.play();
+            }
 
             if (planet === "fire") {
                 solvedfire = true;
@@ -2079,7 +2134,9 @@ function dangerArea(planet) {
 
         } else if ($('input[type=radio]:checked').val() != x) {
             $(".reaction").show();
-            rLosePuzzle.play();
+            if (soundEffectsOn) {
+                rLosePuzzle.play();
+            }
             setTimeout(function () {
                 $(".reaction").hide()
             }, 1000);
@@ -2646,7 +2703,9 @@ function runButton() {
             $run.off();
             $run.click(stopAnimation);
 
-            rRun.play();
+            if (soundEffectsOn) {
+                rRun.play();
+            }
 
             for (var x in algorithm) {
 
@@ -2723,15 +2782,14 @@ function moveRight() {
         asteroidAnimate();
         fallingStarAnimate();
         console.log(rocketX, rocketY);
-        //$rocketAnimate.animate({'margin-left': "+=9%"}, "fast", winAndLossCall);
         $rocketAnimateRight.animate({'opacity': "1", 'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
         $rocketAnimate.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
         $rocketAnimateLeft.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
         $rocketAnimateDown.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
 
-        //$rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall); //calling function 4 times (because there's 4 images in the class?)
+        //$rocket.animate({'margin-left': "+=9%"}, animationSpeed, winAndLossCall); //calling function 4 times (because there's 4 images in the class)
         rocketX += 50;
-        //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
+
     }
 
     if (rocketPosition[1] < mapWidth - 1) {
@@ -2756,7 +2814,8 @@ function moveRight() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketX += rocketXDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
                     map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
@@ -2779,7 +2838,8 @@ function moveRight() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketX += rocketXDistance;
                     map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
@@ -2839,7 +2899,8 @@ function moveDown() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketY += rocketYDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
                     map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] = 4;
@@ -2864,7 +2925,8 @@ function moveDown() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-top': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-top': "+=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketY += rocketYDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_down.png");
                     map[rocketPosition[0] + nextZeroIndex][rocketPosition[1]] = 4;
@@ -2929,7 +2991,8 @@ function moveLeft() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketX -= rocketXDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
                     map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] = 4;
@@ -2954,7 +3017,8 @@ function moveLeft() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-left': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-left': "-=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketX -= rocketXDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_left.png");
                     map[rocketPosition[0]][rocketPosition[1] - nextZeroIndex] = 4;
@@ -3016,7 +3080,8 @@ function moveUp() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketY -= rocketYDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                     map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] = 4;
@@ -3041,7 +3106,8 @@ function moveUp() {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
                     //$rocketAnimate.animate({'margin-top': "-=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
-                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
+                    $rocket.animate({'margin-top': "-=" + animateDistancePercent + "%"}, animationSpeed);
+                    winAndLossCall();
                     rocketY -= rocketYDistance;
                     //$rocketAnimate.attr("src", "img/playfield/spaceship_pink.png");
                     map[rocketPosition[0] - nextZeroIndex][rocketPosition[1]] = 4;
@@ -3238,7 +3304,9 @@ var winAndLossCall = function () {
 
         if (lossAndVictoryArray[i] == "lose") {
             if (moveCounter == i) {
-                rLoss.play(); //TestSound
+                if (soundEffectsOn) {
+                    rLoss.play(); //TestSound
+                }
 
                 //stop all current animations
                 $rocket.stop(true);
@@ -3277,7 +3345,9 @@ var winAndLossCall = function () {
                         $rocket.stop(true);
                         //rMusic.pause();
                         //rMusic.currentTime = 0;
-                        rVictory.play(); // TestSound
+                        if (soundEffectsOn) {
+                            rVictory.play();
+                        }
 
                     }, 300);
 
@@ -3390,13 +3460,18 @@ function closeModal() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-            rCloseModal.play();
+            if (soundEffectsOn) {
+                rCloseModal.play();
+            }
 
         } else if (event.target == navModal) {
             navModal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
-            rCloseModal.play();
+
+            if (soundEffectsOn) {
+                rCloseModal.play();
+            }
         }
     };
 
@@ -3406,7 +3481,10 @@ function closeModal() {
         navModal.style.display = "none";
         $point.hide();
         $commandsOverlay.hide();
-        rCloseModal.play();
+
+        if (soundEffectsOn) {
+            rCloseModal.play();
+        }
     };
 }
 
@@ -3601,3 +3679,4 @@ function instructionsFive() {
 }
 
 /*END OF DEMO MODALS*/
+
