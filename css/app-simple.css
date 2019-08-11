@@ -197,6 +197,19 @@ body {
     width: 50%
 }
 
+
+.musicbutton {
+    height: 11%;
+    margin-left:-25%;
+    margin-bottom:-23%;
+}
+
+.soundbutton {
+    height: 9%;
+    margin-left:35%;
+    margin-top:5%
+}
+
 /* ====== MINI GAMES ====== */
 
 /* HIDE RADIO */
