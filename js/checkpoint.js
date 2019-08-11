@@ -22,45 +22,75 @@ function loadStorageData(){
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
 }
 
-loadStorageData();
+function checkLevel(){
+  console.log(highestCompletedLevel);
+if (highestCompletedLevel == 0){
+  $("#checkpoints").attr("src","img/other/checkpoint0.png");
+}
+  if (highestCompletedLevel == 1){
+    $("#checkpoints").attr("src","img/other/checkpoint1.png");
+  }
+  if (highestCompletedLevel == 2){
+    $("#checkpoints").attr("src","img/other/checkpoint2.png");
+  }
+  if (highestCompletedLevel == 3){
+    $("#checkpoints").attr("src","img/other/checkpoint3.png");
+  }
+  if (highestCompletedLevel == 4){
+    $("#checkpoints").attr("src","img/other/checkpoint4.png");
+  }
+  if (highestCompletedLevel == 5){
+    $("#checkpoints").attr("src","img/other/checkpoint5.png");
+  }
+  if (highestCompletedLevel == 6){
+    $("#checkpoints").attr("src","img/other/checkpoint6.png");
+  }
+  if (highestCompletedLevel == 7){
+    $("#checkpoints").attr("src","img/other/checkpoint7.png");
+  }
+}
 
+
+loadStorageData();
+checkLevel();
 
 $(".planet1").click(function(){
-  currentLevel = 0;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet2").click(function(){
-  currentLevel = 1;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet3").click(function(){
-  currentLevel = 2;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet4").click(function(){
-  currentLevel = 3;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet5").click(function(){
-  currentLevel = 4;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet6").click(function(){
-  currentLevel = 5;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});$(".planet7").click(function(){
-  currentLevel = 6;
-  localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});
-$(".planet8").click(function(){
   currentLevel = 7;
   localStorage.setItem("currentLevel", currentLevel);
   window.location = "appv2.html";
 });
+$(".planet2").click(function(){
+  currentLevel = 6;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+$(".planet3").click(function(){
+  currentLevel = 5;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+$(".planet4").click(function(){
+  currentLevel = 4;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+$(".planet5").click(function(){
+  currentLevel = 3;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+$(".planet6").click(function(){
+  currentLevel = 2;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});$(".planet7").click(function(){
+  currentLevel = 1;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+$(".planet8").click(function(){
+  currentLevel = 0;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+});
+
