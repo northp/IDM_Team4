@@ -3,7 +3,6 @@
 /* Below code now in checkpoint.js */
 
 
-
 // // A variable to represent the selected map
 var currentLevel = 0;
 
@@ -15,23 +14,22 @@ var highestCompletedLevel = 0;
 /* Adding LocalStorage Code */
 
 // function loadStorageData(){
-    // // Local storage: Current Level and Highest Completed level start at 0;
-    // currentLevel = parseInt(localStorage.getItem("currentLevel"));
-    // localStorage.setItem("currentLevel", currentLevel);
+// // Local storage: Current Level and Highest Completed level start at 0;
+// currentLevel = parseInt(localStorage.getItem("currentLevel"));
+// localStorage.setItem("currentLevel", currentLevel);
 
-    // highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
-    // localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
+// highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
+// localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
 // }
 
 // loadStorageData();
 
-if((!parseInt(localStorage.getItem("currentLevel")) >= 1) || (!parseInt(localStorage.getItem("currentLevel")) > 8)){
+if ((!parseInt(localStorage.getItem("currentLevel")) >= 1) || (!parseInt(localStorage.getItem("currentLevel")) > 8)) {
     localStorage.setItem("currentLevel", currentLevel);
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
 }
 
 loadStorageData();
-
 
 
 //for resetting position of rocket - value will change depending on level
@@ -114,6 +112,46 @@ var navModal = document.getElementById("navModal");
 var span = document.getElementsByClassName("close")[0];
 var stay = document.getElementsByClassName("btn-stay")[0];
 
+
+/*SOUNDS*/
+//var rMove = new Audio("pop.wav");// TestSound
+//rMove.loop = false;// TestSound
+
+//winning a level
+var rVictory = new Audio("sounds/winlevel.wav");
+rVictory.loop = false;
+
+//hitting a dangerous planet
+var rLoss = new Audio("sounds/loss.wav");// TestSound
+rLoss.loop = false;// TestSound
+
+//closing a modal
+var rCloseModal = new Audio("sounds/closemodal.wav");
+rCloseModal.loop = false;
+
+//submitting wrong answer for minigame
+var rLosePuzzle = new Audio("sounds/losepuzzle.wav");
+rLosePuzzle.loop = false;
+
+//submitting correct answer for minigame
+var rWinPuzzle = new Audio("sounds/winpuzzle.wav");
+rWinPuzzle.loop = false;
+
+//loading new level
+var rNewLevel = new Audio("sounds/newlevel.wav");
+rNewLevel.loop = false;
+
+//clicking a command
+var rClick = new Audio("sounds/click.wav");
+rClick.loop = false;
+
+//removing a move
+var rRemove = new Audio("sounds/removemove.wav");
+rRemove.loop = false;
+
+//hitting run
+var rRun = new Audio("sounds/run.wav");
+rRun.loop = false;
 
 function loadVersions() {
 // Arrays to hold Level 0 versions 1, 2, 3 and 4:
@@ -1857,6 +1895,7 @@ function movementFunction() {
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
             removeMove(rightAlgorithm, rightPush, arraySelect);
+            rClick.play();
         }
     });
 
@@ -1868,6 +1907,7 @@ function movementFunction() {
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
+            rClick.play();
         }
     });
 
@@ -1879,6 +1919,7 @@ function movementFunction() {
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
+            rClick.play();
         }
     });
 
@@ -1890,12 +1931,14 @@ function movementFunction() {
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
+            rClick.play();
         }
     });
 
 
     $functTwoSelect.click(function () {
         if (arraySelect.length < levelMoves) {
+            rClick.play();
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
@@ -1929,13 +1972,15 @@ function movementFunction() {
 function removeMove(image, direction, thisArray) {
     image.click(function () {
 
+            rRemove.play();
+
             image.remove(); //removes the image clicked
             thisArray.splice(thisArray.indexOf(direction), 1); //removes index from correct array
 
+            //below: if the user has called the A button inside the algorithm view and wants to remove it
             var images = $(".func-space").children("img"); //accessing images within function 2 grid so that we can set the function 2 array length back to
             //however many images are in the grid (easy way to reset the array)
 
-            //if the user removes F2 from F2
             if (thisArray === functionTwo && direction === functionTwo) {
                 for (var i = 0; i <= images.length; i++) {
                     functionTwo.length = images.length; //amount of images that are present
@@ -2010,8 +2055,23 @@ function dangerArea(planet) {
             solved = true;
             $("." + planet + " label").remove();
             $("." + planet).text("You already solved the puzzle.");
+            rWinPuzzle.play();
+
+            if (planet === "fire") {
+                solvedfire = true;
+            }
+
+            if (planet === "metal") {
+                solvedmetal = true;
+            }
+
+            if (planet === "ice") {
+                solvedice = true;
+            }
+
         } else if ($('input[type=radio]:checked').val() != x) {
             $(".reaction").show();
+            rLosePuzzle.play();
             setTimeout(function () {
                 $(".reaction").hide()
             }, 1000);
@@ -2304,6 +2364,8 @@ function clickElements() {
         } else {
             $("#submit").hide();
             $(".reaction").hide();
+            $(".answers").hide();
+            $("#modalText").html("This planet and its zone are dangerous.")
         }
 
         $("#submitmetal").hide();
@@ -2338,6 +2400,8 @@ function clickElements() {
         } else {
             $("#submitmetal").hide();
             $(".reaction").hide();
+            $(".answers").hide();
+            $("#modalText").html("This planet and its zone are safe to fly into.")
         }
     });
 
@@ -2384,6 +2448,8 @@ function clickElements() {
         } else {
             $("#submitice").hide();
             $(".reaction").hide();
+            $(".answers").hide();
+            $("#modalText").html("This planet and its zone are safe to fly into.")
         }
     });
 
@@ -2572,6 +2638,8 @@ function runButton() {
             $run.off();
             $run.click(stopAnimation);
 
+            rRun.play();
+
             for (var x in algorithm) {
 
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
@@ -2632,16 +2700,6 @@ function runButton() {
 
 $run.click(runButton);
 
-// test for sound
-// var rMove = new Audio("pop.wav");// TestSound
-// rMove.loop = false;// TestSound
-
-// var rVictory = new Audio("victory.wav");// TestSound
-// rVictory.loop = false;// TestSound
-
-// var rLoss = new Audio("loss.wav");// TestSound
-// rLoss.loop = false;// TestSound
-
 
 var lossAndVictoryArray = [];
 
@@ -2701,8 +2759,6 @@ function moveRight() {
             }
             // Ice effect - Rocket zooms out of field to nearest 0 index.
         } else if (map[rocketPosition[0]][rocketPosition[1] + 1] == 5) {
-
-
             var rocketXDistance = 50;
             var animateDistancePercent = 9;
             var nextZeroIndex = 2;
@@ -2715,10 +2771,8 @@ function moveRight() {
                 } else {
                     nextZeroFound = true;
                     console.log(rocketX, rocketY);
-                    //$rocketAnimate.animate({'margin-left': "+=" + animateDistancePercent + "%"}, "fast", winAndLossCall);
                     $rocket.animate({'margin-left': "+=" + animateDistancePercent + "%"}, animationSpeed, winAndLossCall);
                     rocketX += rocketXDistance;
-                    //$rocketAnimate.attr("src", "img/playfield/spaceship_pink_right.png");
                     map[rocketPosition[0]][rocketPosition[1] + nextZeroIndex] = 4;
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
@@ -2726,8 +2780,6 @@ function moveRight() {
                 }
             }
 
-            // $rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
-            // lossAndVictoryArray.push("run");
         } else {
             var temp = map[rocketPosition[0]][rocketPosition[1] + 1];
             map[rocketPosition[0]][rocketPosition[1] + 1] = 4;
@@ -3071,12 +3123,13 @@ function loadNewLevel() {
     $winModal.hide();
     $("#functiontwoselect").hide();
 
-    //resetting play button to 'play' rather than 'restart'
+    //resetting play button to 'run' rather than 'restart'
     $run.off();
     $run.click(runButton);
     $("#play-first").attr({"src": "img/playfield/play.png"});
     $("#play-hover").attr({"src": "img/playfield/play-hover.png"});
 
+    rNewLevel.play();
 
     // change from each level
     if (currentLevel === 0) {
@@ -3116,8 +3169,6 @@ function loadNewLevel() {
 
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
     highestCompletedLevel = parseInt(localStorage.getItem("highestCompletedLevel"));
-
-
 
 
     // drawing the new level
@@ -3181,16 +3232,14 @@ var winAndLossCall = function () {
 
         if (lossAndVictoryArray[i] == "lose") {
             if (moveCounter == i) {
-                // rLoss.play(); //TestSound
+                rLoss.play(); //TestSound
 
                 //stop all current animations
-                //$rocketAnimate.stop(true);
                 $rocket.stop(true);
                 $asteroid.stop(true);
                 $fallingStar.stop(true);
 
                 //setTimeout function here to explode the ship and move back to original position
-                //$rocketAnimate.attr("src", "img/playfield/explosion.gif");
                 $rocket.attr("src", "img/playfield/explosion.gif");
 
                 setTimeout(function () {
@@ -3211,7 +3260,6 @@ var winAndLossCall = function () {
         }
 
         if (lossAndVictoryArray[i] == "win") {
-            // rVictory.play(); // TestSound
 
 
             if (moveCounter == i) {
@@ -3221,6 +3269,7 @@ var winAndLossCall = function () {
 
                     setTimeout(function () {
                         $rocket.stop(true);
+                        rVictory.play(); // TestSound
 
                     }, 300);
 
@@ -3333,11 +3382,13 @@ function closeModal() {
             modal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
+            rCloseModal.play();
 
         } else if (event.target == navModal) {
             navModal.style.display = "none";
             $point.hide();
             $commandsOverlay.hide();
+            rCloseModal.play();
         }
     };
 
@@ -3347,6 +3398,7 @@ function closeModal() {
         navModal.style.display = "none";
         $point.hide();
         $commandsOverlay.hide();
+        rCloseModal.play();
     };
 }
 
