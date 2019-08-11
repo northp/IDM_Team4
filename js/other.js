@@ -83,6 +83,7 @@ brain1.click(function () {
     hideImgs();
     if (createdDiv === false) {
         addTextDivs();
+        $("#description").hide();
         createdDiv = true;
     }
     $(".brain1_colour").attr("src", "img/other/brain_decomposition_colour.png");
@@ -100,6 +101,7 @@ brain2.click(function () {
     hideImgs();
     if (createdDiv === false) {
         addTextDivs();
+        $("#description").hide();
         createdDiv = true;
     }
     $(".brain1_colour").attr("src", "img/other/brain_decomposition_grey.png");
@@ -116,6 +118,7 @@ brain3.click(function () {
     hideImgs();
     if (createdDiv === false) {
         addTextDivs();
+        $("#description").hide();
         createdDiv = true;
     }
     $(".brain1_colour").attr("src", "img/other/brain_decomposition_grey.png");
@@ -132,6 +135,7 @@ brain4.click(function () {
     hideImgs();
     if (createdDiv === false) {
         addTextDivs();
+        $("#description").hide();
         createdDiv = true;
     }
     $(".brain1_colour").attr("src", "img/other/brain_decomposition_grey.png");

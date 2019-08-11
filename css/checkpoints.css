@@ -1,14 +1,14 @@
 body{
-    background: url("../img/other/background.png") no-repeat center center fixed;
-     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    /*background-size: cover;*/
+  background: url("../img/other/back_static.jpg") no-repeat center center fixed;
+  background-size: cover;
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ /*background-size: cover;*/
 }
 
 #checkpoints {
-    width: 100%;
+    width: 103%;
 }
 
 .container {
@@ -17,11 +17,18 @@ body{
   }
 
   .title {
+    margin-top: 5%;
       text-align: center;
       position: absolute;
       top: 2%;
-      left: 32%;
+      left: 20%;
       color: white;
+      font-family: 'Chewy', cursive;
+  }
+
+  .title h1 {
+font-size: 5.5vw !important;
+    letter-spacing: 0.1em;
   }
   .planet1 {
     position: absolute;
@@ -78,4 +85,10 @@ body{
     left: 35%;
     width: 15%;
     height: 10%;
+  }
+  .home img {
+    position: absolute;
+    width: 10%;
+    margin-left: 5%;
+    bottom: 3%
   }
