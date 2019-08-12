@@ -79,6 +79,12 @@ font-size: 5.5vw !important;
     width: 15%;
     height: 10%;
   }
+
+.alert {
+background-color: #fab85b;
+font-weight: bold;
+}
+
   .planet8 {
     position: absolute;
     bottom: 8%;

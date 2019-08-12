@@ -50,6 +50,10 @@ if (highestCompletedLevel == 0){
   }
 }
 
+function showAlert(planetNumber){
+  $(".planet" + planetNumber).append("<p class='alert'> Solve the other planets first.</p>")
+  setTimeout(function(){$(".alert").hide()}, 1250);
+}
 
 loadStorageData();
 checkLevel();
@@ -57,36 +61,65 @@ checkLevel();
 $(".planet1").click(function(){
   currentLevel = 7;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 7){
+    window.location = "appv2.html";
+  } else {
+    showAlert(1);
+  }
 });
 $(".planet2").click(function(){
   currentLevel = 6;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 6){
+    window.location = "appv2.html";
+  } else {
+    showAlert(2);
+  }
 });
 $(".planet3").click(function(){
   currentLevel = 5;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 5){
+    window.location = "appv2.html";
+  } else {
+    showAlert(3);
+  }
 });
 $(".planet4").click(function(){
   currentLevel = 4;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 4){
+    window.location = "appv2.html";
+  } else {
+    showAlert(4);
+  }
 });
 $(".planet5").click(function(){
   currentLevel = 3;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 3){
+    window.location = "appv2.html";
+  } else {
+    showAlert(5);
+  }
 });
 $(".planet6").click(function(){
   currentLevel = 2;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
-});$(".planet7").click(function(){
+  if (highestCompletedLevel == 2){
+    window.location = "appv2.html";
+  } else {
+    showAlert(6);
+  }
+});
+$(".planet7").click(function(){
   currentLevel = 1;
   localStorage.setItem("currentLevel", currentLevel);
-  window.location = "appv2.html";
+  if (highestCompletedLevel == 1){
+    window.location = "appv2.html";
+    } else {
+      showAlert(7);
+    }
 });
 $(".planet8").click(function(){
   currentLevel = 0;
