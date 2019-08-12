@@ -23,7 +23,6 @@ function loadStorageData(){
 }
 
 function checkLevel(){
-  console.log(highestCompletedLevel);
 if (highestCompletedLevel == 0){
   $("#checkpoints").attr("src","img/other/checkpoint0.png");
 }
@@ -57,6 +56,14 @@ function showAlert(planetNumber){
 
 loadStorageData();
 checkLevel();
+
+$(".play-btn").click(function(){
+  console.log(currentLevel);
+  currentLevel = highestCompletedLevel+1;
+  localStorage.setItem("currentLevel", currentLevel);
+  window.location = "appv2.html";
+  });
+
 
 $(".planet1").click(function(){
   currentLevel = 7;
@@ -127,3 +134,8 @@ $(".planet8").click(function(){
   window.location = "appv2.html";
 });
 
+$(".play-btn").click(function(){
+    console.log(currentLevel);
+    currentLevel = highestCompletedLevel;
+    localStorage.setItem("currentLevel", currentLevel);
+    });
