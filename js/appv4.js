@@ -2016,7 +2016,7 @@ function movementFunction() {
                         }
                     }
                     something++;
-                    $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" />');
+                    $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
                     functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
                     removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
                 }
