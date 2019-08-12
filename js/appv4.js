@@ -620,7 +620,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-
+        $(".gif").attr("src", "img/instruction/instruction4.gif");
     }
     if (currentLevel === 5) {
         // Randomise number between 1 and 4 to represent Level 5 version
@@ -640,6 +640,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+        $(".gif").attr("src", "img/instruction/instruction4.gif");
 
     }
 
@@ -662,6 +663,7 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
+        $(".gif").attr("src", "img/instruction/instruction4.gif");
 
     }
 
@@ -684,10 +686,9 @@ function chooseLevel() {
         solvedmetal = false;
         solvedice = false;
         $(".labels").text("");
-
+        $(".gif").attr("src", "img/instruction/instruction4.gif");
     }
 }
-
 
 function insertCSS() {
     $rocketAnimate.attr('src', 'img/playfield/spaceship_pink.png').css({
@@ -2387,8 +2388,9 @@ function clickElements() {
         $modalImage.hide();
         $modalNext.hide();
         hideElements();
-        $(".gif").css({"width": "100%", "margin-left": "0", "margin-top": "2%"});
         $(".gif").show();
+        $(".gif").css({"width": "100%", "margin-left": "0", "margin-top": "2%"});
+
     });
 
     $helpButton.click(function () {
