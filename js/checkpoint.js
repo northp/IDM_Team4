@@ -7,6 +7,7 @@ var currentLevel = 0;
 var highestCompletedLevel = 0;
 
 
+
 if((!parseInt(localStorage.getItem("currentLevel")) >= 1) || (!parseInt(localStorage.getItem("currentLevel")) > 8)){
     localStorage.setItem("currentLevel", currentLevel);
     localStorage.setItem("highestCompletedLevel", highestCompletedLevel);
@@ -57,18 +58,19 @@ function showAlert(planetNumber){
 loadStorageData();
 checkLevel();
 
+
+
 $(".play-btn").click(function(){
   console.log(currentLevel);
-  currentLevel = highestCompletedLevel+1;
+  currentLevel = highestCompletedLevel;
   localStorage.setItem("currentLevel", currentLevel);
   window.location = "appv2.html";
   });
 
-
 $(".planet1").click(function(){
   currentLevel = 7;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 7){
+  if (highestCompletedLevel >= 7){
     window.location = "appv2.html";
   } else {
     showAlert(1);
@@ -77,7 +79,7 @@ $(".planet1").click(function(){
 $(".planet2").click(function(){
   currentLevel = 6;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 6){
+  if (highestCompletedLevel >= 6){
     window.location = "appv2.html";
   } else {
     showAlert(2);
@@ -86,7 +88,7 @@ $(".planet2").click(function(){
 $(".planet3").click(function(){
   currentLevel = 5;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 5){
+  if (highestCompletedLevel >= 5){
     window.location = "appv2.html";
   } else {
     showAlert(3);
@@ -95,7 +97,7 @@ $(".planet3").click(function(){
 $(".planet4").click(function(){
   currentLevel = 4;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 4){
+  if (highestCompletedLevel >= 4){
     window.location = "appv2.html";
   } else {
     showAlert(4);
@@ -104,7 +106,7 @@ $(".planet4").click(function(){
 $(".planet5").click(function(){
   currentLevel = 3;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 3){
+  if (highestCompletedLevel >= 3){
     window.location = "appv2.html";
   } else {
     showAlert(5);
@@ -113,7 +115,7 @@ $(".planet5").click(function(){
 $(".planet6").click(function(){
   currentLevel = 2;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 2){
+  if (highestCompletedLevel >= 2){
     window.location = "appv2.html";
   } else {
     showAlert(6);
@@ -122,7 +124,7 @@ $(".planet6").click(function(){
 $(".planet7").click(function(){
   currentLevel = 1;
   localStorage.setItem("currentLevel", currentLevel);
-  if (highestCompletedLevel == 1){
+  if (highestCompletedLevel >= 1){
     window.location = "appv2.html";
     } else {
       showAlert(7);
@@ -134,8 +136,3 @@ $(".planet8").click(function(){
   window.location = "appv2.html";
 });
 
-$(".play-btn").click(function(){
-    console.log(currentLevel);
-    currentLevel = highestCompletedLevel;
-    localStorage.setItem("currentLevel", currentLevel);
-    });

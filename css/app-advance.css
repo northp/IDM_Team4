@@ -195,34 +195,31 @@ body {
 /* ===== SIDE NAVIGATION ===== */
 
 .dot-home {
-    height: 29px;
-    width: 29px;
+    height: 4vw;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 358%;
-    margin-left: 10%;
+    margin-top: 285%;
+    margin-left: 4%;
 
 }
 
 .dot-help {
-    height: 29px;
-    width: 29px;
+    height: 4vw;
     border-radius: 50%;
     display: inline-block;
     margin-left: 10%;
-    margin-top: 20%;
-
+    margin-top: 3%;
 }
 
 
 .musicbutton {
-    height: 11%;
-
+    height: 4vw;
+    margin-left: 6%;
 }
 
 .soundbutton {
-    height: 9%;
-    margin-left:10%
+    height: 4vw;
+    margin-left: 6%;
 }
 
 /* ====== MINI GAMES ====== */

@@ -201,11 +201,11 @@ body {
 .musicbutton {
     height: 11%;
     margin-left:-25%;
-    margin-bottom:-23%;
+    margin-bottom:-24%;
 }
 
 .soundbutton {
-    height: 9%;
+    height: 11%;
     margin-left:35%;
     margin-top:5%
 }
