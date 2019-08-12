@@ -4,9 +4,9 @@ body {
     background-size: contain
 }
 
-
-
-/* #right,  #left, #up, #down, #run,#save,*/  #stop/* #hint  #functiontwoselect  #mainfunction,  #functiontwo */{
+/* #right,  #left, #up, #down, #run,#save,*/
+#stop /* #hint  #functiontwoselect  #mainfunction,  #functiontwo */
+{
     /* max-width: 3%; */
     /* max-height: 3%; */
     height: 10vw;
@@ -50,7 +50,6 @@ body {
 
 }
 
-
 #commands, .algorithm, .navigation {
     background-color: transparent;
 
@@ -62,33 +61,33 @@ body {
     width: 7vw;
     border-radius: 50%;
     display: inline-block;
-  }
+}
 
-  .dot-right {
-      margin-left: 22.5%;
-  }
+.dot-right {
+    margin-left: 22.5%;
+}
 
-  .up-button, .down-button {
-      width: 23%;
-      height: 100%;
-      display: block;
-      margin-left: 35.27%;
-  }
+.up-button, .down-button {
+    width: 23%;
+    height: 100%;
+    display: block;
+    margin-left: 35.27%;
+}
 
-  .down-button {
-      margin-top: -2%
-  }
- 
-  .righ-left-button {
-      margin-left: 14.5%;
-      margin-top: -2%;
-  }
+.down-button {
+    margin-top: -2%
+}
 
-  #up-img, #left-img, #right-img, #down-img {
-      width: 101%;
-  }
+.righ-left-button {
+    margin-left: 14.5%;
+    margin-top: -2%;
+}
 
-  /* ===== MAIN PANEL ===== */
+#up-img, #left-img, #right-img, #down-img {
+    width: 101%;
+}
+
+/* ===== MAIN PANEL ===== */
 .algo-button {
     margin-top: 8%;
     width: 50%;
@@ -159,7 +158,7 @@ body {
     margin-top: 54.4%;
     font-size: 130%;
     letter-spacing: 0.2em;
-    background-image: linear-gradient(#404040,#909090);
+    background-image: linear-gradient(#404040, #909090);
     border-radius: 13px;
     border: 2px solid #27AAE1;
     font-family: "Squada One", cursive;
@@ -181,7 +180,7 @@ body {
     margin-top: 7%;
     font-size: 130%;
     letter-spacing: 0.2em;
-    background-image: linear-gradient(#404040,#909090);
+    background-image: linear-gradient(#404040, #909090);
     border-radius: 13px;
     border: 2px solid #27AAE1;
     font-family: "Squada One", cursive;
@@ -197,34 +196,32 @@ body {
     width: 50%
 }
 
-
 .musicbutton {
     height: 11%;
-    margin-left:-25%;
-    margin-bottom:-24%;
+    margin-left: -25%;
+    margin-bottom: -24%;
 }
 
 .soundbutton {
     height: 11%;
-    margin-left:35%;
-    margin-top:5%
+    margin-left: 35%;
+    margin-top: 5%
 }
 
 /* ====== MINI GAMES ====== */
 
 /* HIDE RADIO */
-[type=radio] { 
+[type=radio] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
-  
-  /* CHECKED STYLES */
-  [type=radio]:checked + img {
+/* CHECKED STYLES */
+[type=radio]:checked + img {
     outline: 5px solid black;
-  }
+}
 
 .game {
     display: flex;
@@ -244,7 +241,7 @@ body {
     font-size: 15px;
     letter-spacing: 0.1em;
     display: none;
-    
+
 }
 
 .reaction {
@@ -297,22 +294,39 @@ body {
     font-size: 24px;
 }
 
-.gif{
+.gif {
     width: 110%;
     display: none;
-    position:relative;
-    z-index:1;
-    margin-left:6%
+    position: relative;
+    z-index: 1;
+    margin-left: 6%
 }
 
 .tableclass {
-    position:relative;
-    z-index:2;
+    position: relative;
+    z-index: 2;
 }
 
 .answers {
     margin-top: -1%;
     margin-left: 30%;
+}
+
+#wingamemodal {
+    display: none;
+    width: 100%;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+#wingame {
+    width: 0%;
+    margin-left: 50%;
+    margin-top: 50%;
+}
+
+#winhome {
+    display: none;
 }
 
 /*
@@ -329,7 +343,7 @@ body {
 }
 
 #next {
-    float:right;
+    float: right;
     margin-top: 57%;
     width: 15%;
     position: relative;
@@ -384,16 +398,30 @@ body {
 
 }
 
-@-webkit-keyframes bouncearrow{
-    0%{top: 0px;}
-    50%{top: 20px; color: #000000;}
-    100%{top: 0px;}
+@-webkit-keyframes bouncearrow {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 20px;
+        color: #000000;
+    }
+    100% {
+        top: 0px;
+    }
 }
 
-@keyframes bouncearrow{
-    0%{top: 0px;}
-    50%{top: 20px; color: #000000;}
-    100%{top: 0px;}
+@keyframes bouncearrow {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 20px;
+        color: #000000;
+    }
+    100% {
+        top: 0px;
+    }
 }
 
 #leavepage {

@@ -4,17 +4,15 @@ body {
     background-size: contain;
 }
 
-
-
-/* #right,  #left, #up, #down, #run,#save,*/  #stop/* #hint  #functiontwoselect  #mainfunction,  #functiontwo */{
+/* #right,  #left, #up, #down, #run,#save,*/
+#stop /* #hint  #functiontwoselect  #mainfunction,  #functiontwo */
+{
     /* max-width: 3%; */
     /* max-height: 3%; */
     height: 10vw;
     width: 10vw;
 
 }
-
-
 
 .canvas {
     display: inline;
@@ -66,7 +64,7 @@ body {
     width: 7vw;
     border-radius: 50%;
     display: inline-block;
-  }
+}
 
 .dot-right {
     margin-left: 22.5%;
@@ -92,8 +90,7 @@ body {
     width: 101%;
 }
 
-
-  /* ===== MAIN PANEL ===== */
+/* ===== MAIN PANEL ===== */
 .algo-button {
     margin-top: 7%;
     width: 50%;
@@ -169,7 +166,7 @@ body {
 
 .func-space img {
     margin-top: 20%;
-    margin-left:10%;
+    margin-left: 10%;
     margin-right: 10%;
     width: 20%;
     height: 20%
@@ -186,12 +183,13 @@ body {
     font-size: 82%;
     font-family: "Squada One", cursive;
     letter-spacing: 0.2em;
-    background-image: linear-gradient(#404040,#909090);
+    background-image: linear-gradient(#404040, #909090);
 }
 
 .save-button:hover {
     background-image: linear-gradient(#909090, #404040);
 }
+
 /* ===== SIDE NAVIGATION ===== */
 
 .dot-home {
@@ -211,7 +209,6 @@ body {
     margin-top: 3%;
 }
 
-
 .musicbutton {
     height: 4vw;
     margin-left: 6%;
@@ -225,18 +222,17 @@ body {
 /* ====== MINI GAMES ====== */
 
 /* HIDE RADIO */
-[type=radio] { 
+[type=radio] {
     position: absolute;
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
 
-  
-  /* CHECKED STYLES */
-  [type=radio]:checked + img {
+/* CHECKED STYLES */
+[type=radio]:checked + img {
     outline: 5px solid black;
-  }
+}
 
 .game {
     display: flex;
@@ -245,7 +241,6 @@ body {
 .left, .right {
     flex: 50%;
 }
-
 
 #submit, #submitmetal, #submitice {
     font-family: "Squada One", cursive;
@@ -257,7 +252,7 @@ body {
     font-size: 15px;
     letter-spacing: 0.1em;
     display: none;
-    
+
 }
 
 .reaction {
@@ -266,9 +261,6 @@ body {
     font-size: 80%;
     text-align: center;
 }
-
-
-
 
 /* The Modal (background) */
 .modal {
@@ -313,28 +305,43 @@ body {
     font-size: 24px;
 }
 
-.gif{
+.gif {
     width: 110%;
     display: none;
-    position:relative;
-    z-index:1;
-    margin-left:6%
+    position: relative;
+    z-index: 1;
+    margin-left: 6%
 }
 
 .gif1, .gif2, .gif3 {
     display: none;
     width: 110%;
     display: none;
-    position:relative;
-    z-index:1;
-    margin-left:6%
+    position: relative;
+    z-index: 1;
+    margin-left: 6%
 }
-
-
 
 .answers {
     margin-top: -1%;
     margin-left: 30%;
+}
+
+#wingamemodal {
+    display: none;
+    width: 100%;
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.8); /* Black w/ opacity */
+}
+
+#wingame {
+    width: 0%;
+    margin-left: 50%;
+    margin-top: 50%;
+}
+
+#winhome {
+    display: none;
 }
 
 /*
@@ -351,7 +358,7 @@ body {
 }
 
 #next {
-    float:right;
+    float: right;
     margin-top: 57%;
     width: 15%;
     position: relative;
@@ -359,7 +366,7 @@ body {
 }
 
 .next {
-    float:right;
+    float: right;
     margin-top: -15%;
     margin-left: 5%;
     width: 12%;
@@ -409,27 +416,40 @@ body {
     }
 }
 
-
 #point {
     position: absolute;
     z-index: 1;
 
 }
 
-@-webkit-keyframes bouncearrow{
-    0%{top: 0px;}
-    50%{top: 20px; color: #000000;}
-    100%{top: 0px;}
+@-webkit-keyframes bouncearrow {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 20px;
+        color: #000000;
+    }
+    100% {
+        top: 0px;
+    }
 }
 
-@keyframes bouncearrow{
-    0%{top: 0px;}
-    50%{top: 20px; color: #000000;}
-    100%{top: 0px;}
+@keyframes bouncearrow {
+    0% {
+        top: 0px;
+    }
+    50% {
+        top: 20px;
+        color: #000000;
+    }
+    100% {
+        top: 0px;
+    }
 }
 
 .leavepage {
-    display:none;
+    display: none;
 }
 
 #leavepage {
@@ -438,7 +458,7 @@ body {
     margin-top: 20%
 }
 
-.btn-leave, .btn-stay , .btn-checkpoint{
+.btn-leave, .btn-stay, .btn-checkpoint {
     width: 20%;
     height: auto;
     background-color: black;
@@ -446,8 +466,6 @@ body {
     font-size: 80%;
     border-radius: 25px;
 }
-
-
 
 /*Phone*/
 @media only screen and (max-width: 600px) {
@@ -461,7 +479,6 @@ body {
 
 /*Desktop*/
 @media only screen and (min-width: 768px) {
-
 
 }
 

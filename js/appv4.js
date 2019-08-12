@@ -3353,19 +3353,50 @@ var winAndLossCall = function () {
 
                     }, 300);
 
+
                     setTimeout(function () {
-                        $point.show();
-                        $point.attr("src", "img/playfield/astronaut.png").css({
-                            "height": "20%",
-                            "width": "20%",
-                            "margin-left": "60%",
-                            "margin-top": "0%",
-                            "animation": "bouncearrow 1s infinite",
-                            "transform": "scaleX(-1)"
-                        });
-                        $point.animate({"margin-top": "+=50%"}, "slow");
-                        $winModal.show();
-                        setTimeout(loadNewLevel, 3000);
+                        if (currentLevel === 7) {
+                            $("#wingamemodal").show();
+                            $("#wingame").attr({"src": "img/playfield/win.png"});
+                            $("#wingame").animate({"width": "75%", "margin-left": "12%", "margin-top": "16%"}, "fast");
+                            rMusic.pause();
+                            $point.show();
+                            $point.attr("src", "img/playfield/astronaut.png").css({
+                                "height": "15%",
+                                "width": "15%",
+                                "margin-left": "80%",
+                                "margin-top": "135%",
+                                "animation": "bouncearrow 1s infinite",
+                                "transform":"scaleX(1)"
+                            });
+                            $point.animate({"margin-top": "-=30%"}, "slow");
+                            $("#winhome").show();
+                            $("#winhome").attr("src", "img/playfield/home.png").css({
+                                "width": "5%",
+                                "margin-top": "-14%",
+                                "margin-left": "90%",
+                                "position": "absolute",
+                                "z-index": "1"
+                            })
+                        }
+
+                        else {
+                            $point.show();
+                            $point.attr("src", "img/playfield/astronaut.png").css({
+                                "height": "20%",
+                                "width": "20%",
+                                "margin-left": "60%",
+                                "margin-top": "0%",
+                                "animation": "bouncearrow 1s infinite",
+                                "transform": "scaleX(-1)"
+                            });
+                            $point.animate({"margin-top": "+=50%"}, "slow");
+
+
+                            $winModal.show();
+                            setTimeout(loadNewLevel, 3000);
+                        }
+
 
                     }, 300)
 
