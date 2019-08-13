@@ -205,7 +205,6 @@ function loadVersions() {
                 [0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -217,8 +216,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
             ],
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -229,13 +228,12 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -259,8 +257,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -271,8 +268,7 @@ function loadVersions() {
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -282,9 +278,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2, 2.5, 0, 0, 4, 0, 0, 0],
                 [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 3.5, 0, 0, 0, 0],
-                [1, 1, 1, 0, 0, 3.5, 3, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [1, 1, 1, 0, 0, 0, 3.5, 0, 0, 0, 0],
+                [0, 1, 0, 0, 0, 3.5, 3, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
@@ -292,7 +287,6 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 2.5, 0, 3.5, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -312,8 +306,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -324,8 +317,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
                 [0, 0, 2.5, 2, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 6, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -336,8 +328,7 @@ function loadVersions() {
                 [0, 0, 2, 2.5, 0, 0, 0, 0, 6, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3.5, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 3.5, 4, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -348,7 +339,6 @@ function loadVersions() {
                 [0, 0, 0, 2, 2.5, 0, 0, 6, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
             ]
         ];
@@ -365,7 +355,6 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 2, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -375,7 +364,6 @@ function loadVersions() {
                 [0.1, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
@@ -389,7 +377,6 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -401,7 +388,6 @@ function loadVersions() {
                 [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
 
@@ -420,8 +406,7 @@ function loadVersions() {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
             [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0]
         ];
 
 
@@ -436,36 +421,33 @@ function loadVersions() {
             [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
-            [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
         ];
 
     versionListLevel6 =
         [
-            [0, 0, 0, 0, 0, 0, 0.2, 0, 1, 1, 1],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+            [0, 0, 0, 0, 0, 0, 0.2, 0, 0, 1, 0],
             [0, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0],
+            [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
             [0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 3, 3, 0, 0, 0, 0, 0, 8, 8],
-            [0, 0, 0, 0, 0, 7, 0, 0, 0, 8, 8],
-            [0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            [0, 4, 0, 0, 0, 7, 0, 0, 0, 8, 8],
         ];
 
     versionListLevel7 =
         [
-            [0, 1, 1, 1, 0, 0.2, 0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0, 0, 8, 0, 0],
-            [0, 0, 0, 0, 6, 0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 0, 0, 0.2, 0, 0, 0, 0],
+            [0, 0, 1, 0, 6, 0, 0, 0, 8, 0, 0],
             [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0],
             [0, 0, 2.5, 2.5, 2.5, 0, 0, 5, 5, 0, 0],
             [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
             [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 3.5, 3, 0],
-            [0, 7, 0, 0, 0, 0, 0, 0, 0, 0, 4]
+            [0, 7, 0, 0, 0, 0, 0, 0, 3.5, 3, 4],
         ];
 
 }
@@ -971,7 +953,7 @@ function insertDOM0() {
 
             //defining the destination coordinates
             destinationMarginLeft = '40%';
-            destinationMarginTop = '75%';
+            destinationMarginTop = '67%';
 
             break;
     }
@@ -1065,7 +1047,7 @@ function insertDOM1() {
 
             //defining the destination coordinates
             destinationMarginLeft = '4%';
-            destinationMarginTop = '75%';
+            destinationMarginTop = '66%';
 
             // defining the planet coordinates
             planetMetalMarginLeft = '54.6%';
@@ -1196,11 +1178,11 @@ function insertDOM2() {
         case 2:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '27.4%';
-            rocketMarginTop = '81.75%';
+            rocketMarginTop = '73%';
 
             //defining the rocket coordinates
             rocketX = 150;
-            rocketY = 500;
+            rocketY = 450;
 
             //defining the destination coordinates
             destinationMarginLeft = '58.5%';
@@ -1226,11 +1208,11 @@ function insertDOM2() {
         case 3:
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
-            rocketMarginTop = '81.75%';
+            rocketMarginTop = '73%';
 
             //defining the rocket coordinates
             rocketX = 200;
-            rocketY = 500;
+            rocketY = 450;
 
             //defining the destination coordinates
             destinationMarginLeft = '58.5%';
@@ -1573,19 +1555,19 @@ function insertDOM6() {
 
     //for resetting position of rocket - value will change depending on level
     rocketMarginLeft = '9%';
-    rocketMarginTop = '82%';
+    rocketMarginTop = '73%';
 
     asteroidMarginLeft = '0%';
-    asteroidMarginTop = '18%';
+    asteroidMarginTop = '27%';
     asteroidX = 0;
 
     fallingStarMarginLeft = '53.4%';
-    fallingStarMarginTop = '-2%';
-    fallingStarY = 0;
+    fallingStarMarginTop = '7%';
+    fallingStarY = 50;
 
     //defining the rocket coordinates
     rocketX = 50;
-    rocketY = 500;
+    rocketY = 450;
 
     //defining the destination coordinates
     destinationMarginLeft = '76%';
@@ -1600,7 +1582,7 @@ function insertDOM6() {
     planetMetalWidth = '15%';
 
     planetEarthMarginLeft = '18%';
-    planetEarthMarginTop = '28%';
+    planetEarthMarginTop = '19%';
     planetEarthWidth = '9%';
 
     planetMoonMarginLeft = '45.5%';
@@ -1612,7 +1594,7 @@ function insertDOM6() {
     planetLavaWidth = '15%';
 
     planetIceMarginLeft = '72.5%';
-    planetIceMarginTop = '27%';
+    planetIceMarginTop = '18%';
     planetIceWidth = '9%';
 
     rocketX1 = rocketX;
@@ -1650,17 +1632,17 @@ function insertDOM7() {
 
     //for resetting position of rocket - value will change depending on level
     rocketMarginLeft = '91%';
-    rocketMarginTop = '82%';
+    rocketMarginTop = '73%';
 
     //defining the rocket coordinates
     rocketX = 550;
-    rocketY = 500;
+    rocketY = 450;
 
     asteroidMarginLeft = '0%';
-    asteroidMarginTop = '27.5%';
+    asteroidMarginTop = '18%';
     asteroidX = 0;
 
-    fallingStarMarginLeft = '44.5%';
+    fallingStarMarginLeft = '53%';
     fallingStarMarginTop = '-2%';
     fallingStarY = 0;
 
@@ -1677,11 +1659,11 @@ function insertDOM7() {
     planetMetalWidth = '9%';
 
     planetEarthMarginLeft = '36%';
-    planetEarthMarginTop = '18%';
+    planetEarthMarginTop = '9%';
     planetEarthWidth = '9%';
 
     planetMoonMarginLeft = '8%';
-    planetMoonMarginTop = '81%';
+    planetMoonMarginTop = '72%';
     planetMoonWidth = '12%';
 
     planetLavaMarginLeft = '73%';
@@ -2862,7 +2844,7 @@ function moveRight() {
 
 function moveDown() {
 
-    if (rocketY >= canvas.height) {
+    if (rocketY >= canvas.height - 50) {
         //$rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
         $rocket.animate({'margin-top': "+=0%"}, animationSpeed);
     } else {
@@ -3168,7 +3150,7 @@ function fallingStarAnimate() {
             }
         }
 
-        if (fallingStarY >= 0 <= 450) {
+        if (fallingStarY >= 0 <= 400) {
             $fallingStar.animate({'margin-top': '+=9%'}, "fast");
             var temp = map[starPosition[0] + 1][starPosition[1]];
             map[starPosition[0] + 1][starPosition[1]] = 0.2;
@@ -3177,7 +3159,7 @@ function fallingStarAnimate() {
             fallingStarY += 50;
         }
 
-        if (fallingStarY === 450) {
+        if (fallingStarY === 400) {
             $fallingStar.animate({"margin-top": fallingStarMarginTop}, 1);
             fallingStarY = originalFallingStarY;
             starPosition = originalStarIndex;
@@ -3367,7 +3349,7 @@ var winAndLossCall = function () {
                                 "margin-left": "80%",
                                 "margin-top": "135%",
                                 "animation": "bouncearrow 1s infinite",
-                                "transform":"scaleX(1)"
+                                "transform": "scaleX(1)"
                             });
                             $point.animate({"margin-top": "-=30%"}, "slow");
                             $("#winhome").show();
