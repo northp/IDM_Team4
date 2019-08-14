@@ -348,13 +348,13 @@ function loadVersions() {
         [
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0.2, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 2, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 4, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -363,26 +363,26 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0.2, 0, 0, 0, 2.5, 0, 0, 0, 0],
-                [0, 4, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0],
+                [0, 0, 0, 0, 0, 2.5, 2, 2.5, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 0.2, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 1, 0.2, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
@@ -399,13 +399,13 @@ function loadVersions() {
 
         [
             [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
-            [0, 8, 8, 0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 8, 8, 0, 5, 0, 0, 0.2, 0, 0, 0],
+            [0, 8, 8, 0, 0, 0, 0, 1, 0.2, 0, 0],
+            [0, 8, 8, 0, 5, 0, 0, 0, 0, 0, 0],
             [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 7, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
-            [0, 0, 3.5, 3.5, 0, 0, 2.5, 0, 0, 0, 0],
+            [0, 3.5, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
+            [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0]
         ];
 
@@ -431,9 +431,9 @@ function loadVersions() {
             [0, 0, 6, 0, 0, 0, 0, 0, 5, 0, 0],
             [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
-            [0, 0, 3, 3, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 3, 3, 0, 0, 0, 0, 0, 8, 8],
+            [0, 3.5, 3.5, 3.5, 0, 2.5, 0, 0, 0, 0, 0],
+            [0, 3.5, 3, 3, 0, 0, 0, 0, 0, 0, 0],
+            [0, 3.5, 3, 3, 0, 0, 0, 0, 0, 8, 8],
             [0, 4, 0, 0, 0, 7, 0, 0, 0, 8, 8],
         ];
 
@@ -443,11 +443,11 @@ function loadVersions() {
             [0, 0, 1, 0, 6, 0, 0, 0, 8, 0, 0],
             [0.1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 5, 5, 0, 0],
-            [0, 0, 2.5, 2.5, 2.5, 0, 0, 5, 5, 0, 0],
-            [0, 0, 2.5, 2, 2.5, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 5, 5, 5, 0],
+            [0, 0, 2.5, 2.5, 2.5, 0, 0, 5, 5, 5, 0],
+            [0, 0, 2.5, 2, 2.5, 0, 0, 5, 5, 5, 0],
             [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
-            [0, 7, 0, 0, 0, 0, 0, 0, 3.5, 3, 4],
+            [0, 7, 0, 0, 0, 0, 0, 3.5, 3.5, 3, 4],
         ];
 
 }
@@ -1268,20 +1268,18 @@ function insertDOM3() {
     switch (version) {
         case 0:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '54.7%';
+            rocketMarginLeft = '36.4%';
             rocketMarginTop = '63.5%';
+            rocketX = 200;
+            rocketY = 400;
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '62.5%';
-            fallingStarMarginTop = '16%';
-            fallingStarY = 150;
-
-            //defining the rocket coordinates
-            rocketX = 300;
-            rocketY = 400;
+            fallingStarMarginLeft = '71.5%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
 
             //defining the destination coordinates
             destinationMarginLeft = '58.5%';
@@ -1294,8 +1292,10 @@ function insertDOM3() {
             break;
         case 1:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '18.4%';
-            rocketMarginTop = '45.5%';
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+            rocketX = 200;
+            rocketY = 400;
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
@@ -1305,9 +1305,6 @@ function insertDOM3() {
             fallingStarMarginTop = '7%';
             fallingStarY = 50;
 
-            //defining the rocket coordinates
-            rocketX = 100;
-            rocketY = 300;
 
             //defining the destination coordinates
             destinationMarginLeft = '49%';
@@ -1320,8 +1317,10 @@ function insertDOM3() {
             break;
         case 2:
             //for resetting position of rocket - value will change depending on level
-            rocketMarginLeft = '9.4%';
-            rocketMarginTop = '18.5%';
+            rocketMarginLeft = '36.4%';
+            rocketMarginTop = '63.5%';
+            rocketX = 200;
+            rocketY = 400;
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
@@ -1331,9 +1330,6 @@ function insertDOM3() {
             fallingStarMarginTop = '7%';
             fallingStarY = 50;
 
-            //defining the rocket coordinates
-            rocketX = 50;
-            rocketY = 150;
 
             //defining the destination coordinates
             destinationMarginLeft = '76.5%';
@@ -1348,18 +1344,16 @@ function insertDOM3() {
             //for resetting position of rocket - value will change depending on level
             rocketMarginLeft = '36.4%';
             rocketMarginTop = '63.5%';
+            rocketX = 200;
+            rocketY = 400;
 
             asteroidMarginLeft = '0%';
             asteroidMarginTop = '27.5%';
             asteroidX = 0;
 
-            fallingStarMarginLeft = '62.5%';
-            fallingStarMarginTop = '16%';
-            fallingStarY = 150;
-
-            //defining the rocket coordinates
-            rocketX = 200;
-            rocketY = 400;
+            fallingStarMarginLeft = '71.5%';
+            fallingStarMarginTop = '7%';
+            fallingStarY = 50;
 
             //defining the destination coordinates
             destinationMarginLeft = '58.5%';
@@ -1411,12 +1405,12 @@ function insertDOM4() {
     asteroidMarginTop = '27.5%';
     asteroidX = 0;
 
-    fallingStarMarginLeft = '62.5%';
-    fallingStarMarginTop = '16%';
-    fallingStarY = 150;
+    fallingStarMarginLeft = '71.5%';
+    fallingStarMarginTop = '7%';
+    fallingStarY = 50;
 
     //defining the rocket coordinates
-    rocketX = 300;
+    rocketX = 250;
     rocketY = 450;
 
     //defining the destination coordinates
@@ -2693,9 +2687,12 @@ function runButton() {
 
             for (var x in algorithm) {
 
+                console.log(map);
+
                 //animating the function 2 values when called in the main algorithm, tracking loss and victory, updating rocket index
                 if (typeof algorithm[x] === "object") {
                     for (var i in algorithm[x]) {
+                        console.log(map);
 
                         //right
                         if (algorithm[x][i].charAt(0) === "r") {
@@ -2758,13 +2755,13 @@ var lossAndVictoryArray = [];
 var animationSpeed = "fast";
 
 function moveRight() {
-
+    asteroidAnimate();
+    fallingStarAnimate();
     if (rocketX >= canvas.width - tileWidth) {
         //$rocketAnimate.animate({'margin-left': "+=0%"}, "fast");
         $rocket.animate({'margin-left': "+=0%"}, animationSpeed);
     } else {
-        asteroidAnimate();
-        fallingStarAnimate();
+
         console.log(rocketX, rocketY);
         $rocketAnimateRight.animate({'opacity': "1", 'margin-left': "+=9%"}, animationSpeed, winAndLossCall);
         $rocketAnimate.animate({'opacity': "0", 'margin-left': "+=9%"}, animationSpeed);
@@ -2806,6 +2803,8 @@ function moveRight() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
             // Ice effect - Rocket zooms out of field to nearest 0 index.
@@ -2829,6 +2828,8 @@ function moveRight() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
 
@@ -2843,13 +2844,13 @@ function moveRight() {
 }
 
 function moveDown() {
-
+    asteroidAnimate();
+    fallingStarAnimate();
     if (rocketY >= canvas.height - 50) {
         //$rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
         $rocket.animate({'margin-top': "+=0%"}, animationSpeed);
     } else {
-        asteroidAnimate();
-        fallingStarAnimate();
+
         //$rocketAnimate.animate({'margin-top': "+=9%"}, "fast", winAndLossCall);
         $rocketAnimateDown.animate({'opacity': "1", 'margin-top': "+=9%"}, animationSpeed, winAndLossCall);
         $rocketAnimate.animate({'opacity': "0", 'margin-top': "+=9%"}, animationSpeed);
@@ -2891,6 +2892,8 @@ function moveDown() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
             // Ice effect - Rocket zooms out of field to nearest 0 index.
@@ -2917,6 +2920,8 @@ function moveDown() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
 
@@ -2932,14 +2937,15 @@ function moveDown() {
 }
 
 function moveLeft() {
-
+    asteroidAnimate();
+    fallingStarAnimate();
     if (rocketX <= 0) {
+        console.log("ahh");
         //edge of canvas - do nothing
         //$rocketAnimate.animate({'margin-left': "-=0%"}, "fast");
         $rocket.animate({'margin-left': "-=0%"}, animationSpeed);
     } else {
-        asteroidAnimate();
-        fallingStarAnimate();
+
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-left': "-=9%"}, "fast", winAndLossCall);
         $rocketAnimateLeft.animate({'opacity': "1", 'margin-left': "-=9%"}, animationSpeed, winAndLossCall);
@@ -2983,6 +2989,8 @@ function moveLeft() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
             // Ice effect - Rocket zooms out of field to nearest 0 index.
@@ -3009,6 +3017,8 @@ function moveLeft() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
 
@@ -3023,13 +3033,14 @@ function moveLeft() {
 }
 
 function moveUp() {
+    asteroidAnimate();
+    fallingStarAnimate();
     if (rocketY <= tileHeight) {
         //$rocketAnimate.animate({'margin-top': "-=0%"}, "fast");
         $rocket.animate({'margin-top': "-=0%"}, 10);
 
     } else {
-        asteroidAnimate();
-        fallingStarAnimate();
+
         console.log(rocketX, rocketY);
         //$rocketAnimate.animate({'margin-top': "-=9%"}, "fast", winAndLossCall);
         $rocketAnimate.animate({'opacity': "1", 'margin-top': "-=9%"}, animationSpeed, winAndLossCall);
@@ -3072,6 +3083,8 @@ function moveUp() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
             // Ice effect - Rocket zooms out of field to nearest 0 index.
@@ -3098,6 +3111,8 @@ function moveUp() {
                     map[rocketPosition[0]][rocketPosition[1]] = 0;
                     rocketPosition = findRocketPosition();
                     lossAndVictoryArray.push("run");
+                    asteroidAnimate();
+                    fallingStarAnimate();
                 }
             }
 
@@ -3122,7 +3137,7 @@ function asteroidAnimate() {
             }
         }
 
-        if (asteroidX >= 0 <= 500) {
+        if (asteroidX >= 0 <= 450) {
             $asteroid.animate({"margin-left": "+=9%"}, "fast");
             var temp = map[asteroidPosition[0]][asteroidPosition[1] + 1];
             map[asteroidPosition[0]][asteroidPosition[1] + 1] = 0.1;
@@ -3130,7 +3145,13 @@ function asteroidAnimate() {
             asteroidPosition = findAsteroidPosition();
             asteroidX += 50;
         }
-
+        /*
+                if (asteroidX === 500) {
+                    asteroidMarginLeft = "0%";
+                    $asteroid.animate({"margin-left": asteroidMarginLeft}, 1);
+                    asteroidX = 0;
+                    asteroidPosition[1] = 0;
+                }*/
         if (asteroidX === 500) {
             $asteroid.animate({"margin-left": asteroidMarginLeft}, 1);
             asteroidX = originalAsteroidX;
@@ -3160,10 +3181,16 @@ function fallingStarAnimate() {
         }
 
         if (fallingStarY === 400) {
+
+            $fallingStar.animate({"margin-top": "-2%"}, 1); //happens immediately, doesn't wait for rocket's next move, so then rocket doesn't sync - need to delay trigger
+            fallingStarY = 0;
+            starPosition[0] = 0;
+        }
+        /*if (fallingStarY === 400) {
             $fallingStar.animate({"margin-top": fallingStarMarginTop}, 1);
             fallingStarY = originalFallingStarY;
             starPosition = originalStarIndex;
-        }
+        }*/
     }
 }
 
@@ -3449,7 +3476,6 @@ $("#run").hover(function () {
 
 //function so that you can't skip the demo instruction modals at beginning of levels
 function cantSkipDemo() {
-    /*
     $(".close").hide();
 
     window.onclick = function (event) {
@@ -3458,9 +3484,7 @@ function cantSkipDemo() {
     };
 
     span.onclick = function () {
-    };*/
-
-    closeModal();
+    };
 }
 
 
