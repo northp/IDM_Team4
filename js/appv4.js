@@ -205,6 +205,7 @@ function loadVersions() {
                 [0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -216,6 +217,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
             ],
@@ -228,6 +230,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
             ],
@@ -240,7 +243,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
 
@@ -257,7 +261,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0],
@@ -268,7 +273,8 @@ function loadVersions() {
                 [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 3.5, 3.5, 0, 0, 0, 0],
-                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0]
+                [0, 0, 0, 4, 0, 3.5, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -279,7 +285,8 @@ function loadVersions() {
                 [0, 0, 0, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0],
                 [1, 1, 1, 0, 0, 0, 3.5, 0, 0, 0, 0],
-                [0, 1, 0, 0, 0, 3.5, 3, 0, 0, 0, 0]
+                [0, 1, 0, 0, 0, 3.5, 3, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0],
@@ -287,6 +294,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 2.5, 2.5, 2.5, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 2.5, 0, 3.5, 0],
                 [0, 0, 0, 4, 0, 0, 0, 0, 0, 3, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -306,7 +314,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 5, 5, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0]
+                [0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -317,7 +326,8 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 5, 5, 0, 0, 0],
                 [0, 0, 2.5, 2, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 6, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -328,7 +338,8 @@ function loadVersions() {
                 [0, 0, 2, 2.5, 0, 0, 0, 0, 6, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3, 3.5, 0, 0, 0, 0, 0, 0, 0],
-                [0, 0, 3.5, 4, 0, 0, 0, 0, 0, 0, 0]
+                [0, 0, 3.5, 4, 0, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
                 [0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0],
@@ -339,7 +350,8 @@ function loadVersions() {
                 [0, 0, 0, 2, 2.5, 0, 0, 6, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 3.5, 3, 3.5, 0, 0, 0, 0, 0, 0],
-                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+                [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
         ];
 
@@ -355,6 +367,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 2.5, 2, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -366,6 +379,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -377,6 +391,7 @@ function loadVersions() {
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ],
             [
@@ -388,6 +403,7 @@ function loadVersions() {
                 [0, 0, 0, 2, 2.5, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 2.5, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+                [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
                 [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             ]
 
@@ -406,7 +422,9 @@ function loadVersions() {
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
             [0, 3.5, 3, 3.5, 0, 2.5, 2, 0, 0, 6, 0],
             [0, 0, 0, 0, 0, 0, 2.5, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0]
+            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
         ];
 
 
@@ -421,7 +439,8 @@ function loadVersions() {
             [0, 0, 0, 0, 8, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 7, 7, 0, 0],
-            [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0]
+            [0.1, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
     versionListLevel6 =
@@ -435,6 +454,7 @@ function loadVersions() {
             [0, 3.5, 3, 3, 0, 0, 0, 0, 0, 0, 0],
             [0, 3.5, 3, 3, 0, 0, 0, 0, 0, 8, 8],
             [0, 4, 0, 0, 0, 7, 0, 0, 0, 8, 8],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
     versionListLevel7 =
@@ -448,6 +468,7 @@ function loadVersions() {
             [0, 0, 2.5, 2, 2.5, 0, 0, 5, 5, 5, 0],
             [0, 0, 2.5, 2.5, 2.5, 0, 0, 0, 0, 0, 0],
             [0, 7, 0, 0, 0, 0, 0, 3.5, 3.5, 3, 4],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
         ];
 
 }
@@ -1913,7 +1934,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/right.png" id = "rightAlgorithm" alt = "Right arrow" width="20%" height="20%" class="added"/>'); //drawing image
-            var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something); //unique id name for each image
+            var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something).css("touch-action","manipulation");//unique id name for each image
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
             removeMove(rightAlgorithm, rightPush, arraySelect);
@@ -1928,7 +1949,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/left.png" id = "leftAlgorithm" alt = "Left arrow" width="20%" height="20%" class="added"/>');
-            var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something);
+            var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something).css("touch-action","manipulation");
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
@@ -1943,7 +1964,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/up.png" id = "upAlgorithm" alt = "Up arrow" width="20%" height="20%" class="added"/>');
-            var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something);
+            var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something).css("touch-action","manipulation");
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
@@ -1958,7 +1979,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/down.png" id = "downAlgorithm" alt = "Down arrow" width="20%" height="20%" class="added"/>');
-            var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something);
+            var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something).css("touch-action","manipulation");
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
@@ -1978,7 +1999,7 @@ function movementFunction() {
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
-                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action","manipulation");
                 arraySelect.push(functionTwo);
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
@@ -1994,7 +2015,7 @@ function movementFunction() {
                     }
                     something++;
                     $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
-                    functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something);
+                    functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action","manipulation");
                     removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
                 }
             }
@@ -2846,7 +2867,7 @@ function moveRight() {
 function moveDown() {
     asteroidAnimate();
     fallingStarAnimate();
-    if (rocketY >= canvas.height - 50) {
+    if (rocketY >= canvas.height) {
         //$rocketAnimate.animate({'margin-top': "+=0%"}, "fast");
         $rocket.animate({'margin-top': "+=0%"}, animationSpeed);
     } else {
@@ -3356,6 +3377,7 @@ var winAndLossCall = function () {
                         $rocket.stop(true);
                         //rMusic.pause();
                         //rMusic.currentTime = 0;
+
                         if (soundEffectsOn) {
                             rVictory.play();
                         }
@@ -3534,7 +3556,7 @@ function instructions() {
     modal.style.display = "block";
     $modalImage.attr("src", "img/playfield/astronaut.png").css("height", "9%", "width", "9%");
     $modalTitle.text("Welcome to Cosmic Computing!").css("font-weight", "bold");
-    $modalText.text("Hi there, I'm Hugo!"); //Narrative? - "I need your help - my home planet is dying and I need you to guide me to specific planets to see if they could sustain life."
+    $modalText.text("Hi there, I'm Hugo!");
     $modalNext.attr("src", "next.png");
     $modalNext.show();
     $modalTitle.show();
@@ -3542,6 +3564,7 @@ function instructions() {
         var newcounter = counter + 1;
 
         if (counter == 1) {
+
             modal.style.display = "block";
             $modalText.text("Your goal is to get the spaceship to its destination by creating an algorithm. Let me show you how to do it!");
         }
@@ -3549,7 +3572,7 @@ function instructions() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "122%", "margin-left": "-1%", "margin-top": "-8%"});
+            $(".gif").css({"width": "122%", "margin-left": "-1%", "margin-top": "-8vh"});
             $(".gif").show();
         }
 
@@ -3593,7 +3616,7 @@ function instructionsTwo() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "5%", "margin-top": "0%"});
+            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-7%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3634,7 +3657,7 @@ function instructionsThree() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "5%", "margin-top": "0%"});
+            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-6%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3719,3 +3742,33 @@ function instructionsFive() {
 
 /*END OF DEMO MODALS*/
 
+/*
+//double tapping won't zoom
+var elm = document.body;
+
+var catcher = function (evt) {
+    if (evt.touches.length < 2)
+        evt.preventDefault();
+};
+
+elm.addEventListener('touchstart', catcher, true);*/
+
+/*
+var doubleTouchStartTimestamp = 0;
+$(document).bind("touchstart", function (event) {
+    var now = +(new Date());
+    if (doubleTouchStartTimestamp + 500 > now) {
+        event.preventDefault();
+    }
+    doubleTouchStartTimestamp = now;
+});*/
+
+
+
+/*
+
+$left.nodoubletapzoom();
+$right.nodoubletapzoom();
+$up.nodoubletapzoom();
+$down.nodoubletapzoom();
+$modalNext.nodoubletapzoom();*/

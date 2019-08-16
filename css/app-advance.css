@@ -14,6 +14,11 @@ body {
 
 }
 
+/*clicking on these elements multiple times too fast won't zoom in when using ipad*/
+#right, #left, #up, #down, #run, #save, #next {
+    touch-action: manipulation;
+}
+
 .canvas {
     display: inline;
     position: relative;
@@ -92,7 +97,7 @@ body {
 
 /* ===== MAIN PANEL ===== */
 .algo-button {
-    margin-top: 7%;
+    margin-top: 4%;
     width: 50%;
     margin-left: auto;
     margin-right: auto;
@@ -105,7 +110,7 @@ body {
 
 .algo-space {
     width: 90%;
-    height: 50%;
+    height: 15.5vh;
     margin-right: auto;
     margin-left: auto;
     margin-top: 5%
@@ -157,7 +162,7 @@ body {
 
 .func-space {
     width: 50%;
-    height: 40%;
+    height: 12.7vh;
     margin-right: auto;
     margin-left: 39%;
     margin-top: 10%
@@ -169,21 +174,23 @@ body {
     margin-left: 10%;
     margin-right: 10%;
     width: 20%;
-    height: 20%
+    height: 20%;
+    position:relative;
 }
 
 .save-button {
-    margin-top: 7%;
-    width: 55%;
-    height: 5%;
+    margin-top: 2%;
+    width: 14%;
+    height: 1.7%;
     margin-right: auto;
-    margin-left: 31%;
+    margin-left: 8%;
     color: white;
     text-align: center;
     font-size: 82%;
     font-family: "Squada One", cursive;
     letter-spacing: 0.2em;
     background-image: linear-gradient(#404040, #909090);
+    position: absolute;
 }
 
 .save-button:hover {
@@ -270,7 +277,7 @@ body {
     left: 0;
     top: 0;
     width: 100%;
-    height: 100%;
+    height: 107%;
     background-color: rgb(0, 0, 0); /* Fallback color */
     background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
 
@@ -278,7 +285,7 @@ body {
 
 /* Modal Content/Box */
 .modal-frame {
-    width: 60vw;
+    width: 61.5vw;
     height: 35%;
     border: 5px solid #fab85b;
     margin-top: 30%;
@@ -299,11 +306,13 @@ body {
     height: 86%;
     font-family: "Squada One", "cursive";
     font-size: 20px;
+    position: relative;
 }
 
 #title {
     font-size: 24px;
 }
+
 
 .gif {
     width: 110%;
