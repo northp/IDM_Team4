@@ -1885,6 +1885,10 @@ function initialise() {
         if (soundEffectsOn) {
             rNewLevel.play();
         }
+
+        var level = currentLevel+1;
+
+        $("#levelnumber").text("LEVEL: " + level);
     });
 }
 
@@ -1934,7 +1938,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/right.png" id = "rightAlgorithm" alt = "Right arrow" width="20%" height="20%" class="added"/>'); //drawing image
-            var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something).css("touch-action","manipulation");//unique id name for each image
+            var rightAlgorithm = $("#rightAlgorithm").attr("id", "rightAlgorithm" + something).css("touch-action", "manipulation");//unique id name for each image
             var rightPush = "right" + something;
             arraySelect.push(rightPush);
             removeMove(rightAlgorithm, rightPush, arraySelect);
@@ -1949,7 +1953,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/left.png" id = "leftAlgorithm" alt = "Left arrow" width="20%" height="20%" class="added"/>');
-            var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something).css("touch-action","manipulation");
+            var leftAlgorithm = $("#leftAlgorithm").attr("id", "leftAlgorithm" + something).css("touch-action", "manipulation");
             var leftPush = "left" + something;
             arraySelect.push(leftPush);
             removeMove(leftAlgorithm, leftPush, arraySelect);
@@ -1964,7 +1968,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/up.png" id = "upAlgorithm" alt = "Up arrow" width="20%" height="20%" class="added"/>');
-            var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something).css("touch-action","manipulation");
+            var upAlgorithm = $("#upAlgorithm").attr("id", "upAlgorithm" + something).css("touch-action", "manipulation");
             var upPush = "up" + something;
             arraySelect.push(upPush);
             removeMove(upAlgorithm, upPush, arraySelect);
@@ -1979,7 +1983,7 @@ function movementFunction() {
         if (arraySelect.length < levelMoves) {
             something++;
             $(classSelect).append('<img src="img/playfield/down.png" id = "downAlgorithm" alt = "Down arrow" width="20%" height="20%" class="added"/>');
-            var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something).css("touch-action","manipulation");
+            var downAlgorithm = $("#downAlgorithm").attr("id", "downAlgorithm" + something).css("touch-action", "manipulation");
             var downPush = "down" + something;
             arraySelect.push(downPush);
             removeMove(downAlgorithm, downPush, arraySelect);
@@ -1999,7 +2003,7 @@ function movementFunction() {
             if (arraySelect === algorithm) {
                 something++;
                 $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
-                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action","manipulation");
+                var functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action", "manipulation");
                 arraySelect.push(functionTwo);
                 removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
             }
@@ -2015,7 +2019,7 @@ function movementFunction() {
                     }
                     something++;
                     $(classSelect).append('<img src="img/playfield/algo-button.png" id = "secondfunction" alt = "Function 2 image" width="10%" height="20%" class="added"/>');
-                    functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action","manipulation");
+                    functionTwoAlgorithm = $("#secondfunction").attr("id", "secondfunction" + something).css("touch-action", "manipulation");
                     removeMove(functionTwoAlgorithm, functionTwo, arraySelect);
                 }
             }
@@ -3215,6 +3219,9 @@ function fallingStarAnimate() {
     }
 }
 
+
+
+
 //function for loading the next level and for resetting every variable and index back to their original value
 function loadNewLevel() {
     //removing commands you've selected
@@ -3222,6 +3229,7 @@ function loadNewLevel() {
     $('.algo-space > .added').remove();
     $('.func-space > .added').remove();
 
+    $("#levelnumber").text("Level: " + currentLevel + 1);
 
     //hiding anything that doesn't need to be shown
     $point.hide();
@@ -3572,7 +3580,7 @@ function instructions() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "122%", "margin-left": "-1%", "margin-top": "-8vh"});
+            $(".gif").css({"width": "122%", "margin-left": "-1%", "margin-top": "-14vh"}); //optimised for ipad
             $(".gif").show();
         }
 
@@ -3606,6 +3614,7 @@ function instructionsTwo() {
     $commandsOverlay.hide();
     $point.hide();
     $modalNext.click(function () {
+        rMusic.play();
         var newcounter = counter + 1;
 
         if (counter == 1) {
@@ -3616,7 +3625,7 @@ function instructionsTwo() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-7%"});
+            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-23%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3657,7 +3666,7 @@ function instructionsThree() {
         else if (counter == 2) {
             $modalText.text("");
             $modalImage.attr("src", "");
-            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-6%"});
+            $(".gif").css({"width": "110%", "margin-left": "0%", "margin-top": "-21%"});
             $(".gif").show();
         }
         else if (counter == 3) {
@@ -3698,6 +3707,7 @@ function instructionsFour() {
             $modalText.text("");
             $modalImage.attr("src", "");
             $(".gif").show();
+            $(".gif").css("margin-top", "-11vh")
         }
 
         else if (counter == 2) {
@@ -3762,7 +3772,6 @@ $(document).bind("touchstart", function (event) {
     }
     doubleTouchStartTimestamp = now;
 });*/
-
 
 
 /*
