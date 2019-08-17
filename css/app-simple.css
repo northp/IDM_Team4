@@ -14,7 +14,6 @@ body {
 
 }
 
-
 #levelnumber {
     color: white;
     font-family: "Squada One", cursive;
@@ -214,7 +213,7 @@ body {
 .musicbutton {
     height: 5vw;
     margin-left: -25%;
-    margin-bottom: -22.5%;
+    margin-bottom: -24.8%;
     position: relative;
 }
 
@@ -311,7 +310,6 @@ body {
 #title {
     font-size: 24px;
 }
-
 
 .gif {
     width: 110%;
@@ -416,9 +414,6 @@ body {
     z-index: 1;
 
 }
-
-
-
 
 @-webkit-keyframes bouncearrow {
     0% {
