@@ -1650,7 +1650,7 @@ function insertDOM7() {
     rocketMarginTop = '73%';
 
     //defining the rocket coordinates
-    rocketX = 550;
+    rocketX = 500;
     rocketY = 450;
 
     asteroidMarginLeft = '0%';
@@ -2469,7 +2469,7 @@ function clickElements() {
             $("#submitmetal").hide();
             $(".reaction").hide();
             $(".answers").hide();
-            $("#modalText").html("This planet and its zone are safe to fly into.")
+            $("#modalText").html("Entering this area will push you to the end of the zone.")
         }
     });
 
@@ -2517,7 +2517,7 @@ function clickElements() {
             $("#submitice").hide();
             $(".reaction").hide();
             $(".answers").hide();
-            $("#modalText").html("This planet and its zone are safe to fly into.")
+            $("#modalText").html("Entering this area will push you to the end of the zone.")
         }
     });
 
